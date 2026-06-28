@@ -1,0 +1,4 @@
+[
+  {"id":"p1","title":"Code Repair (Automated PR)","desc":"Given a failing test and code, propose a minimal PR that fixes the test.","prompt":"You are an assistant that suggests minimal code changes to fix failing tests. Provide a patch and explanation."},
+  {"id":"p2","title":"Refactor to Async","desc":"Convert a synchronous function into an async/await version with the same behavior.","prompt":"Refactor the following code to async/await and keep behavior identical."}
+]

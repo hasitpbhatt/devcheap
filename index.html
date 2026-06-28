@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DevCheap — LLM & Dev Resources</title>
+  <meta name="description" content="Curated LLM and developer-friendly resources, prompts, quickstarts, and examples — free and simple." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">devcheap</a>
+      <nav>
+        <a href="#resources">Resources</a>
+        <a href="#prompts">Prompts</a>
+        <a href="/README.md">README</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>DevCheap — LLM & Developer-friendly resources</h1>
+      <p class="lede">Curated tools, prompts, quickstarts, and code examples to help you build with LLMs and develop faster. Free, lightweight, and GitHub Pages-ready.</p>
+      <div class="search-wrap">
+        <input id="search" placeholder="Search resources, prompts, tools..." autocapitalize="off" />
+        <button id="clear">Clear</button>
+      </div>
+    </section>
+
+    <section id="featured" class="card">
+      <h2>Featured</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="/resources/01-llm-tools.md">LLM Tooling: Quickstart</a></h3>
+          <p>Overview of model choices, hosted APIs, and inexpensive ways to prototype.</p>
+        </article>
+        <article>
+          <h3><a href="/prompts/prompt-templates.md">Prompt Templates</a></h3>
+          <p>Reusable prompt patterns for code generation, refactors, tests, and more.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="resources" class="card">
+      <h2>All resources</h2>
+      <div id="results" class="list"></div>
+    </section>
+
+    <section id="prompts" class="card">
+      <h2>Quick prompts</h2>
+      <div id="prompt-list"></div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>Hosted on GitHub Pages • Custom domain: devcheap.click</small>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/js/search.js"></script>
+</body>
+</html>
