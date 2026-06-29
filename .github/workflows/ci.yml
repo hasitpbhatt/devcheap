@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [main]
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
   validate:
     name: Validate JSON and Structure
@@ -57,33 +53,3 @@ jobs:
           echo "Actual prompt files: $ACTUAL_PROMPTS"
           
           echo "Consistency check complete!"
-
-  deploy:
-    name: Deploy to GitHub Pages
-    needs: validate
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
