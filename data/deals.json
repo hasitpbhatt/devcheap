@@ -148,5 +148,35 @@
     "url": "https://www.doppler.com",
     "desc": "Developer-first environment variable and secrets manager. Free forever for up to 3 users with full API and CLI access.",
     "tags": "secrets,environment-variables,security,api,tools"
+  },
+  {
+    "id": "microsoft-founders-hub",
+    "name": "Microsoft Founders Hub",
+    "category": "Hosting",
+    "deal": "Up to $150,000 Credits",
+    "code": "Automatic (Link)",
+    "url": "https://foundershub.startups.microsoft.com",
+    "desc": "Get up to $150k in Azure cloud credits, free access to GitHub Enterprise, Visual Studio, and 1:1 technical advice. No funding required.",
+    "tags": "azure,cloud,openai,github,startup,hosting"
+  },
+  {
+    "id": "notion",
+    "name": "Notion",
+    "category": "Tools",
+    "deal": "6 Months Free Business + AI",
+    "code": "Automatic (Link)",
+    "url": "https://www.notion.so/startups",
+    "desc": "All-in-one workspace for notes, docs, wikis, and project management. Startups get up to 6 months of Notion Business with AI for free.",
+    "tags": "wiki,docs,collaboration,productivity,startup,tools"
+  },
+  {
+    "id": "mongodb-atlas",
+    "name": "MongoDB Atlas",
+    "category": "Database",
+    "deal": "Up to $5,000 Credits",
+    "code": "Automatic (Link)",
+    "url": "https://www.mongodb.com/startups",
+    "desc": "Fully managed cloud NoSQL database service. Eligible early-stage startups receive up to $5,000 in MongoDB Atlas usage credits.",
+    "tags": "database,mongodb,nosql,cloud,startup"
   }
 ]
