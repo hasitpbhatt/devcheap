@@ -98,5 +98,55 @@
     "url": "https://deepgram.com",
     "desc": "High-fidelity, lightning-fast Speech-to-Text and Text-to-Speech API. New signups receive $200 in free trial credits.",
     "tags": "audio,speech-to-text,text-to-speech,transcription,ai,api"
+  },
+  {
+    "id": "sentry",
+    "name": "Sentry",
+    "category": "Tools",
+    "deal": "Free Developer Plan",
+    "code": "Automatic (Link)",
+    "url": "https://sentry.io",
+    "desc": "Application monitoring and error tracking. The free developer tier supports up to 5,000 monthly errors and basic analytics.",
+    "tags": "monitoring,errors,logging,debugging,tools"
+  },
+  {
+    "id": "instatus",
+    "name": "Instatus",
+    "category": "Tools",
+    "deal": "Free Forever Plan",
+    "code": "Automatic (Link)",
+    "url": "https://instatus.com",
+    "desc": "Status page builder. Get unlimited status pages, subscribers, and team members for free (hosted on instatus.com subpath).",
+    "tags": "monitoring,status-page,ops,tools"
+  },
+  {
+    "id": "mux",
+    "name": "Mux",
+    "category": "APIs",
+    "deal": "$500 Free Video Credits",
+    "code": "Automatic (Link)",
+    "url": "https://www.mux.com/startups",
+    "desc": "High-performance API for video streaming, encoding, and analytics. Startups program offers at least $500 in usage credits.",
+    "tags": "video,streaming,api,analytics,startup"
+  },
+  {
+    "id": "algolia",
+    "name": "Algolia",
+    "category": "Tools",
+    "deal": "$10,000 Credits (1 Year)",
+    "code": "Automatic (Link)",
+    "url": "https://www.algolia.com",
+    "desc": "Hosted search-as-a-service engine API. Eligible early-stage startups receive $10,000 in usage credits for their first 12 months.",
+    "tags": "search,api,indexing,database,startup,tools"
+  },
+  {
+    "id": "doppler",
+    "name": "Doppler",
+    "category": "Tools",
+    "deal": "Free Developer Plan",
+    "code": "Automatic (Link)",
+    "url": "https://www.doppler.com",
+    "desc": "Developer-first environment variable and secrets manager. Free forever for up to 3 users with full API and CLI access.",
+    "tags": "secrets,environment-variables,security,api,tools"
   }
 ]
