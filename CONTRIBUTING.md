@@ -30,105 +30,92 @@ This project follows the [Contributor Covenant Code of Conduct](https://www.cont
 
 ## 🚀 How to Contribute
 
-### Adding Deals
+We enforce a strict **Issue-First** workflow. Before writing any code or modifying the database, please make sure there is an open issue discussing the change.
 
-1. **Update `data/deals.json`** to append your deal entry:
-   ```json
-   {
-     "id": "vercel",
-     "name": "Vercel",
-     "category": "Hosting",
-     "deal": "Hobby Tier Free Hosting",
-     "code": "Automatic (Link)",
-     "url": "https://vercel.com",
-     "desc": "Developer-centric frontend cloud hosting for Next.js, React, and static sites.",
-     "tags": "hosting,jamstack,frontend,vercel"
-   }
-   ```
-2. **Double check fields**:
-   - `id`: unique lowercase identifier.
-   - `name`: official name of the service/company.
-   - `category`: one of `Hosting`, `Database`, `APIs`, `AI & LLM`, `Auth`, or `Tools`.
-   - `deal`: description of the discount or free tier.
-   - `code`: the promo coupon code, or `Automatic (Link)` if it is automatically applied.
-   - `url`: referral or official signup link.
-   - `desc`: short, helpful summary of the service.
-   - `tags`: comma-separated tags for search indexes.
-3. **Verify JSON is valid** by running the validator locally.
+### 1. Find or Open an Issue
+* **Search existing issues** first to avoid duplicates.
+* **If adding a new deal/feature:** Open a new Feature/Deals Suggestion issue first to get maintainer alignment on whether it fits the scope of the project.
+* **If fixing a bug:** Open a Bug Report issue detailing what is broken and how to reproduce it.
 
-### Reporting Issues
+### 2. Prepare Your Development Environment
+1. Fork this repository and clone your fork locally.
+2. Create a feature branch named after your task (e.g., `git checkout -b feat/add-vercel-deal` or `git checkout -b fix/header-alignment`).
+3. Make your modifications (e.g. adding a new deal to `data/deals.json`).
 
-Found a bug or have a suggestion? Please:
+### 3. Local Testing & Verification
+Before committing, you must verify your changes:
+* **Validate JSON syntax:** Ensure `data/deals.json` is valid JSON and conforms to the schema. You can run `jq empty data/deals.json` or open it in a validator.
+* **Validate Links:** Double-check that all URLs added are active, direct, secure (HTTPS), and point to the official site. **Do not submit affiliate, spam, or tracking redirect links.**
+* **Local Preview:** Run a local server (e.g. `python -m http.server 8000`) and verify that the page renders correctly and search/filters work as expected.
 
-1. **Search existing issues** to avoid duplicates
-2. **Open a new issue** with:
-   - Clear title and description
-   - Steps to reproduce (if applicable)
-   - Expected vs. actual behavior
-   - Screenshots (if helpful)
+### 4. Code & Commit Style
+Keep your Git history professional and easy to navigate:
+* **Semantic Commits:** Use prefix tags in your commit messages:
+  - `feat:` for new deals or new features (e.g., `feat: add vercel hosting deal`)
+  - `fix:` for bug fixes (e.g., `fix: resolve mobile layout breakage`)
+  - `docs:` for documentation updates (e.g., `docs: update setup instructions`)
+  - `chore:` for internal maintenance, CI workflows, etc.
+* **Keep History Clean:** Avoid intermediate "temp" or "fix syntax" commits. Use `git commit --amend` or squash/rebase your branch commits before pushing.
 
-### Suggesting Improvements
+### 5. Open the Pull Request
+Once pushed, open a Pull Request (PR) from your feature branch to the `main` branch of this repository.
 
-Have ideas to improve the project?
-
-1. **Open a discussion** in [GitHub Discussions](https://github.com/hasitpbhatt/devcheap/discussions)
-2. **Describe your idea** with:
-   - The problem you're solving
-   - Your proposed solution
-   - Benefits to the community
+Your PR **must** include the following details in its description:
+1. **Linked Issue:** State which issue this PR resolves using GitHub keywords (e.g., `Closes #42` or `Fixes #108`). **PRs without linked issues will be automatically closed.**
+2. **Summary of Changes:** A clear, bulleted list explaining what was added, modified, or removed.
+3. **Verification Steps:** Explain how you verified the changes (e.g., "Tested locally on Chrome and Safari, verified JSON syntax using jq").
+4. **Deal Validity Proof (for new deals):** Provide a screenshot or link demonstrating that the discount, free tier, or coupon is active and valid.
 
 ---
 
 ## 📝 Content Guidelines
 
+### Deal Submission Checklist:
+* `id`: Must be a unique, lowercase string (e.g. `supabase`).
+* `name`: The official brand/service name.
+* `category`: Must match one of the predefined catalog categories: `Hosting`, `Database`, `APIs`, `AI & LLM`, `Auth`, or `Tools`.
+* `deal`: Clear description of the value (e.g., `$100 Free Credit` or `20% Off Lifetime`).
+* `code`: Explicit coupon code, or `Automatic (Link)` if it applies automatically.
+* `url`: Direct signup link (no tracker-hijacked URLs).
+* `desc`: Clean, neutral 1-2 sentence description explaining what the tool is (no marketing fluff or hype).
+* `tags`: Lowercase, comma-separated tags for index search.
+
 ✅ **Do:**
-- Keep entries concise and focused
-- Use clear, descriptive titles
-- Include one main concept per resource/prompt
-- Add relevant tags for searchability
-- Test links before submitting
-- Use proper Markdown formatting
+- Keep descriptions objective and informative.
+- Add relevant tags for searchability.
+- Test links before submitting.
 
 ❌ **Don't:**
-- Submit promotional content
-- Include broken links
-- Write overly long entries
-- Duplicate existing content
-- Use offensive or inappropriate language
+- Submit duplicate deals.
+- Submit promotional affiliate links.
+- Write overly long, hyped descriptions.
 
 ---
 
 ## 🔍 Review Process
 
-1. **Automated Checks:** GitHub Actions runs basic validation
-2. **Maintainer Review:** A project maintainer reviews your contribution
-3. **Feedback:** You may receive suggestions for improvements
-4. **Merge:** Once approved, your contribution is merged!
-
-**Typical review time:** 1-7 days
+1. **Automated Checks:** GitHub Actions runs syntax and structure checks on every commit. If the validation fails, please fix the errors in your branch.
+2. **Maintainer Review:** A project maintainer will review your PR.
+3. **Feedback & Revision:** Address any requested changes on the same branch; your PR will update automatically.
+4. **Merge:** Once approved, your feature branch will be merged into `main` and live on the site.
 
 ---
 
 ## 🎉 Recognition
 
 All contributors are recognized and appreciated! Your contributions will be:
-
 - Listed in the project's contributor graph 📊
 - Mentioned in release notes 📝
-- Featured in the project's README (if significant) 🌟
 
 ---
 
 ## 📞 Questions?
 
 Have questions about contributing?
-
 - Open a [GitHub Discussion](https://github.com/hasitpbhatt/devcheap/discussions)
 - Contact the maintainer: [@hasitpbhatt](https://github.com/hasitpbhatt)
 
 ---
 
 **Thank you for contributing to DevCheap!** 🙏
-
-Your efforts help developers build faster and smarter with LLMs.
 
