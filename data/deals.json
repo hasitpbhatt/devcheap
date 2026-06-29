@@ -1,0 +1,92 @@
+[
+  {
+    "id": "supabase",
+    "name": "Supabase",
+    "category": "Database",
+    "deal": "Free Tier & $10 Credits",
+    "code": "SUPADEV10",
+    "url": "https://supabase.com",
+    "desc": "Hosted Postgres database with authentication, instant APIs, edge functions, and real-time subscriptions.",
+    "tags": "postgres,database,auth,serverless"
+  },
+  {
+    "id": "digitalocean",
+    "name": "DigitalOcean",
+    "category": "Hosting",
+    "deal": "$200 Free Trial Credit",
+    "code": "Automatic (Link)",
+    "url": "https://m.do.co/c/8e7560b2efff",
+    "desc": "Deploy Linux virtual machines (Droplets), Kubernetes clusters, databases, and app platform services.",
+    "tags": "vps,cloud,kubernetes,hosting"
+  },
+  {
+    "id": "railway",
+    "name": "Railway",
+    "category": "Hosting",
+    "deal": "$5 Free Starter Credits",
+    "code": "Automatic (Link)",
+    "url": "https://railway.app",
+    "desc": "Deploy your backend code, databases, and cron jobs instantly with zero configuration.",
+    "tags": "paas,hosting,docker,redis,postgres"
+  },
+  {
+    "id": "clerk",
+    "name": "Clerk",
+    "category": "Auth",
+    "deal": "Free for 10,000 MAUs",
+    "code": "Automatic (Link)",
+    "url": "https://clerk.com",
+    "desc": "Complete user management, sign-up, sign-in, and multi-tenant auth UI components for React and Next.js.",
+    "tags": "auth,users,react,nextjs,security"
+  },
+  {
+    "id": "neon",
+    "name": "Neon Postgres",
+    "category": "Database",
+    "deal": "Free Serverless Database",
+    "code": "Automatic (Link)",
+    "url": "https://neon.tech",
+    "desc": "Serverless Postgres with instant branching, autoscaling, and bottomless storage.",
+    "tags": "postgres,database,serverless,sql"
+  },
+  {
+    "id": "resend",
+    "name": "Resend",
+    "category": "APIs",
+    "deal": "3,000 Free Emails / Month",
+    "code": "Automatic (Link)",
+    "url": "https://resend.com",
+    "desc": "Email service for developers. Send transactional emails using React Email templates.",
+    "tags": "email,api,react-email,marketing"
+  },
+  {
+    "id": "deepinfra",
+    "name": "DeepInfra",
+    "category": "AI & LLM",
+    "deal": "$1.80 Free Trial Credit",
+    "code": "Automatic (Link)",
+    "url": "https://deepinfra.com",
+    "desc": "Inexpensive, serverless API endpoints for Llama, Mistral, Whisper, and other open LLMs.",
+    "tags": "llm,api,inference,ai,llama"
+  },
+  {
+    "id": "together-ai",
+    "name": "Together AI",
+    "category": "AI & LLM",
+    "deal": "$25 Free API Credits",
+    "code": "Automatic (Link)",
+    "url": "https://www.together.ai",
+    "desc": "Fast serverless inference API for open-source AI models and custom fine-tuning.",
+    "tags": "ai,llm,api,llama,finetuning"
+  },
+  {
+    "id": "retool",
+    "name": "Retool",
+    "category": "Tools",
+    "deal": "Free up to 5 Users",
+    "code": "Automatic (Link)",
+    "url": "https://retool.com",
+    "desc": "Fast way to build internal tools. Drag-and-drop UI components connected to your databases and APIs.",
+    "tags": "internal-tools,lowcode,databases,admin"
+  }
+]

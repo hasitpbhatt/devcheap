@@ -3,77 +3,75 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DevCheap — Curated LLM & Developer Resources</title>
-  <meta name="description" content="Curated LLM and developer-friendly resources, prompts, quickstarts, and examples — free, simple, and lightning-fast." />
+  <title>DevCheap — Developer Deals, Promos & Coupons</title>
+  <meta name="description" content="Curated catalog of the best discounts, free credits, and coupon codes for developers. Save on cloud hosting, databases, APIs, and AI models." />
   
   <!-- Font and Stylesheet dependencies -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="app-container">
-    <!-- Top Nav Header -->
-    <header class="site-header">
-      <div class="brand-section">
-        <button id="menu-btn" class="menu-btn" title="Toggle Navigation Menu">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="logo-icon">⚡</div>
-        <a class="brand-name" href="#/">devcheap</a>
-      </div>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="brand" href="/">
+        <div class="logo-badge">⚡ devcheap</div>
+      </a>
       
       <div class="header-actions">
-        <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Mode">
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Mode">
           <i class="fas fa-sun"></i>
         </button>
       </div>
-    </header>
-
-    <!-- Main Layout Wrapper -->
-    <div class="layout-wrapper">
-      <!-- Backdrop overlay for mobile drawer -->
-      <div id="sidebar-backdrop" class="sidebar-backdrop"></div>
-
-      <!-- Navigation & Filter Sidebar -->
-      <aside id="sidebar" class="sidebar">
-        <!-- Live Filter Search -->
-        <div class="sidebar-search-wrap">
-          <div class="search-input-container">
-            <i class="fas fa-search search-icon"></i>
-            <input id="search-input" class="search-input" placeholder="Search resources, tags, prompts..." autocapitalize="off" autocomplete="off" />
-            <button id="clear-search-btn" class="clear-search-btn" title="Clear search query">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Category selector tabs -->
-        <div class="category-tabs">
-          <button class="category-tab active" data-category="all">All</button>
-          <button class="category-tab" data-category="resources">Resources</button>
-          <button class="category-tab" data-category="prompts">Prompts</button>
-        </div>
-
-        <!-- Sidebar List populated dynamically -->
-        <div id="sidebar-list" class="sidebar-list"></div>
-      </aside>
-
-      <!-- Main Reader Pane -->
-      <main id="content-pane" class="content-pane">
-        <div class="welcome-screen">
-          <div class="welcome-icon"><i class="fas fa-spinner fa-spin"></i></div>
-          <h2>Loading resources...</h2>
-        </div>
-      </main>
     </div>
-  </div>
+  </header>
 
-  <!-- CDN scripts for Markdown parsing and Syntax Highlighting -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+  <!-- Hero Section -->
+  <section class="hero container">
+    <h1>Developer Deals, Promos & Coupons</h1>
+    <p>Curated list of free credits, lifetime discounts, and special offers on APIs, database providers, hosting platforms, and dev tools.</p>
+  </section>
+
+  <!-- Main Search & Filter Interface -->
+  <main class="container">
+    <div class="controls-panel">
+      <!-- Search -->
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input id="search-input" class="search-input" placeholder="Search by service name, keyword, or tag..." autocapitalize="off" autocomplete="off" />
+        <button id="clear-search-btn" class="clear-btn" title="Clear Search">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Category Filters -->
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-category="all">All Categories</button>
+        <button class="filter-tab" data-category="hosting">Hosting & Cloud</button>
+        <button class="filter-tab" data-category="database">Database</button>
+        <button class="filter-tab" data-category="apis">APIs & Email</button>
+        <button class="filter-tab" data-category="ai & llm">AI & LLM</button>
+        <button class="filter-tab" data-category="auth">Authentication</button>
+        <button class="filter-tab" data-category="tools">Developer Tools</button>
+      </div>
+    </div>
+
+    <!-- Active Count Statistics -->
+    <div id="deals-count" class="results-info">Loading active deals...</div>
+
+    <!-- Grid Layout for Deal Cards -->
+    <div id="deals-grid" class="deals-grid">
+      <!-- Populated dynamically via search.js -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer container">
+    <p>&copy; 2026 DevCheap. Community-driven open-source catalog.</p>
+    <p style="margin-top: 8px; font-size:12px; opacity:0.8;">Have a deal to share? Open a pull request on <a href="https://github.com/hasitpbhatt/devcheap" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+  </footer>
+
+  <!-- Search & Catalog logic -->
   <script src="js/search.js"></script>
 </body>
 </html>

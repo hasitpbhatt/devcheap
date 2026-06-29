@@ -16,10 +16,8 @@ jobs:
 
       - name: Validate JSON files
         run: |
-          echo "Validating resources/index.json..."
-          jq empty resources/index.json && echo "✓ resources/index.json is valid JSON"
-          echo "Validating prompts/index.json..."
-          jq empty prompts/index.json && echo "✓ prompts/index.json is valid JSON"
+          echo "Validating data/deals.json..."
+          jq empty data/deals.json && echo "✓ data/deals.json is valid JSON"
           echo "All JSON files are valid!"
 
       - name: Check file structure
@@ -32,24 +30,5 @@ jobs:
           test -f CNAME && echo "✓ CNAME exists"
           test -d css && echo "✓ css/ directory exists"
           test -d js && echo "✓ js/ directory exists"
-          test -d resources && echo "✓ resources/ directory exists"
-          test -d prompts && echo "✓ prompts/ directory exists"
+          test -d data && echo "✓ data/ directory exists"
           echo "File structure is valid!"
-
-      - name: Check JSON consistency
-        run: |
-          echo "Checking consistency between JSON and actual files..."
-          
-          # Check resources/index.json
-          RESOURCES_COUNT=$(jq '. | length' resources/index.json)
-          ACTUAL_RESOURCES=$(ls -1 resources/*.md 2>/dev/null | wc -l)
-          echo "Resources in index.json: $RESOURCES_COUNT"
-          echo "Actual resource files: $ACTUAL_RESOURCES"
-          
-          # Check prompts/index.json
-          PROMPTS_COUNT=$(jq '. | length' prompts/index.json)
-          ACTUAL_PROMPTS=$(ls -1 prompts/*.md 2>/dev/null | wc -l)
-          echo "Prompts in index.json: $PROMPTS_COUNT"
-          echo "Actual prompt files: $ACTUAL_PROMPTS"
-          
-          echo "Consistency check complete!"

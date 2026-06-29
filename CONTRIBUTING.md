@@ -13,8 +13,7 @@ We welcome contributions from the community to help make this resource even bett
 
 - [🤝 Code of Conduct](#-code-of-conduct)
 - [🚀 How to Contribute](#-how-to-contribute)
-  - [Adding Resources](#adding-resources)
-  - [Adding Prompts](#adding-prompts)
+  - [Adding Deals](#adding-deals)
   - [Reporting Issues](#reporting-issues)
   - [Suggesting Improvements](#suggesting-improvements)
 - [📝 Content Guidelines](#-content-guidelines)
@@ -31,37 +30,31 @@ This project follows the [Contributor Covenant Code of Conduct](https://www.cont
 
 ## 🚀 How to Contribute
 
-### Adding Resources
+### Adding Deals
 
-1. **Create a new Markdown file** in `/resources/` with a clear filename (e.g., `03-vector-databases.md`)
-2. **Add a title and brief description** at the top of the file
-3. **Update `/resources/index.json`** with metadata:
+1. **Update `data/deals.json`** to append your deal entry:
    ```json
    {
-     "id": "r3",
-     "title": "Vector Databases for LLM Applications",
-     "desc": "Overview of vector databases like Pinecone, Weaviate, and Milvus for semantic search.",
-     "tags": "vector,databases,search,llm",
-     "url": "/resources/03-vector-databases.md"
+     "id": "vercel",
+     "name": "Vercel",
+     "category": "Hosting",
+     "deal": "Hobby Tier Free Hosting",
+     "code": "Automatic (Link)",
+     "url": "https://vercel.com",
+     "desc": "Developer-centric frontend cloud hosting for Next.js, React, and static sites.",
+     "tags": "hosting,jamstack,frontend,vercel"
    }
    ```
-4. **Keep it concise** - one concept per resource
-5. **Include links to tools, tutorials, or documentation**
-
-### Adding Prompts
-
-1. **Create or update a prompt template** in `/prompts/prompt-templates.md`
-2. **Update `/prompts/index.json`** with:
-   ```json
-   {
-     "id": "p3",
-     "title": "Generate API Documentation",
-     "desc": "Create comprehensive API documentation from code comments.",
-     "prompt": "You are a technical writer. Generate API documentation from the following code..."
-   }
-   ```
-3. **Use clear, reusable patterns**
-4. **Include example inputs and outputs**
+2. **Double check fields**:
+   - `id`: unique lowercase identifier.
+   - `name`: official name of the service/company.
+   - `category`: one of `Hosting`, `Database`, `APIs`, `AI & LLM`, `Auth`, or `Tools`.
+   - `deal`: description of the discount or free tier.
+   - `code`: the promo coupon code, or `Automatic (Link)` if it is automatically applied.
+   - `url`: referral or official signup link.
+   - `desc`: short, helpful summary of the service.
+   - `tags`: comma-separated tags for search indexes.
+3. **Verify JSON is valid** by running the validator locally.
 
 ### Reporting Issues
 

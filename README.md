@@ -4,7 +4,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/hasitpbhatt/devcheap)](https://github.com/hasitpbhatt/devcheap/commits/main)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-brightgreen)](https://devcheap.click)
 
-🚀 Curated LLM & developer resources for rapid prototyping
+🚀 Curated developer deals, promos, and coupons for cloud, databases, APIs, and tools
 
 ---
 
@@ -22,15 +22,15 @@
 
 ## 📦 Features
 
-✨ **Lightweight & Fast** - Static GitHub Pages site
+✨ **Lightweight & Fast** - Static GitHub Pages site with no build step
 
-✨ **Curated Resources** - Handpicked LLM tools and models
+✨ **Curated Deals** - Handpicked discounts and free tiers for hosting, APIs, and dev tools
 
-✨ **Prompt Templates** - Reusable AI prompt patterns
+✨ **One-Click Copy** - Quick-copy functionality for coupon and promo codes
 
-✨ **Searchable** - Client-side search functionality
+✨ **Instant Search** - Fast client-side search and category filtering
 
-✨ **Custom Domain** - Available at [devcheap.click](https://devcheap.click)
+✨ **Custom Domain** - Hosted at [devcheap.click](https://devcheap.click)
 
 ---
 
@@ -45,16 +45,11 @@ Visit the live site: **[https://devcheap.click](https://devcheap.click)**
 ```
 devcheap/
 ├── .github/            # GitHub configuration
-│   └── ISSUE_TEMPLATE/
+│   └── workflows/      # CI/CD deployment workflows
 ├── css/                # Stylesheets
-├── js/                 # JavaScript
-├── prompts/            # AI prompt templates
-│   ├── index.json      # Prompt index
-│   └── prompt-templates.md
-├── resources/          # Curated resources
-│   ├── index.json      # Resource index
-│   ├── 01-llm-tools.md
-│   └── 02-models-hosting.md
+├── data/               # Deals JSON database
+│   └── deals.json
+├── js/                 # JavaScript logic
 ├── CNAME               # Custom domain
 ├── CONTRIBUTING.md     # Contribution guide
 ├── LICENSE             # MIT License
