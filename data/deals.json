@@ -88,5 +88,15 @@
     "url": "https://retool.com",
     "desc": "Drag-and-drop UI builder connected directly to your databases and APIs, free for small internal teams.",
     "tags": "internal-tools,lowcode,databases,admin"
+  },
+  {
+    "id": "deepgram",
+    "name": "Deepgram",
+    "category": "APIs",
+    "deal": "$200 Free API Credits",
+    "code": "Automatic (Link)",
+    "url": "https://deepgram.com/pricing",
+    "desc": "High-fidelity, lightning-fast Speech-to-Text and Text-to-Speech API. New signups receive $200 in free trial credits.",
+    "tags": "audio,speech-to-text,text-to-speech,transcription,ai,api"
   }
 ]
