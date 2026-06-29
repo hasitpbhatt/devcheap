@@ -1,5 +1,4 @@
 [
   {"id":"r1","title":"LLM Tooling: Quickstart","desc":"Model choices, low-cost hosting, and how to prototype quickly.","tags":"llm,tools,quickstart","url":"/resources/01-llm-tools.md"},
-  {"id":"r2","title":"Open-source Models & Hosting","desc":"Where to find open models and cheap hosting options.","tags":"models,hosting","url":"/resources/02-models-hosting.md"},
-  {"id":"r3","title":"Prompt engineering patterns","desc":"Effective prompt patterns for code, tests, and refactors.","tags":"prompts,engineering","url":"/prompts/prompt-templates.md"}
+  {"id":"r2","title":"Open-source Models & Hosting","desc":"Where to find open models and cheap hosting options.","tags":"models,hosting","url":"/resources/02-models-hosting.md"}
 ]
