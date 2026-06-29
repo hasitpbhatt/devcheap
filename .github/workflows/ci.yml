@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main]
 
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   validate:
     name: Validate JSON and Structure
@@ -65,7 +69,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: https://hasitpbhatt.github.io/devcheap
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -73,7 +77,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -81,4 +85,5 @@ jobs:
           path: .
 
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
