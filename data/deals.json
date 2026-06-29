@@ -3,8 +3,8 @@
     "id": "supabase",
     "name": "Supabase",
     "category": "Database",
-    "deal": "Free Tier & $10 Credits",
-    "code": "SUPADEV10",
+    "deal": "Free Tier (2 Projects)",
+    "code": "Automatic (Link)",
     "url": "https://supabase.com",
     "desc": "Hosted Postgres database with authentication, instant APIs, edge functions, and real-time subscriptions.",
     "tags": "postgres,database,auth,serverless"
@@ -13,20 +13,20 @@
     "id": "digitalocean",
     "name": "DigitalOcean",
     "category": "Hosting",
-    "deal": "$200 Free Trial Credit",
+    "deal": "Free Tier (Static Apps)",
     "code": "Automatic (Link)",
-    "url": "https://m.do.co/c/8e7560b2efff",
-    "desc": "Deploy Linux virtual machines (Droplets), Kubernetes clusters, databases, and app platform services.",
-    "tags": "vps,cloud,kubernetes,hosting"
+    "url": "https://www.digitalocean.com",
+    "desc": "Build and deploy 3 static websites for free on App Platform. Scale to virtual machines and managed Kubernetes.",
+    "tags": "vps,cloud,kubernetes,hosting,static"
   },
   {
     "id": "railway",
     "name": "Railway",
     "category": "Hosting",
-    "deal": "$5 Free Starter Credits",
+    "deal": "$5 One-time Trial Credits",
     "code": "Automatic (Link)",
     "url": "https://railway.app",
-    "desc": "Deploy your backend code, databases, and cron jobs instantly with zero configuration.",
+    "desc": "Deploy backend applications, databases, and services. Trial credits apply upon registration.",
     "tags": "paas,hosting,docker,redis,postgres"
   },
   {
@@ -46,7 +46,7 @@
     "deal": "Free Serverless Database",
     "code": "Automatic (Link)",
     "url": "https://neon.tech",
-    "desc": "Serverless Postgres with instant branching, autoscaling, and bottomless storage.",
+    "desc": "Serverless Postgres with instant branching, autoscaling, 0.5 GiB storage, and shared compute limits.",
     "tags": "postgres,database,serverless,sql"
   },
   {
@@ -56,17 +56,17 @@
     "deal": "3,000 Free Emails / Month",
     "code": "Automatic (Link)",
     "url": "https://resend.com",
-    "desc": "Email service for developers. Send transactional emails using React Email templates.",
+    "desc": "Modern email service for developers. Send transactional emails with 100 emails/day limit on free tier.",
     "tags": "email,api,react-email,marketing"
   },
   {
     "id": "deepinfra",
     "name": "DeepInfra",
     "category": "AI & LLM",
-    "deal": "$1.80 Free Trial Credit",
+    "deal": "$1.80 Free Trial Credits",
     "code": "Automatic (Link)",
     "url": "https://deepinfra.com",
-    "desc": "Inexpensive, serverless API endpoints for Llama, Mistral, Whisper, and other open LLMs.",
+    "desc": "Inexpensive serverless API endpoints for open-source LLMs and embeddings. Trial credits apply to new users.",
     "tags": "llm,api,inference,ai,llama"
   },
   {
@@ -76,7 +76,7 @@
     "deal": "$25 Free API Credits",
     "code": "Automatic (Link)",
     "url": "https://www.together.ai",
-    "desc": "Fast serverless inference API for open-source AI models and custom fine-tuning.",
+    "desc": "High-speed inference API for open-source models. New accounts receive $25 trial credit.",
     "tags": "ai,llm,api,llama,finetuning"
   },
   {
@@ -86,7 +86,7 @@
     "deal": "Free up to 5 Users",
     "code": "Automatic (Link)",
     "url": "https://retool.com",
-    "desc": "Fast way to build internal tools. Drag-and-drop UI components connected to your databases and APIs.",
+    "desc": "Drag-and-drop UI builder connected directly to your databases and APIs, free for small internal teams.",
     "tags": "internal-tools,lowcode,databases,admin"
   }
 ]
