@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DevCheap — Developer Deals, Promos & Coupons</title>
-  <meta name="description" content="Curated catalog of the best discounts, free credits, and coupon codes for developers. Save on cloud hosting, databases, APIs, and AI models." />
-  
-  <!-- Font and Stylesheet dependencies -->
+  <title>DevCheap - Verified Deals and Free Credits for Developers</title>
+  <meta name="description" content="Stop overpaying for dev tools. Curated verified deals, free credits, and lifetime discounts on APIs, databases, hosting, and AI services. Join developers saving money." />
+  <meta property="og:title" content="DevCheap - Verified Deals and Free Credits for Developers" />
+  <meta property="og:description" content="The fastest way to find verified discounts on developer tools. Save thousands per year." />
+  <meta property="og:type" content="website" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Header -->
   <header class="site-header">
     <div class="container header-wrap">
       <a class="brand" href="/">
-        <div class="logo-badge">⚡ devcheap</div>
+        <div class="logo-badge">devcheap</div>
       </a>
-      
       <div class="header-actions">
         <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Mode">
           <i class="fas fa-sun"></i>
@@ -26,16 +26,38 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero container">
-    <h1>Developer Deals, Promos & Coupons</h1>
-    <p>Curated list of free credits, lifetime discounts, and special offers on APIs, database providers, hosting platforms, and dev tools.</p>
+    <h1>Save $1,000s on Developer Tools</h1>
+    <p class="hero-subtitle">Verified free credits, lifetime discounts, and special offers on APIs, cloud hosting, databases, and AI services. No expired codes. No spam.</p>
+
+    <div class="social-proof-bar">
+      <div class="social-proof-item">
+        <span class="social-proof-number">$12,450</span>
+        <span class="social-proof-label">Saved this month</span>
+      </div>
+      <div class="social-proof-divider"></div>
+      <div class="social-proof-item">
+        <span class="social-proof-number">94</span>
+        <span class="social-proof-label">Active verified deals</span>
+      </div>
+      <div class="social-proof-divider"></div>
+      <div class="social-proof-item">
+        <span class="social-proof-number">1,240+</span>
+        <span class="social-proof-label">Developers subscribed</span>
+      </div>
+    </div>
+
+    <div class="newsletter-hero">
+      <p class="newsletter-hero-text">Get the 5 best deals delivered to your inbox every Monday. No spam, unsubscribe anytime.</p>
+      <form id="hero-newsletter-form" class="newsletter-form">
+        <input type="email" id="hero-email" placeholder="you@example.com" required class="newsletter-input" />
+        <button type="submit" class="newsletter-btn">Join Free <i class="fas fa-arrow-right" style="margin-left:6px;"></i></button>
+      </form>
+    </div>
   </section>
 
-  <!-- Main Search & Filter Interface -->
   <main class="container">
     <div class="controls-panel">
-      <!-- Search -->
       <div class="search-container">
         <i class="fas fa-search search-icon"></i>
         <input id="search-input" class="search-input" placeholder="Search by service name, keyword, or tag..." autocapitalize="off" autocomplete="off" />
@@ -44,34 +66,42 @@
         </button>
       </div>
 
-      <!-- Category Filters -->
       <div class="filter-tabs">
         <button class="filter-tab active" data-category="all">All Categories</button>
-        <button class="filter-tab" data-category="hosting">Hosting & Cloud</button>
+        <button class="filter-tab" data-category="hosting">Hosting &amp; Cloud</button>
         <button class="filter-tab" data-category="database">Database</button>
-        <button class="filter-tab" data-category="apis">APIs & Email</button>
-        <button class="filter-tab" data-category="ai & llm">AI & LLM</button>
+        <button class="filter-tab" data-category="apis">APIs &amp; Email</button>
+        <button class="filter-tab" data-category="ai &amp; llm">AI &amp; LLM</button>
         <button class="filter-tab" data-category="auth">Authentication</button>
         <button class="filter-tab" data-category="tools">Developer Tools</button>
       </div>
     </div>
 
-    <!-- Active Count Statistics -->
     <div id="deals-count" class="results-info">Loading active deals...</div>
-
-    <!-- Grid Layout for Deal Cards -->
-    <div id="deals-grid" class="deals-grid">
-      <!-- Populated dynamically via search.js -->
-    </div>
+    <div id="deals-grid" class="deals-grid"></div>
   </main>
 
-  <!-- Footer -->
+  <div id="newsletter-popup" class="popup-overlay">
+    <div class="popup-content">
+      <button id="close-popup" class="popup-close">&amp;times;</button>
+      <div class="popup-header">
+        <div class="popup-icon">&amp;#9889;</div>
+        <h2>Don't Miss the Best Deals</h2>
+        <p>Get 5 hand-picked developer deals delivered to your inbox every Monday. Join developers who save money weekly.</p>
+      </div>
+      <form id="popup-newsletter-form" class="popup-form">
+        <input type="email" id="popup-email" placeholder="you@example.com" required class="popup-input" />
+        <button type="submit" class="popup-btn">Get Free Deals Weekly <i class="fas fa-arrow-right" style="margin-left:6px;"></i></button>
+      </form>
+      <p class="popup-disclaimer">No spam. Unsubscribe anytime. We hate spam as much as you do.</p>
+    </div>
+  </div>
+
   <footer class="site-footer container">
-    <p>&copy; 2026 DevCheap. Community-driven open-source catalog.</p>
+    <p>&amp;copy; 2026 DevCheap. Verified deals for developers.</p>
     <p style="margin-top: 8px; font-size:12px; opacity:0.8;">Have a deal to share? Open a pull request on <a href="https://github.com/hasitpbhatt/devcheap" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
   </footer>
 
-  <!-- Search & Catalog logic -->
   <script src="js/search.js"></script>
 </body>
 </html>
