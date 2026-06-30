@@ -1,27 +1,16 @@
-// DevCheap - Lean Developer Deals Catalog Engine
-// Phase 1: Monetization & Tracking Layer
-
 let dealsData = [];
 let currentCategory = 'all';
 let searchTimeout = null;
 
-// UTM Tracking Constants
 const UTM_SOURCE = 'devcheap.click';
 const UTM_MEDIUM = 'website';
 const UTM_CAMPAIGN = 'deal_click';
 
-/**
- * Build a tracked URL for a given deal.
- * If the deal has an affiliate, use it. Otherwise append UTM to base URL.
- */
 function buildTrackedUrl(deal) {
   let targetUrl = deal.url;
-
-  // Prefer affiliate URL if available
   if (deal.has_affiliate && deal.affiliate_url) {
     targetUrl = deal.affiliate_url;
   }
-
   try {
     const url = new URL(targetUrl);
     url.searchParams.set('utm_source', UTM_SOURCE);
@@ -30,13 +19,10 @@ function buildTrackedUrl(deal) {
     url.searchParams.set('utm_content', deal.tracking_id || deal.id);
     return url.toString();
   } catch (e) {
-    // Fallback for malformed URLs
-    console.warn('Could not append UTM to URL:', targetUrl);
     return targetUrl;
   }
 }
 
-// Load deals JSON database relatively
 async function loadDeals() {
   try {
     const response = await fetch('data/deals.json');
@@ -48,30 +34,36 @@ async function loadDeals() {
   }
 }
 
-// Track outbound clicks (placeholder for future analytics integration)
 function trackOutboundClick(deal, linkType) {
   const payload = {
     deal_id: deal.id,
     deal_name: deal.name,
     tracking_id: deal.tracking_id,
     category: deal.category,
-    link_type: linkType, // 'claim_deal' or 'coupon_copy'
+    link_type: linkType,
     timestamp: new Date().toISOString(),
     url: window.location.href
   };
-
-  // Console log for debugging (replace with Google Analytics or Plausible later)
-  console.log('🔥 Outbound click tracked:', payload);
-
-  // TODO: Send to analytics endpoint when ready
-  // fetch('https://your-analytics-endpoint.com/track', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(payload)
-  // });
+  console.log('Outbound click tracked:', payload);
 }
 
-// Render Deal Cards in the grid
+function renderSkeletons(count) {
+  const grid = document.getElementById('deals-grid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  for (let i = 0; i < count; i++) {
+    const sk = document.createElement('div');
+    sk.className = 'skeleton';
+    sk.innerHTML = `
+      <div class="skeleton-line" style="width:55%"></div>
+      <div class="skeleton-line" style="width:40%"></div>
+      <div class="skeleton-line" style="width:75%"></div>
+      <div class="skeleton-line"></div>
+    `;
+    grid.appendChild(sk);
+  }
+}
+
 function renderDeals() {
   const gridEl = document.getElementById('deals-grid');
   const countEl = document.getElementById('deals-count');
@@ -80,15 +72,12 @@ function renderDeals() {
   gridEl.innerHTML = '';
   const query = document.getElementById('search-input').value.trim().toLowerCase();
 
-  // Filter items
   let filtered = dealsData;
 
-  // Filter by Category Tab
   if (currentCategory !== 'all') {
     filtered = filtered.filter(deal => deal.category.toLowerCase() === currentCategory.toLowerCase());
   }
 
-  // Filter by Search Query
   if (query) {
     filtered = filtered.filter(deal => {
       const matchName = deal.name && deal.name.toLowerCase().includes(query);
@@ -99,7 +88,6 @@ function renderDeals() {
     });
   }
 
-  // Update counter
   if (countEl) {
     countEl.textContent = `${filtered.length} active deal${filtered.length === 1 ? '' : 's'}`;
   }
@@ -107,143 +95,110 @@ function renderDeals() {
   if (filtered.length === 0) {
     gridEl.innerHTML = `
       <div class="empty-state">
-        <div class="empty-state-icon"><i class="fas fa-search"></i></div>
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         <h3>No deals found</h3>
-        <p style="color: var(--text-muted); font-size: 14px; margin-top: 8px;">Try adjusting your keywords or category filters</p>
-      </div>
-    `;
+        <p>Try adjusting your keywords or category filters</p>
+      </div>`;
     return;
   }
 
-  // Render cards
-  filtered.forEach(deal => {
+  filtered.forEach((deal, index) => {
     const card = document.createElement('div');
     card.className = 'deal-card';
+    card.style.animationDelay = `${index * 40}ms`;
 
-    // Check tags
     let tagsHTML = '';
     if (deal.tags) {
-      tagsHTML = deal.tags.split(',').map(tag => `<span class="deal-tag">${tag.trim()}</span>`).join('');
+      tagsHTML = deal.tags.split(',').map(tag =>
+        `<span class="deal-card-tag">${tag.trim()}</span>`
+      ).join('');
     }
 
-    // Build tracked URL
     const trackedUrl = buildTrackedUrl(deal);
-
-    // Determine coupon actions
     const isPromoAutomatic = deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link');
-    const couponButtonHTML = isPromoAutomatic 
-      ? `<button class="btn btn-coupon" style="opacity: 0.6; cursor: default;"><i class="fas fa-magic"></i> Auto-applied</button>` 
-      : `<button class="btn btn-coupon" onclick="copyCoupon(this, '${deal.code}', '${deal.id}')"><i class="far fa-copy"></i> ${deal.code}</button>`;
+
+    const couponBtn = isPromoAutomatic
+      ? `<button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Auto-applied</button>`
+      : `<button class="deal-card-btn deal-card-btn-code" onclick="copyCoupon(this,'${deal.code.replace(/'/g, "\\'")}','${deal.id}')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>${deal.code}</button>`;
 
     card.innerHTML = `
-      <div class="card-header">
-        <div class="card-title-section">
-          <h2 class="company-name">${deal.name}</h2>
-          <span class="category-badge">${deal.category}</span>
-        </div>
+      <div class="deal-card-header">
+        <span class="deal-card-title">${deal.name}</span>
+        <span class="deal-card-cat">${deal.category}</span>
       </div>
-      
-      <div class="deal-value-banner">
-        <i class="fas fa-tag"></i>
-        <span>${deal.deal}</span>
-      </div>
-
-      <p class="deal-desc">${deal.desc}</p>
-
-      <div class="deal-tags-container">
-        ${tagsHTML}
-      </div>
-
-      <div class="card-actions">
-        ${couponButtonHTML}
-        <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-deal-id="${deal.id}" onclick="trackOutboundClick(dealsData.find(d => d.id === '${deal.id}'), 'claim_deal')">Claim Deal <i class="fas fa-external-link-alt" style="margin-left:6px; font-size:11px;"></i></a>
-      </div>
-    `;
+      <div class="deal-card-deal">${deal.deal}</div>
+      <p class="deal-card-desc">${deal.desc}</p>
+      <div class="deal-card-tags">${tagsHTML}</div>
+      <div class="deal-card-footer">
+        <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}" onclick="handleClaim(event,'${deal.id}')">Claim Deal<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        ${couponBtn}
+      </div>`;
     gridEl.appendChild(card);
   });
 }
 
-// Copy Coupon Code to Clipboard
+function handleClaim(event, dealId) {
+  const deal = dealsData.find(d => d.id === dealId);
+  if (deal) trackOutboundClick(deal, 'claim_deal');
+}
+
 window.copyCoupon = function(button, code, dealId) {
   navigator.clipboard.writeText(code).then(() => {
     const originalHTML = button.innerHTML;
-    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-    button.style.color = 'var(--success)';
-    button.style.borderColor = 'var(--success)';
-
-    // Track copy event if dealId is provided
+    button.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Copied!`;
+    button.style.color = 'var(--green)';
+    button.style.borderColor = 'var(--green)';
     if (dealId) {
       const deal = dealsData.find(d => d.id === dealId);
       if (deal) trackOutboundClick(deal, 'coupon_copy');
     }
-
     setTimeout(() => {
       button.innerHTML = originalHTML;
       button.style.color = '';
       button.style.borderColor = '';
     }, 2000);
-  }).catch(err => {
-    console.error('Could not copy code:', err);
-  });
+  }).catch(err => console.error('Could not copy code:', err));
 };
 
-// Make trackOutboundClick available globally for inline onclick handlers
+window.handleClaim = handleClaim;
 window.trackOutboundClick = trackOutboundClick;
 
-// Theme Management
 function setupTheme() {
   const themeBtn = document.getElementById('theme-toggle');
   if (!themeBtn) return;
-
   const currentTheme = localStorage.getItem('theme') || 'dark';
   document.documentElement.setAttribute('data-theme', currentTheme);
-  updateThemeIcon(currentTheme);
-
   themeBtn.addEventListener('click', () => {
     const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
   });
 }
 
-function updateThemeIcon(theme) {
-  const icon = document.querySelector('#theme-toggle i');
-  if (!icon) return;
-  if (theme === 'light') {
-    icon.className = 'fas fa-moon';
-  } else {
-    icon.className = 'fas fa-sun';
-  }
-}
-
-// Newsletter Popup Logic
 function setupNewsletterPopup() {
-  const popup = document.getElementById('newsletter-popup');
-  const closeBtn = document.getElementById('close-popup');
-  const form = document.getElementById('newsletter-form');
-
+  const popup = document.getElementById('popup');
+  const closeBtn = document.getElementById('popup-close');
+  const form = document.getElementById('popup-form');
   if (!popup || !closeBtn || !form) return;
-
-  // Show popup after 5 seconds if not already subscribed or dismissed
   const isDismissed = localStorage.getItem('devcheap_popup_dismissed');
   if (!isDismissed) {
-    setTimeout(() => {
-      popup.classList.add('show');
-    }, 5000);
+    setTimeout(() => popup.classList.add('show'), 5000);
   }
-
   closeBtn.addEventListener('click', () => {
     popup.classList.remove('show');
     localStorage.setItem('devcheap_popup_dismissed', 'true');
   });
-
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      popup.classList.remove('show');
+      localStorage.setItem('devcheap_popup_dismissed', 'true');
+    }
+  });
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = document.getElementById('popup-email').value;
     if (email) {
-      // TODO: Integrate with Beehiiv or ConvertKit API
-      console.log('✅ Newsletter signup:', email);
+      console.log('Newsletter signup:', email);
       alert('Thanks for subscribing! We will email you the best dev deals every week.');
       localStorage.setItem('devcheap_subscribed', 'true');
       popup.classList.remove('show');
@@ -251,24 +206,53 @@ function setupNewsletterPopup() {
   });
 }
 
-// Bootstrap Application
-async function boot() {
-  dealsData = await loadDeals();
+function setupNewsletterForm() {
+  const form = document.getElementById('newsletter-form');
+  if (!form) return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('newsletter-email').value;
+    if (email) {
+      console.log('Hero newsletter signup:', email);
+      alert('You are subscribed! Check your inbox every Monday.');
+    }
+  });
+}
 
+function animateCounters() {
+  document.querySelectorAll('.hero-stat-num').forEach(el => {
+    const target = parseInt(el.dataset.count, 10);
+    if (!target) return;
+    let current = 0;
+    const step = Math.ceil(target / 40);
+    const interval = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(interval);
+      }
+      el.textContent = target >= 1000 ? `$${current.toLocaleString()}` : current.toLocaleString();
+    }, 30);
+  });
+}
+
+async function boot() {
+  renderSkeletons(6);
+  dealsData = await loadDeals();
   setupTheme();
   setupNewsletterPopup();
+  setupNewsletterForm();
+  animateCounters();
 
-  // Search input listeners
   const searchInput = document.getElementById('search-input');
   const clearBtn = document.getElementById('clear-search-btn');
 
   if (searchInput && clearBtn) {
     searchInput.addEventListener('input', () => {
-      clearBtn.style.display = searchInput.value ? 'block' : 'none';
+      clearBtn.style.display = searchInput.value ? 'flex' : 'none';
       clearTimeout(searchTimeout);
       searchTimeout = setTimeout(renderDeals, 150);
     });
-
     clearBtn.addEventListener('click', () => {
       searchInput.value = '';
       clearBtn.style.display = 'none';
@@ -276,12 +260,15 @@ async function boot() {
     });
   }
 
-  // Category filter click listeners
-  document.querySelectorAll('.filter-tab').forEach(tab => {
+  document.querySelectorAll('.cat-btn').forEach(tab => {
     tab.addEventListener('click', (e) => {
-      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.cat-btn').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
       e.currentTarget.classList.add('active');
-      currentCategory = e.currentTarget.dataset.category;
+      e.currentTarget.setAttribute('aria-selected', 'true');
+      currentCategory = e.currentTarget.dataset.cat;
       renderDeals();
     });
   });
