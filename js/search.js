@@ -40,8 +40,11 @@ function buildTrackedUrl(deal) {
 
 async function loadDeals() {
   try {
-    const response = await fetch('/data/deals.json');
-    if (response.ok) return await response.json();
+    const response = await fetch('/data/deals.jsonl');
+    if (response.ok) {
+      const text = await response.text();
+      return text.split('\n').filter(l => l.trim()).map(l => JSON.parse(l));
+    }
   } catch (_) {}
 
   const el = document.getElementById('deals-data');
