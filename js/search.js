@@ -296,6 +296,24 @@ function setupNewsletterPopup() {
   });
 }
 
+function setupBannerForm() {
+  const form = document.getElementById('banner-form');
+  if (!form) return;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const input = document.getElementById('banner-email');
+    const btn = form.querySelector('.banner-submit');
+    if (!input.value) return;
+    btn.disabled = true;
+    const result = await subscribeToNewsletter(input.value, 'devcheap.banner');
+    if (result.ok) {
+      showInlineSuccess(form, input, btn);
+    } else {
+      showInlineError(btn, 'Try again');
+    }
+  });
+}
+
 function setupNewsletterForm() {
   const form = document.getElementById('newsletter-form');
   if (!form) return;
@@ -349,6 +367,7 @@ async function boot() {
   if (typeof turnstile !== 'undefined' && turnstileWidgetId === null) {
     window.onTurnstileLoad();
   }
+  setupBannerForm();
   setupNewsletterPopup();
   setupNewsletterForm();
   animateCounters();
