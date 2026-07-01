@@ -12,11 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: jq empty data/deals.json && echo "✓ JSON is valid"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm run validate:jsonl
       - run: test -f index.html && echo "✓ index.html"
       - run: test -f js/search.js && echo "✓ search.js"
       - run: test -f css/style.css && echo "✓ style.css"
-      - run: test -f data/deals.json && echo "✓ deals.json"
+      - run: test -f data/deals.jsonl && echo "✓ deals.jsonl"
       - run: test -f CNAME && echo "✓ CNAME"
       - run: test -f functions/api/subscribe.js && echo "✓ Pages Function"
 
