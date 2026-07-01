@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "devcheap",
   "private": true,
   "scripts": {
@@ -7,8 +8,9 @@
     "lint:html": "html-validate index.html",
     "lint:css": "stylelint 'css/*.css'",
     "validate:json": "jq empty data/deals.json",
+    "fetch:deals": "node scripts/fetch-deals.js",
     "check:links": "npx linkinator . --recurse --skip '^(https?://)'",
-    "ci": "npm run validate:json && npm run test && npm run lint:html && npm run lint:css"
+    "ci": "npm run validate:json && npm test && npm run lint:html && npm run lint:css"
   },
   "devDependencies": {
     "vitest": "^3.1.1",
