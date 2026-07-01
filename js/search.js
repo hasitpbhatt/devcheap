@@ -75,7 +75,7 @@ function renderDeals() {
   let filtered = dealsData;
 
   if (currentCategory !== 'all') {
-    filtered = filtered.filter(deal => deal.category.toLowerCase() === currentCategory.toLowerCase());
+    filtered = filtered.filter(deal => deal.category.toLowerCase() === currentCategory.to LowerCase());
   }
 
   if (query) {
@@ -160,12 +160,6 @@ window.copyCoupon = function(button, code, dealId) {
   }).catch(err => console.error('Could not copy code:', err));
 };
 
-window.buildTrackedUrl = buildTrackedUrl;
-window.handleClaim = handleClaim;
-window.trackOutboundClick = trackOutboundClick;
-window.setupTheme = setupTheme;
-window.setupNewsletterPopup = setupNewsletterPopup;
-
 function setupTheme() {
   const themeBtn = document.getElementById('theme-toggle');
   if (!themeBtn) return;
@@ -193,6 +187,56 @@ function updateThemeIcons(theme) {
   }
 }
 
+async function subscribeToNewsletter(email, source = 'devcheap.click') {
+  const publicationId = import.meta.env?.BEEHIIV_PUBLICATION_ID || 'devcheap';
+  const apiKey = import.meta.env?.BEEHIIV_API_KEY;
+
+  if (!apiKey) {
+    console.warn('Beehiiv API key not set. Skipping subscription.');
+    return { ok: false, reason: 'api_key_missing' };
+  }
+
+  try {
+    const res = await fetch(`https://api.beehiiv.com/v2/publications/${publicationId}/subscriptions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({ email, referring_site: source }),
+    });
+
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      throw new Error(data.message || 'Subscription failed');
+    }
+
+    return { ok: true };
+  } catch (err) {
+    console.error('Newsletter subscription error:', err);
+    return { ok: false, reason: err.message };
+  }
+}
+
+function showInlineSuccess(form, input, button) {
+  input.value = '';
+  input.disabled = true;
+  button.textContent = '✓ Subscribed!';
+  button.disabled = true;
+  button.style.opacity = '0.7';
+}
+
+function showInlineError(button, msg = 'Something went wrong') {
+  button.textContent = msg;
+  button.style.color = 'var(--red)';
+  setTimeout(() => {
+    button.textContent = 'Subscribe';
+    button.disabled = false;
+    button.style.opacity = '1';
+    button.style.color = '';
+  }, 3000);
+}
+
 function setupNewsletterPopup() {
   const popup = document.getElementById('popup');
   const closeBtn = document.getElementById('popup-close');
@@ -212,19 +256,19 @@ function setupNewsletterPopup() {
       localStorage.setItem('devcheap_popup_dismissed', 'true');
     }
   });
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const input = document.getElementById('popup-email');
-    if (input.value) {
-      console.log('Newsletter signup:', input.value);
-      input.value = '';
-      input.disabled = true;
-      const btn = form.querySelector('.popup-btn');
-      btn.textContent = '✓ Subscribed!';
-      btn.disabled = true;
-      btn.style.opacity = '0.7';
+    const btn = form.querySelector('.popup-btn');
+    if (!input.value) return;
+    btn.disabled = true;
+    const result = await subscribeToNewsletter(input.value, 'devcheap.popup');
+    if (result.ok) {
+      showInlineSuccess(form, input, btn);
       localStorage.setItem('devcheap_subscribed', 'true');
       setTimeout(() => popup.classList.remove('show'), 1500);
+    } else {
+      showInlineError(btn, 'Try again');
     }
   });
 }
@@ -232,17 +276,17 @@ function setupNewsletterPopup() {
 function setupNewsletterForm() {
   const form = document.getElementById('newsletter-form');
   if (!form) return;
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const input = document.getElementById('newsletter-email');
-    if (input.value) {
-      console.log('Hero newsletter signup:', input.value);
-      input.value = '';
-      input.disabled = true;
-      const btn = form.querySelector('.newsletter-submit');
-      btn.textContent = '✓ Subscribed!';
-      btn.disabled = true;
-      btn.style.opacity = '0.7';
+    const btn = form.querySelector('.newsletter-submit');
+    if (!input.value) return;
+    btn.disabled = true;
+    const result = await subscribeToNewsletter(input.value, 'devcheap.hero');
+    if (result.ok) {
+      showInlineSuccess(form, input, btn);
+    } else {
+      showInlineError(btn, 'Try again');
     }
   });
 }
@@ -251,17 +295,23 @@ function animateCounters() {
   document.querySelectorAll('.hero-stat-num').forEach(el => {
     const target = parseInt(el.dataset.count, 10);
     if (!target) return;
-    let current = 0;
-    const step = Math.ceil(target / 40);
-    const interval = setInterval(() => {
-      current += step;
-      if (current >= target) {
-        current = target;
-        clearInterval(interval);
-      }
-      const prefix = el.dataset.prefix || '';
+    const prefix = el.dataset.prefix || '';
+    const duration = 1200;
+    const startTime = performance.now();
+
+    function tick(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * target);
       el.textContent = `${prefix}${current.toLocaleString()}`;
-    }, 30);
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        el.textContent = `${prefix}${target.toLocaleString()}`;
+      }
+    }
+    requestAnimationFrame(tick);
   });
 }
 
@@ -306,3 +356,9 @@ async function boot() {
 }
 
 window.addEventListener('DOMContentLoaded', boot);
+window.buildTrackedUrl = buildTrackedUrl;
+window.handleClaim = handleClaim;
+window.trackOutboundClick = trackOutboundClick;
+window.setupTheme = setupTheme;
+window.setupNewsletterPopup = setupNewsletterPopup;
+window.setupNewsletterForm = setupNewsletterForm;
