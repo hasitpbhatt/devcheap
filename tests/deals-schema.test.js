@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 
-const raw = fs.readFileSync(path.resolve('data/deals.json'), 'utf-8');
-const deals = JSON.parse(raw);
+const raw = fs.readFileSync(path.resolve('data/deals.jsonl'), 'utf-8');
+const deals = raw.split('\n').filter(l => l.trim()).map(l => JSON.parse(l));
 
 describe('deals.json schema', () => {
   it('is a non-empty array', () => {
@@ -33,6 +33,9 @@ describe('deals.json schema', () => {
       expect(typeof deal.has_affiliate).toBe('boolean');
       expect(deal.affiliate_url).toBeDefined(`deal[${i}] missing affiliate_url`);
       expect(typeof deal.affiliate_url).toBe('string');
+      expect(deal.why).toBeDefined(`deal[${i}] missing why`);
+      expect(typeof deal.why).toBe('string');
+      expect(deal.expires).toBeDefined(`deal[${i}] missing expires`);
     });
   });
 
@@ -64,7 +67,9 @@ describe('deals.json schema', () => {
     const validCategories = [
       'Hosting & Cloud', 'Database', 'APIs & Email', 'APIs & Payments',
       'APIs & Search', 'AI & LLM', 'Auth', 'Developer Tools',
-      'Monitoring', 'Domains & Hosting', 'Storage & Cloud', 'Security'
+      'Monitoring', 'Domains & Hosting', 'Storage & Cloud', 'Security',
+      'Productivity', 'SEO', 'AI', 'Social Media', 'Customer Support',
+      'Sales & Marketing', 'Services', 'APIs & Email', 'APIs & Payments'
     ];
     deals.forEach((deal, i) => {
       expect(validCategories).toContain(deal.category);

@@ -428,6 +428,14 @@ body {
   margin-bottom: 8px;
 }
 
+.deal-card-why {
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
 .deal-card-desc {
   font-size: 13px;
   font-weight: 400;
@@ -451,6 +459,17 @@ body {
   background: var(--bg-surface);
   padding: 2px 8px;
   border-radius: 4px;
+}
+
+.deal-card-expires {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--orange);
+  background: rgba(255, 159, 10, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 159, 10, 0.2);
+  white-space: nowrap;
 }
 
 .deal-card-footer {

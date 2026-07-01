@@ -41,18 +41,11 @@ function buildTrackedUrl(deal) {
 async function loadDeals() {
   try {
     const response = await fetch('/data/deals.jsonl');
-    if (response.ok) {
-      const text = await response.text();
-      return text.split('\n').filter(l => l.trim()).map(l => JSON.parse(l));
-    }
-  } catch (_) {}
-
-  const el = document.getElementById('deals-data');
-  if (el) {
-    try { return JSON.parse(el.textContent); } catch (_) {}
+    const text = await response.text();
+    return text.split('\n').filter(l => l.trim()).map(l => JSON.parse(l));
+  } catch (_) {
+    return [];
   }
-
-  return [];
 }
 
 function trackOutboundClick(deal, linkType) {
@@ -142,14 +135,18 @@ function renderDeals() {
       ? `<button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> ${deal.code}</button>`
       : `<button class="deal-card-btn deal-card-btn-code" data-deal-id="${deal.id}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg> Copy Code</button>`;
 
+    const expiresHTML = deal.expires ? `<span class="deal-card-expires">Expires ${deal.expires}</span>` : '';
+    const whyHTML = deal.why ? `<p class="deal-card-why">${deal.why}</p>` : '';
+
     card.innerHTML = `
       <div class="deal-card-header">
         <span class="deal-card-title">${deal.name}</span>
         <span class="deal-card-cat">${deal.category}</span>
       </div>
       <div class="deal-card-deal">${deal.deal}</div>
+      ${whyHTML}
       <p class="deal-card-desc">${deal.desc}</p>
-      <div class="deal-card-tags">${tagsHTML}</div>
+      <div class="deal-card-tags">${tagsHTML}${expiresHTML}</div>
       <div class="deal-card-footer">
         <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>
         ${couponBtn}
