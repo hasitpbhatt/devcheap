@@ -1,6 +1,7 @@
 .env
 .env.local
 node_modules
+node_modules/.vite
 npm-debug.log*
 .DS_Store
 *.log

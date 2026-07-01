@@ -291,13 +291,17 @@ function setupNewsletterForm() {
 }
 
 function animateCounters() {
-  document.querySelectorAll('.hero-stat-num').forEach(el => {
-    const target = parseInt(el.dataset.count, 10);
-    if (!target) return;
+  const stats = [
+    { id: 'stat-deals', target: dealsData.length },
+    { id: 'stat-categories', target: new Set(dealsData.map(d => d.category)).size },
+    { id: 'stat-partners', target: dealsData.filter(d => d.has_affiliate).length },
+  ];
+  stats.forEach(({ id, target }) => {
+    const el = document.getElementById(id);
+    if (!el) return;
     const prefix = el.dataset.prefix || '';
     const duration = 1200;
     const startTime = performance.now();
-
     function tick(now) {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
