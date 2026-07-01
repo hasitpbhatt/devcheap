@@ -26,7 +26,7 @@ function buildTrackedUrl(deal) {
 async function loadDeals() {
   try {
     console.log('🔍 Attempting to load deals from: data/deals.json');
-    const response = await fetch('data/deals.json');
+    const response = await fetch('/data/deals.json');
     console.log('📊 Response status:', response.status, response.statusText);
     if (!response.ok) throw new Error(`Failed to load deals data: ${response.status} ${response.statusText}`);
     const data = await response.json();
