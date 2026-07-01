@@ -1,5 +1,5 @@
 let dealsData = [];
-let currentCategory = 'all';
+var currentCategory = 'all';
 let searchTimeout = null;
 
 const UTM_SOURCE = 'devcheap.click';
@@ -160,8 +160,11 @@ window.copyCoupon = function(button, code, dealId) {
   }).catch(err => console.error('Could not copy code:', err));
 };
 
+window.buildTrackedUrl = buildTrackedUrl;
 window.handleClaim = handleClaim;
 window.trackOutboundClick = trackOutboundClick;
+window.setupTheme = setupTheme;
+window.setupNewsletterPopup = setupNewsletterPopup;
 
 function setupTheme() {
   const themeBtn = document.getElementById('theme-toggle');

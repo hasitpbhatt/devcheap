@@ -11,24 +11,63 @@ jobs:
     name: Validate JSON and Structure
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - run: jq empty data/deals.json && echo "✓ JSON is valid"
+      - run: test -f index.html && echo "✓ index.html"
+      - run: test -f js/search.js && echo "✓ search.js"
+      - run: test -f css/style.css && echo "✓ style.css"
+      - run: test -f data/deals.json && echo "✓ deals.json"
+      - run: test -f CNAME && echo "✓ CNAME"
 
-      - name: Validate JSON files
-        run: |
-          echo "Validating data/deals.json..."
-          jq empty data/deals.json && echo "✓ data/deals.json is valid JSON"
-          echo "All JSON files are valid!"
+  test:
+    name: Unit & Integration Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm test
 
-      - name: Check file structure
-        run: |
-          echo "Checking required files..."
-          test -f README.md && echo "✓ README.md exists"
-          test -f CONTRIBUTING.md && echo "✓ CONTRIBUTING.md exists"
-          test -f LICENSE && echo "✓ LICENSE exists"
-          test -f index.html && echo "✓ index.html exists"
-          test -f CNAME && echo "✓ CNAME exists"
-          test -d css && echo "✓ css/ directory exists"
-          test -d js && echo "✓ js/ directory exists"
-          test -d data && echo "✓ data/ directory exists"
-          echo "File structure is valid!"
+  lint-html:
+    name: HTML Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run lint:html
+
+  lint-css:
+    name: CSS Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run lint:css
+
+  deploy:
+    name: Deploy to Cloudflare Pages
+    needs: [validate, test, lint-html, lint-css]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: devcheap
+          directory: .
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          wranglerVersion: '2'
