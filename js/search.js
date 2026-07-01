@@ -168,11 +168,26 @@ function setupTheme() {
   if (!themeBtn) return;
   const currentTheme = localStorage.getItem('theme') || 'dark';
   document.documentElement.setAttribute('data-theme', currentTheme);
+  updateThemeIcons(currentTheme);
   themeBtn.addEventListener('click', () => {
     const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+    updateThemeIcons(newTheme);
   });
+}
+
+function updateThemeIcons(theme) {
+  const lightIcon = document.querySelector('.theme-icon-light');
+  const darkIcon = document.querySelector('.theme-icon-dark');
+  if (!lightIcon || !darkIcon) return;
+  if (theme === 'light') {
+    lightIcon.style.display = 'block';
+    darkIcon.style.display = 'none';
+  } else {
+    lightIcon.style.display = 'none';
+    darkIcon.style.display = 'block';
+  }
 }
 
 function setupNewsletterPopup() {
