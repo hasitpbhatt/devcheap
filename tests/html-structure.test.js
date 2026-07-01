@@ -65,19 +65,19 @@ describe('Deals section', () => {
 });
 
 describe('Newsletter section', () => {
-  it('has newsletter form', () => {
-    const form = document.getElementById('newsletter-form');
-    expect(form).not.toBeNull();
+  it('has a newsletter section', () => {
+    const section = document.getElementById('newsletter');
+    expect(section).not.toBeNull();
   });
 
-  it('has newsletter email input', () => {
-    const input = document.getElementById('newsletter-email');
-    expect(input).not.toBeNull();
+  it('has newsletter badge', () => {
+    const badge = document.querySelector('.newsletter-badge');
+    expect(badge).not.toBeNull();
   });
 
-  it('has a submit button', () => {
-    const btn = document.querySelector('.newsletter-submit');
-    expect(btn).not.toBeNull();
+  it('has newsletter description', () => {
+    const desc = document.querySelector('.newsletter-desc');
+    expect(desc).not.toBeNull();
   });
 });
 
@@ -88,10 +88,13 @@ describe('Hero section', () => {
     expect(h1.textContent.trim()).toBeTruthy();
   });
 
-  it('has stat counters with data-count attributes', () => {
-    const nums = document.querySelectorAll('.hero-stat-num[data-count]');
-    expect(nums.length).toBeGreaterThanOrEqual(2);
-    nums.forEach(n => expect(parseInt(n.dataset.count)).toBeGreaterThan(0));
+  it('has stat counters with ids', () => {
+    const statDeals = document.getElementById('stat-deals');
+    const statCategories = document.getElementById('stat-categories');
+    const statPartners = document.getElementById('stat-partners');
+    expect(statDeals).not.toBeNull();
+    expect(statCategories).not.toBeNull();
+    expect(statPartners).not.toBeNull();
   });
 });
 
@@ -106,11 +109,11 @@ describe('Popup', () => {
     expect(close).not.toBeNull();
   });
 
-  it('has popup email form', () => {
-    const form = document.getElementById('popup-form');
-    const input = document.getElementById('popup-email');
-    expect(form).not.toBeNull();
-    expect(input).not.toBeNull();
+  it('has popup body content', () => {
+    const title = document.querySelector('.popup-title');
+    const desc = document.querySelector('.popup-desc');
+    expect(title).not.toBeNull();
+    expect(desc).not.toBeNull();
   });
 });
 

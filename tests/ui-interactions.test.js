@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { describe, it, expect, beforeAll, beforeEach, afterEach, vi } from 'vitest';
 
 const { setupTheme, setupNewsletterPopup } = window;
 
@@ -100,13 +100,27 @@ describe('Newsletter popup', () => {
 });
 
 describe('Category filtering', () => {
+  beforeAll(async () => {
+    global.fetch = vi.fn(() => Promise.reject(new Error('no fetch')));
+    await window.boot();
+  });
+
   it('sets window.currentCategory on cat-btn click', () => {
+    window.currentCategory = 'all';
     const btn = document.querySelector('.cat-btn[data-cat="hosting"]');
     btn.click();
     expect(window.currentCategory).toBe('hosting');
   });
 
   it('activates clicked button and deactivates others', () => {
+    window.currentCategory = 'all';
+    document.querySelectorAll('.cat-btn').forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    document.querySelector('.cat-btn[data-cat="all"]').classList.add('active');
+    document.querySelector('.cat-btn[data-cat="all"]').setAttribute('aria-selected', 'true');
+
     const allBtn = document.querySelector('.cat-btn[data-cat="all"]');
     const hostBtn = document.querySelector('.cat-btn[data-cat="hosting"]');
     hostBtn.click();
@@ -118,9 +132,15 @@ describe('Category filtering', () => {
 });
 
 describe('Search input', () => {
+  beforeAll(async () => {
+    global.fetch = vi.fn(() => Promise.reject(new Error('no fetch')));
+    await window.boot();
+  });
+
   it('shows clear button when search has text', () => {
     const input = document.getElementById('search-input');
     const clear = document.getElementById('clear-search-btn');
+    clear.style.display = 'none';
     const inputEvent = new Event('input', { bubbles: true });
     input.value = 'supabase';
     input.dispatchEvent(inputEvent);

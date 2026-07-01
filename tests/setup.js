@@ -14,6 +14,9 @@ global.window = dom.window;
 global.navigator = dom.window.navigator;
 global.localStorage = dom.window.localStorage;
 
+dom.window.requestAnimationFrame = (cb) => setTimeout(cb, 16);
+global.requestAnimationFrame = dom.window.requestAnimationFrame;
+
 const searchJs = fs.readFileSync(path.resolve('js/search.js'), 'utf-8');
 dom.window.eval(searchJs);
 

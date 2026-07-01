@@ -257,22 +257,28 @@ function showInlineError(button, msg = 'Something went wrong') {
 function setupNewsletterPopup() {
   const popup = document.getElementById('popup');
   const closeBtn = document.getElementById('popup-close');
-  const form = document.getElementById('popup-form');
-  if (!popup || !closeBtn || !form) return;
+  if (!popup || !closeBtn) return;
+
   const isDismissed = localStorage.getItem('devcheap_popup_dismissed');
   if (!isDismissed) {
     setTimeout(() => popup.classList.add('show'), 5000);
   }
+
   closeBtn.addEventListener('click', () => {
     popup.classList.remove('show');
     localStorage.setItem('devcheap_popup_dismissed', 'true');
   });
+
   popup.addEventListener('click', (e) => {
     if (e.target === popup) {
       popup.classList.remove('show');
       localStorage.setItem('devcheap_popup_dismissed', 'true');
     }
   });
+
+  const form = document.getElementById('popup-form');
+  if (!form) return;
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const input = document.getElementById('popup-email');
@@ -399,3 +405,4 @@ async function boot() {
 window.addEventListener('DOMContentLoaded', boot);
 window.buildTrackedUrl = buildTrackedUrl;
 window.trackOutboundClick = trackOutboundClick;
+window.boot = boot;
