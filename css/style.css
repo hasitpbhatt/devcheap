@@ -5,7 +5,7 @@
   --font-sans: -apple-system, 'Helvetica Neue', 'SF Pro Display', 'Inter', sans-serif;
   --font-mono: 'SF Mono', 'JetBrains Mono', monospace;
 
-  --bg: #000000;
+  --bg: #000;
   --bg-elevated: #1d1d1f;
   --bg-surface: #151517;
   --bg-input: #1d1d1f;
@@ -39,8 +39,8 @@
 }
 
 [data-theme="light"] {
-  --bg: #ffffff;
-  --bg-elevated: #ffffff;
+  --bg: #fff;
+  --bg-elevated: #fff;
   --bg-surface: #f5f5f7;
   --bg-input: #f5f5f7;
   --border: #d2d2d7;

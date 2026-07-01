@@ -6,17 +6,19 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint:html": "html-validate index.html",
-    "lint:css": "stylelint 'css/*.css'",
+    "lint:css": "stylelint css/*.css",
     "validate:json": "jq empty data/deals.json",
     "fetch:deals": "node scripts/fetch-deals.js",
     "check:links": "npx linkinator . --recurse --skip '^(https?://)'",
-    "ci": "npm run validate:json && npm test && npm run lint:html && npm run lint:css"
+    "ci": "npm run validate:json && npm test && npm run lint:html && npm run lint:css",
+    "prepare": "husky"
   },
   "devDependencies": {
-    "vitest": "^3.1.1",
-    "jsdom": "^26.0.0",
     "html-validate": "^9.5.0",
+    "husky": "^9.0.0",
+    "jsdom": "^26.0.0",
     "stylelint": "^16.18.0",
-    "stylelint-config-standard": "^37.0.0"
+    "stylelint-config-standard": "^37.0.0",
+    "vitest": "^3.1.1"
   }
 }
