@@ -6,6 +6,21 @@ const UTM_SOURCE = 'devcheap.click';
 const UTM_MEDIUM = 'website';
 const UTM_CAMPAIGN = 'deal_click';
 
+const TURNSTILE_SITE_KEY = 'REPLACE_ME'; // Set this to your Turnstile site key from Cloudflare Dashboard
+let turnstileWidgetId = null;
+let turnstileToken = null;
+
+window.onTurnstileLoad = function () {
+  const container = document.getElementById('turnstile-widget');
+  if (!container || typeof turnstile === 'undefined') return;
+  turnstileWidgetId = turnstile.render(container, {
+    sitekey: TURNSTILE_SITE_KEY,
+    callback: function (token) { turnstileToken = token; },
+    'expired-callback': function () { turnstileToken = null; },
+    'error-callback': function () { turnstileToken = null; },
+  });
+};
+
 function buildTrackedUrl(deal) {
   let targetUrl = deal.url;
   if (deal.has_affiliate && deal.affiliate_url) {
@@ -187,27 +202,30 @@ function updateThemeIcons(theme) {
 }
 
 async function subscribeToNewsletter(email, source = 'devcheap.click') {
-  const publicationId = 'devcheap';
-  const apiKey = '';
+  if (turnstileWidgetId !== null && typeof turnstile !== 'undefined') {
+    turnstile.execute(turnstileWidgetId);
+  }
 
-  if (!apiKey) {
-    console.warn('Beehiiv API key not set. Skipping subscription.');
-    return { ok: false, reason: 'api_key_missing' };
+  const body = { email, source };
+  if (turnstileToken) {
+    body['cf-turnstile-response'] = turnstileToken;
   }
 
   try {
-    const res = await fetch(`https://api.beehiiv.com/v2/publications/${publicationId}/subscriptions`, {
+    const res = await fetch('/api/subscribe', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({ email, referring_site: source }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
     });
 
+    const data = await res.json().catch(() => ({}));
+
     if (!res.ok) {
-      const data = await res.json().catch(() => ({}));
-      throw new Error(data.message || 'Subscription failed');
+      throw new Error(data.error || 'Subscription failed');
+    }
+
+    if (turnstileWidgetId !== null && typeof turnstile !== 'undefined') {
+      turnstile.reset(turnstileWidgetId);
     }
 
     return { ok: true };
@@ -322,6 +340,9 @@ async function boot() {
   renderSkeletons(6);
   dealsData = await loadDeals();
   setupTheme();
+  if (typeof turnstile !== 'undefined' && turnstileWidgetId === null) {
+    window.onTurnstileLoad();
+  }
   setupNewsletterPopup();
   setupNewsletterForm();
   animateCounters();
