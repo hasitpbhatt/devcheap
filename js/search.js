@@ -334,6 +334,40 @@ function setupNewsletterForm() {
   });
 }
 
+function injectItemListJSONLD(deals) {
+  const existing = document.getElementById('ld-itemlist');
+  if (existing) existing.remove();
+
+  const script = document.createElement('script');
+  script.id = 'ld-itemlist';
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'name': 'All Developer Deals on DevCheap',
+    'description': 'Curated verified developer deals, free credits, and lifetime discounts.',
+    'url': 'https://devcheap.click/',
+    'itemListElement': deals.map((deal, index) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'item': {
+        '@type': 'Product',
+        'name': deal.name,
+        'description': deal.desc,
+        'category': deal.category,
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+          'description': deal.deal,
+          'availability': deal.expires ? 'https://schema.org/LimitedAvailability' : 'https://schema.org/OnlineOnly',
+        }
+      }
+    }))
+  });
+  document.head.appendChild(script);
+}
+
 function animateCounters() {
   const stats = [
     { id: 'stat-deals', target: dealsData.length },
@@ -365,6 +399,7 @@ function animateCounters() {
 async function boot() {
   renderSkeletons(6);
   dealsData = await loadDeals();
+  injectItemListJSONLD(dealsData);
   setupTheme();
   if (typeof turnstile !== 'undefined' && turnstileWidgetId === null) {
     window.onTurnstileLoad();
