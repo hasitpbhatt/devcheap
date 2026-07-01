@@ -3,6 +3,7 @@ var currentCategory = 'all';
 let searchTimeout = null;
 
 const UTM_SOURCE = 'devcheap.click';
+const REPORT_EMAIL = 'hi@devcheap.page';
 const UTM_MEDIUM = 'website';
 const UTM_CAMPAIGN = 'deal_click';
 
@@ -150,7 +151,8 @@ function renderDeals() {
       <div class="deal-card-footer">
         <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>
         ${couponBtn}
-      </div>`;
+      </div>
+      <a href="mailto:${REPORT_EMAIL}?subject=Expired%20Deal%3A%20${encodeURIComponent(deal.name)}&body=Deal%20ID%3A%20${encodeURIComponent(deal.id)}%0ADeal%3A%20${encodeURIComponent(deal.deal)}%0AURL%3A%20${encodeURIComponent(deal.url)}%0A" class="deal-card-report" target="_blank" rel="noopener noreferrer">Report Expired</a>`;
     gridEl.appendChild(card);
   });
 }
