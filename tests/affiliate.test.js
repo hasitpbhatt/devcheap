@@ -77,14 +77,3 @@ describe('copyCoupon', () => {
   });
 });
 
-describe('handleClaim', () => {
-  beforeEach(() => {
-    vi.restoreAllMocks();
-  });
-
-  it('tracks claim without throwing', () => {
-    window.dealsData = [{ id: 'test', name: 'T', tracking_id: 't1', category: 'tools' }];
-    const event = { target: document.createElement('a') };
-    expect(() => handleClaim(event, 'test')).not.toThrow();
-  });
-});

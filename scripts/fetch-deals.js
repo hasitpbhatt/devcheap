@@ -290,10 +290,30 @@ const freshDeals = [
   }
 ];
 
+const INDEX_PATH = path.join(__dirname, '..', 'index.html');
+
 async function saveDeals(deals) {
   const sorted = [...deals].sort((a, b) => a.name.localeCompare(b.name));
-  await fs.writeFile(DEALS_PATH, JSON.stringify(sorted, null, 2) + '\n', 'utf-8');
+  const json = JSON.stringify(sorted, null, 2) + '\n';
+  const minified = JSON.stringify(sorted);
+  await fs.writeFile(DEALS_PATH, json, 'utf-8');
   console.log(`✅ Saved ${sorted.length} deals to ${DEALS_PATH}`);
+  await updateInlineData(minified);
+}
+
+async function updateInlineData(minified) {
+  const html = await fs.readFile(INDEX_PATH, 'utf-8');
+  const escaped = minified.replace(/\$/g, '$$$$');
+  const updated = html.replace(
+    /(<script id="deals-data" type="application\/json">).*?(<\/script>)/,
+    `$1${escaped}$2`
+  );
+  if (html === updated) {
+    console.warn('⚠️ Could not find inline data placeholder in index.html. Skipping update.');
+    return;
+  }
+  await fs.writeFile(INDEX_PATH, updated, 'utf-8');
+  console.log(`✅ Updated inline data in index.html`);
 }
 
 console.log('📦 Fetching fresh developer deals...');

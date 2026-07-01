@@ -15,7 +15,7 @@
   {
     "id": "cron-job",
     "name": "Cron-Job.org",
-    "category": "Tools",
+    "category": "Developer Tools",
     "deal": "Free Cron Jobs",
     "code": "Automatic (Link)",
     "url": "https://cron-job.org",
@@ -28,7 +28,7 @@
   {
     "id": "datadog",
     "name": "Datadog",
-    "category": "Tools",
+    "category": "Monitoring",
     "deal": "14-day Free Trial + $100 Credits",
     "code": "Automatic (Link)",
     "url": "https://www.datadoghq.com",
@@ -67,7 +67,7 @@
   {
     "id": "linear",
     "name": "Linear",
-    "category": "Tools",
+    "category": "Developer Tools",
     "deal": "Free for Open Source",
     "code": "Automatic (Link)",
     "url": "https://linear.app",
@@ -93,7 +93,7 @@
   {
     "id": "namecheap",
     "name": "Namecheap",
-    "category": "Tools",
+    "category": "Domains & Hosting",
     "deal": "50% Off Domains & Hosting",
     "code": "Automatic (Link)",
     "url": "https://www.namecheap.com",
@@ -119,7 +119,7 @@
   {
     "id": "ngrok",
     "name": "ngrok",
-    "category": "Tools",
+    "category": "Developer Tools",
     "deal": "Free Tunnel (4 endpoints)",
     "code": "Automatic (Link)",
     "url": "https://ngrok.com",
@@ -158,7 +158,7 @@
   {
     "id": "postmark",
     "name": "Postmark",
-    "category": "APIs",
+    "category": "APIs & Email",
     "deal": "1,000 Emails Free",
     "code": "Automatic (Link)",
     "url": "https://postmarkapp.com",
@@ -184,7 +184,7 @@
   {
     "id": "resend",
     "name": "Resend",
-    "category": "APIs",
+    "category": "APIs & Email",
     "deal": "$25/month Free Credits",
     "code": "Automatic (Link)",
     "url": "https://resend.com",
@@ -197,7 +197,7 @@
   {
     "id": "sentry",
     "name": "Sentry",
-    "category": "Tools",
+    "category": "Monitoring",
     "deal": "$100/month Free for Startups",
     "code": "Automatic (Link)",
     "url": "https://sentry.io",
@@ -210,7 +210,7 @@
   {
     "id": "stripe",
     "name": "Stripe",
-    "category": "APIs",
+    "category": "APIs & Payments",
     "deal": "$100 Free Processing Credits",
     "code": "Automatic (Link)",
     "url": "https://stripe.com",

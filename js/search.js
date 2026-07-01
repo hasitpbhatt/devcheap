@@ -25,17 +25,16 @@ function buildTrackedUrl(deal) {
 
 async function loadDeals() {
   try {
-    console.log('🔍 Attempting to load deals from: data/deals.json');
     const response = await fetch('/data/deals.json');
-    console.log('📊 Response status:', response.status, response.statusText);
-    if (!response.ok) throw new Error(`Failed to load deals data: ${response.status} ${response.statusText}`);
-    const data = await response.json();
-    console.log('✅ Loaded deals data:', data.length, 'deals');
-    return data;
-  } catch (error) {
-    console.error('❌ Error fetching deals:', error);
-    return [];
+    if (response.ok) return await response.json();
+  } catch (_) {}
+
+  const el = document.getElementById('deals-data');
+  if (el) {
+    try { return JSON.parse(el.textContent); } catch (_) {}
   }
+
+  return [];
 }
 
 function trackOutboundClick(deal, linkType) {
@@ -97,7 +96,6 @@ function renderDeals() {
   }
 
   if (filtered.length === 0) {
-    console.log('⚠️ No deals found after filtering');
     gridEl.innerHTML = `
       <div class="empty-state">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -107,9 +105,7 @@ function renderDeals() {
     return;
   }
 
-  console.log('📋 Rendering', filtered.length, 'deals');
   filtered.forEach((deal, index) => {
-    console.log('📄 Deal', index + 1, ':', deal.name);
     const card = document.createElement('div');
     card.className = 'deal-card';
     card.style.animationDelay = `${index * 40}ms`;
@@ -125,8 +121,8 @@ function renderDeals() {
     const isPromoAutomatic = deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link');
 
     const couponBtn = isPromoAutomatic
-      ? `<button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> ${deal.code}</button>`
-      : `<button class="deal-card-btn deal-card-btn-code" onclick="copyCoupon(this,'${deal.code.replace(/'/g, "\\'")}','${deal.id}')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg> Copy Code</button>`;
+      ? `<button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> ${deal.code}</button>`
+      : `<button class="deal-card-btn deal-card-btn-code" data-deal-id="${deal.id}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg> Copy Code</button>`;
 
     card.innerHTML = `
       <div class="deal-card-header">
@@ -137,19 +133,15 @@ function renderDeals() {
       <p class="deal-card-desc">${deal.desc}</p>
       <div class="deal-card-tags">${tagsHTML}</div>
       <div class="deal-card-footer">
-        <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}" onclick="handleClaim(event,'${deal.id}')">Claim Deal</a>
+        <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>
         ${couponBtn}
       </div>`;
     gridEl.appendChild(card);
   });
 }
 
-function handleClaim(event, dealId) {
-  const deal = dealsData.find(d => d.id === dealId);
-  if (deal) trackOutboundClick(deal, 'claim_deal');
-}
-
-window.copyCoupon = function(button, code, dealId) {
+function copyCoupon(button, code) {
+  const dealId = button.dataset.dealId;
   navigator.clipboard.writeText(code).then(() => {
     const originalHTML = button.innerHTML;
     button.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
@@ -165,7 +157,7 @@ window.copyCoupon = function(button, code, dealId) {
       button.style.borderColor = '';
     }, 2000);
   }).catch(err => console.error('Could not copy code:', err));
-};
+}
 
 function setupTheme() {
   const themeBtn = document.getElementById('theme-toggle');
@@ -195,8 +187,8 @@ function updateThemeIcons(theme) {
 }
 
 async function subscribeToNewsletter(email, source = 'devcheap.click') {
-  const publicationId = import.meta.env?.BEEHIIV_PUBLICATION_ID || 'devcheap';
-  const apiKey = import.meta.env?.BEEHIIV_API_KEY;
+  const publicationId = 'devcheap';
+  const apiKey = '';
 
   if (!apiKey) {
     console.warn('Beehiiv API key not set. Skipping subscription.');
@@ -323,10 +315,8 @@ function animateCounters() {
 }
 
 async function boot() {
-  console.log('🚀 Booting application...');
   renderSkeletons(6);
   dealsData = await loadDeals();
-  console.log('📦 dealsData after load:', dealsData.length, 'deals');
   setupTheme();
   setupNewsletterPopup();
   setupNewsletterForm();
@@ -361,14 +351,26 @@ async function boot() {
     });
   });
 
-  console.log('🎯 Calling renderDeals with dealsData:', dealsData.length);
   renderDeals();
+
+  const gridEl = document.getElementById('deals-grid');
+  if (gridEl) {
+    gridEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-deal-id]');
+      if (!btn) return;
+
+      if (btn.classList.contains('deal-card-btn-primary')) {
+        const deal = dealsData.find(d => d.id === btn.dataset.dealId);
+        if (deal) trackOutboundClick(deal, 'claim_deal');
+      } else if (btn.classList.contains('deal-card-btn-code') && !btn.disabled) {
+        const deal = dealsData.find(d => d.id === btn.dataset.dealId);
+        const code = deal ? deal.code : '';
+        copyCoupon(btn, code);
+      }
+    });
+  }
 }
 
 window.addEventListener('DOMContentLoaded', boot);
 window.buildTrackedUrl = buildTrackedUrl;
-window.handleClaim = handleClaim;
 window.trackOutboundClick = trackOutboundClick;
-window.setupTheme = setupTheme;
-window.setupNewsletterPopup = setupNewsletterPopup;
-window.setupNewsletterForm = setupNewsletterForm;
