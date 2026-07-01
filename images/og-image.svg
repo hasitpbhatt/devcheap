@@ -8,8 +8,8 @@
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect x="60" y="60" width="1080" height="510" rx="16" fill="none" stroke="#334155" stroke-width="2"/>
   <text x="600" y="240" font-family="system-ui,sans-serif" font-size="72" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="-2">DevCheap</text>
-  <text x="600" y="320" font-family="system-ui,sans-serif" font-size="32" font-weight="500" fill="#94a3b8" text-anchor="middle">Verified Developer Deals &amp; Free Credits</text>
+  <text x="600" y="320" font-family="system-ui,sans-serif" font-size="32" font-weight="500" fill="#94a3b8" text-anchor="middle">Curated Developer Deals &amp; Free Credits</text>
   <rect x="420" y="380" width="360" height="56" rx="28" fill="#38bdf8"/>
-  <text x="600" y="416" font-family="system-ui,sans-serif" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Stop overpaying for dev tools →</text>
-  <text x="600" y="490" font-family="system-ui,sans-serif" font-size="20" fill="#64748b" text-anchor="middle">Curated deals • Free credits • Lifetime discounts</text>
+  <text x="600" y="416" font-family="system-ui,sans-serif" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Stop overpaying for dev tools</text>
+  <text x="600" y="490" font-family="system-ui,sans-serif" font-size="20" fill="#64748b" text-anchor="middle">APIs • Hosting • Databases • AI • Free credits</text>
 </svg>

@@ -35,7 +35,7 @@ $feed = @"
   <channel>
     <title>DevCheap — Verified Developer Deals</title>
     <link>https://devcheap.click/</link>
-    <description>Curated verified deals, free credits, and lifetime discounts on developer tools. Updated weekly.</description>
+    <description>Verified deals on APIs, hosting, databases, and AI tools. Free credits, lifetime discounts, and limited offers curated weekly.</description>
     <language>en-us</language>
     <lastBuildDate>$([DateTime]::UtcNow.ToString('r'))</lastBuildDate>
     <atom:link href="https://devcheap.click/feed.xml" rel="self" type="application/rss+xml"/>
