@@ -75,7 +75,7 @@ function renderDeals() {
   let filtered = dealsData;
 
   if (currentCategory !== 'all') {
-    filtered = filtered.filter(deal => deal.category.toLowerCase() === currentCategory.to LowerCase());
+    filtered = filtered.filter(deal => deal.category.toLowerCase() === currentCategory.toLowerCase());
   }
 
   if (query) {
@@ -118,8 +118,8 @@ function renderDeals() {
     const isPromoAutomatic = deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link');
 
     const couponBtn = isPromoAutomatic
-      ? `<button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Auto-applied</button>`
-      : `<button class="deal-card-btn deal-card-btn-code" onclick="copyCoupon(this,'${deal.code.replace(/'/g, "\\'")}','${deal.id}')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>${deal.code}</button>`;
+      ? `<button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> ${deal.code}</button>`
+      : `<button class="deal-card-btn deal-card-btn-code" onclick="copyCoupon(this,'${deal.code.replace(/'/g, "\\'")}','${deal.id}')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg> Copy Code</button>`;
 
     card.innerHTML = `
       <div class="deal-card-header">
@@ -130,7 +130,7 @@ function renderDeals() {
       <p class="deal-card-desc">${deal.desc}</p>
       <div class="deal-card-tags">${tagsHTML}</div>
       <div class="deal-card-footer">
-        <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}" onclick="handleClaim(event,'${deal.id}')">Claim Deal<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}" onclick="handleClaim(event,'${deal.id}')">Claim Deal</a>
         ${couponBtn}
       </div>`;
     gridEl.appendChild(card);
@@ -145,7 +145,7 @@ function handleClaim(event, dealId) {
 window.copyCoupon = function(button, code, dealId) {
   navigator.clipboard.writeText(code).then(() => {
     const originalHTML = button.innerHTML;
-    button.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Copied!`;
+    button.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
     button.style.color = 'var(--green)';
     button.style.borderColor = 'var(--green)';
     if (dealId) {
