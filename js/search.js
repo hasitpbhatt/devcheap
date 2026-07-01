@@ -214,12 +214,17 @@ function setupNewsletterPopup() {
   });
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = document.getElementById('popup-email').value;
-    if (email) {
-      console.log('Newsletter signup:', email);
-      alert('Thanks for subscribing! We will email you the best dev deals every week.');
+    const input = document.getElementById('popup-email');
+    if (input.value) {
+      console.log('Newsletter signup:', input.value);
+      input.value = '';
+      input.disabled = true;
+      const btn = form.querySelector('.popup-btn');
+      btn.textContent = '✓ Subscribed!';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
       localStorage.setItem('devcheap_subscribed', 'true');
-      popup.classList.remove('show');
+      setTimeout(() => popup.classList.remove('show'), 1500);
     }
   });
 }
@@ -229,10 +234,15 @@ function setupNewsletterForm() {
   if (!form) return;
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = document.getElementById('newsletter-email').value;
-    if (email) {
-      console.log('Hero newsletter signup:', email);
-      alert('You are subscribed! Check your inbox every Monday.');
+    const input = document.getElementById('newsletter-email');
+    if (input.value) {
+      console.log('Hero newsletter signup:', input.value);
+      input.value = '';
+      input.disabled = true;
+      const btn = form.querySelector('.newsletter-submit');
+      btn.textContent = '✓ Subscribed!';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
     }
   });
 }
