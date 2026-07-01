@@ -396,6 +396,40 @@ function animateCounters() {
   });
 }
 
+function updateCategoryURL(category) {
+  const url = new URL(window.location);
+  if (category === 'all') {
+    url.searchParams.delete('category');
+  } else {
+    url.searchParams.set('category', category);
+  }
+  window.history.replaceState(null, '', url);
+}
+
+function updateBreadcrumbJSONLD(category) {
+  const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+  for (const script of scripts) {
+    try {
+      const data = JSON.parse(script.textContent);
+      if (data && data['@type'] === 'BreadcrumbList') {
+        if (category && category !== 'all') {
+          data.itemListElement = [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://devcheap.click/' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Deals', 'item': 'https://devcheap.click/#deals' },
+            { '@type': 'ListItem', 'position': 3, 'name': category.charAt(0).toUpperCase() + category.slice(1) + ' Deals', 'item': `https://devcheap.click/?category=${encodeURIComponent(category)}` }
+          ];
+        } else {
+          data.itemListElement = [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://devcheap.click/' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Deals', 'item': 'https://devcheap.click/#deals' }
+          ];
+        }
+        script.textContent = JSON.stringify(data, null, 2);
+      }
+    } catch (_) {}
+  }
+}
+
 async function boot() {
   renderSkeletons(6);
   dealsData = await loadDeals();
@@ -435,8 +469,25 @@ async function boot() {
       e.currentTarget.setAttribute('aria-selected', 'true');
       currentCategory = e.currentTarget.dataset.cat;
       renderDeals();
+      updateCategoryURL(currentCategory);
+      updateBreadcrumbJSONLD(currentCategory);
     });
   });
+
+  const params = new URLSearchParams(window.location.search);
+  const catFromURL = params.get('category');
+  if (catFromURL) {
+    const btn = document.querySelector(`.cat-btn[data-cat="${catFromURL}"]`);
+    if (btn) {
+      document.querySelectorAll('.cat-btn').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      currentCategory = catFromURL;
+    }
+  }
 
   renderDeals();
 
