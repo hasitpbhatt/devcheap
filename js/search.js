@@ -249,7 +249,8 @@ function animateCounters() {
         current = target;
         clearInterval(interval);
       }
-      el.textContent = target >= 1000 ? `$${current.toLocaleString()}` : current.toLocaleString();
+      const prefix = el.dataset.prefix || '';
+      el.textContent = `${prefix}${current.toLocaleString()}`;
     }, 30);
   });
 }
