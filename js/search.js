@@ -141,7 +141,7 @@ function renderDeals() {
 
     card.innerHTML = `
       <div class="deal-card-header">
-        <span class="deal-card-title">${deal.name}</span>
+        <h3 class="deal-card-title">${deal.name}</h3>
         <span class="deal-card-cat">${deal.category}</span>
       </div>
       <div class="deal-card-deal">${deal.deal}</div>
