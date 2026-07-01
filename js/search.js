@@ -25,12 +25,15 @@ function buildTrackedUrl(deal) {
 
 async function loadDeals() {
   try {
+    console.log('🔍 Attempting to load deals from: data/deals.json');
     const response = await fetch('data/deals.json');
-    if (!response.ok) throw new Error('Failed to load deals data.');
+    console.log('📊 Response status:', response.status, response.statusText);
+    if (!response.ok) throw new Error(`Failed to load deals data: ${response.status} ${response.statusText}`);
     const data = await response.json();
+    console.log('✅ Loaded deals data:', data.length, 'deals');
     return data;
   } catch (error) {
-    console.error('Error fetching deals:', error);
+    console.error('❌ Error fetching deals:', error);
     return [];
   }
 }
@@ -94,6 +97,7 @@ function renderDeals() {
   }
 
   if (filtered.length === 0) {
+    console.log('⚠️ No deals found after filtering');
     gridEl.innerHTML = `
       <div class="empty-state">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -103,7 +107,9 @@ function renderDeals() {
     return;
   }
 
+  console.log('📋 Rendering', filtered.length, 'deals');
   filtered.forEach((deal, index) => {
+    console.log('📄 Deal', index + 1, ':', deal.name);
     const card = document.createElement('div');
     card.className = 'deal-card';
     card.style.animationDelay = `${index * 40}ms`;
@@ -317,8 +323,10 @@ function animateCounters() {
 }
 
 async function boot() {
+  console.log('🚀 Booting application...');
   renderSkeletons(6);
   dealsData = await loadDeals();
+  console.log('📦 dealsData after load:', dealsData.length, 'deals');
   setupTheme();
   setupNewsletterPopup();
   setupNewsletterForm();
@@ -353,6 +361,7 @@ async function boot() {
     });
   });
 
+  console.log('🎯 Calling renderDeals with dealsData:', dealsData.length);
   renderDeals();
 }
 
