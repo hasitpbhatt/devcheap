@@ -61,7 +61,11 @@ describe('deals.json schema', () => {
   });
 
   it('has known categories', () => {
-    const validCategories = ['Hosting & Cloud', 'Database', 'APIs', 'AI & LLM', 'Auth', 'Tools'];
+    const validCategories = [
+      'Hosting & Cloud', 'Database', 'APIs & Email', 'APIs & Payments',
+      'APIs & Search', 'AI & LLM', 'Auth', 'Developer Tools',
+      'Monitoring', 'Domains & Hosting', 'Storage & Cloud', 'Security'
+    ];
     deals.forEach((deal, i) => {
       expect(validCategories).toContain(deal.category);
     });

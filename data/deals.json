@@ -1,5 +1,70 @@
 [
   {
+    "id": "aiven",
+    "name": "Aiven",
+    "category": "Database",
+    "deal": "Free Tier (Postgres, MySQL, Redis)",
+    "code": "Automatic (Link)",
+    "url": "https://aiven.io",
+    "affiliate_url": "https://aiven.io",
+    "tracking_id": "aiven_001",
+    "has_affiliate": false,
+    "desc": "Managed open-source databases including Postgres, MySQL, Redis, Kafka, and more.",
+    "tags": "postgres,mysql,redis,kafka,database,managed"
+  },
+  {
+    "id": "algolia",
+    "name": "Algolia",
+    "category": "APIs & Search",
+    "deal": "Free Tier (10,000 Records)",
+    "code": "Automatic (Link)",
+    "url": "https://www.algolia.com",
+    "affiliate_url": "https://www.algolia.com",
+    "tracking_id": "algolia_001",
+    "has_affiliate": false,
+    "desc": "Hosted search API with typo-tolerance, faceting, and analytics. Free for 10K records.",
+    "tags": "search,api,indexing,full-text,typo-tolerance"
+  },
+  {
+    "id": "auth0",
+    "name": "Auth0",
+    "category": "Auth",
+    "deal": "Free for 7,000 MAUs",
+    "code": "Automatic (Link)",
+    "url": "https://auth0.com",
+    "affiliate_url": "https://auth0.com",
+    "tracking_id": "auth0_001",
+    "has_affiliate": false,
+    "desc": "Authentication and authorization platform with social login, MFA, and free tier for 7,000 active users.",
+    "tags": "auth,oauth,sso,mfa,identity"
+  },
+  {
+    "id": "backblaze-b2",
+    "name": "Backblaze B2",
+    "category": "Storage & Cloud",
+    "deal": "10GB Free Storage",
+    "code": "Automatic (Link)",
+    "url": "https://www.backblaze.com",
+    "affiliate_url": "https://www.backblaze.com",
+    "tracking_id": "backblaze_001",
+    "has_affiliate": false,
+    "desc": "S3-compatible cloud object storage with 10GB free and affordable egress pricing.",
+    "tags": "storage,s3,backup,cloud,object-storage"
+  },
+  {
+    "id": "better-stack",
+    "name": "Better Stack",
+    "category": "Monitoring",
+    "deal": "Free Uptime Monitoring (100GB)",
+    "code": "Automatic (Link)",
+    "url": "https://betterstack.com",
+    "affiliate_url": "https://betterstack.com",
+    "tracking_id": "betterstack_001",
+    "has_affiliate": false,
+    "desc": "Uptime monitoring, log management, and status pages with generous free tier.",
+    "tags": "monitoring,uptime,logs,status-page,alerts"
+  },
+  {
     "id": "clerk",
     "name": "Clerk",
     "category": "Auth",
@@ -11,6 +76,19 @@
     "has_affiliate": false,
     "desc": "Authentication and user management for Next.js, React, and web apps.",
     "tags": "auth,nextjs,react,users,identity"
+  },
+  {
+    "id": "cloudflare",
+    "name": "Cloudflare",
+    "category": "Hosting & Cloud",
+    "deal": "Free Tier (CDN, Workers, Pages)",
+    "code": "Automatic (Link)",
+    "url": "https://cloudflare.com",
+    "affiliate_url": "https://cloudflare.com",
+    "tracking_id": "cloudflare_001",
+    "has_affiliate": false,
+    "desc": "Free CDN, DDoS protection, serverless Workers, Pages hosting, D1 database, and R2 storage.",
+    "tags": "cdn,serverless,workers,pages,d1,r2,database,hosting"
   },
   {
     "id": "cron-job",
@@ -65,6 +143,71 @@
     "tags": "docker,hosting,edge,postgres,redis"
   },
   {
+    "id": "github",
+    "name": "GitHub",
+    "category": "Developer Tools",
+    "deal": "Free for Public Repos",
+    "code": "Automatic (Link)",
+    "url": "https://github.com",
+    "affiliate_url": "https://github.com",
+    "tracking_id": "github_001",
+    "has_affiliate": false,
+    "desc": "Free source code hosting with CI/CD, Pages, and Actions for public repositories.",
+    "tags": "git,ci-cd,pages,actions,collaboration"
+  },
+  {
+    "id": "gitlab",
+    "name": "GitLab",
+    "category": "Developer Tools",
+    "deal": "Free DevOps Platform",
+    "code": "Automatic (Link)",
+    "url": "https://gitlab.com",
+    "affiliate_url": "https://gitlab.com",
+    "tracking_id": "gitlab_001",
+    "has_affiliate": false,
+    "desc": "Free DevOps platform with Git repos, CI/CD, container registry, and project management.",
+    "tags": "git,ci-cd,devops,container-registry,collaboration"
+  },
+  {
+    "id": "gitpod",
+    "name": "Gitpod",
+    "category": "Developer Tools",
+    "deal": "Free for 50 hours/month",
+    "code": "Automatic (Link)",
+    "url": "https://www.gitpod.io",
+    "affiliate_url": "https://www.gitpod.io",
+    "tracking_id": "gitpod_001",
+    "has_affiliate": false,
+    "desc": "Cloud development environments that spin up instantly from any Git repository.",
+    "tags": "ide,cloud-development,git,dev-environment,codespaces"
+  },
+  {
+    "id": "hoppscotch",
+    "name": "Hoppscotch",
+    "category": "Developer Tools",
+    "deal": "Free & Open Source",
+    "code": "Automatic (Link)",
+    "url": "https://hoppscotch.io",
+    "affiliate_url": "https://hoppscotch.io",
+    "tracking_id": "hoppscotch_001",
+    "has_affiliate": false,
+    "desc": "Open-source API development platform for testing REST, GraphQL, and WebSocket APIs.",
+    "tags": "api,testing,rest,graphql,websocket,open-source"
+  },
+  {
+    "id": "koyeb",
+    "name": "Koyeb",
+    "category": "Hosting & Cloud",
+    "deal": "Free Tier for Web Services",
+    "code": "Automatic (Link)",
+    "url": "https://www.koyeb.com",
+    "affiliate_url": "https://www.koyeb.com",
+    "tracking_id": "koyeb_001",
+    "has_affiliate": false,
+    "desc": "Serverless hosting platform with global deployment, Docker containers, and free tier.",
+    "tags": "serverless,docker,hosting,edge,global"
+  },
+  {
     "id": "linear",
     "name": "Linear",
     "category": "Developer Tools",
@@ -76,6 +219,19 @@
     "has_affiliate": false,
     "desc": "Issue tracking and project management for software teams.",
     "tags": "project-management,issues,git,productivity"
+  },
+  {
+    "id": "minio",
+    "name": "MinIO",
+    "category": "Storage & Cloud",
+    "deal": "Free & Open Source",
+    "code": "Automatic (Link)",
+    "url": "https://min.io",
+    "affiliate_url": "https://min.io",
+    "tracking_id": "minio_001",
+    "has_affiliate": false,
+    "desc": "Open-source S3-compatible object storage for on-premise and hybrid cloud deployments.",
+    "tags": "storage,s3,open-source,object-storage,self-hosted"
   },
   {
     "id": "mongodb",
@@ -130,6 +286,19 @@
     "tags": "tunneling,webhooks,debugging,https"
   },
   {
+    "id": "nx",
+    "name": "Nx",
+    "category": "Developer Tools",
+    "deal": "Free & Open Source",
+    "code": "Automatic (Link)",
+    "url": "https://nx.dev",
+    "affiliate_url": "https://nx.dev",
+    "tracking_id": "nx_001",
+    "has_affiliate": false,
+    "desc": "Monorepo build system with intelligent code generation, caching, and dependency graph analysis.",
+    "tags": "monorepo,build-system,code-generation,caching,typescript"
+  },
+  {
     "id": "planetscale",
     "name": "PlanetScale",
     "category": "Database",
@@ -169,6 +338,32 @@
     "tags": "email,transactional,api,marketing"
   },
   {
+    "id": "railway",
+    "name": "Railway",
+    "category": "Hosting & Cloud",
+    "deal": "$5/month Free Credits",
+    "code": "Automatic (Link)",
+    "url": "https://railway.app",
+    "affiliate_url": "https://railway.app",
+    "tracking_id": "railway_001",
+    "has_affiliate": false,
+    "desc": "Full-stack hosting with instant deploys, databases, and monitoring. $5 free credits monthly.",
+    "tags": "hosting,docker,postgres,redis,deploy"
+  },
+  {
+    "id": "redis-cloud",
+    "name": "Redis Cloud",
+    "category": "Database",
+    "deal": "Free 30MB Tier",
+    "code": "Automatic (Link)",
+    "url": "https://redis.com",
+    "affiliate_url": "https://redis.com",
+    "tracking_id": "rediscloud_001",
+    "has_affiliate": false,
+    "desc": "Managed Redis database with caching, pub/sub, and vector search. Free 30MB tier.",
+    "tags": "redis,cache,pub-sub,database,vector"
+  },
+  {
     "id": "render",
     "name": "Render",
     "category": "Hosting & Cloud",
@@ -206,6 +401,19 @@
     "has_affiliate": true,
     "desc": "Error monitoring and performance tracking for web and mobile apps.",
     "tags": "errors,monitoring,performance,debugging"
+  },
+  {
+    "id": "snyk",
+    "name": "Snyk",
+    "category": "Security",
+    "deal": "Free for Open Source",
+    "code": "Automatic (Link)",
+    "url": "https://snyk.io",
+    "affiliate_url": "https://snyk.io",
+    "tracking_id": "snyk_001",
+    "has_affiliate": false,
+    "desc": "Developer security platform for finding and fixing vulnerabilities in dependencies.",
+    "tags": "security,vulnerabilities,dependencies,sca,scanning"
   },
   {
     "id": "stripe",

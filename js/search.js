@@ -78,7 +78,7 @@ function renderDeals() {
   let filtered = dealsData;
 
   if (currentCategory !== 'all') {
-    filtered = filtered.filter(deal => deal.category.toLowerCase() === currentCategory.toLowerCase());
+    filtered = filtered.filter(deal => deal.category.toLowerCase().includes(currentCategory.toLowerCase()));
   }
 
   if (query) {
