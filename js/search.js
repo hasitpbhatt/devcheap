@@ -27,7 +27,8 @@ async function loadDeals() {
   try {
     const response = await fetch('data/deals.json');
     if (!response.ok) throw new Error('Failed to load deals data.');
-    return await response.json();
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.error('Error fetching deals:', error);
     return [];
