@@ -69,7 +69,8 @@ describe('deals.json schema', () => {
       'APIs & Search', 'AI & LLM', 'Auth', 'Developer Tools',
       'Monitoring', 'Domains & Hosting', 'Storage & Cloud', 'Security',
       'Productivity', 'SEO', 'AI', 'Social Media', 'Customer Support',
-      'Sales & Marketing', 'Services', 'APIs & Email', 'APIs & Payments'
+      'Sales & Marketing', 'Services', 'APIs & Email', 'APIs & Payments',
+      'Design & Collaboration', 'Web Analytics', 'Media & Images', 'CI/CD', 'Testing & QA'
     ];
     deals.forEach((deal, i) => {
       expect(validCategories).toContain(deal.category);
