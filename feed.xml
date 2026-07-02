@@ -5,7 +5,7 @@
     <link>https://devcheap.click/</link>
     <description>Verified deals on APIs, hosting, databases, and AI tools. Free credits, lifetime discounts, and limited offers curated weekly.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 09:22:53 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 05:23:45 GMT</lastBuildDate>
     <atom:link href="https://devcheap.click/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Aiven â€” Free Tier (Postgres, MySQL, Redis)</title>
@@ -654,6 +654,326 @@
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">workiom</guid>
       <category>Productivity</category>
+    </item>
+    <item>
+      <title>Groq â€” Free Tier (30 RPM, 14,400 req/day)</title>
+      <link>https://devcheap.click/groq</link>
+      <description>Fastest LLM inference at 30 RPM free — no credit card, 240 tok/s on Llama 3 Ultra-fast LLM inference API with free tier supporting 30 requests/min and 14,400 requests/day. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">groq</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Mistral AI â€” Free Experiment Tier (1B tokens/mo)</title>
+      <link>https://devcheap.click/mistral</link>
+      <description>1B free tokens/month on Mistral models — no credit card, open-weight models Open-source LLM API with generous free Experiment tier offering 1 billion tokens/month. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">mistral</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Google Gemini API â€” Free Tier (Flash models, 1M context)</title>
+      <link>https://devcheap.click/google-gemini</link>
+      <description>Free Gemini Flash with 1M token context — build AI apps at zero cost Google&apos;s multimodal AI API with free tier for Flash models featuring a 1M token context window.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">google-gemini</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>xAI Grok API â€” $25 Free Credits + Data Sharing Program</title>
+      <link>https://devcheap.click/xai-grok</link>
+      <description>$25-$175/mo free Grok API credits — access cutting-edge LLM for free Grok API from xAI with $25 free credits for new users and up to $150/month via data sharing program.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">xai-grok</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>OpenRouter â€” Free Tier (30+ Models, 20 RPM)</title>
+      <link>https://devcheap.click/openrouter</link>
+      <description>Free access to 30+ LLMs via one API — compare GPT-4, Claude, Gemini from a single endpoint Unified API for 30+ LLMs including free models with 20 requests per minute rate limit.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">openrouter</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>AssemblyAI â€” $50 Free Credits (~185 hours)</title>
+      <link>https://devcheap.click/assemblyai</link>
+      <description>$50 free speech-to-text credits — transcribe ~185 hours of audio for free Speech-to-text API with high accuracy, speaker diarization, and content moderation. $50 free credits on signup.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">assemblyai</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Deepgram â€” $200 Free Credits</title>
+      <link>https://devcheap.click/deepgram</link>
+      <description>$200 free credits for speech AI — real-time transcription and TTS without upfront cost Real-time speech-to-text, text-to-speech, and audio intelligence API with $200 free credits.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">deepgram</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Cohere â€” Free Trial (1,000 API calls/month)</title>
+      <link>https://devcheap.click/cohere</link>
+      <description>1,000 free API calls/month for embeddings and RAG — no credit card required Enterprise LLM API for embedding, RAG, classification, and text generation. Free trial with 1,000 calls/month.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">cohere</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>ElevenLabs â€” 10,000 Characters/Month Free</title>
+      <link>https://devcheap.click/elevenlabs</link>
+      <description>10K free characters/month for TTS — generate professional voiceovers at no cost AI voice synthesis and text-to-speech API with 10,000 free characters per month and 29 languages.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">elevenlabs</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Cerebras â€” Free Tier (1M tokens/day, 2,100 tok/s)</title>
+      <link>https://devcheap.click/cerebras</link>
+      <description>1M free tokens/day at 2,100 tok/s — fastest LLM inference available Ultra-fast LLM inference using Wafer-Scale Engine. Free tier with 1 million tokens per day.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">cerebras</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Modal â€” $30/mo Free Compute Credits</title>
+      <link>https://devcheap.click/modal</link>
+      <description>$30/mo free GPU credits (with CC) — run A100 or H100 inference, per-second billing, no idle cost Serverless GPU platform for AI/ML workloads. $30/month free compute credits (requires credit card; $1 without). Per-second billing, no idle costs. 10 GPU concurrency on free tier.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">modal</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Beam â€” $30/mo Free Compute Credits</title>
+      <link>https://devcheap.click/beam</link>
+      <description>$30/mo free GPU credits (with CC) — open-source, fast cold starts, wide GPU selection Open-source serverless GPU platform. $30/month free credits (requires credit card; $1 without). Supports T4, A10G, A100, H100, RTX 4090. Sub-second cold starts, Python SDK.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">beam</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Lightning AI â€” 80 Free GPU Hours/Month</title>
+      <link>https://devcheap.click/lightning-ai</link>
+      <description>80 free GPU hours/month — solid for learning/prototyping, not for production deployment Cloud AI development platform with persistent VS Code-like environment. 80 free GPU hours/month. Phone verification required. Best for learning and prototyping — not for production serving.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">lightning-ai</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Nebius AI â€” $2K–$150K Startup Credits</title>
+      <link>https://devcheap.click/nebius-ai</link>
+      <description>$2K–$150K AI startup credits — only useful for registered companies with funding AI cloud platform for ML training and inference. AI Explorer: $2K cloud + $2K inference credits. AI Builder/Scaler: up to $150K (requires VC backing, legal entity, logo exchange). Not available to individuals.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">nebius-ai</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>GitHub Models â€” Free Tier (40+ Models, Rate-Limited)</title>
+      <link>https://devcheap.click/github-models</link>
+      <description>Free frontier model APIs with just a GitHub account — GPT-4o, DeepSeek-R1, Llama 3.3 at zero cost Free rate-limited API access to 40+ frontier models including GPT-4o, GPT-5, DeepSeek-R1, Llama 3.3 70B, and Mistral. Requires only a GitHub account. OpenAI-compatible endpoint at https://models.github.ai. Prototyping only per ToS.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">github-models</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Cloudflare Workers AI â€” 10,000 Neurons/Day Free</title>
+      <link>https://devcheap.click/cloudflare-workers-ai</link>
+      <description>10K free neurons/day on Cloudflare&apos;s global edge — ~200 LLM requests daily with no credit card Global edge inference platform with 10,000 free neurons per day (resets daily — ~200 LLM requests). 50+ open-source models including Llama 3.3, Mistral Small, Qwen, Stable Diffusion XL, Whisper. No credit card needed. Runs on 300+ global data centers.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">cloudflare-workers-ai</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>NVIDIA NIM â€” Free Tier (1K-5K Inference Credits)</title>
+      <link>https://devcheap.click/nvidia-nim</link>
+      <description>1K-5K free inference credits on NVIDIA hardware — test A100/H100 inference for free (phone verification often broken) Free LLM inference API with 1,000-5,000 inference credits. Access to 160+ models with ~50 free endpoints including Nemotron, Llama, Qwen, and DeepSeek. 40 requests per minute. Self-host available free on up to 16 GPUs. Phone verification required — system is frequently reported as broken.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">nvidia-nim</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>HuggingFace Inference Providers â€” $0.10/Month Free Credits</title>
+      <link>https://devcheap.click/huggingface-providers</link>
+      <description>$0.10/mo free inference credits — token-level pricing on thousands of open models from HuggingFace HuggingFace&apos;s official inference API with $0.10/month in free credits. Access to thousands of open-source models via serverless inference (limited to models under 10GB; some popular larger models also supported).</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">huggingface-providers</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Vercel AI Gateway â€” $5/Month Free Credits (Limited Models)</title>
+      <link>https://devcheap.click/vercel-ai-gateway</link>
+      <description>$5/mo free AI gateway credits — unified billing and observability, but many models blocked on free tier AI gateway with unified billing and observability across providers. $5/month free credits for a restricted subset of models. Many premium models (Gemini 3, Claude Opus, DeepSeek, Grok) are blocked on the free tier. Best for Vercel ecosystem users.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">vercel-ai-gateway</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>SambaNova Cloud â€” $5 Credits + Ongoing Free Tier (~200K tok/day)</title>
+      <link>https://devcheap.click/sambanova-cloud</link>
+      <description>$5 credits + permanent free tier at ~200K tok/day — fastest inference on open models, no CC required Fastest inference for open models using custom RDU hardware. $5 free credits (~30M tokens on Llama 8B) plus an ongoing rate-limited free tier (~200K tokens/day, ~40 requests/day) that continues after credits expire. No credit card needed. Models include DeepSeek V3.1, Llama 3.3 70B, MiniMax M2.7, Gemma 4.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">sambanova-cloud</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Scaleway Generative APIs â€” 1 Million Free Tokens</title>
+      <link>https://devcheap.click/scaleway-gen-apis</link>
+      <description>1M free tokens on EU-hosted models — GDPR-compliant inference with Qwen 3.5 and Mistral (CC + phone required) European cloud provider&apos;s generative AI API with 1 million free one-time tokens + 60 min free audio transcription. 17 models including Qwen 3.5 397B, Mistral Medium 3.5, Gemma 4, Llama 3.3. Credit card and phone verification required. GDPR-compliant, EU data centers.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">scaleway-gen-apis</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Baseten â€” $30 Free GPU Credits (One-Time)</title>
+      <link>https://devcheap.click/baseten</link>
+      <description>$30 free GPU credits for model deployment — test custom LLM inference on A100s/H100s GPU model deployment platform. $30 one-time free credits for deploying custom models or using the Model Library. Pay-per-minute GPU billing (T4: $0.63/hr, A100: $4.00/hr, H100: $6.50/hr). Credit card required after credits are exhausted.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">baseten</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>AI21 Studio â€” $10 Free Credits (3 Months)</title>
+      <link>https://devcheap.click/ai21</link>
+      <description>$10 free Jamba API credits for 3 months — test 256K-context models at no cost Jamba family LLM API (Jamba Large 398B, Jamba Mini 52B, Jamba 3B) all with 256K context window. $10 free credits valid for 3 months. No permanent free tier — credit card required after trial.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">ai21</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Upstage â€” $10 Free Credits (3 Months)</title>
+      <link>https://devcheap.click/upstage</link>
+      <description>$10 free Solar API credits for 3 months — test Korean AI lab&apos;s LLM for free Solar Pro/Mini LLM API from Upstage (Korean AI lab). $10 free credits valid for 3 months. No permanent free tier.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">upstage</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>NLP Cloud â€” $15 Free Credits</title>
+      <link>https://devcheap.click/nlp-cloud</link>
+      <description>$15 free NLP API credits — test various open models with a generous trial (phone verification needed) NLP API platform offering $15 free credits on signup. Access to various open-source models for text generation, embeddings, and classification. Phone number verification required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">nlp-cloud</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Alibaba Cloud Model Studio â€” 1 Million Free Tokens Per Model</title>
+      <link>https://devcheap.click/alibaba-model-studio</link>
+      <description>1M free tokens per model on Qwen — test Alibaba&apos;s latest LLMs including Qwen 3.5/3.6 Alibaba Cloud&apos;s Model Studio offering 1 million free tokens per model. Access to Qwen family models including Qwen 3.5 and Qwen 3.6. International account and credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">alibaba-model-studio</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Inference.net â€” $1 Free Credit ($25 on Survey)</title>
+      <link>https://devcheap.click/inference-net</link>
+      <description>$1 free + $25 survey credit — decent trial for testing open model inference LLM inference API with $1 free credit on signup and $25 additional credit for completing an email survey. Various open-source models available.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">inference-net</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Hyperbolic â€” $1 Free Credit</title>
+      <link>https://devcheap.click/hyperbolic</link>
+      <description>$1 free inference credit — test DeepSeek and Llama models at near-zero cost, no CC needed LLM inference API with $1 free credit on signup. Access to DeepSeek V3, Llama 3.3 70B, DeepSeek-R1, and Qwen models. No credit card needed.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">hyperbolic</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Fireworks â€” $1 Free Credits</title>
+      <link>https://devcheap.click/fireworks</link>
+      <description>$1 free inference credits — test fast open model API at near-zero cost Fast LLM inference API with $1 free credits on signup. Access to various open-source models including Llama, Mistral, and Qwen. Optimized for low-latency inference.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">fireworks</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Novita â€” $0.50 Free Credits (1 Year)</title>
+      <link>https://devcheap.click/novita</link>
+      <description>$0.50 free inference credits valid for 1 year — minimal but enough for a quick API test LLM inference API with $0.50 free credits valid for 1 year. Access to various open-source models. Minimal but usable for a quick API test.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">novita</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Netlify â€” 300 Credits/Month Free</title>
+      <link>https://devcheap.click/netlify</link>
+      <description>300 free credits/month on Netlify — deploy unlimited previews, static sites, and serverless functions with no CC Netlify&apos;s free tier includes 300 credits/month (~$2 value), unlimited deploy previews, custom domains with automated SSL, serverless Functions (125K requests/mo), edge functions, and form handling. No credit card required. Credits cover build minutes, function executions, and edge invocations.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">netlify</guid>
+      <category>Hosting &amp; Cloud</category>
+    </item>
+    <item>
+      <title>Figma â€” Free Starter Plan</title>
+      <link>https://devcheap.click/figma</link>
+      <description>Industry-standard design tool with a generous free Starter plan — 150 AI credits/day, unlimited viewers, no CC Figma&apos;s forever-free Starter plan includes unlimited drafts and personal files, UI kits and templates, 150 AI credits/day (up to 500/month), unlimited viewers and commenters, and mobile app access. Pro ($12/mo) adds unlimited AI credits and version history. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">figma</guid>
+      <category>Design &amp; Collaboration</category>
+    </item>
+    <item>
+      <title>PostHog â€” 1M Events/Month Free</title>
+      <link>https://devcheap.click/posthog</link>
+      <description>Best free product analytics platform — 1M events/mo, session recordings, feature flags, surveys, all open-source, no CC PostHog&apos;s generous free tier includes 1 million events/month, 5,000 session recordings, 1 million feature flag requests, 100K error tracking exceptions, 1,500 survey responses, and 50GB of logs. Open-source product analytics platform. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">posthog</guid>
+      <category>Web Analytics</category>
+    </item>
+    <item>
+      <title>Cloudinary â€” 25 Monthly Credits Free</title>
+      <link>https://devcheap.click/cloudinary</link>
+      <description>25 free monthly credits for image/video optimization and CDN — standard media transformation tool, no CC Cloudinary&apos;s free tier provides 25 monthly credits (reset each month) for image and video transformations, optimization, and CDN delivery. Includes 3 users and 1 account. Credits cover transformations, storage, and bandwidth. Low-volume but free. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">cloudinary</guid>
+      <category>Media &amp; Images</category>
+    </item>
+    <item>
+      <title>Plausible â€” 30-Day Free Trial</title>
+      <link>https://devcheap.click/plausible</link>
+      <description>30-day free trial of privacy-first analytics — cookie-less, GDPR-compliant, no CC required ($9/mo after) Plausible offers a 30-day free trial (no credit card required) of their privacy-focused web analytics. After trial, pricing starts at $9/month for 10,000 pageviews. Cookie-less, GDPR-compliant, open-source alternative to Google Analytics.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">plausible</guid>
+      <category>Web Analytics</category>
+    </item>
+    <item>
+      <title>Tally â€” Free Forever Plan</title>
+      <link>https://devcheap.click/tally</link>
+      <description>Best free form builder — unlimited forms, submissions, logic, file uploads, e-signatures, payments, no CC Tally&apos;s free forever plan includes unlimited forms, unlimited submissions, conditional logic, file uploads, e-signatures, payment collection (Stripe), and Google Sheets integration. No user limits. Pro ($29/mo) adds workspace members, custom branding, and webhooks. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">tally</guid>
+      <category>Developer Tools</category>
+    </item>
+    <item>
+      <title>CircleCI â€” 6,000 Credits/Week Free</title>
+      <link>https://devcheap.click/circleci</link>
+      <description>6,000 free CI credits/week (Linux) — viable for small projects and open-source builds, 4 concurrent jobs, no CC CircleCI&apos;s free tier provides 6,000 credits/week (Linux builds), 1 user, and 4 concurrent jobs. Each credit covers ~1 minute of CI/CD build time. Useful for small personal projects and open-source. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">circleci</guid>
+      <category>CI/CD</category>
+    </item>
+    <item>
+      <title>LaunchDarkly â€” Free Developer Tier</title>
+      <link>https://devcheap.click/launchdarkly</link>
+      <description>Enterprise-grade feature flags free — unlimited flags, unlimited seats, 10M logs, no CC — industry standard LaunchDarkly&apos;s free Developer tier includes unlimited seats, unlimited feature flags, 10M logs and traces, 5K session replays and errors, 5K AI assistant runs/month, 100 code references, and 14-day data retention. Enterprise-grade feature management platform. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">launchdarkly</guid>
+      <category>Developer Tools</category>
+    </item>
+    <item>
+      <title>BrowserStack â€” 30-Min Free Live Testing</title>
+      <link>https://devcheap.click/browserstack</link>
+      <description>30-min free live browser testing on real devices — quick cross-browser checks (paid plans start at $12.50/mo) BrowserStack&apos;s free trial includes 30 minutes of Live manual testing on real mobile and desktop devices (no CC required). 1 parallel test on Automate (requires CC). Paid plans start at $12.50/month for Live testing. Best for quick cross-browser checks.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">browserstack</guid>
+      <category>Testing &amp; QA</category>
+    </item>
+    <item>
+      <title>Retool â€” Free Tier (Unlimited Apps, 5 Users)</title>
+      <link>https://devcheap.click/retool</link>
+      <description>Best free internal tool builder — unlimited apps, 5 users, 500 workflow runs, 20h agents, no CC Retool&apos;s free tier includes unlimited web and mobile apps, 500 workflow runs/month, 5GB database capacity, up to 5 users, 20 hours/month of Agents runtime, and 250 AI credits/month. Connect to any database or API to build internal tools. No credit card required. Self-hostable version available.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">retool</guid>
+      <category>Developer Tools</category>
     </item>
   </channel>
 </rss>

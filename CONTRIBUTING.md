@@ -40,11 +40,13 @@ We enforce a strict **Issue-First** workflow. Before writing any code or modifyi
 ### 2. Prepare Your Development Environment
 1. Fork this repository and clone your fork locally.
 2. Create a feature branch named after your task (e.g., `git checkout -b feat/add-vercel-deal` or `git checkout -b fix/header-alignment`).
-3. Make your modifications (e.g. adding a new deal to `data/deals.json`).
+ 3. Make your modifications (e.g. adding a new deal to `data/deals.jsonl`).
 
 ### 3. Local Testing & Verification
 Before committing, you must verify your changes:
-* **Validate JSON syntax:** Ensure `data/deals.json` is valid JSON and conforms to the schema. You can run `jq empty data/deals.json` or open it in a validator.
+* **Validate JSONL syntax:** Each line in `data/deals.jsonl` must be valid JSON. Run `npm run validate:jsonl`.
+* **Run tests:** Run `npm test` to ensure schema validation, UI interactions, HTML structure, and accessibility checks pass.
+* **Regenerate RSS:** Run `pwsh scripts/generate-feed.ps1` to regenerate `feed.xml` from the deal database.
 * **Validate Links:** Double-check that all URLs added are active, direct, secure (HTTPS), and point to the official site. **Do not submit affiliate, spam, or tracking redirect links.**
 * **Local Preview:** Run a local server (e.g. `python -m http.server 8000`) and verify that the page renders correctly and search/filters work as expected.
 
@@ -73,7 +75,7 @@ Your PR **must** include the following details in its description:
 ### Deal Submission Checklist:
 * `id`: Must be a unique, lowercase string (e.g. `supabase`).
 * `name`: The official brand/service name.
-* `category`: Must match one of the predefined catalog categories: `Hosting`, `Database`, `APIs`, `AI & LLM`, `Auth`, or `Tools`.
+* `category`: Must match a known catalog category. Current categories: Hosting & Cloud, Database, APIs & Email, APIs & Payments, APIs & Search, AI & LLM, Auth, Developer Tools, Monitoring, Domains & Hosting, Storage & Cloud, Security, Productivity, SEO, AI, Social Media, Customer Support, Sales & Marketing, Services, Design & Collaboration, Web Analytics, Media & Images, CI/CD, Testing & QA.
 * `deal`: Clear description of the value (e.g., `$100 Free Credit` or `20% Off Lifetime`).
 * `code`: Explicit coupon code, or `Automatic (Link)` if it applies automatically.
 * `url`: Direct signup link (no tracker-hijacked URLs).
