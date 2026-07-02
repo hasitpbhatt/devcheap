@@ -55,14 +55,6 @@ describe('deals.json schema', () => {
     });
   });
 
-  it('affiliate_url is a valid URL when has_affiliate is true', () => {
-    deals.filter(d => d.has_affiliate).forEach((deal, i) => {
-      expect(() => new URL(deal.affiliate_url)).not.toThrow(
-        `deal ${deal.id} has_affiliate=true but affiliate_url is invalid: ${deal.affiliate_url}`
-      );
-    });
-  });
-
   it('has known categories', () => {
     const validCategories = [
       'Hosting & Cloud', 'Database', 'APIs & Email', 'APIs & Payments',

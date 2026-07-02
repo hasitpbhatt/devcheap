@@ -4,7 +4,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/hasitpbhatt/devcheap)](https://github.com/hasitpbhatt/devcheap/commits/main)
 [![Deployed](https://img.shields.io/badge/Cloudflare%20Pages-Deployed-brightgreen)](https://devcheap.click)
 
-Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **121 deals** across **23 categories**.
+Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **143 deals** across **23 categories**.
 
 ---
 
@@ -23,7 +23,7 @@ devcheap/
 ├── .github/workflows/   # CI/deploy pipelines (Cloudflare Pages)
 ├── css/                 # Stylesheets (light/dark theme)
 ├── data/
-│   └── deals.jsonl      # Deal database (JSONL format, 121 lines)
+│   └── deals.jsonl      # Deal database (JSONL format, 127 lines)
 ├── functions/api/       # Cloudflare Functions (email subscribe)
 ├── js/                  # Search, category filter, affiliate tracking
 ├── scripts/             # Utility scripts (feed generation, data entry)
@@ -44,26 +44,26 @@ devcheap/
 
 | Category | Deals |
 |---|---|
-| AI & LLM | 30 |
-| Developer Tools | 18 |
-| Hosting & Cloud | 13 |
-| Database | 10 |
-| APIs & Email | 8 |
+| AI & LLM | 32 |
+| Developer Tools | 20 |
+| Hosting & Cloud | 15 |
+| Database | 11 |
+| APIs & Email | 10 |
 | AI | 7 |
+| Design & Collaboration | 8 |
 | Security | 6 |
-| Monitoring | 4 |
-| Productivity | 4 |
+| Productivity | 7 |
+| Monitoring | 5 |
 | Domains & Hosting | 3 |
 | Auth | 2 |
 | Storage & Cloud | 2 |
 | APIs & Payments | 2 |
 | SEO | 2 |
-| Web Analytics | 2 |
+| Web Analytics | 3 |
+| Customer Support | 2 |
 | APIs & Search | 1 |
 | Social Media | 1 |
-| Customer Support | 1 |
 | Sales & Marketing | 1 |
-| Design & Collaboration | 1 |
 | Media & Images | 1 |
 | CI/CD | 1 |
 | Testing & QA | 1 |
@@ -77,13 +77,14 @@ The site offers four toggle-able filter chips below the category buttons:
 | Chip | Behaviour | Group |
 |---|---|---|
 | **Recommended** | Shows only deals tagged `recommended`. Independent toggle — combinable with any other filter. | None (standalone) |
+| **Spotlight** | Shows only deals tagged `spotlight`. Independent toggle — combinable with any other filter. | None (standalone) |
 | **Expiring Soon** | Deals with an `expires` date within the next 30 days. Mutually exclusive with No Expiry. | Expiry |
 | **No Expiry** | Deals with no `expires` field. Mutually exclusive with Expiring Soon. | Expiry |
 | **Coupons** | Shows only deals with a copyable coupon code (excludes automatic/link codes). Independent toggle — combinable with any other filter. | None (standalone) |
 
-Category buttons for categories present in `data/deals.jsonl` but not hardcoded in `index.html` are generated dynamically on page load. Deals tagged `recommended` also show a star badge on their card.
+Category buttons for categories present in `data/deals.jsonl` but not hardcoded in `index.html` are generated dynamically on page load. Deals tagged `recommended` show a star badge and deals tagged `spotlight` show a sparkle badge on their card.
 
-All filter state is persisted in URL query parameters (e.g. `?recommended=1&expiringSoon=1`).
+All filter state is persisted in URL query parameters (e.g. `?recommended=1&spotlight=1&expiringSoon=1`).
 
 ---
 

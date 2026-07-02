@@ -98,25 +98,6 @@ describe('Hero section', () => {
   });
 });
 
-describe('Popup', () => {
-  it('has popup overlay', () => {
-    const popup = document.getElementById('popup');
-    expect(popup).not.toBeNull();
-  });
-
-  it('has close button', () => {
-    const close = document.getElementById('popup-close');
-    expect(close).not.toBeNull();
-  });
-
-  it('has popup body content', () => {
-    const title = document.querySelector('.popup-title');
-    const desc = document.querySelector('.popup-desc');
-    expect(title).not.toBeNull();
-    expect(desc).not.toBeNull();
-  });
-});
-
 describe('Navigation', () => {
   it('has theme toggle', () => {
     const toggle = document.getElementById('theme-toggle');

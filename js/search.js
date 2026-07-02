@@ -1,11 +1,10 @@
 let dealsData = [];
-var currentCategory = 'all';
+var activeCategories = [];
 let searchTimeout = null;
-let activeFilters = { recommended: false, expiringSoon: false, noExpiry: false, hasCoupon: false };
+let activeFilters = { recommended: false, spotlight: false, expiringSoon: false, noExpiry: false, hasCoupon: false };
 const EXPIRY_FILTER_KEYS = ['expiringSoon', 'noExpiry'];
 
 const UTM_SOURCE = 'devcheap.click';
-const REPORT_EMAIL = 'hi@devcheap.page';
 const UTM_MEDIUM = 'website';
 const UTM_CAMPAIGN = 'deal_click';
 
@@ -91,8 +90,8 @@ function renderDeals() {
 
   let filtered = dealsData;
 
-  if (currentCategory !== 'all') {
-    filtered = filtered.filter(deal => deal.category.toLowerCase().includes(currentCategory.toLowerCase()));
+  if (activeCategories.length > 0) {
+    filtered = filtered.filter(deal => activeCategories.some(cat => deal.category.toLowerCase().includes(cat.toLowerCase())));
   }
 
   if (query) {
@@ -107,6 +106,9 @@ function renderDeals() {
 
   if (activeFilters.recommended) {
     filtered = filtered.filter(deal => deal.tags && deal.tags.toLowerCase().includes('recommended'));
+  }
+  if (activeFilters.spotlight) {
+    filtered = filtered.filter(deal => deal.tags && deal.tags.toLowerCase().includes('spotlight'));
   }
   if (activeFilters.expiringSoon) {
     const now = new Date();
@@ -134,11 +136,24 @@ function renderDeals() {
   }
 
   if (filtered.length === 0) {
+    const activeChips = [];
+    const rawQuery = document.getElementById('search-input').value.trim();
+    if (rawQuery) activeChips.push({ label: `"${rawQuery}"`, type: 'search' });
+    activeCategories.forEach(cat => activeChips.push({ label: cat.charAt(0).toUpperCase() + cat.slice(1), type: 'category' }));
+    if (activeFilters.recommended) activeChips.push({ label: 'Recommended', type: 'recommended' });
+    if (activeFilters.spotlight) activeChips.push({ label: 'Spotlight', type: 'spotlight' });
+    if (activeFilters.expiringSoon) activeChips.push({ label: 'Expiring Soon', type: 'expiringSoon' });
+    if (activeFilters.noExpiry) activeChips.push({ label: 'No Expiry', type: 'noExpiry' });
+    if (activeFilters.hasCoupon) activeChips.push({ label: 'Coupons', type: 'hasCoupon' });
+    const chipsHTML = activeChips.length > 0 ? `<div class="empty-chips">${activeChips.map(c => `<span class="empty-chip empty-chip--${c.type}">${c.label}</span>`).join('')}</div>` : '';
+    const hasAnyFilter = activeChips.length > 0;
     gridEl.innerHTML = `
       <div class="empty-state">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         <h3>No deals found</h3>
-        <p>Try adjusting your keywords or category filters</p>
+        <p>${hasAnyFilter ? 'No deals match your current filters.' : 'Try adjusting your keywords or category filters.'}</p>
+        ${chipsHTML}
+        ${hasAnyFilter ? '<button type="button" class="empty-clear-btn">Clear all filters</button>' : ''}
       </div>`;
     return;
   }
@@ -146,7 +161,7 @@ function renderDeals() {
   filtered.forEach((deal, index) => {
     const card = document.createElement('div');
     card.className = 'deal-card';
-    card.style.animationDelay = `${index * 40}ms`;
+    card.style.animationDelay = `${index * 20}ms`;
 
     let tagsHTML = '';
     if (deal.tags) {
@@ -166,14 +181,16 @@ function renderDeals() {
     const whyHTML = deal.why ? `<p class="deal-card-why">${deal.why}</p>` : '';
     const isRecommended = deal.tags && deal.tags.toLowerCase().includes('recommended');
     const recommendedBadge = isRecommended ? `<span class="deal-card-badge-recommended"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Recommended</span>` : '';
+    const isSpotlight = deal.tags && deal.tags.toLowerCase().includes('spotlight');
+    const spotlightBadge = isSpotlight ? `<span class="deal-card-badge-spotlight"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l2.4 7.2L22 9.6l-5.6 4.8L18 22l-6-3.6L6 22l1.6-7.6L2 9.6l7.6-.4L12 2z"/></svg> Spotlight</span>` : '';
 
     card.innerHTML = `
       <div class="deal-card-header">
         <h3 class="deal-card-title">${deal.name}</h3>
         <span class="deal-card-cat">${deal.category}</span>
       </div>
-      ${recommendedBadge}
       <div class="deal-card-deal">${deal.deal}</div>
+      ${recommendedBadge}${spotlightBadge}
       ${whyHTML}
       <p class="deal-card-desc">${deal.desc}</p>
       <div class="deal-card-tags">${tagsHTML}${expiresHTML}</div>
@@ -181,15 +198,17 @@ function renderDeals() {
         <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>
         ${couponBtn}
       </div>
-      <a href="mailto:${REPORT_EMAIL}?subject=Expired%20Deal%3A%20${encodeURIComponent(deal.name)}&body=Deal%20ID%3A%20${encodeURIComponent(deal.id)}%0ADeal%3A%20${encodeURIComponent(deal.deal)}%0AURL%3A%20${encodeURIComponent(deal.url)}%0A" class="deal-card-report" target="_blank" rel="noopener noreferrer">Report Expired</a>`;
+      `;
     gridEl.appendChild(card);
   });
+  renderActiveFilterBadges();
 }
 
 function copyCoupon(button, code) {
   const dealId = button.dataset.dealId;
   navigator.clipboard.writeText(code).then(() => {
     const originalHTML = button.innerHTML;
+    button.classList.add('copied');
     button.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
     button.style.color = 'var(--green)';
     button.style.borderColor = 'var(--green)';
@@ -201,7 +220,8 @@ function copyCoupon(button, code) {
       button.innerHTML = originalHTML;
       button.style.color = '';
       button.style.borderColor = '';
-    }, 2000);
+      button.classList.remove('copied');
+    }, 1500);
   }).catch(err => console.error('Could not copy code:', err));
 }
 
@@ -285,66 +305,6 @@ function showInlineError(button, msg = 'Something went wrong') {
   }, 3000);
 }
 
-function setupNewsletterPopup() {
-  const popup = document.getElementById('popup');
-  const closeBtn = document.getElementById('popup-close');
-  if (!popup || !closeBtn) return;
-
-  const isDismissed = localStorage.getItem('devcheap_popup_dismissed');
-  if (!isDismissed) {
-    setTimeout(() => popup.classList.add('show'), 5000);
-  }
-
-  closeBtn.addEventListener('click', () => {
-    popup.classList.remove('show');
-    localStorage.setItem('devcheap_popup_dismissed', 'true');
-  });
-
-  popup.addEventListener('click', (e) => {
-    if (e.target === popup) {
-      popup.classList.remove('show');
-      localStorage.setItem('devcheap_popup_dismissed', 'true');
-    }
-  });
-
-  const form = document.getElementById('popup-form');
-  if (!form) return;
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const input = document.getElementById('popup-email');
-    const btn = form.querySelector('.popup-btn');
-    if (!input.value) return;
-    btn.disabled = true;
-    const result = await subscribeToNewsletter(input.value, 'devcheap.popup');
-    if (result.ok) {
-      showInlineSuccess(form, input, btn);
-      localStorage.setItem('devcheap_subscribed', 'true');
-      setTimeout(() => popup.classList.remove('show'), 1500);
-    } else {
-      showInlineError(btn, 'Try again');
-    }
-  });
-}
-
-function setupBannerForm() {
-  const form = document.getElementById('banner-form');
-  if (!form) return;
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const input = document.getElementById('banner-email');
-    const btn = form.querySelector('.banner-submit');
-    if (!input.value) return;
-    btn.disabled = true;
-    const result = await subscribeToNewsletter(input.value, 'devcheap.banner');
-    if (result.ok) {
-      showInlineSuccess(form, input, btn);
-    } else {
-      showInlineError(btn, 'Try again');
-    }
-  });
-}
-
 function setupNewsletterForm() {
   const form = document.getElementById('newsletter-form');
   if (!form) return;
@@ -425,27 +385,30 @@ function animateCounters() {
   });
 }
 
-function updateCategoryURL(category) {
+function updateCategoryURL(categories) {
   const url = new URL(window.location);
-  if (category === 'all') {
+  if (!categories || categories.length === 0) {
     url.searchParams.delete('category');
   } else {
-    url.searchParams.set('category', category);
+    url.searchParams.set('category', categories.join(','));
   }
   window.history.replaceState(null, '', url);
 }
 
-function updateBreadcrumbJSONLD(category) {
+function updateBreadcrumbJSONLD(categories) {
   const scripts = document.querySelectorAll('script[type="application/ld+json"]');
   for (const script of scripts) {
     try {
       const data = JSON.parse(script.textContent);
       if (data && data['@type'] === 'BreadcrumbList') {
-        if (category && category !== 'all') {
+        if (categories && categories.length > 0) {
+          const label = categories.length === 1
+            ? categories[0].charAt(0).toUpperCase() + categories[0].slice(1) + ' Deals'
+            : 'Multiple Categories';
           data.itemListElement = [
             { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://devcheap.click/' },
             { '@type': 'ListItem', 'position': 2, 'name': 'Deals', 'item': 'https://devcheap.click/#deals' },
-            { '@type': 'ListItem', 'position': 3, 'name': category.charAt(0).toUpperCase() + category.slice(1) + ' Deals', 'item': `https://devcheap.click/?category=${encodeURIComponent(category)}` }
+            { '@type': 'ListItem', 'position': 3, 'name': label, 'item': `https://devcheap.click/?category=${encodeURIComponent(categories.join(','))}` }
           ];
         } else {
           data.itemListElement = [
@@ -490,26 +453,51 @@ function setupCategoryDelegation() {
   const container = document.getElementById('categories-container');
   if (!container) return;
 
+  function refreshCatButtons() {
+    container.querySelectorAll('.cat-btn').forEach(t => {
+      const isActive = activeCategories.includes(t.dataset.cat);
+      t.classList.toggle('active', isActive);
+      t.setAttribute('aria-selected', isActive);
+    });
+    const allBtn = container.querySelector('.cat-btn[data-cat="all"]');
+    if (allBtn) {
+      const isAll = activeCategories.length === 0;
+      allBtn.classList.toggle('active', isAll);
+      allBtn.setAttribute('aria-selected', isAll);
+    }
+  }
+
   container.addEventListener('click', (e) => {
     const tab = e.target.closest('.cat-btn');
     if (!tab) return;
 
-    container.querySelectorAll('.cat-btn').forEach(t => {
-      t.classList.remove('active');
-      t.setAttribute('aria-selected', 'false');
-    });
-    tab.classList.add('active');
-    tab.setAttribute('aria-selected', 'true');
-    currentCategory = tab.dataset.cat;
+    const cat = tab.dataset.cat;
+    const isMulti = e.metaKey || e.ctrlKey;
+
+    if (cat === 'all') {
+      activeCategories = [];
+    } else if (isMulti) {
+      const idx = activeCategories.indexOf(cat);
+      if (idx >= 0) {
+        activeCategories.splice(idx, 1);
+      } else {
+        activeCategories.push(cat);
+      }
+    } else {
+      activeCategories = [cat];
+    }
+
+    refreshCatButtons();
     renderDeals();
-    updateCategoryURL(currentCategory);
-    updateBreadcrumbJSONLD(currentCategory);
+    updateCategoryURL(activeCategories);
+    updateBreadcrumbJSONLD(activeCategories);
   });
 }
 
 function updateFiltersURL() {
   const url = new URL(window.location);
   if (activeFilters.recommended) { url.searchParams.set('recommended', '1'); } else { url.searchParams.delete('recommended'); }
+  if (activeFilters.spotlight) { url.searchParams.set('spotlight', '1'); } else { url.searchParams.delete('spotlight'); }
   if (activeFilters.expiringSoon) { url.searchParams.set('expiringSoon', '1'); } else { url.searchParams.delete('expiringSoon'); }
   if (activeFilters.noExpiry) { url.searchParams.set('noExpiry', '1'); } else { url.searchParams.delete('noExpiry'); }
   if (activeFilters.hasCoupon) { url.searchParams.set('hasCoupon', '1'); } else { url.searchParams.delete('hasCoupon'); }
@@ -546,16 +534,40 @@ function setupFilterChips() {
   });
 }
 
+function renderActiveFilterBadges() {
+  const container = document.getElementById('active-filter-badges');
+  if (!container) return;
+  const badges = [];
+  activeCategories.forEach(cat => {
+    badges.push({ label: cat.charAt(0).toUpperCase() + cat.slice(1), filter: 'cat-' + cat });
+  });
+  if (activeFilters.recommended) badges.push({ label: 'Recommended', filter: 'recommended' });
+  if (activeFilters.spotlight) badges.push({ label: 'Spotlight', filter: 'spotlight' });
+  if (activeFilters.expiringSoon) badges.push({ label: 'Expiring Soon', filter: 'expiringSoon' });
+  if (activeFilters.noExpiry) badges.push({ label: 'No Expiry', filter: 'noExpiry' });
+  if (activeFilters.hasCoupon) badges.push({ label: 'Coupons', filter: 'hasCoupon' });
+  if (badges.length === 0) { container.innerHTML = ''; return; }
+  container.innerHTML = badges.map(b => `
+    <button type="button" class="active-filter-badge" data-filter="${b.filter}">
+      ${b.label}
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  `).join('');
+}
+
 async function boot() {
-  renderSkeletons(6);
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  const initialGridEl = document.getElementById('deals-grid');
+  const hasPreRendered = initialGridEl && initialGridEl.querySelector('.deal-card');
+  if (!hasPreRendered) {
+    renderSkeletons(6);
+  }
   dealsData = await loadDeals();
   injectItemListJSONLD(dealsData);
   setupTheme();
   if (typeof turnstile !== 'undefined' && turnstileWidgetId === null) {
     window.onTurnstileLoad();
   }
-  setupBannerForm();
-  setupNewsletterPopup();
   setupNewsletterForm();
   animateCounters();
 
@@ -580,23 +592,31 @@ async function boot() {
   setupFilterChips();
 
   const params = new URLSearchParams(window.location.search);
-  const catFromURL = params.get('category');
-  if (catFromURL) {
-    const btn = document.querySelector(`.cat-btn[data-cat="${catFromURL}"]`);
-    if (btn) {
-      document.querySelectorAll('.cat-btn').forEach(t => {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-      currentCategory = catFromURL;
+  const catsFromURL = params.get('category');
+  if (catsFromURL) {
+    const cats = catsFromURL.split(',').map(c => c.trim()).filter(Boolean);
+    const valid = cats.filter(c => document.querySelector(`.cat-btn[data-cat="${c}"]`));
+    if (valid.length > 0) {
+      activeCategories = valid;
     }
+  }
+  activeCategories.forEach(cat => {
+    const btn = document.querySelector(`.cat-btn[data-cat="${cat}"]`);
+    if (btn) { btn.classList.add('active'); btn.setAttribute('aria-selected', 'true'); }
+  });
+  if (activeCategories.length === 0) {
+    const allBtn = document.querySelector('.cat-btn[data-cat="all"]');
+    if (allBtn) { allBtn.classList.add('active'); allBtn.setAttribute('aria-selected', 'true'); }
   }
 
   if (params.get('recommended') === '1') {
     activeFilters.recommended = true;
     const chip = document.querySelector('.filter-chip[data-filter="recommended"]');
+    if (chip) { chip.classList.add('active'); chip.setAttribute('aria-pressed', 'true'); }
+  }
+  if (params.get('spotlight') === '1') {
+    activeFilters.spotlight = true;
+    const chip = document.querySelector('.filter-chip[data-filter="spotlight"]');
     if (chip) { chip.classList.add('active'); chip.setAttribute('aria-pressed', 'true'); }
   }
   if (params.get('expiringSoon') === '1') {
@@ -617,9 +637,38 @@ async function boot() {
 
   renderDeals();
 
+  const hasDealParams = params.toString() && [...params.keys()].some(k => ['category', 'recommended', 'spotlight', 'expiringSoon', 'noExpiry', 'hasCoupon'].includes(k));
+  if (hasDealParams) {
+    const dealsSection = document.getElementById('deals');
+    if (dealsSection) { try { dealsSection.scrollIntoView({ behavior: 'smooth' }); } catch (_) {} }
+  }
+
   const gridEl = document.getElementById('deals-grid');
   if (gridEl) {
     gridEl.addEventListener('click', (e) => {
+      if (e.target.closest('.empty-clear-btn')) {
+        const searchInput = document.getElementById('search-input');
+        const clearBtn = document.getElementById('clear-search-btn');
+        if (searchInput) { searchInput.value = ''; }
+        if (clearBtn) { clearBtn.style.display = 'none'; }
+        activeCategories = [];
+        document.querySelectorAll('.cat-btn').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        const allBtn = document.querySelector('.cat-btn[data-cat="all"]');
+        if (allBtn) { allBtn.classList.add('active'); allBtn.setAttribute('aria-selected', 'true'); }
+        Object.keys(activeFilters).forEach(k => activeFilters[k] = false);
+        document.querySelectorAll('.filter-chip').forEach(c => {
+          c.classList.remove('active');
+          c.setAttribute('aria-pressed', 'false');
+        });
+        updateCategoryURL([]);
+        updateBreadcrumbJSONLD([]);
+        renderDeals();
+        return;
+      }
+
       const btn = e.target.closest('[data-deal-id]');
       if (!btn) return;
 
@@ -631,6 +680,34 @@ async function boot() {
         const code = deal ? deal.code : '';
         copyCoupon(btn, code);
       }
+    });
+  }
+
+  const badgeContainer = document.getElementById('active-filter-badges');
+  if (badgeContainer) {
+    badgeContainer.addEventListener('click', (e) => {
+      const badge = e.target.closest('.active-filter-badge');
+      if (!badge) return;
+      const filter = badge.dataset.filter;
+
+      if (filter.startsWith('cat-')) {
+        const cat = filter.slice(4);
+        const idx = activeCategories.indexOf(cat);
+        if (idx >= 0) activeCategories.splice(idx, 1);
+        const btn = document.querySelector(`.cat-btn[data-cat="${cat}"]`);
+        if (btn) { btn.classList.remove('active'); btn.setAttribute('aria-selected', 'false'); }
+        const allBtn = document.querySelector('.cat-btn[data-cat="all"]');
+        if (activeCategories.length === 0 && allBtn) { allBtn.classList.add('active'); allBtn.setAttribute('aria-selected', 'true'); }
+        updateCategoryURL(activeCategories);
+        updateBreadcrumbJSONLD(activeCategories);
+      } else {
+        activeFilters[filter] = false;
+        const chip = document.querySelector(`.filter-chip[data-filter="${filter}"]`);
+        if (chip) { chip.classList.remove('active'); chip.setAttribute('aria-pressed', 'false'); }
+        updateFiltersURL();
+      }
+
+      renderDeals();
     });
   }
 }

@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, beforeEach, afterEach, vi } from 'vitest';
 
-const { setupTheme, setupNewsletterPopup } = window;
+const { setupTheme } = window;
 
 describe('setupTheme', () => {
   function freshSetupTheme() {
@@ -58,62 +58,22 @@ describe('setupTheme', () => {
   });
 });
 
-describe('Newsletter popup', () => {
-  beforeEach(() => {
-    localStorage.clear();
-    document.getElementById('popup').classList.remove('show');
-    vi.useFakeTimers();
-  });
-
-  afterEach(() => {
-    vi.clearAllTimers();
-    vi.useRealTimers();
-  });
-
-  it('shows popup after 5 seconds if not dismissed', () => {
-    setupNewsletterPopup();
-    expect(document.getElementById('popup').classList.contains('show')).toBe(false);
-    vi.advanceTimersByTime(5000);
-    expect(document.getElementById('popup').classList.contains('show')).toBe(true);
-  });
-
-  it('does not show popup if previously dismissed', () => {
-    localStorage.setItem('devcheap_popup_dismissed', 'true');
-    setupNewsletterPopup();
-    expect(document.getElementById('popup').classList.contains('show')).toBe(false);
-  });
-
-  it('dismisses popup on close button click', () => {
-    setupNewsletterPopup();
-    document.getElementById('popup').classList.add('show');
-    document.getElementById('popup-close').click();
-    expect(document.getElementById('popup').classList.contains('show')).toBe(false);
-    expect(localStorage.getItem('devcheap_popup_dismissed')).toBe('true');
-  });
-
-  it('dismisses popup on overlay click', () => {
-    setupNewsletterPopup();
-    document.getElementById('popup').classList.add('show');
-    document.getElementById('popup').click();
-    expect(document.getElementById('popup').classList.contains('show')).toBe(false);
-  });
-});
-
 describe('Category filtering', () => {
   beforeAll(async () => {
     global.fetch = vi.fn(() => Promise.reject(new Error('no fetch')));
     await window.boot();
   });
 
-  it('sets window.currentCategory on cat-btn click', () => {
-    window.currentCategory = 'all';
+  it('sets window.activeCategories on cat-btn click', () => {
+    window.activeCategories = [];
     const btn = document.querySelector('.cat-btn[data-cat="hosting"]');
     btn.click();
-    expect(window.currentCategory).toBe('hosting');
+    expect(Array.isArray(window.activeCategories)).toBe(true);
+    expect(window.activeCategories).toContain('hosting');
   });
 
   it('activates clicked button and deactivates others', () => {
-    window.currentCategory = 'all';
+    window.activeCategories = [];
     document.querySelectorAll('.cat-btn').forEach(t => {
       t.classList.remove('active');
       t.setAttribute('aria-selected', 'false');
