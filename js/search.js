@@ -1,7 +1,7 @@
 let dealsData = [];
 var currentCategory = 'all';
 let searchTimeout = null;
-let activeFilters = { recommended: false, expiringSoon: false, noExpiry: false };
+let activeFilters = { recommended: false, expiringSoon: false, noExpiry: false, hasCoupon: false };
 const EXPIRY_FILTER_KEYS = ['expiringSoon', 'noExpiry'];
 
 const UTM_SOURCE = 'devcheap.click';
@@ -120,6 +120,13 @@ function renderDeals() {
   }
   if (activeFilters.noExpiry) {
     filtered = filtered.filter(deal => !deal.expires);
+  }
+  if (activeFilters.hasCoupon) {
+    filtered = filtered.filter(deal => {
+      if (!deal.code) return false;
+      const codeLower = String(deal.code).toLowerCase();
+      return !(codeLower.includes('automatic') || codeLower.includes('link'));
+    });
   }
 
   if (countEl) {
@@ -505,6 +512,7 @@ function updateFiltersURL() {
   if (activeFilters.recommended) { url.searchParams.set('recommended', '1'); } else { url.searchParams.delete('recommended'); }
   if (activeFilters.expiringSoon) { url.searchParams.set('expiringSoon', '1'); } else { url.searchParams.delete('expiringSoon'); }
   if (activeFilters.noExpiry) { url.searchParams.set('noExpiry', '1'); } else { url.searchParams.delete('noExpiry'); }
+  if (activeFilters.hasCoupon) { url.searchParams.set('hasCoupon', '1'); } else { url.searchParams.delete('hasCoupon'); }
   window.history.replaceState(null, '', url);
 }
 
@@ -599,6 +607,11 @@ async function boot() {
   if (params.get('noExpiry') === '1') {
     activeFilters.noExpiry = true;
     const chip = document.querySelector('.filter-chip[data-filter="noExpiry"]');
+    if (chip) { chip.classList.add('active'); chip.setAttribute('aria-pressed', 'true'); }
+  }
+  if (params.get('hasCoupon') === '1') {
+    activeFilters.hasCoupon = true;
+    const chip = document.querySelector('.filter-chip[data-filter="hasCoupon"]');
     if (chip) { chip.classList.add('active'); chip.setAttribute('aria-pressed', 'true'); }
   }
 

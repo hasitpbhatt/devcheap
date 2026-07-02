@@ -72,13 +72,14 @@ devcheap/
 
 ## Filters
 
-The site offers three toggle-able filter chips below the category buttons:
+The site offers four toggle-able filter chips below the category buttons:
 
 | Chip | Behaviour | Group |
 |---|---|---|
 | **Recommended** | Shows only deals tagged `recommended`. Independent toggle — combinable with any other filter. | None (standalone) |
 | **Expiring Soon** | Deals with an `expires` date within the next 30 days. Mutually exclusive with No Expiry. | Expiry |
 | **No Expiry** | Deals with no `expires` field. Mutually exclusive with Expiring Soon. | Expiry |
+| **Coupons** | Shows only deals with a copyable coupon code (excludes automatic/link codes). Independent toggle — combinable with any other filter. | None (standalone) |
 
 Category buttons for categories present in `data/deals.jsonl` but not hardcoded in `index.html` are generated dynamically on page load. Deals tagged `recommended` also show a star badge on their card.
 
