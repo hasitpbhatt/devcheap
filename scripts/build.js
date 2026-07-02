@@ -10,31 +10,20 @@ const INDEX_PATH = path.join(ROOT_DIR, 'index.html');
 const TEMPLATE_PATH = path.join(ROOT_DIR, 'templates', 'deal-detail.html');
 const DEALS_DIR = path.join(ROOT_DIR, 'deals');
 
-function getDealLastMod(dealId) {
+// 🚀 OPTIMIZATION 1: Fetch global file modification date ONCE
+function getFileLastMod(filePath) {
   try {
     const raw = execSync(
-      `git log --all --format="%ad" --date=short -- "data/deals.jsonl" | findstr "${dealId}" | sort -r`,
+      `git log -1 --format="%ad" --date=short -- "${filePath}"`,
       { encoding: 'utf-8', cwd: ROOT_DIR, stdio: ['pipe', 'pipe', 'pipe'] }
     );
-    const lines = raw.split('\n').filter(Boolean);
-    if (lines.length > 0) return lines[0].trim();
+    if (raw.trim()) return raw.trim();
   } catch {
     // fall through
   }
-  try {
-    const raw = execSync(
-      `git log --all --format="%ad" --date=short -- data/deals.jsonl`,
-      { encoding: 'utf-8', cwd: ROOT_DIR, stdio: ['pipe', 'pipe', 'pipe'] }
-    );
-    const lines = raw.split('\n').filter(Boolean);
-    if (lines.length > 0) return lines[0].trim();
-  } catch {
-    // fall through
-  }
-  return null;
+  return new Date().toISOString().split('T')[0];
 }
 
-// Helper to escape HTML strings
 function escapeHtml(str) {
   if (!str) return '';
   return str
@@ -45,7 +34,6 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-// Helper to build UTM tracked URL
 function buildTrackedUrl(deal) {
   const UTM_SOURCE = 'devcheap.click';
   const UTM_MEDIUM = 'website';
@@ -66,7 +54,6 @@ function buildTrackedUrl(deal) {
   }
 }
 
-// Helper to format a deal card for HTML injection
 function renderDealCard(deal, isNested = false) {
   const prefix = isNested ? '../../' : '';
   const folderPrefix = isNested ? '../' : 'deals/';
@@ -132,7 +119,6 @@ async function main() {
   // 2. Pre-render Main index.html
   let indexHtml = await fs.readFile(INDEX_PATH, 'utf-8');
 
-  // Pre-render stats
   indexHtml = indexHtml.replace(
     /<span class="hero-stat-num" id="stat-deals" data-prefix="">.*?<\/span>/,
     `<span class="hero-stat-num" id="stat-deals" data-prefix="">${totalDeals}</span>`
@@ -150,7 +136,6 @@ async function main() {
     `<div id="deals-count" class="results-info">${totalDeals} active deals</div>`
   );
 
-  // Pre-render categories buttons (ensure we have all categories statically, matching existing list)
   const hardcodedCats = ['hosting', 'database', 'apis', 'ai & llm', 'auth', 'tools', 'monitoring', 'storage', 'security', 'domains'];
   const categoryButtons = [
     '<button type="button" class="cat-btn active" data-cat="all" role="tab" aria-selected="true">All</button>',
@@ -179,7 +164,6 @@ async function main() {
     `<div class="categories" id="categories-container" role="tablist">\n            ${categoryButtons.join('\n            ')}\n          </div>`
   );
 
-  // Pre-render deals grid
   const dealsCardsHtml = deals.map(deal => renderDealCard(deal, false)).join('\n');
   indexHtml = indexHtml.replace(
     /<div id="deals-grid" class="deals-grid">[\s\S]*?<\/div>/,
@@ -190,19 +174,19 @@ async function main() {
   console.log('✅ Main index.html pre-rendered successfully.');
 
   // 3. Generate Deal Detail Pages
+  console.log('⚡ Generating detail pages in parallel...');
   const detailTemplate = await fs.readFile(TEMPLATE_PATH, 'utf-8');
   await fs.mkdir(DEALS_DIR, { recursive: true });
 
-  for (const deal of deals) {
+  // 🚀 OPTIMIZATION 2: Parallelize page generation with Promise.all
+  const generatePagePromises = deals.map(async (deal) => {
     const dealDir = path.join(DEALS_DIR, deal.id);
     await fs.mkdir(dealDir, { recursive: true });
 
-    // Format tags
     const tagsHTML = deal.tags ? deal.tags.split(',').map(tag =>
       `<span class="detail-tag">${escapeHtml(tag.trim())}</span>`
     ).join('') : '';
 
-    // Format badges
     const isRecommended = deal.tags && deal.tags.toLowerCase().includes('recommended');
     const recommendedBadge = isRecommended ? `<span class="deal-card-badge-recommended" style="margin-bottom:0;margin-right:12px"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></polygon></svg> Recommended</span>` : '';
     
@@ -211,17 +195,14 @@ async function main() {
     
     const badgesRow = `${recommendedBadge}${spotlightBadge}`;
 
-    // Claim button
     const trackedUrl = buildTrackedUrl(deal);
     const claimButton = `<a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="sidebar-btn sidebar-btn-primary">Claim Deal</a>`;
 
-    // Coupon button
     const isPromoAutomatic = deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link');
     const couponButton = isPromoAutomatic
       ? `<button class="sidebar-btn sidebar-btn-secondary" style="opacity:0.5;cursor:default" disabled><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Automatic Discount</button>`
       : `<button id="copy-coupon-btn" class="sidebar-btn sidebar-btn-secondary" data-code="${escapeHtml(deal.code)}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg> Copy Coupon (${escapeHtml(deal.code)})</button>`;
 
-    // Related deals (3 deals in the same category, or fallback to any deals)
     let related = deals.filter(d => d.category === deal.category && d.id !== deal.id);
     if (related.length < 3) {
       const extra = deals.filter(d => d.category !== deal.category && d.id !== deal.id);
@@ -231,34 +212,17 @@ async function main() {
     }
     const relatedHtml = related.map(r => renderDealCard(r, true)).join('\n');
 
-    // Breadcrumb JSON-LD
     const breadcrumbJson = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://devcheap.click/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": deal.category,
-          "item": `https://devcheap.click/?category=${encodeURIComponent(deal.category.toLowerCase())}`
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": deal.name,
-          "item": `https://devcheap.click/deals/${deal.id}/`
-        }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://devcheap.click/" },
+        { "@type": "ListItem", "position": 2, "name": deal.category, "item": `https://devcheap.click/?category=${encodeURIComponent(deal.category.toLowerCase())}` },
+        { "@type": "ListItem", "position": 3, "name": deal.name, "item": `https://devcheap.click/deals/${deal.id}/` }
       ]
     };
     const breadcrumbJsonHtml = `<script type="application/ld+json">\n${JSON.stringify(breadcrumbJson, null, 2)}\n</script>`;
 
-    // Product JSON-LD
     const productJson = {
       "@context": "https://schema.org",
       "@type": "Product",
@@ -277,7 +241,6 @@ async function main() {
     };
     const productJsonHtml = `<script type="application/ld+json">\n${JSON.stringify(productJson, null, 2)}\n</script>`;
 
-    // Replace placeholders
     let populated = detailTemplate
       .replace(/{{DEAL_ID}}/g, escapeHtml(deal.id))
       .replace(/{{DEAL_NAME}}/g, escapeHtml(deal.name))
@@ -296,40 +259,35 @@ async function main() {
       .replace(/{{BREADCRUMB_JSONLD}}/g, breadcrumbJsonHtml)
       .replace(/{{PRODUCT_JSONLD}}/g, productJsonHtml);
 
+    // This await happens inside the mapped function context concurrently
     await fs.writeFile(path.join(dealDir, 'index.html'), populated, 'utf-8');
-  }
+  });
 
+  // Execute all page generation promises simultaneously
+  await Promise.all(generatePagePromises);
+  
   console.log(`✅ Generated ${totalDeals} deal detail pages under /deals/[id]/index.html`);
 
-// 4. Generate sitemap.xml
-const sitemapPath = path.join(ROOT_DIR, 'sitemap.xml');
-const today = new Date().toISOString().split('T')[0];
-let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://devcheap.click/</loc>
-<lastmod>${today}</lastmod>
-<changefreq>weekly</changefreq>
-<priority>1.0</priority>
-</url>
-`;
+  // 4. Generate sitemap.xml
+  const sitemapPath = path.join(ROOT_DIR, 'sitemap.xml');
+  const today = new Date().toISOString().split('T')[0];
+  
+  // Fetch file date ONCE (Optimization 1 executed)
+  const globalLastMod = getFileLastMod('data/deals.jsonl');
 
-for (const deal of deals) {
-  if (!deal.url) continue;
-  const lastmod = getDealLastMod(deal.id) || today;
-  sitemapXml += ` <url>
- <loc>https://devcheap.click/deals/${deal.id}/</loc>
- <lastmod>${lastmod}</lastmod>
- <changefreq>weekly</changefreq>
- <priority>0.8</priority>
- </url>
-`;
-}
+  let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+  sitemapXml += `<url>\n  <loc>https://devcheap.click/</loc>\n  <lastmod>${today}</lastmod>\n  <changefreq>weekly</changefreq>\n  <priority>1.0</priority>\n</url>\n`;
 
-sitemapXml += `</urlset>\n`;
-await fs.writeFile(sitemapPath, sitemapXml, 'utf-8');
-console.log('✅ Generated sitemap.xml with all deal detail pages.');
-  console.log('🎉 Build complete!');
+  for (const deal of deals) {
+    if (!deal.url) continue;
+    sitemapXml += `<url>\n  <loc>https://devcheap.click/deals/${deal.id}/</loc>\n  <lastmod>${globalLastMod}</lastmod>\n  <changefreq>weekly</changefreq>\n  <priority>0.8</priority>\n</url>\n`;
+  }
+
+  sitemapXml += `</urlset>\n`;
+  await fs.writeFile(sitemapPath, sitemapXml, 'utf-8');
+  
+  console.log('✅ Generated sitemap.xml with all deal detail pages.');
+  console.log('🎉 Build complete! Time to deploy.');
 }
 
 main().catch(err => {
