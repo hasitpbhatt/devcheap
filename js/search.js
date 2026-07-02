@@ -1,6 +1,8 @@
 let dealsData = [];
 var currentCategory = 'all';
 let searchTimeout = null;
+let activeFilters = { recommended: false, expiringSoon: false, noExpiry: false };
+const EXPIRY_FILTER_KEYS = ['expiringSoon', 'noExpiry'];
 
 const UTM_SOURCE = 'devcheap.click';
 const REPORT_EMAIL = 'hi@devcheap.page';
@@ -103,6 +105,23 @@ function renderDeals() {
     });
   }
 
+  if (activeFilters.recommended) {
+    filtered = filtered.filter(deal => deal.tags && deal.tags.toLowerCase().includes('recommended'));
+  }
+  if (activeFilters.expiringSoon) {
+    const now = new Date();
+    const in30Days = new Date();
+    in30Days.setDate(in30Days.getDate() + 30);
+    filtered = filtered.filter(deal => {
+      if (!deal.expires) return false;
+      const exp = new Date(deal.expires);
+      return exp >= now && exp <= in30Days;
+    });
+  }
+  if (activeFilters.noExpiry) {
+    filtered = filtered.filter(deal => !deal.expires);
+  }
+
   if (countEl) {
     countEl.textContent = `${filtered.length} active deal${filtered.length === 1 ? '' : 's'}`;
   }
@@ -138,12 +157,15 @@ function renderDeals() {
 
     const expiresHTML = deal.expires ? `<span class="deal-card-expires">Expires ${deal.expires}</span>` : '';
     const whyHTML = deal.why ? `<p class="deal-card-why">${deal.why}</p>` : '';
+    const isRecommended = deal.tags && deal.tags.toLowerCase().includes('recommended');
+    const recommendedBadge = isRecommended ? `<span class="deal-card-badge-recommended"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Recommended</span>` : '';
 
     card.innerHTML = `
       <div class="deal-card-header">
         <h3 class="deal-card-title">${deal.name}</h3>
         <span class="deal-card-cat">${deal.category}</span>
       </div>
+      ${recommendedBadge}
       <div class="deal-card-deal">${deal.deal}</div>
       ${whyHTML}
       <p class="deal-card-desc">${deal.desc}</p>
@@ -430,6 +452,92 @@ function updateBreadcrumbJSONLD(category) {
   }
 }
 
+function generateMissingCategories() {
+  const container = document.getElementById('categories-container');
+  if (!container || dealsData.length === 0) return;
+
+  const existingCats = new Set();
+  container.querySelectorAll('.cat-btn').forEach(btn => {
+    if (btn.dataset.cat !== 'all') existingCats.add(btn.dataset.cat);
+  });
+
+  const dataCats = [...new Set(dealsData.map(d => d.category))].sort();
+
+  dataCats.forEach(cat => {
+    const catLower = cat.toLowerCase();
+    const isCovered = [...existingCats].some(ec => catLower.includes(ec));
+    if (!isCovered) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cat-btn';
+      btn.dataset.cat = catLower;
+      btn.role = 'tab';
+      btn.setAttribute('aria-selected', 'false');
+      btn.textContent = cat;
+      container.appendChild(btn);
+    }
+  });
+}
+
+function setupCategoryDelegation() {
+  const container = document.getElementById('categories-container');
+  if (!container) return;
+
+  container.addEventListener('click', (e) => {
+    const tab = e.target.closest('.cat-btn');
+    if (!tab) return;
+
+    container.querySelectorAll('.cat-btn').forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    currentCategory = tab.dataset.cat;
+    renderDeals();
+    updateCategoryURL(currentCategory);
+    updateBreadcrumbJSONLD(currentCategory);
+  });
+}
+
+function updateFiltersURL() {
+  const url = new URL(window.location);
+  if (activeFilters.recommended) { url.searchParams.set('recommended', '1'); } else { url.searchParams.delete('recommended'); }
+  if (activeFilters.expiringSoon) { url.searchParams.set('expiringSoon', '1'); } else { url.searchParams.delete('expiringSoon'); }
+  if (activeFilters.noExpiry) { url.searchParams.set('noExpiry', '1'); } else { url.searchParams.delete('noExpiry'); }
+  window.history.replaceState(null, '', url);
+}
+
+function setupFilterChips() {
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const filter = chip.dataset.filter;
+
+      if (EXPIRY_FILTER_KEYS.includes(filter)) {
+        const otherKey = EXPIRY_FILTER_KEYS.find(k => k !== filter);
+        if (activeFilters[filter]) {
+          activeFilters[filter] = false;
+          chip.classList.remove('active');
+          chip.setAttribute('aria-pressed', 'false');
+        } else {
+          activeFilters[filter] = true;
+          chip.classList.add('active');
+          chip.setAttribute('aria-pressed', 'true');
+          activeFilters[otherKey] = false;
+          const otherChip = document.querySelector(`.filter-chip[data-filter="${otherKey}"]`);
+          if (otherChip) { otherChip.classList.remove('active'); otherChip.setAttribute('aria-pressed', 'false'); }
+        }
+      } else {
+        activeFilters[filter] = !activeFilters[filter];
+        chip.classList.toggle('active');
+        chip.setAttribute('aria-pressed', activeFilters[filter]);
+      }
+      updateFiltersURL();
+      renderDeals();
+    });
+  });
+}
+
 async function boot() {
   renderSkeletons(6);
   dealsData = await loadDeals();
@@ -459,20 +567,9 @@ async function boot() {
     });
   }
 
-  document.querySelectorAll('.cat-btn').forEach(tab => {
-    tab.addEventListener('click', (e) => {
-      document.querySelectorAll('.cat-btn').forEach(t => {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      e.currentTarget.classList.add('active');
-      e.currentTarget.setAttribute('aria-selected', 'true');
-      currentCategory = e.currentTarget.dataset.cat;
-      renderDeals();
-      updateCategoryURL(currentCategory);
-      updateBreadcrumbJSONLD(currentCategory);
-    });
-  });
+  generateMissingCategories();
+  setupCategoryDelegation();
+  setupFilterChips();
 
   const params = new URLSearchParams(window.location.search);
   const catFromURL = params.get('category');
@@ -487,6 +584,22 @@ async function boot() {
       btn.setAttribute('aria-selected', 'true');
       currentCategory = catFromURL;
     }
+  }
+
+  if (params.get('recommended') === '1') {
+    activeFilters.recommended = true;
+    const chip = document.querySelector('.filter-chip[data-filter="recommended"]');
+    if (chip) { chip.classList.add('active'); chip.setAttribute('aria-pressed', 'true'); }
+  }
+  if (params.get('expiringSoon') === '1') {
+    activeFilters.expiringSoon = true;
+    const chip = document.querySelector('.filter-chip[data-filter="expiringSoon"]');
+    if (chip) { chip.classList.add('active'); chip.setAttribute('aria-pressed', 'true'); }
+  }
+  if (params.get('noExpiry') === '1') {
+    activeFilters.noExpiry = true;
+    const chip = document.querySelector('.filter-chip[data-filter="noExpiry"]');
+    if (chip) { chip.classList.add('active'); chip.setAttribute('aria-pressed', 'true'); }
   }
 
   renderDeals();

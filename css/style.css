@@ -355,6 +355,50 @@ body {
   color: #fff;
 }
 
+/** Filter chips **/
+.filter-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.filter-chip {
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 980px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.filter-chip:hover {
+  color: var(--text-secondary);
+  border-color: var(--border-hover);
+}
+.filter-chip.active {
+  background: rgba(48, 209, 88, 0.12);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/** Recommended badge on deal cards **/
+.deal-card-badge-recommended {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+
 /* ---- Deals Grid ---- */
 .results-info {
   font-size: 13px;
@@ -948,6 +992,9 @@ body {
   .categories { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
   .categories::-webkit-scrollbar { display: none; }
   .cat-btn { white-space: nowrap; }
+  .filter-chips { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+  .filter-chips::-webkit-scrollbar { display: none; }
+  .filter-chip { white-space: nowrap; }
 }
 
 @media (max-width: 480px) {
