@@ -46,16 +46,16 @@ describe('setupTheme', () => {
     expect(localStorage.getItem('theme')).toBe('dark');
   });
 
-  it('shows dark icon in dark mode and light icon in light mode', () => {
-    freshSetupTheme();
-    const darkIcon = document.querySelector('.theme-icon-dark');
-    const lightIcon = document.querySelector('.theme-icon-light');
-    expect(window.getComputedStyle(darkIcon).display).not.toBe('none');
-    expect(window.getComputedStyle(lightIcon).display).toBe('none');
-    document.getElementById('theme-toggle').click();
-    expect(window.getComputedStyle(darkIcon).display).toBe('none');
-    expect(window.getComputedStyle(lightIcon).display).not.toBe('none');
-  });
+it('shows dark icon in dark mode and light icon in light mode', () => {
+  freshSetupTheme();
+  const darkIcon = document.querySelector('.icon-sun');
+  const lightIcon = document.querySelector('.icon-moon');
+  expect(window.getComputedStyle(darkIcon).display).not.toBe('none');
+  expect(window.getComputedStyle(lightIcon).display).toBe('none');
+  document.getElementById('theme-toggle').click();
+  expect(window.getComputedStyle(darkIcon).display).toBe('none');
+  expect(window.getComputedStyle(lightIcon).display).not.toBe('none');
+});
 });
 
 describe('Category filtering', () => {

@@ -240,15 +240,15 @@ function setupTheme() {
 }
 
 function updateThemeIcons(theme) {
-  const lightIcon = document.querySelector('.theme-icon-light');
-  const darkIcon = document.querySelector('.theme-icon-dark');
-  if (!lightIcon || !darkIcon) return;
+  const moonIcon = document.querySelector('.icon-moon');
+  const sunIcon = document.querySelector('.icon-sun');
+  if (!moonIcon || !sunIcon) return;
   if (theme === 'light') {
-    lightIcon.style.display = 'block';
-    darkIcon.style.display = 'none';
+    moonIcon.style.display = 'block';
+    sunIcon.style.display = 'none';
   } else {
-    lightIcon.style.display = 'none';
-    darkIcon.style.display = 'block';
+    moonIcon.style.display = 'none';
+    sunIcon.style.display = 'block';
   }
 }
 

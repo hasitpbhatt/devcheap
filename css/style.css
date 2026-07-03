@@ -282,7 +282,12 @@ body {
   position: relative;
   max-width: 400px;
 }
-.search-icon {
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.icon-search {
   position: absolute;
   left: 14px;
   top: 50%;

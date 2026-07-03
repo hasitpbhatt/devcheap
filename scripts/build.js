@@ -81,17 +81,17 @@ function renderDealCard(deal, isNested = false) {
   }
 
   const couponBtn = isPromoAutomatic
-    ? `<button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> ${escapeHtml(deal.code)}</button>`
-    : `<button class="deal-card-btn deal-card-btn-code" data-deal-id="${deal.id}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg> Copy Code</button>`;
+    ? `<button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> ${escapeHtml(deal.code)}</button>`
+    : `<button class="deal-card-btn deal-card-btn-code" data-deal-id="${deal.id}"><svg class="icon icon-copy" width="14" height="14"><use href="/images/icons.svg#icon-copy"/></svg> Copy Code</button>`;
 
   const expiresHTML = deal.expires ? `<span class="deal-card-expires">Expires ${escapeHtml(deal.expires)}</span>` : '';
   const whyHTML = deal.why ? `<p class="deal-card-why">${escapeHtml(deal.why)}</p>` : '';
   
   const isRecommended = deal.tags && deal.tags.toLowerCase().includes('recommended');
-  const recommendedBadge = isRecommended ? `<span class="deal-card-badge-recommended"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></polygon></svg> Recommended</span>` : '';
+  const recommendedBadge = isRecommended ? `<span class="deal-card-badge-recommended"><svg class="icon icon-star" width="12" height="12"><use href="/images/icons.svg#icon-star"/></svg> Recommended</span>` : '';
   
   const isSpotlight = deal.tags && deal.tags.toLowerCase().includes('spotlight');
-  const spotlightBadge = isSpotlight ? `<span class="deal-card-badge-spotlight"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l2.4 7.2L22 9.6l-5.6 4.8L18 22l-6-3.6L6 22l1.6-7.6L2 9.6l7.6-.4L12 2z"></path></svg> Spotlight</span>` : '';
+  const spotlightBadge = isSpotlight ? `<span class="deal-card-badge-spotlight"><svg class="icon icon-spotlight" width="12" height="12"><use href="/images/icons.svg#icon-spotlight"/></svg> Spotlight</span>` : '';
 
   return `
       <div class="deal-card">
@@ -181,10 +181,12 @@ async function main() {
 
   // Pre-render deals grid
   const dealsCardsHtml = deals.map(deal => renderDealCard(deal, false)).join('\n');
-  indexHtml = indexHtml.replace(
-    /<div id="deals-grid" class="deals-grid">[\s\S]*?<\/div>/,
-    `<div id="deals-grid" class="deals-grid">\n${dealsCardsHtml}\n        </div>`
-  );
+  const gridStartMarker = '<div id="deals-grid" class="deals-grid">';
+  const gridStart = indexHtml.indexOf(gridStartMarker);
+  const gridEnd = indexHtml.indexOf('</main>', gridStart);
+  const prefix = indexHtml.substring(0, gridStart);
+  const afterGrid = indexHtml.substring(gridEnd);
+  indexHtml = prefix + `<div id="deals-grid" class="deals-grid">\n${dealsCardsHtml}\n </div>` + afterGrid;
 
   await fs.writeFile(INDEX_PATH, indexHtml, 'utf-8');
   console.log('✅ Main index.html pre-rendered successfully.');
@@ -204,10 +206,10 @@ async function main() {
 
     // Format badges
     const isRecommended = deal.tags && deal.tags.toLowerCase().includes('recommended');
-    const recommendedBadge = isRecommended ? `<span class="deal-card-badge-recommended" style="margin-bottom:0;margin-right:12px"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></polygon></svg> Recommended</span>` : '';
+    const recommendedBadge = isRecommended ? `<span class="deal-card-badge-recommended" style="margin-bottom:0;margin-right:12px"><svg class="icon icon-star" width="12" height="12"><use href="/images/icons.svg#icon-star"/></svg> Recommended</span>` : '';
     
     const isSpotlight = deal.tags && deal.tags.toLowerCase().includes('spotlight');
-    const spotlightBadge = isSpotlight ? `<span class="deal-card-badge-spotlight" style="margin-bottom:0"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l2.4 7.2L22 9.6l-5.6 4.8L18 22l-6-3.6L6 22l1.6-7.6L2 9.6l7.6-.4L12 2z"></path></svg> Spotlight</span>` : '';
+    const spotlightBadge = isSpotlight ? `<span class="deal-card-badge-spotlight" style="margin-bottom:0"><svg class="icon icon-spotlight" width="12" height="12"><use href="/images/icons.svg#icon-spotlight"/></svg> Spotlight</span>` : '';
     
     const badgesRow = `${recommendedBadge}${spotlightBadge}`;
 
@@ -218,8 +220,8 @@ async function main() {
     // Coupon button
     const isPromoAutomatic = deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link');
     const couponButton = isPromoAutomatic
-      ? `<button class="sidebar-btn sidebar-btn-secondary" style="opacity:0.5;cursor:default" disabled><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Automatic Discount</button>`
-      : `<button id="copy-coupon-btn" class="sidebar-btn sidebar-btn-secondary" data-code="${escapeHtml(deal.code)}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg> Copy Coupon (${escapeHtml(deal.code)})</button>`;
+      ? `<button class="sidebar-btn sidebar-btn-secondary" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic Discount</button>`
+      : `<button id="copy-coupon-btn" class="sidebar-btn sidebar-btn-secondary" data-code="${escapeHtml(deal.code)}"><svg class="icon icon-copy" width="14" height="14"><use href="/images/icons.svg#icon-copy"/></svg> Copy Coupon (${escapeHtml(deal.code)})</button>`;
 
     // Related deals (3 deals in the same category, or fallback to any deals)
     let related = deals.filter(d => d.category === deal.category && d.id !== deal.id);
