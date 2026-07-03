@@ -1,5 +1,6 @@
 import { buildTrackedUrl, trackOutboundClick } from './affiliate.js';
 let dealsData = [];
+const REPORT_EMAIL = 'hi@devcheap.page';
 var activeCategories = [];
 let searchTimeout = null;
 let activeFilters = { recommended: false, spotlight: false, expiringSoon: false, noExpiry: false, hasCoupon: false };
@@ -190,10 +191,15 @@ filtered.forEach((deal, index) => {
       ${whyHTML}
       <p class="deal-card-desc">${deal.desc}</p>
       <div class="deal-card-tags">${tagsHTML}${expiresHTML}</div>
-      <div class="deal-card-footer">
-        <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>
-        ${couponBtn}
-      </div>
+ <div class="deal-card-footer">
+  <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>
+  ${couponBtn}
+  <div class="deal-card-overflow" data-deal-id="${deal.id}" role="button" tabindex="0" aria-label="More options">⋯
+   <div class="overflow-menu" role="menu">
+    <button type="button" class="overflow-item" data-action="report-expired" data-deal-id="${deal.id}" role="menuitem">Report Expired</button>
+   </div>
+  </div>
+ </div>
       `;
     gridEl.appendChild(card);
   });
@@ -208,6 +214,8 @@ function copyCoupon(button, code) {
     button.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
     button.style.color = 'var(--green)';
     button.style.borderColor = 'var(--green)';
+    button.style.boxShadow = '0 0 0 3px rgba(48,209,88,0.25)';
+    button.style.transform = 'scale(1.04)';
     if (dealId) {
       const deal = dealsData.find(d => d.id === dealId);
       if (deal) trackOutboundClick(deal, 'coupon_copy');
@@ -216,6 +224,8 @@ function copyCoupon(button, code) {
       button.innerHTML = originalHTML;
       button.style.color = '';
       button.style.borderColor = '';
+      button.style.boxShadow = '';
+      button.style.transform = '';
       button.classList.remove('copied');
     }, 1500);
   }).catch(err => console.error('Could not copy code:', err));
@@ -544,7 +554,6 @@ function renderActiveFilterBadges() {
 }
 
 async function boot() {
-  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   const initialGridEl = document.getElementById('deals-grid');
   const hasPreRendered = initialGridEl && initialGridEl.querySelector('.deal-card');
   if (!hasPreRendered) {
@@ -638,8 +647,17 @@ async function boot() {
 
   const gridEl = document.getElementById('deals-grid');
   if (gridEl) {
-    gridEl.addEventListener('click', (e) => {
-      if (e.target.closest('.empty-clear-btn')) {
+gridEl.addEventListener('click', (e) => {
+ const overflowBtn = e.target.closest('.deal-card-overflow');
+ if (overflowBtn) {
+  const menu = overflowBtn.querySelector('.overflow-menu');
+  const wasOpen = menu.classList.contains('open');
+  closeAllOverflowMenus();
+  if (!wasOpen) menu.classList.add('open');
+  return;
+ }
+
+ if (e.target.closest('.empty-clear-btn')) {
         const searchInput = document.getElementById('search-input');
         const clearBtn = document.getElementById('clear-search-btn');
         if (searchInput) { searchInput.value = ''; }
@@ -662,10 +680,21 @@ async function boot() {
         return;
       }
 
-      const btn = e.target.closest('[data-deal-id]');
-      if (!btn) return;
+const btn = e.target.closest('[data-deal-id]');
+  if (!btn) return;
 
-      if (btn.classList.contains('deal-card-btn-primary')) {
+  const actionBtn = e.target.closest('[data-action="report-expired"]');
+  if (actionBtn) {
+   const dealId = actionBtn.dataset.dealId;
+   const deal = dealsData.find(d => d.id === dealId);
+   const subject = encodeURIComponent(`Expired Deal: ${deal?.name || dealId}`);
+   const body = encodeURIComponent(`Deal ID: ${dealId}\nDeal: ${deal?.deal || ''}\nURL: ${deal?.url || actionBtn.dataset.dealUrl || ''}`);
+   window.open(`mailto:${REPORT_EMAIL}?subject=${subject}&body=${body}`);
+   closeAllOverflowMenus();
+   return;
+  }
+
+  if (btn.classList.contains('deal-card-btn-primary')) {
         const deal = dealsData.find(d => d.id === btn.dataset.dealId);
         if (deal) trackOutboundClick(deal, 'claim_deal');
       } else if (btn.classList.contains('deal-card-btn-code') && !btn.disabled) {
@@ -704,6 +733,14 @@ async function boot() {
     });
   }
 }
+
+function closeAllOverflowMenus() {
+ document.querySelectorAll('.overflow-menu').forEach(m => m.classList.remove('open'));
+}
+
+window.addEventListener('click', (e) => {
+ if (!e.target.closest('.deal-card-overflow')) closeAllOverflowMenus();
+});
 
 window.addEventListener('DOMContentLoaded', boot);
 window.buildTrackedUrl = buildTrackedUrl;

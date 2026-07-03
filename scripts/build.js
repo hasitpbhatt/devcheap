@@ -110,9 +110,11 @@ async function main() {
   
   deals.sort((a, b) => a.name.localeCompare(b.name));
 
-  const totalDeals = deals.length;
-  const categories = [...new Set(deals.map(d => d.category))].sort();
-  const totalCategories = categories.length;
+const totalDeals = deals.length;
+const categories = [...new Set(deals.map(d => d.category))].sort();
+const totalCategories = categories.length;
+
+const dealLastMod = getFileLastMod(DEALS_PATH);
 
   console.log(`📊 Loaded ${totalDeals} deals across ${totalCategories} categories.`);
 
@@ -237,18 +239,19 @@ console.log('✅ Main index.html updated.');
     };
     const breadcrumbJsonHtml = `<script type="application/ld+json">\n${JSON.stringify(breadcrumbJson, null, 2)}\n</script>`;
 
-    const productJson = {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": deal.name,
-      "description": deal.desc,
-      "image": "https://devcheap.click/images/og-image.svg",
+const productJson = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": deal.name,
+  "description": deal.desc,
+  "image": "https://devcheap.click/images/og-image.svg",
+  "dateModified": dealLastMod,
   "offers": {
     "@type": "Offer",
     "description": deal.deal,
     "url": `https://devcheap.click/deals/${deal.id}/`
   }
-    };
+};
     const productJsonHtml = `<script type="application/ld+json">\n${JSON.stringify(productJson, null, 2)}\n</script>`;
 
     let populated = detailTemplate

@@ -26,14 +26,11 @@
   <meta name="twitter:title" content="DevCheap — Curated Developer Deals &amp; Free Credits">
   <meta name="twitter:description" content="Verified deals on APIs, hosting, databases, and AI tools. Free credits, lifetime discounts, curated weekly.">
   <meta name="twitter:image" content="https://devcheap.click/images/og-image.svg">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
-  <link rel="alternate" type="application/rss+xml" title="DevCheap — Verified Developer Deals" href="https://devcheap.click/feed.xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="dns-prefetch" href="https://challenges.cloudflare.com">
-  <link rel="preconnect" href="https://challenges.cloudflare.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+<link rel="alternate" type="application/rss+xml" title="DevCheap — Verified Developer Deals" href="https://devcheap.click/feed.xml">
+<link rel="dns-prefetch" href="https://challenges.cloudflare.com">
+<link rel="preconnect" href="https://challenges.cloudflare.com">
+<link rel="stylesheet" href="css/style.css">
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad" async defer></script>
 <script type="application/ld+json">
 {
@@ -114,10 +111,9 @@
           Verified deals on APIs, hosting, databases, AI &mdash; curated weekly.
           Free credits, lifetime discounts, and limited offers you won&rsquo;t find on a price page.
         </p>
-        <div class="hero-actions">
-          <a href="#deals" class="hero-btn">Browse Deals</a>
-          <a href="#newsletter" class="hero-btn hero-btn-outline">Weekly Newsletter</a>
-        </div>
+<div class="hero-actions">
+  <a href="#deals" class="hero-btn">Browse Deals</a>
+</div>
         <div class="hero-stats">
           <div class="hero-stat">
             <span class="hero-stat-num" id="stat-deals" data-prefix="">143</span>
@@ -226,10 +222,10 @@
               <svg class="icon icon-infinity" width="14" height="14"><use href="/images/icons.svg#icon-infinity"/></svg>
               No Expiry
             </button>
-            <button type="button" class="filter-chip" data-filter="hasCoupon" aria-pressed="false">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/></svg>
-              Coupons
-            </button>
+<button type="button" class="filter-chip" data-filter="hasCoupon" aria-pressed="false">
+<svg class="icon icon-coupon" width="14" height="14"><use href="/images/icons.svg#icon-coupon"/></svg>
+Coupons
+</button>
 </div>
 <div id="active-filter-badges" class="active-filter-badges" aria-label="Active filters" role="list"></div>
 </div>
@@ -238,39 +234,20 @@
 <p class="results-hint">Select a category or search to load deals dynamically.</p>
 </main>
 
-  <footer class="footer" role="contentinfo" aria-label="Site footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="nav-logo-badge">devcheap</span>
-        <p class="footer-text">Verified developer deals, curated weekly.</p>
-      </div>
-      <div class="footer-links">
-        <a href="https://github.com/hasitpbhatt/devcheap" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
-        <a href="#newsletter" class="footer-link">Newsletter</a>
-      </div>
-    </div>
-  </footer>
+<footer class="footer" role="contentinfo" aria-label="Site footer">
+<div class="container footer-inner">
+<div class="footer-brand">
+<span class="nav-logo-badge">devcheap</span>
+<p class="footer-text">Verified developer deals, curated weekly.</p>
+</div>
+<div class="footer-links">
+<a href="https://github.com/hasitpbhatt/devcheap" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+<a href="#newsletter" class="footer-link">Newsletter</a>
+</div>
+</div>
+</footer>
 
-  <div id="popup" class="popup-overlay">
-    <div class="popup">
-      <button type="button" id="popup-close" class="popup-close" aria-label="Close">
-        <svg class="icon icon-x" width="20" height="20"><use href="/images/icons.svg#icon-x"/></svg>
-      </button>
-      <div class="popup-body">
-        <h3 class="popup-title">Never miss a deal.</h3>
-        <p class="popup-desc">Curated developer deals, delivered weekly. Free, no spam.</p>
-        <form id="popup-form" class="popup-form">
-          <div class="popup-input-row">
-            <input id="popup-email" type="email" class="popup-input" placeholder="you@example.com" required autocomplete="email">
-            <button type="submit" class="popup-btn">Subscribe</button>
-          </div>
-          <p class="popup-note">Free. Unsubscribe anytime.</p>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div id="turnstile-widget" style="position:fixed;top:-1px;left:-1px;width:0;height:0;overflow:hidden;visibility:hidden" aria-hidden="true"></div>
-  <script src="js/search.js"></script>
+<div id="turnstile-widget" style="position:fixed;top:-1px;left:-1px;width:0;height:0;overflow:hidden;visibility:hidden" aria-hidden="true"></div>
+<script src="js/search.js"></script>
 </body>
 </html>
