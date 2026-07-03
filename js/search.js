@@ -1,16 +1,23 @@
+import { buildTrackedUrl, trackOutboundClick } from './affiliate.js';
 let dealsData = [];
 var activeCategories = [];
 let searchTimeout = null;
 let activeFilters = { recommended: false, spotlight: false, expiringSoon: false, noExpiry: false, hasCoupon: false };
 const EXPIRY_FILTER_KEYS = ['expiringSoon', 'noExpiry'];
 
-const UTM_SOURCE = 'devcheap.click';
-const UTM_MEDIUM = 'website';
-const UTM_CAMPAIGN = 'deal_click';
-
-const TURNSTILE_SITE_KEY = 'REPLACE_ME'; // Set this to your Turnstile site key from Cloudflare Dashboard
+const TURNSTILE_SITE_KEY = ''; // Provide site key from Cloudflare Dashboard — empty disables widget
 let turnstileWidgetId = null;
 let turnstileToken = null;
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
 
 window.onTurnstileLoad = function () {
   const container = document.getElementById('turnstile-widget');
@@ -23,44 +30,13 @@ window.onTurnstileLoad = function () {
   });
 };
 
-function buildTrackedUrl(deal) {
-  let targetUrl = deal.url;
-  if (deal.has_affiliate && deal.affiliate_url) {
-    targetUrl = deal.affiliate_url;
-  }
-  try {
-    const url = new URL(targetUrl);
-    url.searchParams.set('utm_source', UTM_SOURCE);
-    url.searchParams.set('utm_medium', UTM_MEDIUM);
-    url.searchParams.set('utm_campaign', UTM_CAMPAIGN);
-    url.searchParams.set('utm_content', deal.tracking_id || deal.id);
-    return url.toString();
-  } catch (e) {
-    return targetUrl;
-  }
-}
-
 async function loadDeals() {
-  try {
-    const response = await fetch('/data/deals.jsonl');
-    const text = await response.text();
-    return text.split('\n').filter(l => l.trim()).map(l => JSON.parse(l));
-  } catch (_) {
+  const response = await fetch('/data/deals.jsonl');
+  if (!response.ok) {
     return [];
   }
-}
-
-function trackOutboundClick(deal, linkType) {
-  const payload = {
-    deal_id: deal.id,
-    deal_name: deal.name,
-    tracking_id: deal.tracking_id,
-    category: deal.category,
-    link_type: linkType,
-    timestamp: new Date().toISOString(),
-    url: window.location.href
-  };
-  console.log('Outbound click tracked:', payload);
+  const text = await response.text();
+  return text.split('\n').filter(l => l.trim()).map(l => JSON.parse(l));
 }
 
 function renderSkeletons(count) {
@@ -78,6 +54,23 @@ function renderSkeletons(count) {
     `;
     grid.appendChild(sk);
   }
+}
+
+function renderError(message) {
+  const gridEl = document.getElementById('deals-grid');
+  if (!gridEl) return;
+  gridEl.innerHTML = `
+    <div class="empty-state">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <h3>Something went wrong</h3>
+      <p>${escapeHtml(message)}</p>
+      <button type="button" class="empty-clear-btn" id="retry-load-btn">Try again</button>
+    </div>
+  `;
+  document.getElementById('retry-load-btn')?.addEventListener('click', async () => {
+    renderSkeletons(6);
+    try { dealsData = await loadDeals(); renderDeals(); } catch (e) { renderError(e.message); }
+  });
 }
 
 function renderDeals() {
@@ -158,7 +151,10 @@ function renderDeals() {
     return;
   }
 
-  filtered.forEach((deal, index) => {
+  const resultsHint = document.querySelector('.results-hint');
+if (resultsHint) resultsHint.style.display = 'none';
+
+filtered.forEach((deal, index) => {
     const card = document.createElement('div');
     card.className = 'deal-card';
     card.style.animationDelay = `${index * 20}ms`;
@@ -340,17 +336,9 @@ function injectItemListJSONLD(deals) {
       '@type': 'ListItem',
       'position': index + 1,
       'item': {
-        '@type': 'Product',
+        '@type': 'ListItem',
         'name': deal.name,
-        'description': deal.desc,
-        'category': deal.category,
-        'offers': {
-          '@type': 'Offer',
-          'price': '0',
-          'priceCurrency': 'USD',
-          'description': deal.deal,
-          'availability': deal.expires ? 'https://schema.org/LimitedAvailability' : 'https://schema.org/OnlineOnly',
-        }
+        'url': `https://devcheap.click/deals/${deal.id}/`
       }
     }))
   });
@@ -562,11 +550,16 @@ async function boot() {
   if (!hasPreRendered) {
     renderSkeletons(6);
   }
-  dealsData = await loadDeals();
+  try { dealsData = await loadDeals(); } catch (e) { renderError(e.message || 'Unable to load deals'); }
   injectItemListJSONLD(dealsData);
   setupTheme();
-  if (typeof turnstile !== 'undefined' && turnstileWidgetId === null) {
-    window.onTurnstileLoad();
+  const turnstileContainer = document.getElementById('turnstile-widget');
+  if (turnstileContainer && (!TURNSTILE_SITE_KEY || typeof turnstile !== 'undefined')) {
+    if (TURNSTILE_SITE_KEY && turnstileWidgetId === null) {
+      window.onTurnstileLoad();
+    } else {
+      turnstileContainer.remove();
+    }
   }
   setupNewsletterForm();
   animateCounters();
