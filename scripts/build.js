@@ -136,33 +136,54 @@ async function main() {
     `<div id="deals-count" class="results-info">${totalDeals} active deals</div>`
   );
 
-  const hardcodedCats = ['hosting', 'database', 'apis', 'ai & llm', 'auth', 'tools', 'monitoring', 'storage', 'security', 'domains'];
-  const categoryButtons = [
-    '<button type="button" class="cat-btn active" data-cat="all" role="tab" aria-selected="true">All</button>',
-    '<button type="button" class="cat-btn" data-cat="hosting" role="tab" aria-selected="false">Hosting &amp; Cloud</button>',
-    '<button type="button" class="cat-btn" data-cat="database" role="tab" aria-selected="false">Database</button>',
-    '<button type="button" class="cat-btn" data-cat="apis" role="tab" aria-selected="false">APIs &amp; Email</button>',
-    '<button type="button" class="cat-btn" data-cat="ai &amp; llm" role="tab" aria-selected="false">AI &amp; LLM</button>',
-    '<button type="button" class="cat-btn" data-cat="auth" role="tab" aria-selected="false">Auth</button>',
-    '<button type="button" class="cat-btn" data-cat="tools" role="tab" aria-selected="false">Developer Tools</button>',
-    '<button type="button" class="cat-btn" data-cat="monitoring" role="tab" aria-selected="false">Monitoring</button>',
-    '<button type="button" class="cat-btn" data-cat="storage" role="tab" aria-selected="false">Storage</button>',
-    '<button type="button" class="cat-btn" data-cat="security" role="tab" aria-selected="false">Security</button>',
-    '<button type="button" class="cat-btn" data-cat="domains" role="tab" aria-selected="false">Domains</button>'
-  ];
+const categoryDisplayMap = {
+  'hosting & cloud': 'Hosting & Cloud',
+  'database': 'Database',
+  'apis & email': 'APIs & Email',
+  'apis & payments': 'APIs & Payments',
+  'apis & search': 'APIs & Search',
+  'ai & llm': 'AI & LLM',
+  'auth': 'Auth',
+  'developer tools': 'Developer Tools',
+  'monitoring': 'Monitoring',
+  'domains & hosting': 'Domains & Hosting',
+  'storage & cloud': 'Storage & Cloud',
+  'security': 'Security',
+  'productivity': 'Productivity',
+  'seo': 'SEO',
+  'ai': 'AI',
+  'social media': 'Social Media',
+  'customer support': 'Customer Support',
+  'sales & marketing': 'Sales & Marketing',
+  'services': 'Services',
+  'design & collaboration': 'Design & Collaboration',
+  'web analytics': 'Web Analytics',
+  'media & images': 'Media & Images',
+  'ci/cd': 'CI/CD',
+  'testing & qa': 'Testing & QA',
+};
 
-  categories.forEach(cat => {
-    const catLower = cat.toLowerCase();
-    const isCovered = hardcodedCats.some(ec => catLower.includes(ec));
-    if (!isCovered) {
-      categoryButtons.push(`<button type="button" class="cat-btn" data-cat="${escapeHtml(catLower)}" role="tab" aria-selected="false">${escapeHtml(cat)}</button>`);
-    }
-  });
-  
-  indexHtml = indexHtml.replace(
-    /<div class="categories" id="categories-container" role="tablist">[\s\S]*?<\/div>/,
-    `<div class="categories" id="categories-container" role="tablist">\n            ${categoryButtons.join('\n            ')}\n          </div>`
-  );
+const allBtn = '<button type="button" class="cat-btn active" data-cat="all" role="tab" aria-selected="true">All</button>';
+
+const added = new Set();
+const categoryButtons = [
+  allBtn,
+  ...Object.entries(categoryDisplayMap)
+    .filter(([slug, _]) => categories.some(c => c.toLowerCase() === slug))
+    .map(([slug, label]) => {
+      added.add(slug);
+      return `<button type="button" class="cat-btn" data-cat="${escapeHtml(slug)}" role="tab" aria-selected="false">${escapeHtml(label)}</button>`;
+    }),
+  ...categories
+    .filter(cat => !added.has(cat.toLowerCase()))
+    .sort()
+    .map(cat => `<button type="button" class="cat-btn" data-cat="${escapeHtml(cat.toLowerCase())}" role="tab" aria-selected="false">${escapeHtml(cat)}</button>`)
+];
+
+indexHtml = indexHtml.replace(
+  /<div class="categories" id="categories-container" role="tablist">[\s\S]*?<\/div>/,
+  `<div class="categories" id="categories-container" role="tablist">\n ${categoryButtons.join('\n ')}\n </div>`
+);
 
 await fs.writeFile(INDEX_PATH, indexHtml, 'utf-8');
 console.log('✅ Main index.html updated.');
@@ -222,15 +243,11 @@ console.log('✅ Main index.html updated.');
       "name": deal.name,
       "description": deal.desc,
       "image": "https://devcheap.click/images/og-image.svg",
-      "offers": {
-        "@type": "Offer",
-        "price": "0.00",
-        "priceCurrency": "USD",
-        "description": deal.deal,
-        "itemCondition": "https://schema.org/NewCondition",
-        "availability": "https://schema.org/InStock",
-        "url": `https://devcheap.click/deals/${deal.id}/`
-      }
+  "offers": {
+    "@type": "Offer",
+    "description": deal.deal,
+    "url": `https://devcheap.click/deals/${deal.id}/`
+  }
     };
     const productJsonHtml = `<script type="application/ld+json">\n${JSON.stringify(productJson, null, 2)}\n</script>`;
 

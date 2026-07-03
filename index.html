@@ -135,21 +135,7 @@
       </div>
     </section>
 
-    <section class="banner-section">
-      <div class="container banner-container">
-        <div class="banner-content">
-          <h2 class="banner-title">The best deals, in your inbox.</h2>
-          <p class="banner-desc">Curated deals delivered weekly. No spam, just value.</p>
-        </div>
-        <form id="banner-form" class="banner-form">
-          <div class="banner-input-row">
-            <input id="banner-email" type="email" class="banner-input" placeholder="you@example.com" required autocomplete="email">
-            <button type="submit" class="banner-submit">Subscribe</button>
-          </div>
-          <p class="banner-note">Free. Unsubscribe anytime.</p>
-        </form>
-      </div>
-    </section>
+
 
     <section id="newsletter" class="section newsletter-section">
       <div class="container newsletter-container">
@@ -244,9 +230,10 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/></svg>
               Coupons
             </button>
-          </div>
-        </div>
-<div id="deals-count" class="results-info">143 active deals</div>
+</div>
+<div id="active-filter-badges" class="active-filter-badges" aria-label="Active filters" role="list"></div>
+</div>
+<div id="deals-count" class="results-info" aria-live="polite">143 active deals</div>
 <div id="deals-grid" class="deals-grid"></div>
 <p class="results-hint">Select a category or search to load deals dynamically.</p>
 </main>

@@ -17,7 +17,9 @@ global.localStorage = dom.window.localStorage;
 dom.window.requestAnimationFrame = (cb) => setTimeout(cb, 16);
 global.requestAnimationFrame = dom.window.requestAnimationFrame;
 
-const searchJs = fs.readFileSync(path.resolve('js/search.js'), 'utf-8');
+const affiliateJs = fs.readFileSync(path.resolve('js/affiliate.js'), 'utf-8').replace(/^export\s+/gm, '');
+dom.window.eval(affiliateJs);
+const searchJs = fs.readFileSync(path.resolve('js/search.js'), 'utf-8').replace(/^import\s+\{[^}]+\}\s+from\s+['"][^'"]+['"];?\s*$/gm, '');
 dom.window.eval(searchJs);
 
 globalThis.document = dom.window.document;
