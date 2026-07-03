@@ -179,19 +179,11 @@ async function main() {
     `<div class="categories" id="categories-container" role="tablist">\n            ${categoryButtons.join('\n            ')}\n          </div>`
   );
 
-  // Pre-render deals grid
-  const dealsCardsHtml = deals.map(deal => renderDealCard(deal, false)).join('\n');
-  const gridStartMarker = '<div id="deals-grid" class="deals-grid">';
-  const gridStart = indexHtml.indexOf(gridStartMarker);
-  const gridEnd = indexHtml.indexOf('</main>', gridStart);
-  const prefix = indexHtml.substring(0, gridStart);
-  const afterGrid = indexHtml.substring(gridEnd);
-  indexHtml = prefix + `<div id="deals-grid" class="deals-grid">\n${dealsCardsHtml}\n </div>` + afterGrid;
-
-  await fs.writeFile(INDEX_PATH, indexHtml, 'utf-8');
+await fs.writeFile(INDEX_PATH, indexHtml, 'utf-8');
   console.log('✅ Main index.html pre-rendered successfully.');
 
   // 3. Generate Deal Detail Pages
+// 4. Generate sitemap.xml
   const detailTemplate = await fs.readFile(TEMPLATE_PATH, 'utf-8');
   await fs.mkdir(DEALS_DIR, { recursive: true });
 
