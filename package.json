@@ -11,6 +11,7 @@
     "validate:jsonl": "node -e \"const fs=require('fs');const lines=fs.readFileSync('data/deals.jsonl','utf-8').split('\\n').filter(Boolean);lines.forEach((l,i)=>{try{JSON.parse(l)}catch(e){console.error('Line '+(i+1)+': '+e.message);process.exit(1)}});console.log('✓ '+lines.length+' deals validated')\"",
     "validate:json": "jq empty data/deals.json",
     "fetch:deals": "node scripts/fetch-deals.js",
+    "rerate": "node scripts/reevaluate-ratings.js",
     "check:links": "npx linkinator . --recurse --skip '^(https?://)'",
     "ci": "npm run build && npm run validate:jsonl && npm test && npm run lint:html && npm run lint:css",
     "prepare": "husky"
