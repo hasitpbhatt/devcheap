@@ -53,4 +53,24 @@ describe('Accessibility checks', () => {
       expect(hasLabel || hasAria || hasPlaceholder).toBe(true);
     });
   });
+
+  it('sort select has associated label-for', () => {
+    const select = doc.getElementById('sort-select');
+    expect(select).not.toBeNull();
+    expect(doc.querySelector('label[for="sort-select"]')).not.toBeNull();
+  });
+
+  it('pagination nav has aria-label', () => {
+    const nav = doc.getElementById('pagination');
+    expect(nav).not.toBeNull();
+    expect(nav.getAttribute('aria-label')).toBe('Deal pages');
+  });
+
+  it('select elements have accessible names', () => {
+    doc.querySelectorAll('select').forEach(sel => {
+      const hasLabelFor = doc.querySelector(`label[for="${sel.id}"]`);
+      const hasAriaLabel = sel.hasAttribute('aria-label');
+      expect(hasLabelFor || hasAriaLabel).toBeTruthy();
+    });
+  });
 });

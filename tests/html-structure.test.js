@@ -62,6 +62,20 @@ describe('Deals section', () => {
     expect(allBtn).not.toBeNull();
     expect(allBtn.dataset.cat).toBe('all');
   });
+
+  it('has sort select with label and 4 options', () => {
+    const select = document.getElementById('sort-select');
+    expect(select).not.toBeNull();
+    expect(document.querySelector('label[for="sort-select"]')).not.toBeNull();
+    expect([...select.options].map(o => o.value)).toEqual(['default', 'expiring', 'alphabetical', 'recommended']);
+  });
+
+  it('has pagination nav element hidden by default', () => {
+    const nav = document.getElementById('pagination');
+    expect(nav).not.toBeNull();
+    expect(nav.hidden).toBe(true);
+    expect(nav.getAttribute('aria-label')).toBe('Deal pages');
+  });
 });
 
 describe('Newsletter section', () => {

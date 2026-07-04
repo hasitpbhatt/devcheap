@@ -233,8 +233,20 @@ Coupons
 </div>
 <div id="active-filter-badges" class="active-filter-badges" aria-label="Active filters" role="list"></div>
 </div>
-<div id="deals-count" class="results-info" aria-live="polite">143 active deals</div>
+<div class="deals-toolbar">
+  <p id="deals-count" class="results-info" aria-live="polite">143 active deals</p>
+  <div class="sort-wrap">
+    <label for="sort-select" class="sort-label">Sort by</label>
+    <select id="sort-select" class="sort-select" aria-label="Sort deals">
+      <option value="default">Default order</option>
+      <option value="expiring">Expiring soonest</option>
+      <option value="alphabetical">Name (A–Z)</option>
+      <option value="recommended">Recommended first</option>
+    </select>
+  </div>
+</div>
 <div id="deals-grid" class="deals-grid"></div>
+<nav id="pagination" class="pagination" role="navigation" aria-label="Deal pages" hidden></nav>
 <p class="results-hint">Select a category or search to load deals dynamically.</p>
 </main>
 

@@ -6,6 +6,14 @@ let searchTimeout = null;
 let activeFilters = { recommended: false, spotlight: false, expiringSoon: false, noExpiry: false, hasCoupon: false };
 const EXPIRY_FILTER_KEYS = ['expiringSoon', 'noExpiry'];
 
+const PAGE_SIZE = 24;
+let currentPage = 1;
+let currentSort = 'default';
+
+function debug(...args) {
+  if (window.__DEVcheap_DEBUG) console.log(...args);
+}
+
 const TURNSTILE_SITE_KEY = '0x4AAAAAADvU7jbz4RuK5Ibz';
 let turnstileWidgetId = null;
 let turnstileToken = null;
@@ -74,6 +82,70 @@ function renderError(message) {
   });
 }
 
+function sortDeals(deals, sortKey) {
+  const copy = [...deals];
+  switch (sortKey) {
+    case 'expiring':
+      return copy.sort((a, b) => {
+        const ax = a.expires ? new Date(a.expires).getTime() : Infinity;
+        const bx = b.expires ? new Date(b.expires).getTime() : Infinity;
+        return ax - bx;
+      });
+    case 'alphabetical':
+      return copy.sort((a, b) => (a.name || '').toLowerCase().localeCompare((b.name || '').toLowerCase()));
+    case 'recommended':
+      return copy.sort((a, b) => {
+        const ar = a.tags && a.tags.toLowerCase().includes('recommended') ? 1 : 0;
+        const br = b.tags && b.tags.toLowerCase().includes('recommended') ? 1 : 0;
+        return br - ar;
+      });
+    default:
+      return copy;
+  }
+}
+
+function computePageWindow(current, total) {
+  if (total <= 7) {
+    const arr = [];
+    for (let i = 1; i <= total; i++) arr.push(String(i));
+    return arr;
+  }
+  const pages = new Set([1, total, current, current - 1, current + 1]);
+  const sorted = [...pages].filter(p => p >= 1 && p <= total).sort((a, b) => a - b);
+  const result = [];
+  for (let i = 0; i < sorted.length; i++) {
+    if (i > 0 && sorted[i] - sorted[i - 1] > 1) result.push('...');
+    result.push(String(sorted[i]));
+  }
+  return result;
+}
+
+function renderPagination(totalCount, page) {
+  const nav = document.getElementById('pagination');
+  if (!nav) return;
+  const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+  if (totalPages <= 1) {
+    nav.hidden = true;
+    nav.innerHTML = '';
+    return;
+  }
+  nav.hidden = false;
+  const current = Math.min(Math.max(page, 1), totalPages);
+  const window = computePageWindow(current, totalPages);
+  let html = `<button type="button" class="page-btn page-prev"${current === 1 ? ' disabled aria-disabled="true"' : ''} data-page="${current - 1}" aria-label="Previous page">‹</button>`;
+  for (const p of window) {
+    if (p === '...') {
+      html += `<span class="page-ellipsis" aria-hidden="true">…</span>`;
+    } else {
+      const pn = parseInt(p, 10);
+      const isCurrent = pn === current;
+      html += `<button type="button" class="page-btn${isCurrent ? ' page-current' : ''}" data-page="${pn}"${isCurrent ? ' aria-current="page"' : ''} aria-label="Page ${pn}">${pn}</button>`;
+    }
+  }
+  html += `<button type="button" class="page-btn page-next"${current === totalPages ? ' disabled aria-disabled="true"' : ''} data-page="${current + 1}" aria-label="Next page">›</button>`;
+  nav.innerHTML = html;
+}
+
 function renderDeals() {
   const gridEl = document.getElementById('deals-grid');
   const countEl = document.getElementById('deals-count');
@@ -126,10 +198,19 @@ function renderDeals() {
   }
 
   if (countEl) {
-    countEl.textContent = `${filtered.length} active deal${filtered.length === 1 ? '' : 's'}`;
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const end = Math.min(start + PAGE_SIZE, filtered.length);
+    if (filtered.length === 0) {
+      countEl.textContent = '0 active deals';
+    } else if (start >= filtered.length) {
+      countEl.textContent = `${filtered.length} active deal${filtered.length === 1 ? '' : 's'}`;
+    } else {
+      countEl.textContent = `Showing ${start + 1}–${end} of ${filtered.length} deal${filtered.length === 1 ? '' : 's'}`;
+    }
   }
 
   if (filtered.length === 0) {
+    renderPagination(0, 1);
     const activeChips = [];
     const rawQuery = document.getElementById('search-input').value.trim();
     if (rawQuery) activeChips.push({ label: `"${rawQuery}"`, type: 'search' });
@@ -153,9 +234,16 @@ function renderDeals() {
   }
 
   const resultsHint = document.querySelector('.results-hint');
-if (resultsHint) resultsHint.style.display = 'none';
+  if (resultsHint) resultsHint.style.display = 'none';
 
-filtered.forEach((deal, index) => {
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+  if (currentPage > totalPages) currentPage = totalPages;
+  if (currentPage < 1) currentPage = 1;
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const pageItems = sortDeals(filtered, currentSort).slice(start, start + PAGE_SIZE);
+  debug(`[render] page ${currentPage}/${totalPages}, showing ${pageItems.length} of ${filtered.length} (sort=${currentSort})`);
+
+  pageItems.forEach((deal, index) => {
     const card = document.createElement('div');
     card.className = 'deal-card';
     card.style.animationDelay = `${index * 20}ms`;
@@ -205,6 +293,7 @@ filtered.forEach((deal, index) => {
       `;
     gridEl.appendChild(card);
   });
+  renderPagination(filtered.length, currentPage);
   renderActiveFilterBadges();
 }
 
@@ -392,7 +481,7 @@ function updateCategoryURL(categories) {
   } else {
     url.searchParams.set('category', categories.join(','));
   }
-  window.history.replaceState(null, '', url);
+  window.history.replaceState(null, '', url.pathname + url.search + url.hash);
 }
 
 function updateBreadcrumbJSONLD(categories) {
@@ -488,7 +577,9 @@ function setupCategoryDelegation() {
     }
 
     refreshCatButtons();
+    currentPage = 1;
     renderDeals();
+    updatePageURL(currentPage);
     updateCategoryURL(activeCategories);
     updateBreadcrumbJSONLD(activeCategories);
   });
@@ -501,7 +592,64 @@ function updateFiltersURL() {
   if (activeFilters.expiringSoon) { url.searchParams.set('expiringSoon', '1'); } else { url.searchParams.delete('expiringSoon'); }
   if (activeFilters.noExpiry) { url.searchParams.set('noExpiry', '1'); } else { url.searchParams.delete('noExpiry'); }
   if (activeFilters.hasCoupon) { url.searchParams.set('hasCoupon', '1'); } else { url.searchParams.delete('hasCoupon'); }
-  window.history.replaceState(null, '', url);
+  window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+}
+
+function updatePageURL(page) {
+  const url = new URL(window.location.href);
+  if (page <= 1) url.searchParams.delete('page');
+  else url.searchParams.set('page', String(page));
+  window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+}
+
+function updateSortURL(sort) {
+  const url = new URL(window.location.href);
+  if (!sort || sort === 'default') url.searchParams.delete('sort');
+  else url.searchParams.set('sort', sort);
+  window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+}
+
+function setupSortSelect() {
+  const select = document.getElementById('sort-select');
+  if (!select) return;
+  select.addEventListener('change', () => {
+    const prev = currentSort;
+    currentSort = select.value;
+    currentPage = 1;
+    debug(`[sort] ${prev} → ${currentSort}, reset to page 1`);
+    updateSortURL(currentSort);
+    updatePageURL(currentPage);
+    renderDeals();
+    try { const ss = document.getElementById('deals'); if (ss) ss.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (_) {}
+  });
+}
+
+function setupPagination() {
+  const nav = document.getElementById('pagination');
+  if (!nav) return;
+  nav.addEventListener('click', (e) => {
+    const btn = e.target.closest('.page-btn');
+    if (!btn || btn.disabled) return;
+    const p = parseInt(btn.dataset.page, 10);
+    if (!p || p === currentPage) return;
+    const totalPages = Math.max(1, Math.ceil(dealsData.length / PAGE_SIZE));
+    if (p < 1 || p > totalPages) return;
+    const prev = currentPage;
+    currentPage = p;
+    debug(`[pagination] page ${prev} → ${p}`);
+    const url = new URL(window.location);
+    if (p <= 1) url.searchParams.delete('page');
+    else url.searchParams.set('page', String(p));
+    window.history.pushState({ page: p }, '', url.pathname + url.search + url.hash);
+    renderDeals();
+    try {
+      const ds = document.getElementById('deals');
+      if (ds) {
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        ds.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      }
+    } catch (_) {}
+  });
 }
 
 function setupFilterChips() {
@@ -528,7 +676,10 @@ function setupFilterChips() {
         chip.classList.toggle('active');
         chip.setAttribute('aria-pressed', activeFilters[filter]);
       }
+      currentPage = 1;
+      debug(`[filter] ${filter} toggled, reset to page 1`);
       updateFiltersURL();
+      updatePageURL(currentPage);
       renderDeals();
     });
   });
@@ -585,15 +736,31 @@ async function boot() {
     clearBtn.addEventListener('click', () => {
       searchInput.value = '';
       clearBtn.style.display = 'none';
+      currentPage = 1;
+      debug('[search] cleared, reset to page 1');
+      updatePageURL(currentPage);
       renderDeals();
     });
   }
+
+  setupSortSelect();
+  setupPagination();
 
   generateMissingCategories();
   setupCategoryDelegation();
   setupFilterChips();
 
   const params = new URLSearchParams(window.location.search);
+  const sortFromURL = params.get('sort');
+  if (sortFromURL && ['default', 'expiring', 'alphabetical', 'recommended'].includes(sortFromURL)) {
+    currentSort = sortFromURL;
+    const select = document.getElementById('sort-select');
+    if (select) select.value = currentSort;
+  }
+  const pageFromURL = parseInt(params.get('page') || '1', 10);
+  if (Number.isFinite(pageFromURL) && pageFromURL > 1) currentPage = pageFromURL;
+  debug(`[boot] URL params restored → page=${currentPage}, sort=${currentSort}`);
+
   const catsFromURL = params.get('category');
   if (catsFromURL) {
     const cats = catsFromURL.split(',').map(c => c.trim()).filter(Boolean);
@@ -639,7 +806,7 @@ async function boot() {
 
   renderDeals();
 
-  const hasDealParams = params.toString() && [...params.keys()].some(k => ['category', 'recommended', 'spotlight', 'expiringSoon', 'noExpiry', 'hasCoupon'].includes(k));
+  const hasDealParams = params.toString() && [...params.keys()].some(k => ['category', 'recommended', 'spotlight', 'expiringSoon', 'noExpiry', 'hasCoupon', 'page', 'sort'].includes(k));
   if (hasDealParams) {
     const dealsSection = document.getElementById('deals');
     if (dealsSection) { try { dealsSection.scrollIntoView({ behavior: 'smooth' }); } catch (_) {} }
@@ -676,6 +843,13 @@ gridEl.addEventListener('click', (e) => {
         });
         updateCategoryURL([]);
         updateBreadcrumbJSONLD([]);
+        currentPage = 1;
+        currentSort = 'default';
+        const sortSelect = document.getElementById('sort-select');
+        if (sortSelect) sortSelect.value = 'default';
+        updateSortURL(currentSort);
+        updatePageURL(currentPage);
+        debug('[filters] cleared, reset to page 1, sort default');
         renderDeals();
         return;
       }
@@ -729,20 +903,77 @@ const btn = e.target.closest('[data-deal-id]');
         updateFiltersURL();
       }
 
+      currentPage = 1;
+      debug('[badge] filter removed, reset to page 1');
+      updatePageURL(currentPage);
       renderDeals();
     });
   }
 }
 
 function closeAllOverflowMenus() {
- document.querySelectorAll('.overflow-menu').forEach(m => m.classList.remove('open'));
+  document.querySelectorAll('.overflow-menu').forEach(m => m.classList.remove('open'));
+}
+
+function setupOverflowKeyboard() {
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const target = e.target.closest('.deal-card-overflow[role="button"]');
+    if (!target) return;
+    e.preventDefault();
+    const menu = target.querySelector('.overflow-menu');
+    if (!menu) return;
+    const wasOpen = menu.classList.contains('open');
+    closeAllOverflowMenus();
+    if (!wasOpen) menu.classList.add('open');
+  });
+}
+
+function restoreStateFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const sortParam = params.get('sort');
+  if (sortParam && ['default', 'expiring', 'alphabetical', 'recommended'].includes(sortParam)) {
+    currentSort = sortParam;
+  } else {
+    currentSort = 'default';
+  }
+  const select = document.getElementById('sort-select');
+  if (select) select.value = currentSort;
+  const pageParam = parseInt(params.get('page') || '1', 10);
+  currentPage = Number.isFinite(pageParam) && pageParam > 0 ? pageParam : 1;
+  debug(`[restore] page=${currentPage}, sort=${currentSort}`);
 }
 
 window.addEventListener('click', (e) => {
- if (!e.target.closest('.deal-card-overflow')) closeAllOverflowMenus();
+  if (!e.target.closest('.deal-card-overflow')) closeAllOverflowMenus();
 });
 
-window.addEventListener('DOMContentLoaded', boot);
+window.addEventListener('popstate', () => {
+  restoreStateFromURL();
+  renderDeals();
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  setupOverflowKeyboard();
+  boot();
+});
 window.buildTrackedUrl = buildTrackedUrl;
 window.trackOutboundClick = trackOutboundClick;
 window.boot = boot;
+window.renderDeals = renderDeals;
+window.sortDeals = sortDeals;
+window.computePageWindow = computePageWindow;
+window.renderPagination = renderPagination;
+window.updatePageURL = updatePageURL;
+window.updateSortURL = updateSortURL;
+window.setupSortSelect = setupSortSelect;
+window.setupPagination = setupPagination;
+window.restoreStateFromURL = restoreStateFromURL;
+window.__getPageState = () => ({ currentPage, currentSort, pageSize: PAGE_SIZE });
+window.__setDealsData = (d) => { dealsData = d; };
+window.__setPage = (p) => { currentPage = p; };
+window.__setSort = (s) => { currentSort = s; };
+window.resetModuleState = () => {
+  currentPage = 1;
+  currentSort = 'default';
+};
