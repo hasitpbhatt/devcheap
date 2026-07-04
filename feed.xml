@@ -5,7 +5,7 @@
     <link>https://devcheap.click/</link>
     <description>Verified deals on APIs, hosting, databases, and AI tools. Free credits, lifetime discounts, and limited offers curated weekly.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2026 10:32:22 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jul 2026 07:33:31 GMT</lastBuildDate>
     <atom:link href="https://devcheap.click/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Aiven â€” Free Tier (Postgres, MySQL, Redis)</title>
@@ -1150,6 +1150,350 @@
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">ollama</guid>
       <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>CodeRabbit â€” Free Tier (15 AI Reviews/Month)</title>
+      <link>https://devcheap.click/coderabbit</link>
+      <description>15 free AI code reviews/month -- automated PR review saves hours per sprint AI-powered code review platform. Free tier includes 15 PR reviews per month with inline suggestions across GitHub/GitLab/Bitbucket.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">coderabbit</guid>
+      <category>Developer Tools</category>
+    </item>
+    <item>
+      <title>Replit â€” Free Starter Plan</title>
+      <link>https://devcheap.click/replit</link>
+      <description>100 free compute hours/month -- instant online IDE for prototyping without setup Online IDE with built-in hosting and databases. Free Starter gives 3 public repls and 100 compute hours/month.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">replit</guid>
+      <category>Developer Tools</category>
+    </item>
+    <item>
+      <title>PagerDuty â€” Free Tier (5 Users)</title>
+      <link>https://devcheap.click/pagerduty</link>
+      <description>Free for 5 users -- incident alerting and on-call scheduling for dev teams Incident management and alerting platform. Free tier includes 5 users, basic alert scheduling, and 2 notification channels.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">pagerduty</guid>
+      <category>Monitoring</category>
+    </item>
+    <item>
+      <title>Codeium â€” Free Tier (Unlimited Autocomplete)</title>
+      <link>https://devcheap.click/codeium</link>
+      <description>Free unlimited AI autocomplete in 70+ IDEs -- Copilot alternative with zero cost for individuals AI-powered code autocomplete and chat. Free tier for individuals gives unlimited autocompletions and basic chat across 70+ IDEs. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">codeium</guid>
+      <category>Developer Tools</category>
+    </item>
+    <item>
+      <title>Poppy AI â€” Lifetime License - </title>
+      <link>https://devcheap.click/poppy-ai</link>
+      <description>Pay  once vs. /mo for Jasper — AI writing from any source, lifetime license from AppSumo AI writing assistant that turns YouTube videos, PDFs, and voice notes into on-brand scripts, posts, and emails.</description>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">poppy-ai</guid>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>Livid â€” Lifetime License - </title>
+      <link>https://devcheap.click/livid</link>
+      <description>Pay  once vs. /mo for Vimeo — custom video player with ad-free hosting for life Customizable video player with migration from Vimeo, ad-free hosting, and full sharing controls.</description>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">livid</guid>
+      <category>Media &amp; Images</category>
+    </item>
+    <item>
+      <title>SocLeads â€” Lifetime License - </title>
+      <link>https://devcheap.click/socleads</link>
+      <description>Pay  once vs. /mo for Lusha — scrape emails from social media and Google Maps at 90% off Scrape prospect emails from social media and Google Maps for lead generation.</description>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">socleads</guid>
+      <category>Sales &amp; Marketing</category>
+    </item>
+    <item>
+      <title>ZeroRank AI â€” Lifetime License - </title>
+      <link>https://devcheap.click/zerorank-ai</link>
+      <description>Pay  once vs. /mo for Semrush — optimize for AI search rankings at lifetime pricing Monitor AI citations, benchmark competitors, and get actionable recommendations to rank in AI-powered search.</description>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">zerorank-ai</guid>
+      <category>SEO</category>
+    </item>
+    <item>
+      <title>DM Champ â€” Lifetime License - </title>
+      <link>https://devcheap.click/dm-champ</link>
+      <description>Pay  once vs. /mo for Outbound — resell AI sales agent with zero recurring costs White-label AI sales agent platform that you can resell to clients and keep 100% of the profit.</description>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">dm-champ</guid>
+      <category>Sales &amp; Marketing</category>
+    </item>
+    <item>
+      <title>Subscribr â€” Lifetime License - </title>
+      <link>https://devcheap.click/subscribr</link>
+      <description>Pay  once vs. /mo for TubeBuddy — YouTube scriptwriting optimized for virality at lifetime price Create long-form YouTube scripts with hooks and storytelling techniques designed to go viral.</description>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">subscribr</guid>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>SnowSEO â€” Lifetime License - </title>
+      <link>https://devcheap.click/snowseo</link>
+      <description>Pay  once vs. /mo for Ahrefs — comprehensive SEO for Google and AI search at lifetime price Optimize for Google and AI search with keyword research, content generation, and rank tracking.</description>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">snowseo</guid>
+      <category>SEO</category>
+    </item>
+    <item>
+      <title>Letterly â€” Lifetime License - </title>
+      <link>https://devcheap.click/letterly</link>
+      <description>Pay  once vs. /mo for Otter.ai — dictate in any app and transcribe meetings forever Dictate in any app, record meetings, and capture ideas to get perfect text output.</description>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">letterly</guid>
+      <category>Productivity</category>
+    </item>
+    <item>
+      <title>HelloFeed â€” Lifetime License - </title>
+      <link>https://devcheap.click/hellofeed</link>
+      <description>Pay  once vs. /mo for Trustpilot — testimonial collection and social proof at 80% less Testimonial collection tool that turns customer feedback into social proof and marketing assets.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">hellofeed</guid>
+      <category>Sales &amp; Marketing</category>
+    </item>
+    <item>
+      <title>Open eLMS Learning Generator â€” Lifetime License - </title>
+      <link>https://devcheap.click/open-elms</link>
+      <description>Pay  once vs. /mo for Teachable — AI course generation at lifetime pricing AI-powered course creation platform that generates professional eLearning content from text, visuals, and quizzes.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">open-elms</guid>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>LocalAuditPro â€” Lifetime License - </title>
+      <link>https://devcheap.click/localauditpro</link>
+      <description>Pay  once vs. /mo for BrightLocal — Google Business Profile audits built for agencies Win more clients with Google Business Profile audits — checks signals, categories, reviews, citations, and more.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">localauditpro</guid>
+      <category>SEO</category>
+    </item>
+    <item>
+      <title>MyCoachingSoftware â€” Lifetime License - </title>
+      <link>https://devcheap.click/mycoachingsw</link>
+      <description>Pay  once vs. /mo for Kajabi — own coaching platform without the monthly burn Platform to turn coaching into a scalable online business with full control and no recurring fees.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">mycoachingsw</guid>
+      <category>Services</category>
+    </item>
+    <item>
+      <title>ZenCall â€” Lifetime License - </title>
+      <link>https://devcheap.click/zencall</link>
+      <description>Pay  once vs. /mo for Aircall — AI phone agents in 16 languages at lifetime pricing AI phone agents that capture leads 24/7 in 16 languages with 7,000+ integrations.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">zencall</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>ListsGenie â€” Lifetime License - </title>
+      <link>https://devcheap.click/listsgenie</link>
+      <description>Pay  once vs. /mo for eRank — Etsy SEO optimization at lifetime price AI-powered SEO tool for Etsy sellers to optimize listings, get found, and increase sales.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">listsgenie</guid>
+      <category>Sales &amp; Marketing</category>
+    </item>
+    <item>
+      <title>wpGirl â€” Lifetime License - </title>
+      <link>https://devcheap.click/wpgirl</link>
+      <description>Pay  once vs. /mo for WP Engine — managed WordPress hosting without monthly fees Lightning-fast, secure, and fully-optimized managed WordPress hosting.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">wpgirl</guid>
+      <category>Domains &amp; Hosting</category>
+    </item>
+    <item>
+      <title>Brand2Social â€” Lifetime License - </title>
+      <link>https://devcheap.click/brand2social</link>
+      <description>Pay  once vs. /mo for Buffer — agency-grade social media management at lifetime price Social media management for agencies — boost engagement 30% and reduce work by 40% across all client accounts.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">brand2social</guid>
+      <category>Social Media</category>
+    </item>
+    <item>
+      <title>Transcript Generator â€” Lifetime License - </title>
+      <link>https://devcheap.click/transcript-generator</link>
+      <description>Pay  once vs. /mo for Rev — unlimited YouTube transcripts at lifetime pricing Extract text from any YouTube video in seconds for content repurposing and accessibility.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">transcript-generator</guid>
+      <category>Developer Tools</category>
+    </item>
+    <item>
+      <title>RARHost â€” Lifetime License - </title>
+      <link>https://devcheap.click/rarhost</link>
+      <description>Pay  once vs. /mo for SiteGround — unlimited websites with lifetime hosting Fast and secure hosting with 99.9% uptime guarantee, unlimited websites, and 1-click installations.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">rarhost</guid>
+      <category>Domains &amp; Hosting</category>
+    </item>
+    <item>
+      <title>1forAll AI â€” Lifetime License - </title>
+      <link>https://devcheap.click/1forall-ai</link>
+      <description>Pay  once vs. /mo for ChatGPT Plus — multiple AI models in one lifetime license One AI app with access to the most powerful models across text, voice, image, and video generation.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">1forall-ai</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>FileJump â€” Lifetime License - </title>
+      <link>https://devcheap.click/filejump</link>
+      <description>Pay  once vs. /yr for Google Drive — 2TB lifetime cloud storage at 80% off 2TB of lifetime cloud storage for less than one year of Google Drive or Dropbox.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">filejump</guid>
+      <category>Storage &amp; Cloud</category>
+    </item>
+    <item>
+      <title>IdeaBuddy â€” Lifetime License - </title>
+      <link>https://devcheap.click/ideabuddy</link>
+      <description>Pay  once vs. /mo for LivePlan — Forbes #1 business planning app at lifetime price Forbes #1 app for business ideation and planning — turn ideas into actionable business plans.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">ideabuddy</guid>
+      <category>Productivity</category>
+    </item>
+    <item>
+      <title>LoopCV â€” Lifetime License - </title>
+      <link>https://devcheap.click/loopcv</link>
+      <description>Pay  once vs. /mo for Simplify — auto-apply to jobs with AI at lifetime price Get 3X more job interviews — auto-apply to thousands of jobs with one click.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">loopcv</guid>
+      <category>Productivity</category>
+    </item>
+    <item>
+      <title>ZenoAssist â€” Lifetime License - </title>
+      <link>https://devcheap.click/zenoassist</link>
+      <description>Pay  once vs. /mo for Zendesk — AI customer support at lifetime pricing AI-powered customer support platform with intelligent ticket management and automated responses.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">zenoassist</guid>
+      <category>Customer Support</category>
+    </item>
+    <item>
+      <title>ConvergeHub â€” Lifetime License - </title>
+      <link>https://devcheap.click/convergehub</link>
+      <description>Pay  once vs. /mo for HubSpot — full AI CRM at 80% less lifetime pricing All-in-one AI-powered CRM with sales automation, marketing campaigns, and customer management.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">convergehub</guid>
+      <category>Sales &amp; Marketing</category>
+    </item>
+    <item>
+      <title>VidPilot AI â€” Lifetime License - </title>
+      <link>https://devcheap.click/vidpilot-ai</link>
+      <description>Pay  once vs. /mo for Pictory — faceless video generation at 70% less lifetime Desktop-based faceless video generator for creating engaging videos without showing your face.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">vidpilot-ai</guid>
+      <category>Media &amp; Images</category>
+    </item>
+    <item>
+      <title>Motherboard â€” Lifetime License - .99</title>
+      <link>https://devcheap.click/motherboard-dash</link>
+      <description>Pay  once vs. /mo for Geckoboard — all-in-one metrics dashboard at lifetime pricing Modern dashboard tool that brings all key business metrics into one centralized view.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">motherboard-dash</guid>
+      <category>Developer Tools</category>
+    </item>
+    <item>
+      <title>Gem Rank â€” Lifetime License - </title>
+      <link>https://devcheap.click/gem-rank</link>
+      <description>Pay  once vs. /mo for Semrush — track AI search rankings at lifetime price Track and improve your brand&apos;s visibility across AI platforms including ChatGPT, Gemini, and Perplexity.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">gem-rank</guid>
+      <category>SEO</category>
+    </item>
+    <item>
+      <title>Scramble Cloud â€” Lifetime License - </title>
+      <link>https://devcheap.click/scramble-cloud</link>
+      <description>Pay  once vs. /mo for Dropbox — encrypted cloud storage at lifetime pricing Secure file management platform to save, share, and manage files with end-to-end encryption.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">scramble-cloud</guid>
+      <category>Storage &amp; Cloud</category>
+    </item>
+    <item>
+      <title>InstaChamp â€” Lifetime License - </title>
+      <link>https://devcheap.click/instachamp</link>
+      <description>Pay  once vs. /mo for Later — Instagram automation at lifetime pricing Instagram automation tool for growth, engagement, and audience management.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">instachamp</guid>
+      <category>Social Media</category>
+    </item>
+    <item>
+      <title>ReplyDaddy â€” Lifetime License - </title>
+      <link>https://devcheap.click/replydaddy</link>
+      <description>Pay  once vs. /mo for Reddit monitoring tools — Reddit lead gen at lifetime price Turn Reddit conversations into hot leads with AI-powered monitoring and smart replies.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">replydaddy</guid>
+      <category>Sales &amp; Marketing</category>
+    </item>
+    <item>
+      <title>Incogniton â€” Lifetime License - </title>
+      <link>https://devcheap.click/incogniton</link>
+      <description>Pay  once vs. /mo for GoLogin — multi-account browser management at lifetime price Multi-account browser profile management with antidetect technology for secure online operations.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">incogniton</guid>
+      <category>Security</category>
+    </item>
+    <item>
+      <title>Anderro â€” Lifetime License - </title>
+      <link>https://devcheap.click/anderro</link>
+      <description>Pay  once vs. /mo for PartnerStack — affiliate platform at lifetime pricing All-in-one affiliate platform and marketplace for managing affiliate programs.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">anderro</guid>
+      <category>Sales &amp; Marketing</category>
+    </item>
+    <item>
+      <title>ReviewBounce â€” Lifetime License - </title>
+      <link>https://devcheap.click/reviewbounce</link>
+      <description>Pay  once vs. /mo for Reputation — white-label review management at lifetime pricing White-labeled review management software for agencies and freelancers.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">reviewbounce</guid>
+      <category>Customer Support</category>
+    </item>
+    <item>
+      <title>PressMeGPT â€” Lifetime License - </title>
+      <link>https://devcheap.click/pressmegpt</link>
+      <description>Pay  once vs. /yr for ThemeForest — AI WordPress theme builder at lifetime pricing Build WordPress themes without code using AI-powered theme generation.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">pressmegpt</guid>
+      <category>Developer Tools</category>
+    </item>
+    <item>
+      <title>Wisewand â€” Credits Deal</title>
+      <link>https://devcheap.click/wisewand</link>
+      <description>Credit-based AI SEO writing — research and publish rank-ready content without monthly subscription AI SEO writer that researches, writes, and auto-publishes content designed to rank on Google.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">wisewand</guid>
+      <category>SEO</category>
+    </item>
+    <item>
+      <title>Rezi â€” Lifetime License</title>
+      <link>https://devcheap.click/rezi</link>
+      <description>AI resume builder at lifetime pricing — create ATS-optimized resumes without monthly fees AI-powered resume builder that creates ATS-friendly resumes and tailors them to specific job descriptions.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">rezi</guid>
+      <category>Productivity</category>
+    </item>
+    <item>
+      <title>SourceLeader â€” Lifetime License</title>
+      <link>https://devcheap.click/sourceleader</link>
+      <description>AI lead gen across social platforms at lifetime pricing — find high-intent customers automatically AI lead gen that monitors Reddit, X, LinkedIn, Quora, and Hacker News for high-intent prospects.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">sourceleader</guid>
+      <category>Sales &amp; Marketing</category>
+    </item>
+    <item>
+      <title>ProcessOn â€” Lifetime License</title>
+      <link>https://devcheap.click/processon</link>
+      <description>AI-powered diagramming at lifetime pricing — mind maps, flowcharts, and whiteboards in one tool All-in-one AI-powered diagramming tool for mind maps, flowcharts, whiteboards, and Mermaid diagrams.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">processon</guid>
+      <category>Design &amp; Collaboration</category>
+    </item>
+    <item>
+      <title>LinkedGrow â€” Lifetime License - </title>
+      <link>https://devcheap.click/linkedgrow</link>
+      <description>Pay  once vs. /mo for Taplio — LinkedIn AI content creation at lifetime price AI-powered LinkedIn content platform that creates posts, carousels, and ideas in your voice.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">linkedgrow</guid>
+      <category>Social Media</category>
     </item>
   </channel>
 </rss>
