@@ -12,10 +12,10 @@ const { setupTheme } = window;
 const PAGE_SIZE = 24;
 const SAMPLE_DEALS_FULL = rawDeals.map(l => JSON.parse(l));
 const SAMPLE_EXPIRING = [
-  { id: 'a', name: 'AAA', category: 'AI', deal: 'd', code: '', url: 'https://example.com', desc: 'd', tags: '', expires: '2026-12-01' },
-  { id: 'b', name: 'BBB', category: 'AI', deal: 'd', code: '', url: 'https://example.com', desc: 'd', tags: '', expires: '2026-07-15' },
-  { id: 'c', name: 'CCC', category: 'AI', deal: 'd', code: '', url: 'https://example.com', desc: 'd', tags: '', expires: null },
-  { id: 'd', name: 'DDD', category: 'AI', deal: 'd', code: '', url: 'https://example.com', desc: 'd', tags: 'recommended', expires: '2026-01-01' },
+  { id: 'a', name: 'AAA', category: 'AI', pricing: 'paid', deal: 'd', code: '', url: 'https://example.com', desc: 'd', tags: '', expires: '2026-12-01' },
+  { id: 'b', name: 'BBB', category: 'AI', pricing: 'trial', deal: 'd', code: '', url: 'https://example.com', desc: 'd', tags: '', expires: '2026-07-15' },
+  { id: 'c', name: 'CCC', category: 'AI', pricing: 'free', deal: 'd', code: '', url: 'https://example.com', desc: 'd', tags: '', expires: null },
+  { id: 'd', name: 'DDD', category: 'AI', pricing: 'lifetime', deal: 'd', code: '', url: 'https://example.com', desc: 'd', tags: 'recommended', expires: '2026-01-01' },
 ];
 
 describe('setupTheme', () => {
@@ -300,6 +300,13 @@ beforeEach(() => {
     expect(window.__getPageState().currentPage).toBe(1);
   });
 
+  it('changing pricing filter chip resets page to 1', () => {
+    window.currentPage = 4;
+    const chip = document.querySelector('.filter-chip[data-filter="free"]');
+    chip.click();
+    expect(window.__getPageState().currentPage).toBe(1);
+  });
+
   it('clearing search resets page to 1', () => {
     window.currentPage = 5;
     const input = document.getElementById('search-input');
@@ -348,6 +355,49 @@ beforeEach(() => {
     window.renderDeals();
     const countEl = document.getElementById('deals-count');
     expect(/Showing 25–48 of 186 deals/.test(countEl.textContent)).toBe(true);
+  });
+});
+
+describe('Pricing filter chips', () => {
+  beforeEach(() => {
+    window.__setDealsData(SAMPLE_EXPIRING);
+    window.resetModuleState();
+    window.activeCategories = [];
+    const input = document.getElementById('search-input');
+    if (input) input.value = '';
+    document.querySelectorAll('.filter-chip.active').forEach(chip => chip.click());
+    history.replaceState(null, '', '/');
+  });
+
+  ['free', 'trial', 'paid', 'lifetime'].forEach(filter => {
+    it(`${filter} chip activates and filters deals by pricing`, () => {
+      const chip = document.querySelector(`.filter-chip[data-filter="${filter}"]`);
+      chip.click();
+      expect(chip.classList.contains('active')).toBe(true);
+      expect(chip.getAttribute('aria-pressed')).toBe('true');
+      const cards = document.querySelectorAll('.deal-card');
+      expect(cards.length).toBe(1);
+      expect(cards[0].querySelector('.deal-card-title').textContent).toBe(
+        SAMPLE_EXPIRING.find(d => d.pricing === filter).name
+      );
+    });
+  });
+
+  it('pricing chips are mutually exclusive', () => {
+    const trialChip = document.querySelector('.filter-chip[data-filter="trial"]');
+    const freeChip = document.querySelector('.filter-chip[data-filter="free"]');
+    trialChip.click();
+    freeChip.click();
+    expect(trialChip.getAttribute('aria-pressed')).toBe('false');
+    expect(freeChip.getAttribute('aria-pressed')).toBe('true');
+  });
+
+  it('renders pricing badge on deal cards', () => {
+    window.__setDealsData([SAMPLE_EXPIRING[2]]);
+    window.renderDeals();
+    const badge = document.querySelector('.deal-card-badge-pricing--free');
+    expect(badge).not.toBeNull();
+    expect(badge.textContent).toBe('Free');
   });
 });
 

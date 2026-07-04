@@ -35,7 +35,16 @@ describe('deals.json schema', () => {
       expect(typeof deal.affiliate_url).toBe('string');
       expect(deal.why).toBeDefined(`deal[${i}] missing why`);
       expect(typeof deal.why).toBe('string');
-      expect(deal.expires).toBeDefined(`deal[${i}] missing expires`);
+      expect(deal.expires).toBeDefined();
+      expect(deal.pricing).toBeDefined(`deal[${i}] missing pricing`);
+      expect(typeof deal.pricing).toBe('string');
+    });
+  });
+
+  it('each deal has a valid pricing type', () => {
+    const validPricing = ['free', 'trial', 'paid', 'lifetime'];
+    deals.forEach((deal, i) => {
+      expect(validPricing).toContain(deal.pricing);
     });
   });
 

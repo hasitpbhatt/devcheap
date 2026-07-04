@@ -73,7 +73,7 @@ devcheap/
 
 ## Filters
 
-The site offers four toggle-able filter chips below the category buttons:
+The site offers filter chips below the category buttons:
 
 | Chip | Behaviour | Group |
 |---|---|---|
@@ -82,10 +82,14 @@ The site offers four toggle-able filter chips below the category buttons:
 | **Expiring Soon** | Deals with an `expires` date within the next 30 days. Mutually exclusive with No Expiry. | Expiry |
 | **No Expiry** | Deals with no `expires` field. Mutually exclusive with Expiring Soon. | Expiry |
 | **Coupons** | Shows only deals with a copyable coupon code (excludes automatic/link codes). Independent toggle — combinable with any other filter. | None (standalone) |
+| **Free** | Shows only deals with `pricing: free`. Mutually exclusive with Trial, Paid, and Lifetime. | Pricing |
+| **Trial** | Shows only deals with `pricing: trial`. Mutually exclusive with Free, Paid, and Lifetime. | Pricing |
+| **Paid** | Shows only deals with `pricing: paid`. Mutually exclusive with Free, Trial, and Lifetime. | Pricing |
+| **Lifetime** | Shows only deals with `pricing: lifetime`. Mutually exclusive with Free, Trial, and Paid. | Pricing |
 
-Category buttons for categories present in `data/deals.jsonl` but not hardcoded in `index.html` are generated dynamically on page load. Deals tagged `recommended` show a star badge and deals tagged `spotlight` show a sparkle badge on their card.
+Category buttons for categories present in `data/deals.jsonl` but not hardcoded in `index.html` are generated dynamically on page load. Deals tagged `recommended` show a star badge and deals tagged `spotlight` show a sparkle badge on their card. Every deal also shows a pricing badge (`Free`, `Trial`, `Paid`, or `Lifetime`).
 
-All filter state is persisted in URL query parameters (e.g. `?recommended=1&spotlight=1&expiringSoon=1`).
+All filter state is persisted in URL query parameters (e.g. `?recommended=1&free=1`).
 
 ---
 

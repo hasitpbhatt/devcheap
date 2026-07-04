@@ -477,6 +477,39 @@ body {
   margin-bottom: 8px;
 }
 
+.deal-card-badge-pricing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 980px;
+  margin-bottom: 8px;
+  margin-right: 6px;
+  border: 1px solid transparent;
+}
+.deal-card-badge-pricing--free {
+  color: var(--green);
+  background: rgba(48, 209, 88, 0.1);
+  border-color: rgba(48, 209, 88, 0.25);
+}
+.deal-card-badge-pricing--trial {
+  color: var(--orange);
+  background: rgba(255, 159, 10, 0.1);
+  border-color: rgba(255, 159, 10, 0.25);
+}
+.deal-card-badge-pricing--paid {
+  color: var(--accent);
+  background: rgba(41, 151, 255, 0.1);
+  border-color: rgba(41, 151, 255, 0.25);
+}
+.deal-card-badge-pricing--lifetime {
+  color: var(--purple);
+  background: rgba(191, 90, 242, 0.1);
+  border-color: rgba(191, 90, 242, 0.25);
+}
+
 /* ---- Deals Grid ---- */
 .results-info {
   font-size: 13px;
@@ -690,6 +723,26 @@ body {
   background: var(--accent-glow);
   border-color: var(--accent);
   color: var(--accent);
+}
+.empty-chip--free {
+  background: rgba(48, 209, 88, 0.1);
+  border-color: var(--green);
+  color: var(--green);
+}
+.empty-chip--trial {
+  background: rgba(255, 159, 10, 0.1);
+  border-color: var(--orange);
+  color: var(--orange);
+}
+.empty-chip--paid {
+  background: rgba(41, 151, 255, 0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.empty-chip--lifetime {
+  background: rgba(191, 90, 242, 0.1);
+  border-color: var(--purple);
+  color: var(--purple);
 }
 .empty-clear-btn {
   display: inline-block;

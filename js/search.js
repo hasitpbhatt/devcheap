@@ -3,8 +3,9 @@ let dealsData = [];
 const REPORT_EMAIL = 'hi@devcheap.page';
 var activeCategories = [];
 let searchTimeout = null;
-let activeFilters = { recommended: false, spotlight: false, expiringSoon: false, noExpiry: false, hasCoupon: false };
+let activeFilters = { recommended: false, spotlight: false, expiringSoon: false, noExpiry: false, hasCoupon: false, free: false, trial: false, paid: false, lifetime: false };
 const EXPIRY_FILTER_KEYS = ['expiringSoon', 'noExpiry'];
+const PRICING_FILTER_KEYS = ['free', 'trial', 'paid', 'lifetime'];
 
 const PAGE_SIZE = 24;
 let currentPage = 1;
@@ -196,6 +197,9 @@ function renderDeals() {
       return !(codeLower.includes('automatic') || codeLower.includes('link'));
     });
   }
+  PRICING_FILTER_KEYS.forEach(k => {
+    if (activeFilters[k]) filtered = filtered.filter(deal => deal.pricing === k);
+  });
 
   if (countEl) {
     const start = (currentPage - 1) * PAGE_SIZE;
@@ -220,6 +224,10 @@ function renderDeals() {
     if (activeFilters.expiringSoon) activeChips.push({ label: 'Expiring Soon', type: 'expiringSoon' });
     if (activeFilters.noExpiry) activeChips.push({ label: 'No Expiry', type: 'noExpiry' });
     if (activeFilters.hasCoupon) activeChips.push({ label: 'Coupons', type: 'hasCoupon' });
+    if (activeFilters.free) activeChips.push({ label: 'Free', type: 'free' });
+    if (activeFilters.trial) activeChips.push({ label: 'Trial', type: 'trial' });
+    if (activeFilters.paid) activeChips.push({ label: 'Paid', type: 'paid' });
+    if (activeFilters.lifetime) activeChips.push({ label: 'Lifetime', type: 'lifetime' });
     const chipsHTML = activeChips.length > 0 ? `<div class="empty-chips">${activeChips.map(c => `<span class="empty-chip empty-chip--${c.type}">${c.label}</span>`).join('')}</div>` : '';
     const hasAnyFilter = activeChips.length > 0;
     gridEl.innerHTML = `
@@ -270,6 +278,10 @@ function renderDeals() {
     const recommendedBadge = isRecommended ? `<span class="deal-card-badge-recommended"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Recommended</span>` : '';
     const isSpotlight = deal.tags && deal.tags.toLowerCase().includes('spotlight');
     const spotlightBadge = isSpotlight ? `<span class="deal-card-badge-spotlight"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l2.4 7.2L22 9.6l-5.6 4.8L18 22l-6-3.6L6 22l1.6-7.6L2 9.6l7.6-.4L12 2z"/></svg> Spotlight</span>` : '';
+    const pricingLabel = deal.pricing ? deal.pricing.charAt(0).toUpperCase() + deal.pricing.slice(1) : '';
+    const pricingBadge = pricingLabel
+      ? `<span class="deal-card-badge-pricing deal-card-badge-pricing--${deal.pricing}">${pricingLabel}</span>`
+      : '';
 
     card.innerHTML = `
       <div class="deal-card-header">
@@ -277,7 +289,7 @@ function renderDeals() {
         <span class="deal-card-cat">${deal.category}</span>
       </div>
       <div class="deal-card-deal">${deal.deal}</div>
-      ${recommendedBadge}${spotlightBadge}
+      ${recommendedBadge}${spotlightBadge}${pricingBadge}
       ${whyHTML}
       <p class="deal-card-desc">${deal.desc}</p>
       <div class="deal-card-tags">${tagsHTML}${expiresHTML}</div>
@@ -592,6 +604,10 @@ function updateFiltersURL() {
   if (activeFilters.expiringSoon) { url.searchParams.set('expiringSoon', '1'); } else { url.searchParams.delete('expiringSoon'); }
   if (activeFilters.noExpiry) { url.searchParams.set('noExpiry', '1'); } else { url.searchParams.delete('noExpiry'); }
   if (activeFilters.hasCoupon) { url.searchParams.set('hasCoupon', '1'); } else { url.searchParams.delete('hasCoupon'); }
+  if (activeFilters.free) { url.searchParams.set('free', '1'); } else { url.searchParams.delete('free'); }
+  if (activeFilters.trial) { url.searchParams.set('trial', '1'); } else { url.searchParams.delete('trial'); }
+  if (activeFilters.paid) { url.searchParams.set('paid', '1'); } else { url.searchParams.delete('paid'); }
+  if (activeFilters.lifetime) { url.searchParams.set('lifetime', '1'); } else { url.searchParams.delete('lifetime'); }
   window.history.replaceState(null, '', url.pathname + url.search + url.hash);
 }
 
@@ -671,6 +687,26 @@ function setupFilterChips() {
           const otherChip = document.querySelector(`.filter-chip[data-filter="${otherKey}"]`);
           if (otherChip) { otherChip.classList.remove('active'); otherChip.setAttribute('aria-pressed', 'false'); }
         }
+      } else if (PRICING_FILTER_KEYS.includes(filter)) {
+        if (activeFilters[filter]) {
+          activeFilters[filter] = false;
+          chip.classList.remove('active');
+          chip.setAttribute('aria-pressed', 'false');
+        } else {
+          PRICING_FILTER_KEYS.forEach(k => {
+            activeFilters[k] = k === filter;
+            const otherChip = document.querySelector(`.filter-chip[data-filter="${k}"]`);
+            if (otherChip) {
+              if (k === filter) {
+                otherChip.classList.add('active');
+                otherChip.setAttribute('aria-pressed', 'true');
+              } else {
+                otherChip.classList.remove('active');
+                otherChip.setAttribute('aria-pressed', 'false');
+              }
+            }
+          });
+        }
       } else {
         activeFilters[filter] = !activeFilters[filter];
         chip.classList.toggle('active');
@@ -697,6 +733,10 @@ function renderActiveFilterBadges() {
   if (activeFilters.expiringSoon) badges.push({ label: 'Expiring Soon', filter: 'expiringSoon' });
   if (activeFilters.noExpiry) badges.push({ label: 'No Expiry', filter: 'noExpiry' });
   if (activeFilters.hasCoupon) badges.push({ label: 'Coupons', filter: 'hasCoupon' });
+  if (activeFilters.free) badges.push({ label: 'Free', filter: 'free' });
+  if (activeFilters.trial) badges.push({ label: 'Trial', filter: 'trial' });
+  if (activeFilters.paid) badges.push({ label: 'Paid', filter: 'paid' });
+  if (activeFilters.lifetime) badges.push({ label: 'Lifetime', filter: 'lifetime' });
   if (badges.length === 0) { container.innerHTML = ''; return; }
   container.innerHTML = badges.map(b => `
     <button type="button" class="active-filter-badge" data-filter="${b.filter}">
@@ -803,10 +843,30 @@ async function boot() {
     const chip = document.querySelector('.filter-chip[data-filter="hasCoupon"]');
     if (chip) { chip.classList.add('active'); chip.setAttribute('aria-pressed', 'true'); }
   }
+  if (params.get('free') === '1') {
+    activeFilters.free = true;
+    const chip = document.querySelector('.filter-chip[data-filter="free"]');
+    if (chip) { chip.classList.add('active'); chip.setAttribute('aria-pressed', 'true'); }
+  }
+  if (params.get('trial') === '1') {
+    activeFilters.trial = true;
+    const chip = document.querySelector('.filter-chip[data-filter="trial"]');
+    if (chip) { chip.classList.add('active'); chip.setAttribute('aria-pressed', 'true'); }
+  }
+  if (params.get('paid') === '1') {
+    activeFilters.paid = true;
+    const chip = document.querySelector('.filter-chip[data-filter="paid"]');
+    if (chip) { chip.classList.add('active'); chip.setAttribute('aria-pressed', 'true'); }
+  }
+  if (params.get('lifetime') === '1') {
+    activeFilters.lifetime = true;
+    const chip = document.querySelector('.filter-chip[data-filter="lifetime"]');
+    if (chip) { chip.classList.add('active'); chip.setAttribute('aria-pressed', 'true'); }
+  }
 
   renderDeals();
 
-  const hasDealParams = params.toString() && [...params.keys()].some(k => ['category', 'recommended', 'spotlight', 'expiringSoon', 'noExpiry', 'hasCoupon', 'page', 'sort'].includes(k));
+  const hasDealParams = params.toString() && [...params.keys()].some(k => ['category', 'recommended', 'spotlight', 'expiringSoon', 'noExpiry', 'hasCoupon', 'free', 'trial', 'paid', 'lifetime', 'page', 'sort'].includes(k));
   if (hasDealParams) {
     const dealsSection = document.getElementById('deals');
     if (dealsSection) { try { dealsSection.scrollIntoView({ behavior: 'smooth' }); } catch (_) {} }
