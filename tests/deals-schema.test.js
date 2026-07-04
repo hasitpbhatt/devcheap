@@ -38,6 +38,10 @@ describe('deals.json schema', () => {
       expect(deal.expires).toBeDefined();
       expect(deal.pricing).toBeDefined(`deal[${i}] missing pricing`);
       expect(typeof deal.pricing).toBe('string');
+      expect(deal.rating).toBeDefined(`deal[${i}] missing rating`);
+      expect(typeof deal.rating).toBe('number');
+      expect(deal.rating).toBeGreaterThanOrEqual(1);
+      expect(deal.rating).toBeLessThanOrEqual(10);
     });
   });
 
