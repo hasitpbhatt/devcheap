@@ -66,10 +66,10 @@ describe('Category filtering', () => {
 
   it('sets window.activeCategories on cat-btn click', () => {
     window.activeCategories = [];
-    const btn = document.querySelector('.cat-btn[data-cat="hosting"]');
+    const btn = document.querySelector('.cat-btn[data-cat="hosting & cloud"]');
     btn.click();
     expect(Array.isArray(window.activeCategories)).toBe(true);
-    expect(window.activeCategories).toContain('hosting');
+    expect(window.activeCategories).toContain('hosting & cloud');
   });
 
   it('activates clicked button and deactivates others', () => {
@@ -82,7 +82,7 @@ describe('Category filtering', () => {
     document.querySelector('.cat-btn[data-cat="all"]').setAttribute('aria-selected', 'true');
 
     const allBtn = document.querySelector('.cat-btn[data-cat="all"]');
-    const hostBtn = document.querySelector('.cat-btn[data-cat="hosting"]');
+    const hostBtn = document.querySelector('.cat-btn[data-cat="hosting & cloud"]');
     hostBtn.click();
     expect(hostBtn.classList.contains('active')).toBe(true);
     expect(hostBtn.getAttribute('aria-selected')).toBe('true');
