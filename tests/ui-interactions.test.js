@@ -1,5 +1,13 @@
 import { describe, it, expect, beforeAll, beforeEach, afterEach, vi } from 'vitest';
 
+import fs from 'fs';
+import path from 'path';
+
+const DEALS_PATH = path.resolve('data/deals.jsonl');
+const rawDeals = fs.readFileSync(DEALS_PATH, 'utf-8').split('\n').filter(Boolean);
+const SAMPLE_DEALS = rawDeals.slice(0, 5).map(l => JSON.parse(l));
+const SAMPLE_NO_CODE = [{ ...SAMPLE_DEALS[0], id: 'no-code-deal', code: undefined, name: 'NoCode Deal' }];
+
 const { setupTheme } = window;
 
 describe('setupTheme', () => {
@@ -116,11 +124,29 @@ describe('Search input', () => {
     expect(clear.style.display).toBe('none');
   });
 
-  it('clears search on clear button click', () => {
-    const input = document.getElementById('search-input');
-    const clear = document.getElementById('clear-search-btn');
-    input.value = 'test';
-    clear.click();
-    expect(input.value).toBe('');
+it('clears search on clear button click', () => {
+  const input = document.getElementById('search-input');
+  const clear = document.getElementById('clear-search-btn');
+  input.value = 'test';
+  clear.click();
+  expect(input.value).toBe('');
+});
+
+describe('Deal card rendering', () => {
+  beforeEach(() => {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) searchInput.value = '';
   });
+
+  it('renders deal cards without crashing when data has a code field', async () => {
+    window.dealsData = SAMPLE_DEALS;
+    expect(() => window.renderDeals()).not.toThrow();
+  });
+
+  it('does not crash when a deal has no code field', async () => {
+    window.dealsData = SAMPLE_NO_CODE;
+    expect(() => window.renderDeals()).not.toThrow();
+  });
+});
+
 });
