@@ -563,10 +563,8 @@ async function boot() {
   injectItemListJSONLD(dealsData);
   setupTheme();
   const turnstileContainer = document.getElementById('turnstile-widget');
-  if (turnstileContainer && (!TURNSTILE_SITE_KEY || typeof turnstile !== 'undefined')) {
-    if (TURNSTILE_SITE_KEY && turnstileWidgetId === null) {
-      window.onTurnstileLoad();
-    } else {
+  if (turnstileContainer) {
+    if (!TURNSTILE_SITE_KEY) {
       turnstileContainer.remove();
     }
   }
