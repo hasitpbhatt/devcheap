@@ -116,7 +116,7 @@ const totalCategories = categories.length;
 
 const dealLastMod = getFileLastMod(DEALS_PATH);
 
-  console.log('📊 Loaded ${totalDeals} deals across ${totalCategories} categories.  <~deals>');
+console.log(`📊 Loaded ${totalDeals} deals across ${totalCategories} categories. <~deals>`);
 
   // 2. Pre-render Main index.html
   let indexHtml = await fs.readFile(INDEX_PATH, 'utf-8');
@@ -300,7 +300,7 @@ const productJson = {
   await fs.writeFile(sitemapPath, sitemapXml, 'utf-8');
   
   console.log('✅ Generated sitemap.xml with all deal detail pages.');
-  console.log('✨ Build <listmonk> complete!  Time to deploy.');
+console.log('✨ Build complete! Time to deploy.');
 }
 
 main().catch(err => {
