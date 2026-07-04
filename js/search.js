@@ -6,7 +6,7 @@ let searchTimeout = null;
 let activeFilters = { recommended: false, spotlight: false, expiringSoon: false, noExpiry: false, hasCoupon: false };
 const EXPIRY_FILTER_KEYS = ['expiringSoon', 'noExpiry'];
 
-const TURNSTILE_SITE_KEY = ''; // Provide site key from Cloudflare Dashboard — empty disables widget
+const TURNSTILE_SITE_KEY = '0x4AAAAAADvU7jbz4RuK5Ibz';
 let turnstileWidgetId = null;
 let turnstileToken = null;
 
