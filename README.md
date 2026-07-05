@@ -4,7 +4,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/hasitpbhatt/devcheap)](https://github.com/hasitpbhatt/devcheap/commits/main)
 [![Deployed](https://img.shields.io/badge/Cloudflare%20Pages-Deployed-brightgreen)](https://devcheap.click)
 
-Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **178 deals** across **22 categories**.
+Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **179 deals** across **22 categories**.
 
 ---
 
@@ -23,7 +23,7 @@ devcheap/
 ├── .github/workflows/   # CI/deploy pipelines (Cloudflare Pages)
 ├── css/                 # Stylesheets (light/dark theme)
 ├── data/
-│   └── deals.jsonl      # Deal database (JSONL format, 178 lines)
+│   └── deals.jsonl      # Deal database (JSONL format, 179 lines)
 ├── functions/api/       # Cloudflare Functions (email subscribe)
 ├── js/                  # Search, category filter, affiliate tracking
 ├── scripts/             # Utility scripts (feed generation, data entry)
@@ -33,8 +33,8 @@ devcheap/
 ├── CONTRIBUTING.md      # Contribution guide
 ├── README.md            # This file
 ├── index.html           # Main page
-├── feed.xml             # RSS feed (auto-generated from deals.jsonl)
-├── sitemap.xml          # Sitemap
+├── feed.xml             # RSS feed (auto-generated from deals.jsonl via scripts/generate-feed.ps1)
+├── sitemap.xml          # Sitemap (auto-generated from deals.jsonl via scripts/build.js — do not hand-edit)
 └── package.json         # Scripts: validate, test, lint
 ```
 
@@ -53,7 +53,7 @@ devcheap/
 | Productivity | 8 |
 | Security | 7 |
 | Monitoring | 6 |
-| AI | 5 |
+| AI | 6 |
 | Web Analytics | 4 |
 | APIs & Payments | 4 |
 | Domains & Hosting | 3 |
@@ -111,9 +111,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Quick checklist:
 
 1. Add/update deal in `data/deals.jsonl`
 2. `npm run validate:jsonl && npm test`
-3. `pwsh scripts/generate-feed.ps1` (regenerate RSS)
-4. Update `sitemap.xml` lastmod date
-5. Update README deal count if changed
+3. `npm run build` (regenerates `index.html`, `deals/<id>/index.html`, and `sitemap.xml`)
+4. `pwsh scripts/generate-feed.ps1` (regenerate RSS feed; the build does NOT cover it)
+5. Update README deal count + category table if counts changed
 6. Commit and push
 
 ---

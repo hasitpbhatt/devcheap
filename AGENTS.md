@@ -7,8 +7,10 @@ When adding, removing, or modifying deals in `data/deals.jsonl`, these files mus
 | File | Action | Auto-generatable? |
 |---|---|---|
 | `data/deals.jsonl` | Edit deals directly | No (manual) |
-| `feed.xml` | Regenerate from `data/deals.jsonl` | Yes — run `pwsh scripts/generate-feed.ps1` |
-| `sitemap.xml` | Bump `<lastmod>` date | No (manual) |
+| `index.html` | Homepage stats + category buttons | Yes — run `npm run build` (via `scripts/build.js`) |
+| `deals/<id>/index.html` | Per-deal detail pages | Yes — run `npm run build` (via `scripts/build.js`) |
+| `sitemap.xml` | Full sitemap rewritten from `deals.jsonl` | Yes — run `npm run build` (via `scripts/build.js`). Do NOT hand-edit; it will be overwritten on the next build. |
+| `feed.xml` | Regenerate from `data/deals.jsonl` | Yes — run `pwsh scripts/generate-feed.ps1` (use `powershell` if `pwsh` is not installed) |
 | `README.md` | Update deal count, category list, date | No (manual) |
 | `CONTRIBUTING.md` | Update category list, file references | No (manual) |
 | `tests/deals-schema.test.js` | Add new categories to the `validCategories` array | No (manual) |
@@ -16,8 +18,13 @@ When adding, removing, or modifying deals in `data/deals.jsonl`, these files mus
 ## Regeneration Commands
 
 ```powershell
-# Regenerate feed.xml from deals.jsonl
+# Regenerate index.html, deals/<id>/index.html pages, and sitemap.xml from deals.jsonl
+npm run build
+
+# Regenerate feed.xml from deals.jsonl (RSS feed is NOT covered by `npm run build`)
 pwsh scripts/generate-feed.ps1
+# fallback if pwsh is unavailable:
+powershell -File scripts/generate-feed.ps1
 ```
 
 ## Known Categories
@@ -42,7 +49,9 @@ npm test                 # runs schema, UI, HTML, and accessibility tests
 ```
 
 Before committing:
-1. Regenerate feed: `pwsh scripts/generate-feed.ps1`
-2. Update sitemap lastmod date
-3. Update README deal count and categories
-4. Run validation and tests
+1. Run the build to regenerate the homepage, per-deal pages, and sitemap:
+   `npm run build`
+2. Regenerate the RSS feed (the build does NOT cover this):
+   `pwsh scripts/generate-feed.ps1`
+3. Update README deal count and category table if categories/counts changed
+4. Run validation and tests (`npm run validate:jsonl && npm test`)

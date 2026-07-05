@@ -6,7 +6,7 @@ foreach ($line in $jsonl) {
   $deal = $line | ConvertFrom-Json
 
   $title = [System.Security.SecurityElement]::Escape($deal.name + ' — ' + $deal.deal)
-  $link = 'https://devcheap.click/' + $deal.id
+  $link = 'https://devcheap.click/deals/' + $deal.id + '/'
   $desc = [System.Security.SecurityElement]::Escape($deal.why + ' ' + $deal.desc)
   $guid = $deal.id
   $cat = [System.Security.SecurityElement]::Escape($deal.category)

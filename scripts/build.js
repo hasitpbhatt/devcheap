@@ -194,6 +194,17 @@ console.log('✅ Main index.html updated.');
   const detailTemplate = await fs.readFile(TEMPLATE_PATH, 'utf-8');
   await fs.mkdir(DEALS_DIR, { recursive: true });
 
+  // Remove orphaned per-deal directories (deal removed from deals.jsonl but page left on disk)
+  const validIds = new Set(deals.map(d => d.id));
+  const existingDirs = await fs.readdir(DEALS_DIR, { withFileTypes: true });
+  const removalPromises = existingDirs
+    .filter(entry => entry.isDirectory() && !validIds.has(entry.name))
+    .map(async (entry) => {
+      await fs.rm(path.join(DEALS_DIR, entry.name), { recursive: true, force: true });
+      console.log(`🗑️  Removed orphaned deal directory: deals/${entry.name}/`);
+    });
+  await Promise.all(removalPromises);
+
   // 🚀 OPTIMIZATION 2: Parallelize page generation with Promise.all
   const generatePagePromises = deals.map(async (deal) => {
     const dealDir = path.join(DEALS_DIR, deal.id);
