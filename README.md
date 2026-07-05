@@ -4,7 +4,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/hasitpbhatt/devcheap)](https://github.com/hasitpbhatt/devcheap/commits/main)
 [![Deployed](https://img.shields.io/badge/Cloudflare%20Pages-Deployed-brightgreen)](https://devcheap.click)
 
-Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **186 deals** across **24 categories**.
+Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **178 deals** across **22 categories**.
 
 ---
 
@@ -23,7 +23,7 @@ devcheap/
 ├── .github/workflows/   # CI/deploy pipelines (Cloudflare Pages)
 ├── css/                 # Stylesheets (light/dark theme)
 ├── data/
-│   └── deals.jsonl      # Deal database (JSONL format, 186 lines)
+│   └── deals.jsonl      # Deal database (JSONL format, 178 lines)
 ├── functions/api/       # Cloudflare Functions (email subscribe)
 ├── js/                  # Search, category filter, affiliate tracking
 ├── scripts/             # Utility scripts (feed generation, data entry)
@@ -44,30 +44,28 @@ devcheap/
 
 | Category | Deals |
 |---|---|
-| AI & LLM | 34 |
-| Developer Tools | 26 |
-| Hosting & Cloud | 15 |
-| Productivity | 11 |
-| Database | 11 |
-| AI | 10 |
+| AI & LLM | 40 |
+| Developer Tools | 33 |
+| Hosting & Cloud | 22 |
+| Database | 15 |
 | APIs & Email | 10 |
-| Sales & Marketing | 9 |
-| Design & Collaboration | 9 |
-| SEO | 7 |
+| Design & Collaboration | 8 |
+| Productivity | 8 |
 | Security | 7 |
 | Monitoring | 6 |
-| Domains & Hosting | 5 |
-| Customer Support | 4 |
-| Storage & Cloud | 4 |
-| Social Media | 4 |
-| Media & Images | 3 |
-| Web Analytics | 3 |
-| APIs & Payments | 2 |
+| AI | 5 |
+| Web Analytics | 4 |
+| APIs & Payments | 4 |
+| Domains & Hosting | 3 |
+| CI/CD | 2 |
 | Auth | 2 |
-| Testing & QA | 1 |
-| Services | 1 |
+| Storage & Cloud | 2 |
+| Customer Support | 2 |
 | APIs & Search | 1 |
-| CI/CD | 1 |
+| Testing & QA | 1 |
+| Media & Images | 1 |
+| Social Media | 1 |
+| SEO | 1 |
 
 ---
 

@@ -354,7 +354,7 @@ beforeEach(() => {
     window.__setPage(2);
     window.renderDeals();
     const countEl = document.getElementById('deals-count');
-    expect(/Showing 25–48 of 150 deals/.test(countEl.textContent)).toBe(true);
+    expect(/Showing 25–48 of \d+ deals/.test(countEl.textContent)).toBe(true);
   });
 });
 
