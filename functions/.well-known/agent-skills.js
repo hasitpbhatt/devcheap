@@ -31,6 +31,12 @@ export async function onRequest(context) {
         type: 'capability',
         description: 'Discover available deal categories including Hosting, AI, APIs, Security, and more',
         url: 'https://devcheap.click/'
+      },
+      {
+        name: 'dns-aid-discovery',
+        type: 'discovery',
+        description: 'DNS for AI Discovery (DNS-AID) SVCB record published at _index._agents.devcheap.click for agent endpoint discovery via DNS',
+        url: 'https://devcheap.click/'
       }
     ]
   };

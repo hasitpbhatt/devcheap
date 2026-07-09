@@ -1,5 +1,5 @@
 /*
-  Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills>; rel="service-meta", </.well-known/mcp/server-card.json>; rel="service-meta", </auth.md>; rel="service-meta", </data/deals.jsonl>; rel="describedby"
+  Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills>; rel="service-meta", </.well-known/mcp/server-card.json>; rel="service-meta", </auth.md>; rel="service-meta", </data/deals.jsonl>; rel="describedby", <//_index._agents.devcheap.click>; rel="service-meta"; type="application/svcb+json"
   X-Robots-Tag: all
 
 /.well-known/*
