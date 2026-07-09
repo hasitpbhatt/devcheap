@@ -11,3 +11,5 @@ dist
 .tmp
 .idea
 .vscode
+functions/.well-known/dns-aid/
+scripts/dns-aid-setup.js
