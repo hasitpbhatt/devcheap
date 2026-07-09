@@ -310,7 +310,13 @@ const productJson = {
   sitemapXml += `</urlset>\n`;
   await fs.writeFile(sitemapPath, sitemapXml, 'utf-8');
   
+  // 5. Generate sitemap_index.xml
+  const sitemapIndexPath = path.join(ROOT_DIR, 'sitemap_index.xml');
+  const sitemapIndexXml = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<sitemap>\n  <loc>https://devcheap.click/sitemap.xml</loc>\n  <lastmod>${today}</lastmod>\n</sitemap>\n</sitemapindex>\n`;
+  await fs.writeFile(sitemapIndexPath, sitemapIndexXml, 'utf-8');
+  
   console.log('✅ Generated sitemap.xml with all deal detail pages.');
+  console.log('✅ Generated sitemap_index.xml.');
 console.log('✨ Build complete! Time to deploy.');
 }
 
