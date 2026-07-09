@@ -8,49 +8,17 @@ export async function onRequest(context) {
     : {};
 
   if (request.method === 'OPTIONS') {
-    return new Response(null, { status: 204, headers: { ...cors, ...{ 'Access-Control-Max-Age': '86400' } } });
+    return new Response(null, { status: 204, headers: { ...cors, 'Access-Control-Max-Age': '86400' } });
   }
 
-  const body = {
-    $schema: 'https://agentskills.io/schemas/v0.2.0/skills-index.json',
-    skills: [
-      {
-        name: 'browse-deals',
-        type: 'capability',
-        description: 'Browse and filter developer tool deals by category, search query, or pricing model',
-        url: 'https://devcheap.click/'
-      },
-      {
-        name: 'view-deal-detail',
-        type: 'capability',
-        description: 'View detailed information about a specific developer tool deal',
-        url: 'https://devcheap.click/deals/{id}/'
-      },
-      {
-        name: 'discover-categories',
-        type: 'capability',
-        description: 'Discover available deal categories including Hosting, AI, APIs, Security, and more',
-        url: 'https://devcheap.click/'
-      },
-      {
-        name: 'dns-aid-discovery',
-        type: 'discovery',
-        description: 'DNS for AI Discovery (DNS-AID) SVCB record published at _index._agents.devcheap.click for agent endpoint discovery via DNS',
-        url: 'https://devcheap.click/'
-      },
-      {
-        name: 'auth-md',
-        type: 'discovery',
-        description: 'Auth.md agent registration published at /auth.md with OAuth Protected Resource and Authorization Server metadata for anonymous registration flow',
-        url: 'https://devcheap.click/auth.md'
-      }
-    ]
-  };
+  const url = new URL(request.url);
+  const indexUrl = url.origin + '/.well-known/agent-skills/index.json';
 
-  return new Response(JSON.stringify(body, null, 2), {
-    status: 200,
+  return new Response(null, {
+    status: 301,
     headers: {
-      'Content-Type': 'application/json; charset=utf-8',
+      'Location': indexUrl,
+      'Cache-Control': 'public, max-age=3600',
       ...cors
     }
   });

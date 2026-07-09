@@ -18,7 +18,7 @@ export async function onRequest(context) {
     response_types_supported: ['token'],
     service_documentation: 'https://devcheap.click/auth.md',
     agent_auth: {
-      skill: 'https://devcheap.click/.well-known/agent-skills',
+      skill: 'https://devcheap.click/.well-known/agent-skills/index.json',
       register_uri: 'https://devcheap.click/agent/register',
       identity_types_supported: ['anonymous'],
       anonymous: {

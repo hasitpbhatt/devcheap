@@ -53,7 +53,7 @@ Include the token in the \`Authorization: Bearer <token>\` header when accessing
 
 - OAuth Protected Resource: \`/.well-known/oauth-protected-resource\`
 - OAuth Authorization Server: \`/.well-known/oauth-authorization-server\`
-- Agent Skills: \`/.well-known/agent-skills\`
+- Agent Skills: \`/.well-known/agent-skills/index.json\`
 
 ## Contact
 
