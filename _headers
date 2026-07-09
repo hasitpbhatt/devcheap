@@ -1,0 +1,11 @@
+/*
+  Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills>; rel="service-meta", </.well-known/mcp/server-card.json>; rel="service-meta", </auth.md>; rel="service-meta", </data/deals.jsonl>; rel="describedby"
+  X-Robots-Tag: all
+
+/.well-known/*
+  Access-Control-Allow-Origin: *
+  Vary: Accept
+
+/data/deals.jsonl
+  Access-Control-Allow-Origin: *
+  Content-Type: application/jsonl+json
