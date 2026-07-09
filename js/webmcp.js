@@ -21,10 +21,13 @@ function matchDeal(deal, query) {
     || (deal.why && deal.why.toLowerCase().includes(q));
 }
 
-if (typeof document !== 'undefined' && document.modelContext) {
+const mc = typeof navigator !== 'undefined' && navigator.modelContext
+  || typeof document !== 'undefined' && document.modelContext;
+
+if (mc) {
   const ac = new AbortController();
 
-  document.modelContext.registerTool({
+  mc.registerTool({
     name: 'search_deals',
     description: 'Search and filter developer tool deals by query text, category, or pricing model. Returns matching deals with their name, description, category, pricing, and claim URLs.',
     inputSchema: {
@@ -55,7 +58,7 @@ if (typeof document !== 'undefined' && document.modelContext) {
     }
   }, { signal: ac.signal });
 
-  document.modelContext.registerTool({
+  mc.registerTool({
     name: 'get_deal_by_id',
     description: 'Get detailed information about a specific developer tool deal by its unique ID.',
     inputSchema: {
@@ -87,7 +90,7 @@ if (typeof document !== 'undefined' && document.modelContext) {
     }
   }, { signal: ac.signal });
 
-  document.modelContext.registerTool({
+  mc.registerTool({
     name: 'list_categories',
     description: 'List all available deal categories with the count of deals in each category.',
     inputSchema: {
@@ -105,7 +108,7 @@ if (typeof document !== 'undefined' && document.modelContext) {
     }
   }, { signal: ac.signal });
 
-  document.modelContext.registerTool({
+  mc.registerTool({
     name: 'get_deal_stats',
     description: 'Get overall statistics about the DevCheap deals directory including total deals, categories, and deal count by pricing model.',
     inputSchema: {
