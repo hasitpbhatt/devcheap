@@ -37,6 +37,12 @@ export async function onRequest(context) {
         type: 'discovery',
         description: 'DNS for AI Discovery (DNS-AID) SVCB record published at _index._agents.devcheap.click for agent endpoint discovery via DNS',
         url: 'https://devcheap.click/'
+      },
+      {
+        name: 'auth-md',
+        type: 'discovery',
+        description: 'Auth.md agent registration published at /auth.md with OAuth Protected Resource and Authorization Server metadata for anonymous registration flow',
+        url: 'https://devcheap.click/auth.md'
       }
     ]
   };

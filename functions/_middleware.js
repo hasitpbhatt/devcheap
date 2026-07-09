@@ -73,7 +73,7 @@ export async function onRequest(context) {
   const url = new URL(request.url);
 
   // Skip well-known routes, API routes, and non-HTML assets — let their own handlers serve them
-  const skipPaths = ['/.well-known/', '/api/', '/data/', '/images/', '/css/', '/js/'];
+  const skipPaths = ['/.well-known/', '/api/', '/data/', '/images/', '/css/', '/js/', '/auth.md'];
   if (skipPaths.some(p => url.pathname.startsWith(p))) {
     if (next) return next(request);
     return env.ASSETS.fetch(request);
