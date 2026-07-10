@@ -1,14 +1,14 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DevCheap â€” Verified Developer Deals</title>
+    <title>DevCheap — Verified Developer Deals</title>
     <link>https://devcheap.click/</link>
     <description>Verified deals on APIs, hosting, databases, and AI tools. Free credits, lifetime discounts, and limited offers curated weekly.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jul 2026 08:08:38 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jul 2026 02:18:03 GMT</lastBuildDate>
     <atom:link href="https://devcheap.click/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Credit for Startups â€” $1M+ Startup Credits Directory</title>
+      <title>Credit for Startups — $1M+ Startup Credits Directory</title>
       <link>https://devcheap.click/deals/credit-for-startups/</link>
       <description>Directory of 43+ credit programs worth $1M+ — find and compare all available startup credits Credit for Startups is a comprehensive directory of 43+ credit programs worth over $1M total. Browse AI/ML credits (21 programs), Cloud credits (8 programs), and Developer Tool credits (18 programs). Includes programs from Google Cloud, Microsoft, AWS, Anthropic, Mixpanel, Sentry, and more.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -16,7 +16,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>LaunchDarkly â€” Free Developer Tier</title>
+      <title>LaunchDarkly — Free Developer Tier</title>
       <link>https://devcheap.click/deals/launchdarkly/</link>
       <description>Enterprise-grade feature flags free — unlimited flags, unlimited seats, 10M logs, no CC — industry standard LaunchDarkly&apos;s free Developer tier includes unlimited seats, unlimited feature flags, 10M logs and traces, 5K session replays and errors, 5K AI assistant runs/month, 100 code references, and 14-day data retention. Enterprise-grade feature management platform. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -24,7 +24,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Netlify â€” 300 Credits/Month Free</title>
+      <title>Netlify — 300 Credits/Month Free</title>
       <link>https://devcheap.click/deals/netlify/</link>
       <description>300 free credits/month on Netlify — deploy unlimited previews, static sites, and serverless functions with no CC Netlify&apos;s free tier includes 300 credits/month (~$2 value), unlimited deploy previews, custom domains with automated SSL, serverless Functions (125K requests/mo), edge functions, and form handling. No credit card required. Credits cover build minutes, function executions, and edge invocations.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -32,7 +32,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Neon Startup Credits â€” $100,000 Credits + Free Tier</title>
+      <title>Neon Startup Credits — $100,000 Credits + Free Tier</title>
       <link>https://devcheap.click/deals/neon-startup-credits/</link>
       <description>$100K Neon credits + free tier — serverless Postgres with branching for startups Neon offers startup credits of up to $100,000 for early-stage companies, plus their generous free tier. Serverless Postgres with branching, instant provisioning, and scale-to-zero compute. Perfect for startups building modern, scalable applications.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -40,7 +40,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>Anthropic Claude for Startups â€” Up to $25,000 API Credits</title>
+      <title>Anthropic Claude for Startups — Up to $25,000 API Credits</title>
       <link>https://devcheap.click/deals/anthropic-claude-startups/</link>
       <description>$25K Claude API credits — open to all early-stage startups, priority rate limits included Anthropic Startup Program offers up to $25,000 in Claude API credits for early-stage startups. Open to any startup with or without VC backing. Provides priority rate limits, community access, and resources. VC-backed companies or accelerator alumni may qualify for additional benefits.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -48,7 +48,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>OpenAI Startup Credits â€” $5,000-$50,000 API Credits</title>
+      <title>OpenAI Startup Credits — $5,000-$50,000 API Credits</title>
       <link>https://devcheap.click/deals/openai-startup-credits/</link>
       <description>$5K-$50K OpenAI API credits — access GPT-4/5 for qualifying startups through application OpenAI offers startup credits ranging from $5,000 to $50,000+ for qualifying startups. Access to GPT-4, GPT-5, and other cutting-edge models. Requires application and typically targets venture-backed or high-potential startups. Credits can be used for API access and model experimentation.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -56,7 +56,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>PostHog â€” 1M Events/Month Free</title>
+      <title>PostHog — 1M Events/Month Free</title>
       <link>https://devcheap.click/deals/posthog/</link>
       <description>Best free product analytics platform — 1M events/mo, session recordings, feature flags, surveys, all open-source, no CC PostHog&apos;s generous free tier includes 1 million events/month, 5,000 session recordings, 1 million feature flag requests, 100K error tracking exceptions, 1,500 survey responses, and 50GB of logs. Open-source product analytics platform. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -64,7 +64,7 @@
       <category>Web Analytics</category>
     </item>
     <item>
-      <title>GitHub Copilot Free â€” Free Tier (2K completions + 50 chat/mo)</title>
+      <title>GitHub Copilot Free — Free Tier (2K completions + 50 chat/mo)</title>
       <link>https://devcheap.click/deals/github-copilot/</link>
       <description>2,000 free completions + 50 chat messages/month — industry-standard AI coding assistant, no credit card needed AI code completion and chat assistant. Free tier includes 2,000 code completions per month and 50 chat messages per month. Supports VS Code, JetBrains, Neovim, and other IDEs. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -72,7 +72,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>AWS Activate â€” $1,000-$100,000 Startup Credits</title>
+      <title>AWS Activate — $1,000-$100,000 Startup Credits</title>
       <link>https://devcheap.click/deals/aws-activate/</link>
       <description>$1K-$100K AWS credits for startups — Founders tier is automatic, Portfolio tier requires VC backing AWS Activate provides startups with $1,000-$100,000 in cloud credits, technical support, and training. Founders tier offers $1,000-$5,000 automatically. Portfolio tier (VC-backed) offers up to $100,000. Includes access to AWS services, support credits, and training resources.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -80,7 +80,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>CircleCI Startup Credits â€” $20,000 Compute Credits</title>
+      <title>CircleCI Startup Credits — $20,000 Compute Credits</title>
       <link>https://devcheap.click/deals/circleci-startup/</link>
       <description>$20K CircleCI compute credits — scalable CI/CD with parallel testing for startup teams CircleCI offers up to $20,000 in compute credits for startups. Provides access to parallel testing, faster builds, and advanced CI/CD features. Perfect for teams that need scalable continuous integration and delivery pipelines.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -88,7 +88,7 @@
       <category>CI/CD</category>
     </item>
     <item>
-      <title>Cloudflare for Startups â€” $250,000 Enterprise Credits</title>
+      <title>Cloudflare for Startups — $250,000 Enterprise Credits</title>
       <link>https://devcheap.click/deals/cloudflare-for-startups/</link>
       <description>$250K Cloudflare enterprise credits — Workers, AI, CDN, DDoS protection for startups Cloudflare for Startups offers $250,000 in enterprise credits for qualifying startups. Access to Workers, Workers AI, CDN, DDoS protection, D1 database, R2 storage, and enterprise security features. Requires application and targets software companies with active websites.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -96,7 +96,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Cloudflare Workers AI â€” 10,000 Neurons/Day Free</title>
+      <title>Cloudflare Workers AI — 10,000 Neurons/Day Free</title>
       <link>https://devcheap.click/deals/cloudflare-workers-ai/</link>
       <description>10K free neurons/day on Cloudflare&apos;s global edge — ~200 LLM requests daily with no credit card Global edge inference platform with 10,000 free neurons per day (resets daily — ~200 LLM requests). 50+ open-source models including Llama 3.3, Mistral Small, Qwen, Stable Diffusion XL, Whisper. No credit card needed. Runs on 300+ global data centers.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -104,7 +104,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>DigitalOcean Startups â€” Up to $100,000 Credits</title>
+      <title>DigitalOcean Startups — Up to $100,000 Credits</title>
       <link>https://devcheap.click/deals/digitalocean-startups/</link>
       <description>$100K DigitalOcean credits — VMs, K8s, databases for startups under 6 years old DigitalOcean Startups program offers up to $100,000 in credits over 12 months. Access to VMs, Kubernetes, databases, and serverless functions. Targets startups less than 6 years old with less than $10M revenue. Affiliation with accelerator/incubator/VC can improve approval chances.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -112,7 +112,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Figma â€” Free Starter Plan</title>
+      <title>Figma — Free Starter Plan</title>
       <link>https://devcheap.click/deals/figma/</link>
       <description>Industry-standard design tool with a generous free Starter plan — 150 AI credits/day, unlimited viewers, no CC Figma&apos;s forever-free Starter plan includes unlimited drafts and personal files, UI kits and templates, 150 AI credits/day (up to 500/month), unlimited viewers and commenters, and mobile app access. Pro ($12/mo) adds unlimited AI credits and version history. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -120,7 +120,7 @@
       <category>Design &amp; Collaboration</category>
     </item>
     <item>
-      <title>Google Cloud for Startups â€” $1,000-$350,000 Startup Credits</title>
+      <title>Google Cloud for Startups — $1,000-$350,000 Startup Credits</title>
       <link>https://devcheap.click/deals/google-cloud-startups/</link>
       <description>$1K-$350K Google Cloud credits — AI-First tier offers $350K for AI-native startups Google Cloud startup program grants $1,000 to $350,000 in credits over 2 years. Tiers: Start ($1K), Build ($25K), Scale ($100K), AI-First ($350K). Credits cover all GCP services including Vertex AI, BigQuery, Cloud Run, Compute Engine, and storage. AI-First tier requires accelerator alumni status.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -128,7 +128,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Microsoft for Startups â€” $5,000-$150,000 Azure Credits</title>
+      <title>Microsoft for Startups — $5,000-$150,000 Azure Credits</title>
       <link>https://devcheap.click/deals/microsoft-for-startups/</link>
       <description>$5K-$150K Azure credits — Founders Hub offers instant $5K, Investor Network up to $150K Microsoft for Startups offers up to $150,000 in Azure credits. Founders Hub provides instant $5,000 tier accessible to all startups. Investor Network tier offers $100,000-$150,000 for investor-backed companies. Includes access to GitHub Enterprise, Visual Studio, Microsoft 365, and OpenAI API credits.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -136,7 +136,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Appwrite Cloud â€” Free Tier (75K MAU, 2GB storage)</title>
+      <title>Appwrite Cloud — Free Tier (75K MAU, 2GB storage)</title>
       <link>https://devcheap.click/deals/appwrite/</link>
       <description>75K MAU free BaaS — Firebase alternative with auth, database, storage, and functions Open-source Backend-as-a-Service with authentication, database, storage, and serverless functions. Free cloud tier includes 75,000 monthly active users, 2 GB storage, 750,000 function executions, and 5 GB bandwidth. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -144,7 +144,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>Codeium â€” Free Tier (Unlimited Autocomplete)</title>
+      <title>Codeium — Free Tier (Unlimited Autocomplete)</title>
       <link>https://devcheap.click/deals/codeium/</link>
       <description>Free unlimited AI autocomplete in 70+ IDEs -- Copilot alternative with zero cost for individuals AI-powered code autocomplete and chat. Free tier for individuals gives unlimited autocompletions and basic chat across 70+ IDEs. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -152,7 +152,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Deepgram â€” $200 Free Credits</title>
+      <title>Deepgram — $200 Free Credits</title>
       <link>https://devcheap.click/deals/deepgram/</link>
       <description>$200 free credits for speech AI — real-time transcription and TTS without upfront cost Real-time speech-to-text, text-to-speech, and audio intelligence API with $200 free credits.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -160,7 +160,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Tally â€” Free Forever Plan</title>
+      <title>Tally — Free Forever Plan</title>
       <link>https://devcheap.click/deals/tally/</link>
       <description>Best free form builder — unlimited forms, submissions, logic, file uploads, e-signatures, payments, no CC Tally&apos;s free forever plan includes unlimited forms, unlimited submissions, conditional logic, file uploads, e-signatures, payment collection (Stripe), and Google Sheets integration. No user limits. Pro ($29/mo) adds workspace members, custom branding, and webhooks. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -168,7 +168,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Auth0 â€” Free for 7,000 MAUs</title>
+      <title>Auth0 — Free for 7,000 MAUs</title>
       <link>https://devcheap.click/deals/auth0/</link>
       <description>Free for 7K MAUs — saves $30/mo vs. Auth0 Pro plan Authentication and authorization platform with social login, MFA, and free tier for 7,000 active users.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -176,7 +176,7 @@
       <category>Auth</category>
     </item>
     <item>
-      <title>AWS Free Credits â€” $200 Free Credits for New Users</title>
+      <title>AWS Free Credits — $200 Free Credits for New Users</title>
       <link>https://devcheap.click/deals/aws-free-credits/</link>
       <description>$200 free AWS credits for everyone — works on Bedrock/Claude, no startup program needed AWS gives $200 in free promotional credits to every new user. $100 automatically on signup + $100 for completing 5 onboarding tasks ($20 each). Credits valid for 12 months. Works across 200+ AWS services including EC2, S3, Lambda, and Bedrock (Claude models).</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -184,7 +184,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Clerk â€” Free for 10,000 MAUs</title>
+      <title>Clerk — Free for 10,000 MAUs</title>
       <link>https://devcheap.click/deals/clerk/</link>
       <description>Free for 10K MAUs — saves $25/mo vs. Clerk Pro Authentication and user management for Next.js, React, and web apps.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -192,7 +192,7 @@
       <category>Auth</category>
     </item>
     <item>
-      <title>Kong for Startups â€” Up to $100,000 Credits + 50% Off</title>
+      <title>Kong for Startups — Up to $100,000 Credits + 50% Off</title>
       <link>https://devcheap.click/deals/kong-for-startups/</link>
       <description>$25K-$100K Kong credits + 50% off for 2 years — YC companies pre-qualified Kong for Startups offers up to $100,000 in Kong Konnect Plus credits valid for 12 months, plus 50% off list pricing for 2 years after credits expire. YC companies pre-qualified for full $100K. Most early-stage startups receive $25K-$100K. Covers AI Gateway, API Gateway, Metering, and Event Gateway.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -200,7 +200,7 @@
       <category>APIs &amp; Payments</category>
     </item>
     <item>
-      <title>SambaNova Cloud â€” $5 Credits + Ongoing Free Tier (~200K tok/day)</title>
+      <title>SambaNova Cloud — $5 Credits + Ongoing Free Tier (~200K tok/day)</title>
       <link>https://devcheap.click/deals/sambanova-cloud/</link>
       <description>$5 credits + permanent free tier at ~200K tok/day — fastest inference on open models, no CC required Fastest inference for open models using custom RDU hardware. $5 free credits (~30M tokens on Llama 8B) plus an ongoing rate-limited free tier (~200K tokens/day, ~40 requests/day) that continues after credits expire. No credit card needed. Models include DeepSeek V3.1, Llama 3.3 70B, MiniMax M2.7, Gemma 4.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -208,7 +208,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Together AI â€” $5 Free Credits on Signup</title>
+      <title>Together AI — $5 Free Credits on Signup</title>
       <link>https://devcheap.click/deals/together-ai/</link>
       <description>$5 free credits = several million tokens — access 50+ open models including Llama 3.3 70B Together AI offers $5 in free credits on signup. Access to 50+ open-source models including Llama 3.3 70B, Mixtral 8x7B, and many others. At Together AI&apos;s pricing, $5 covers several million tokens. No credit card required for the free credits.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -216,7 +216,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Cloudflare â€” Free Tier (CDN, Workers, Pages)</title>
+      <title>Cloudflare — Free Tier (CDN, Workers, Pages)</title>
       <link>https://devcheap.click/deals/cloudflare/</link>
       <description>Free CDN + Workers + Pages + D1 + R2 — saves $200+/mo vs. AWS Free CDN, DDoS protection, serverless Workers, Pages hosting, D1 database, and R2 storage.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -224,7 +224,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>DigitalOcean â€” $200 Free Credits (60 days)</title>
+      <title>DigitalOcean — $200 Free Credits (60 days)</title>
       <link>https://devcheap.click/deals/digitalocean/</link>
       <description>$200 free credits — deploy VMs and K8s clusters to test before paying Deploy VMs, databases, Kubernetes, and serverless functions. $200 credits for 60 days.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -232,7 +232,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>GitHub Models â€” Free Tier (40+ Models, Rate-Limited)</title>
+      <title>GitHub Models — Free Tier (40+ Models, Rate-Limited)</title>
       <link>https://devcheap.click/deals/github-models/</link>
       <description>Free frontier model APIs with just a GitHub account — GPT-4o, DeepSeek-R1, Llama 3.3 at zero cost Free rate-limited API access to 40+ frontier models including GPT-4o, GPT-5, DeepSeek-R1, Llama 3.3 70B, and Mistral. Requires only a GitHub account. OpenAI-compatible endpoint at https://models.github.ai. Prototyping only per ToS.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -240,7 +240,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>SaaSOffers â€” 50+ Verified Startup Deals</title>
+      <title>SaaSOffers — 50+ Verified Startup Deals</title>
       <link>https://devcheap.click/deals/saasoffers/</link>
       <description>50+ verified startup deals in one place — instant claims for free tiers, applications for high-value credits SaaSOffers is an aggregator platform that verifies eligibility and provides direct application links for 50+ startup deals. Free-tier deals (Notion, Linear, Figma) can be claimed instantly. Higher-value credits (AWS, Chargebee, Mixpanel) require short applications. Total value can exceed $500,000 across all programs.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -248,7 +248,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Aiven â€” Free Tier (Postgres, MySQL, Redis)</title>
+      <title>Aiven — Free Tier (Postgres, MySQL, Redis)</title>
       <link>https://devcheap.click/deals/aiven/</link>
       <description>Save $100+/mo on managed Postgres, MySQL, Redis — free tier covers dev and staging Managed open-source databases including Postgres, MySQL, Redis, Kafka, and more.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -256,7 +256,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>AssemblyAI â€” $50 Free Credits (~185 hours)</title>
+      <title>AssemblyAI — $50 Free Credits (~185 hours)</title>
       <link>https://devcheap.click/deals/assemblyai/</link>
       <description>$50 free speech-to-text credits — transcribe ~185 hours of audio for free Speech-to-text API with high accuracy, speaker diarization, and content moderation. $50 free credits on signup.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -264,7 +264,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>GitHub â€” Free for Public Repos</title>
+      <title>GitHub — Free for Public Repos</title>
       <link>https://devcheap.click/deals/github/</link>
       <description>Free public repos with unlimited CI/CD minutes via Actions Free source code hosting with CI/CD, Pages, and Actions for public repositories.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -272,7 +272,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Groq â€” Free Tier (30 RPM, 14,400 req/day)</title>
+      <title>Groq — Free Tier (30 RPM, 14,400 req/day)</title>
       <link>https://devcheap.click/deals/groq/</link>
       <description>Fastest LLM inference at 30 RPM free — no credit card, 240 tok/s on Llama 3 Ultra-fast LLM inference API with free tier supporting 30 requests/min and 14,400 requests/day. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -280,7 +280,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Linear â€” Free for Open Source</title>
+      <title>Linear — Free for Open Source</title>
       <link>https://devcheap.click/deals/linear/</link>
       <description>Free per-user vs. $10/mo on Jira (standard) Issue tracking and project management for software teams.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -288,7 +288,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Mistral AI â€” Free Experiment Tier (1B tokens/mo)</title>
+      <title>Mistral AI — Free Experiment Tier (1B tokens/mo)</title>
       <link>https://devcheap.click/deals/mistral/</link>
       <description>1B free tokens/month on Mistral models — no credit card, open-weight models Open-source LLM API with generous free Experiment tier offering 1 billion tokens/month. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -296,7 +296,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Neon â€” $15/month Free Tier</title>
+      <title>Neon — $15/month Free Tier</title>
       <link>https://devcheap.click/deals/neon/</link>
       <description>Free $15/mo Postgres with branching — instant database branching for dev workflows Serverless Postgres with branching, instant provisioning, and generous free tier.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -304,7 +304,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>Retool â€” Free Tier (Unlimited Apps, 5 Users)</title>
+      <title>Retool — Free Tier (Unlimited Apps, 5 Users)</title>
       <link>https://devcheap.click/deals/retool/</link>
       <description>Best free internal tool builder — unlimited apps, 5 users, 500 workflow runs, 20h agents, no CC Retool&apos;s free tier includes unlimited web and mobile apps, 500 workflow runs/month, 5GB database capacity, up to 5 users, 20 hours/month of Agents runtime, and 250 AI credits/month. Connect to any database or API to build internal tools. No credit card required. Self-hostable version available.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -312,7 +312,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Webflow â€” $2,500 Startup Credits</title>
+      <title>Webflow — $2,500 Startup Credits</title>
       <link>https://devcheap.click/deals/webflow/</link>
       <description>$2,500 startup credits — visual no-code web dev with CMS and hosting, use code DEVDEALS Webflow offers $2,500 in startup credits through devdeals.org. Includes visual web development, CMS, hosting, and SEO tools. Code DEVDEALS unlocks the credits at signup. No-code visual web development platform with fully managed hosting.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -320,7 +320,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>xAI Grok API â€” $25 Free Credits + Data Sharing Program</title>
+      <title>xAI Grok API — $25 Free Credits + Data Sharing Program</title>
       <link>https://devcheap.click/deals/xai-grok/</link>
       <description>$25-$175/mo free Grok API credits — access cutting-edge LLM for free Grok API from xAI with $25 free credits for new users and up to $150/month via data sharing program.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -328,7 +328,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Airtable â€” $2,000 Credits</title>
+      <title>Airtable — $2,000 Credits</title>
       <link>https://devcheap.click/deals/airtable/</link>
       <description>$2,000 in Airtable credits — spreadsheet-database hybrid with automations, use code CARTA Airtable offers $2,000 in credits for Interfaces, Sync, and Extensions through the CARTA partnership. Spreadsheet-database hybrid with rich views, automations, and integrations. Perfect for project management, CRM, and data tracking. Enter code CARTA at signup.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -336,7 +336,7 @@
       <category>Productivity</category>
     </item>
     <item>
-      <title>Grafana Cloud Free â€” Free Tier (10K metric series, 50GB logs)</title>
+      <title>Grafana Cloud Free — Free Tier (10K metric series, 50GB logs)</title>
       <link>https://devcheap.click/deals/grafana-cloud/</link>
       <description>10K metric series + 50GB logs + 50GB traces free — full-stack observability at zero cost Full-stack observability platform with Grafana dashboards. Free tier includes 10,000 active series metrics (14-day retention), 50 GB logs, 50 GB traces (7-day retention), and 3 team members. Built-in alerting, on-call management, and incident response. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -344,7 +344,7 @@
       <category>Monitoring</category>
     </item>
     <item>
-      <title>Linode (Akamai) â€” $100 Free Credit for New Accounts</title>
+      <title>Linode (Akamai) — $100 Free Credit for New Accounts</title>
       <link>https://devcheap.click/deals/linode/</link>
       <description>$100 free credit — high-performance VMs at competitive pricing Developer-friendly cloud hosting with high-performance compute instances, GPU, and global data centers.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -352,7 +352,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Resend â€” $25/month Free Credits</title>
+      <title>Resend — $25/month Free Credits</title>
       <link>https://devcheap.click/deals/resend/</link>
       <description>$25/mo free email credits — modern email API with great developer experience Email API for developers with generous free tier and pay-as-you-go pricing.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -360,7 +360,7 @@
       <category>APIs &amp; Email</category>
     </item>
     <item>
-      <title>Scaleway Generative APIs â€” 1 Million Free Tokens + 60 Min Transcription</title>
+      <title>Scaleway Generative APIs — 1 Million Free Tokens + 60 Min Transcription</title>
       <link>https://devcheap.click/deals/scaleway-gen-apis/</link>
       <description>1M free tokens on EU-hosted models — GDPR-compliant inference with Qwen 3.5 and Mistral Medium Scaleway&apos;s European cloud generative AI API offers 1 million free one-time tokens plus 60 minutes of free audio transcription. Access to 17 models including Qwen 3.5 397B, Mistral Medium 3.5, Gemma 4, and Llama 3.3. GDPR-compliant with EU data centers. Credit card and phone verification required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -368,7 +368,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Stripe â€” $100 Free Processing Credits</title>
+      <title>Stripe — $100 Free Processing Credits</title>
       <link>https://devcheap.click/deals/stripe/</link>
       <description>$100 free processing — test payment infrastructure at scale for free Accept payments, send payouts, and manage subscriptions globally.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -376,7 +376,7 @@
       <category>APIs &amp; Payments</category>
     </item>
     <item>
-      <title>Vultr â€” $100 Free Credit (New Customers)</title>
+      <title>Vultr — $100 Free Credit (New Customers)</title>
       <link>https://devcheap.click/deals/vultr/</link>
       <description>$100 free credit — deploy bare metal or GPU instances to evaluate performance Global cloud infrastructure with bare metal, GPU instances, object storage, and 33 data center regions.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -384,7 +384,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Better Stack â€” Free Uptime Monitoring (100GB)</title>
+      <title>Better Stack — Free Uptime Monitoring (100GB)</title>
       <link>https://devcheap.click/deals/better-stack/</link>
       <description>Free uptime monitoring with 100GB logs — saves $20/mo over Datadog Uptime monitoring, log management, and status pages with generous free tier.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -392,7 +392,7 @@
       <category>Monitoring</category>
     </item>
     <item>
-      <title>ElevenLabs â€” 10,000 Characters/Month Free</title>
+      <title>ElevenLabs — 10,000 Characters/Month Free</title>
       <link>https://devcheap.click/deals/elevenlabs/</link>
       <description>10K free characters/month for TTS — generate professional voiceovers at no cost AI voice synthesis and text-to-speech API with 10,000 free characters per month and 29 languages.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -400,7 +400,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Fly.io â€” $10/month Free Credits</title>
+      <title>Fly.io — $10/month Free Credits</title>
       <link>https://devcheap.click/deals/flyio/</link>
       <description>$10/mo free credits — deploy globally with Docker at no cost Deploy full-stack apps globally with Docker. $10/month free credits.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -408,7 +408,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Google Gemini API â€” Free Tier (Flash models, 1M context)</title>
+      <title>Google Gemini API — Free Tier (Flash models, 1M context)</title>
       <link>https://devcheap.click/deals/google-gemini/</link>
       <description>Free Gemini Flash with 1M token context — build AI apps at zero cost Google&apos;s multimodal AI API with free tier for Flash models featuring a 1M token context window.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -416,7 +416,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>HuggingFace Inference Providers â€” $0.10/Month Free Credits</title>
+      <title>HuggingFace Inference Providers — $0.10/Month Free Credits</title>
       <link>https://devcheap.click/deals/huggingface-providers/</link>
       <description>$0.10/mo free inference credits — token-level pricing on thousands of open models from HuggingFace HuggingFace&apos;s official inference API with $0.10/month in free credits. Access to thousands of open-source models via serverless inference (limited to models under 10GB; some popular larger models also supported).</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -424,7 +424,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Hyperbolic â€” $1 Free Credit</title>
+      <title>Hyperbolic — $1 Free Credit</title>
       <link>https://devcheap.click/deals/hyperbolic/</link>
       <description>$1 free inference credit — test DeepSeek and Llama models at near-zero cost, no CC needed LLM inference API with $1 free credit on signup. Access to DeepSeek V3, Llama 3.3 70B, DeepSeek-R1, and Qwen models. No credit card needed.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -432,7 +432,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Miro â€” Free Team Plan</title>
+      <title>Miro — Free Team Plan</title>
       <link>https://devcheap.click/deals/miro/</link>
       <description>Free collaborative whiteboarding — 3 editable boards, unlimited team members, templates included, no CC Collaborative whiteboard platform for brainstorming, diagramming, and workshops. Free plan includes 3 editable boards, unlimited team members, pre-built templates, basic integrations, and core diagramming tools. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -440,7 +440,7 @@
       <category>Design &amp; Collaboration</category>
     </item>
     <item>
-      <title>Penpot â€” Free &amp; Open Source (Self-Host or Cloud)</title>
+      <title>Penpot — Free &amp; Open Source (Self-Host or Cloud)</title>
       <link>https://devcheap.click/deals/penpot/</link>
       <description>Best free open-source Figma alternative — unlimited projects, unlimited team members, self-hostable, no CC Free and open-source design and prototyping platform. Figma alternative with unlimited projects, unlimited team members, 1GB cloud storage, SVG-native format, design systems, and developer handoff. Self-hostable on your own infrastructure for complete control. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -448,7 +448,7 @@
       <category>Design &amp; Collaboration</category>
     </item>
     <item>
-      <title>PlanetScale â€” Free Tier (10GB)</title>
+      <title>PlanetScale — Free Tier (10GB)</title>
       <link>https://devcheap.click/deals/planetscale/</link>
       <description>Free 10GB MySQL-compatible database with branching — $30/mo value Serverless MySQL-compatible database with branching and deploy requests.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -456,7 +456,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>Vercel â€” $10/month Hobby Plan Free (3 months)</title>
+      <title>Vercel — $10/month Hobby Plan Free (3 months)</title>
       <link>https://devcheap.click/deals/vercel/</link>
       <description>$10/mo free for 3 months — deploy Next.js apps with instant CI/CD Deploy frontend apps with automatic CI/CD. Free Hobby plan for 3 months.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -464,7 +464,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Algolia â€” Free Tier (10,000 Records)</title>
+      <title>Algolia — Free Tier (10,000 Records)</title>
       <link>https://devcheap.click/deals/algolia/</link>
       <description>Free 10K records with typo-tolerant search saves startups $50/mo Hosted search API with typo-tolerance, faceting, and analytics. Free for 10K records.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -472,7 +472,7 @@
       <category>APIs &amp; Search</category>
     </item>
     <item>
-      <title>AWS Bedrock Free Tier â€” 12 Months Free Claude Access</title>
+      <title>AWS Bedrock Free Tier — 12 Months Free Claude Access</title>
       <link>https://devcheap.click/deals/aws-bedrock-free/</link>
       <description>Test Claude via AWS Bedrock using $200 free credits — no Anthropic account needed, works with onboarding tasks AWS Bedrock provides free access to Claude models using AWS&apos;s $200 free credits for new users. The credits work across 200+ AWS services including Bedrock. One of the onboarding tasks specifically involves running a model in the Bedrock playground, making it easy to test Claude without an Anthropic account.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -480,7 +480,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Bruno â€” Free &amp; Open Source</title>
+      <title>Bruno — Free &amp; Open Source</title>
       <link>https://devcheap.click/deals/bruno/</link>
       <description>Free open-source Postman alternative — Git-native, offline-first, no account needed Open-source API client for testing REST, GraphQL, and WebSocket APIs. Git-native collaboration, offline-first, with collection-level authentication and pre-request scripts. No account required. MIT licensed.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -488,7 +488,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Builder Deals Intel â€” Daily Builder Deals Brief</title>
+      <title>Builder Deals Intel — Daily Builder Deals Brief</title>
       <link>https://devcheap.click/deals/builder-deals-intel/</link>
       <description>Daily brief of verified tech deals — source-backed, risk-labeled, confidence-scored for builders Builder Deals Intel provides a daily operating brief comparing AI tools, SaaS, hosting, cloud credits, and developer infrastructure. Every item includes source links, risk labels, and confidence scoring. Tracks deals from GitHub Student Pack, Supabase, Neon, Sentry, Upstash, MongoDB, Clerk, and more.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -496,7 +496,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Composio for Startups â€” $25,000 Credits</title>
+      <title>Composio for Startups — $25,000 Credits</title>
       <link>https://devcheap.click/deals/composio-startup/</link>
       <description>$25K Composio credits — AI agent development tools with multi-model support for startups Composio offers $25,000 in credits for startups. Provides AI agent development tools, multi-model support, and enterprise-grade infrastructure for building AI applications. Access to cutting-edge AI capabilities and development resources.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -504,7 +504,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Databricks Startup Program â€” Up to $200,000 Credits</title>
+      <title>Databricks Startup Program — Up to $200,000 Credits</title>
       <link>https://devcheap.click/deals/databricks-startup/</link>
       <description>$200K credits across Databricks + Neon — technical guidance and GTM support included Databricks Startup Program provides up to $200,000 in credits across Databricks and Neon. Single application gives access to all Databricks services. Includes hands-on technical guidance and go-to-market support. Purpose-built for early-stage, venture-backed startups building on data and AI.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -512,7 +512,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>F6S Deals Platform â€” $500K+ Aggregated Startup Credits</title>
+      <title>F6S Deals Platform — $500K+ Aggregated Startup Credits</title>
       <link>https://devcheap.click/deals/f6s-deals/</link>
       <description>$500K+ aggregated startup credits — one-stop platform for AWS, Google Cloud, Stripe, and more F6S is a global networking platform for founders that aggregates deals, discounts, and credit opportunities. Access exclusive offers on hosting, design, software, email, and more. Connect with other startups, recruit talent, and apply for funding. Most AWS, Google Cloud, and Stripe credits can be accessed through F6S.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -520,7 +520,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Fin.ai Startup Pack â€” $500K+ Bundled Credits</title>
+      <title>Fin.ai Startup Pack — $500K+ Bundled Credits</title>
       <link>https://devcheap.click/deals/fin-ai-startup-pack/</link>
       <description>$500K+ bundled credits across 50+ partners — single application for comprehensive startup support Fin.ai Startup Pack bundles $500,000+ in credits across 50+ partners. Single application gives access to multiple high-value programs including cloud credits, AI APIs, developer tools, and business services. Designed to provide comprehensive startup infrastructure support.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -528,7 +528,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>GitHub for Startups â€” 20 Enterprise Seats Free + $10K Credits (12 mo)</title>
+      <title>GitHub for Startups — 20 Enterprise Seats Free + $10K Credits (12 mo)</title>
       <link>https://devcheap.click/deals/github-for-startups/</link>
       <description>Covers engineering tooling for small teams — Enterprise, Copilot, and Advanced Security for a year without the usual seat cost. Eligible early-stage startups get 20 seats of GitHub Enterprise free for 12 months plus $10,000 in flexible platform credits for Copilot, Advanced Security, Actions, and more.</description>
       <pubDate>Fri, 01 Jan 2027 00:00:00 GMT</pubDate>
@@ -536,7 +536,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>GitHub Team for Startups â€” 1 Year Free Team Plan</title>
+      <title>GitHub Team for Startups — 1 Year Free Team Plan</title>
       <link>https://devcheap.click/deals/github-team-startup/</link>
       <description>1 year GitHub Team free — protected branches, required reviews, 3K CI/CD minutes for startups GitHub for Startups provides qualifying teams with GitHub Team plan free for 12 months. Team plan includes protected branches, required code reviews, 50 CI/CD minutes/month per user, 3,000 shared Actions minutes, code owners, required status checks, and advanced audit logging. Value: $252-$1,200+ depending on team size.</description>
       <pubDate>Sun, 04 Jul 2027 00:00:00 GMT</pubDate>
@@ -544,7 +544,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Inference.net â€” $1 Free Credit ($25 on Survey)</title>
+      <title>Inference.net — $1 Free Credit ($25 on Survey)</title>
       <link>https://devcheap.click/deals/inference-net/</link>
       <description>$1 free + $25 survey credit — decent trial for testing open model inference LLM inference API with $1 free credit on signup and $25 additional credit for completing an email survey. Various open-source models available.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -552,7 +552,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Twilio SendGrid â€” $1,800 Email Credits</title>
+      <title>Twilio SendGrid — $1,800 Email Credits</title>
       <link>https://devcheap.click/deals/twilio-sendgrid/</link>
       <description>$1,800 SendGrid email credits — cloud email delivery with 99.9% uptime, use code DEVDEALS Twilio SendGrid offers $1,800 in email credits through devdeals.org. Cloud-based email delivery service with 99.9% uptime, analytics, and deliverability tools. Includes transactional and marketing email APIs. Use code DEVDEALS at signup.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -560,7 +560,7 @@
       <category>APIs &amp; Email</category>
     </item>
     <item>
-      <title>YC Deals â€” $500K+ Worth of Deals for YC Companies</title>
+      <title>YC Deals — $500K+ Worth of Deals for YC Companies</title>
       <link>https://devcheap.click/deals/ycombinator-deals/</link>
       <description>$500K+ worth of exclusive deals for YC companies — 100+ tools with free credits and discounts Y Combinator provides current and alumni companies access to a private portal with 100+ discounts and exclusive offers on industry-leading tools. Includes deals from PostHog, Fivetran, OneSignal, Deel, Vanta, Gusto, GitHub, Algolia, Amplitude, and more. Total value exceeds $500,000 in free credits and discounts.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -568,7 +568,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Backblaze B2 â€” 10GB Free Storage</title>
+      <title>Backblaze B2 — 10GB Free Storage</title>
       <link>https://devcheap.click/deals/backblaze-b2/</link>
       <description>10GB free S3 storage — cheaper than AWS for data egress S3-compatible cloud object storage with 10GB free and affordable egress pricing.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -576,7 +576,7 @@
       <category>Storage &amp; Cloud</category>
     </item>
     <item>
-      <title>Beam â€” $30/mo Free Compute Credits</title>
+      <title>Beam — $30/mo Free Compute Credits</title>
       <link>https://devcheap.click/deals/beam/</link>
       <description>$30/mo free GPU credits (with CC) — open-source, fast cold starts, wide GPU selection Open-source serverless GPU platform. $30/month free credits (requires credit card; $1 without). Supports T4, A10G, A100, H100, RTX 4090. Sub-second cold starts, Python SDK.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -584,7 +584,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>BrowserStack â€” 30-Min Free Live Testing</title>
+      <title>BrowserStack — 30-Min Free Live Testing</title>
       <link>https://devcheap.click/deals/browserstack/</link>
       <description>30-min free live browser testing on real devices — quick cross-browser checks (paid plans start at $12.50/mo) BrowserStack&apos;s free trial includes 30 minutes of Live manual testing on real mobile and desktop devices (no CC required). 1 parallel test on Automate (requires CC). Paid plans start at $12.50/month for Live testing. Best for quick cross-browser checks.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -592,7 +592,7 @@
       <category>Testing &amp; QA</category>
     </item>
     <item>
-      <title>Claude for Open Source â€” 6 Months Claude Max Free ($1,200 value)</title>
+      <title>Claude for Open Source — 6 Months Claude Max Free ($1,200 value)</title>
       <link>https://devcheap.click/deals/claude-for-open-source/</link>
       <description>6 months Claude Max free ($1,200 value) — for OSS maintainers with 5K+ stars or 1M+ downloads Claude for Open Source program gives qualifying open source maintainers 6 months of Claude Max 20x for free (total value $1,200). 10,000 total spots available. Eligibility requires demonstrated maintainer status on a meaningful OSS project with 5,000+ stars or 1M+ npm downloads/month.</description>
       <pubDate>Thu, 31 Dec 2026 00:00:00 GMT</pubDate>
@@ -600,7 +600,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>CodeRabbit â€” Free Tier (15 AI Reviews/Month)</title>
+      <title>CodeRabbit — Free Tier (15 AI Reviews/Month)</title>
       <link>https://devcheap.click/deals/coderabbit/</link>
       <description>15 free AI code reviews/month -- automated PR review saves hours per sprint AI-powered code review platform. Free tier includes 15 PR reviews per month with inline suggestions across GitHub/GitLab/Bitbucket.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -608,7 +608,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Coolify â€” Free &amp; Open Source (Self-Hosted)</title>
+      <title>Coolify — Free &amp; Open Source (Self-Hosted)</title>
       <link>https://devcheap.click/deals/coolify/</link>
       <description>Free self-hosted Heroku/Vercel alternative — deploy anything via git push on your own VPS Open-source self-hostable Platform-as-a-Service. Deploy Docker containers, static sites, Node.js, Python, PHP, and more via git push. Built-in auto SSL, reverse proxy, database provisioning, and monitoring. Requires your own VPS (~$5-10/mo). AGPL licensed.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -616,7 +616,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Cursor Pro for Startups â€” 1 Year Free Pro Plan</title>
+      <title>Cursor Pro for Startups — 1 Year Free Pro Plan</title>
       <link>https://devcheap.click/deals/cursor-pro-startup/</link>
       <description>1 year Cursor Pro free — unlimited AI completions, codebase-aware chat, multi-file editing Cursor offers 1 year of Pro plan free for startup developers through SaaSOffers. Pro plan ($20/user/month) includes unlimited AI code completions, codebase-aware AI chat, multi-file editing, inline editing, codebase indexing, and custom model selection (GPT-4o, Claude Sonnet, etc.).</description>
       <pubDate>Sun, 04 Jul 2027 00:00:00 GMT</pubDate>
@@ -624,7 +624,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Excalidraw â€” Free &amp; Open Source</title>
+      <title>Excalidraw — Free &amp; Open Source</title>
       <link>https://devcheap.click/deals/excalidraw/</link>
       <description>Free open-source whiteboard with hand-drawn style — end-to-end encrypted, unlimited boards, no account needed Free open-source whiteboard with a hand-drawn feel. Unlimited boards, real-time collaboration, end-to-end encryption, image export, and diagramming tools. Self-hostable via Docker. No accounts or credit card required for the web version.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -632,7 +632,7 @@
       <category>Design &amp; Collaboration</category>
     </item>
     <item>
-      <title>GitLab â€” Free DevOps Platform</title>
+      <title>GitLab — Free DevOps Platform</title>
       <link>https://devcheap.click/deals/gitlab/</link>
       <description>Complete free DevOps platform with built-in CI/CD and container registry Free DevOps platform with Git repos, CI/CD, container registry, and project management.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -640,7 +640,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Gitpod â€” Free for 50 hours/month</title>
+      <title>Gitpod — Free for 50 hours/month</title>
       <link>https://devcheap.click/deals/gitpod/</link>
       <description>50 free hours/month of cloud dev environments — no local setup needed Cloud development environments that spin up instantly from any Git repository.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -648,7 +648,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Hoppscotch â€” Free &amp; Open Source</title>
+      <title>Hoppscotch — Free &amp; Open Source</title>
       <link>https://devcheap.click/deals/hoppscotch/</link>
       <description>Free open-source API testing — Postman alternative with zero cost Open-source API development platform for testing REST, GraphQL, and WebSocket APIs.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -656,7 +656,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Modal â€” $30/mo Free Compute Credits</title>
+      <title>Modal — $30/mo Free Compute Credits</title>
       <link>https://devcheap.click/deals/modal/</link>
       <description>$30/mo free GPU credits (with CC) — run A100 or H100 inference, per-second billing, no idle cost Serverless GPU platform for AI/ML workloads. $30/month free compute credits (requires credit card; $1 without). Per-second billing, no idle costs. 10 GPU concurrency on free tier.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -664,7 +664,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>MongoDB â€” $0/month Free Tier</title>
+      <title>MongoDB — $0/month Free Tier</title>
       <link>https://devcheap.click/deals/mongodb/</link>
       <description>Free 512MB Atlas tier — perfect for prototyping and small apps Document database with free tier for up to 512MB storage.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -672,7 +672,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>Neon â€” Free Tier (100 Projects, Scale-to-Zero Postgres)</title>
+      <title>Neon — Free Tier (100 Projects, Scale-to-Zero Postgres)</title>
       <link>https://devcheap.click/deals/neon-serverless-postgres/</link>
       <description>Best serverless Postgres free tier for modern stacks — branch per PR, scale to zero, no credit card required. Serverless Postgres with 100 projects, 100 CU-hours per project/month, branching, instant provisioning, and scale-to-zero compute. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -680,7 +680,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>PagerDuty â€” Free Tier (5 Users)</title>
+      <title>PagerDuty — Free Tier (5 Users)</title>
       <link>https://devcheap.click/deals/pagerduty/</link>
       <description>Free for 5 users -- incident alerting and on-call scheduling for dev teams Incident management and alerting platform. Free tier includes 5 users, basic alert scheduling, and 2 notification channels.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -688,7 +688,7 @@
       <category>Monitoring</category>
     </item>
     <item>
-      <title>Railway â€” $5/month Free Credits</title>
+      <title>Railway — $5/month Free Credits</title>
       <link>https://devcheap.click/deals/railway/</link>
       <description>$5/mo free credits — instant full-stack deploys with databases included Full-stack hosting with instant deploys, databases, and monitoring. $5 free credits monthly.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -696,7 +696,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Redis Cloud â€” Free 30MB Tier</title>
+      <title>Redis Cloud — Free 30MB Tier</title>
       <link>https://devcheap.click/deals/redis-cloud/</link>
       <description>Free 30MB managed Redis — caching and pub/sub for small projects Managed Redis database with caching, pub/sub, and vector search. Free 30MB tier.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -704,7 +704,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>Render â€” $5/month Free Tier</title>
+      <title>Render — $5/month Free Tier</title>
       <link>https://devcheap.click/deals/render/</link>
       <description>Free $5/mo tier — deploy web services and databases with zero config Deploy web services, databases, and background workers for free.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -712,7 +712,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Replit â€” Free Starter Plan</title>
+      <title>Replit — Free Starter Plan</title>
       <link>https://devcheap.click/deals/replit/</link>
       <description>100 free compute hours/month -- instant online IDE for prototyping without setup Online IDE with built-in hosting and databases. Free Starter gives 3 public repls and 100 compute hours/month.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -720,7 +720,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Sentry â€” $100/month Free for Startups</title>
+      <title>Sentry — $100/month Free for Startups</title>
       <link>https://devcheap.click/deals/sentry/</link>
       <description>$100/mo free for startups — error monitoring without the enterprise price tag Error monitoring and performance tracking for web and mobile apps.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -728,7 +728,7 @@
       <category>Monitoring</category>
     </item>
     <item>
-      <title>Supabase â€” Free Tier (2 Projects)</title>
+      <title>Supabase — Free Tier (2 Projects)</title>
       <link>https://devcheap.click/deals/supabase/</link>
       <description>Free Postgres with auth, realtime, and edge functions — Firebase alternative Hosted Postgres database with authentication, instant APIs, edge functions.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -736,7 +736,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>Upstash â€” Free Tier (10,000 Requests)</title>
+      <title>Upstash — Free Tier (10,000 Requests)</title>
       <link>https://devcheap.click/deals/upstash/</link>
       <description>Free 10K requests/day serverless Redis — built for edge and serverless Serverless Redis and Kafka for edge applications.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -744,7 +744,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>Alibaba Cloud Model Studio â€” 1 Million Free Tokens Per Model</title>
+      <title>Alibaba Cloud Model Studio — 1 Million Free Tokens Per Model</title>
       <link>https://devcheap.click/deals/alibaba-model-studio/</link>
       <description>1M free tokens per model on Qwen — test Alibaba&apos;s latest LLMs including Qwen 3.5/3.6 Alibaba Cloud&apos;s Model Studio offering 1 million free tokens per model. Access to Qwen family models including Qwen 3.5 and Qwen 3.6. International account and credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -752,7 +752,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Cal.com â€” Free Cloud Tier</title>
+      <title>Cal.com — Free Cloud Tier</title>
       <link>https://devcheap.click/deals/cal-com/</link>
       <description>Free open-source Calendly alternative — unlimited event types, self-hostable Open-source scheduling infrastructure. Free cloud tier includes unlimited event types, unlimited calendar connections, team scheduling, and customizable booking pages. Self-hostable version also available. AGPLv3 licensed.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -760,7 +760,7 @@
       <category>Productivity</category>
     </item>
     <item>
-      <title>Cerebras Inference â€” 1M Tokens/Day Free (2,100 tok/s)</title>
+      <title>Cerebras Inference — 1M Tokens/Day Free (2,100 tok/s)</title>
       <link>https://devcheap.click/deals/cerebras/</link>
       <description>1M free tokens/day at 2,100 tok/s — fastest LLM inference available on cutting-edge hardware Cerebras provides ultra-fast LLM inference using Wafer-Scale Engine hardware. Free tier includes 1 million tokens per day at 2,100 tokens/second speed. Access to cutting-edge models optimized for Cerebras hardware. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -768,7 +768,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Fireworks â€” $1 Free Credits</title>
+      <title>Fireworks — $1 Free Credits</title>
       <link>https://devcheap.click/deals/fireworks/</link>
       <description>$1 free inference credits — test fast open model API at near-zero cost Fast LLM inference API with $1 free credits on signup. Access to various open-source models including Llama, Mistral, and Qwen. Optimized for low-latency inference.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -776,7 +776,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Google AI Studio â€” 1.5M Free Tokens/Day (Gemini Flash)</title>
+      <title>Google AI Studio — 1.5M Free Tokens/Day (Gemini Flash)</title>
       <link>https://devcheap.click/deals/google-ai-studio/</link>
       <description>1.5M free tokens/day on Gemini Flash — no credit card, perfect for prototyping Google AI Studio provides free access to Gemini Flash models with 1.5 million free tokens per day. No credit card required. Includes access to various Gemini models with generous daily limits. Perfect for development, testing, and prototyping.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -784,7 +784,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Mural â€” Free Plan (3 Murals)</title>
+      <title>Mural — Free Plan (3 Murals)</title>
       <link>https://devcheap.click/deals/mural/</link>
       <description>Free workshop whiteboarding — 3 murals, unlimited team members, voting and timer features, no CC Digital whiteboard platform designed for workshops and team collaboration. Free plan includes 3 murals, unlimited team members, pre-built templates, timer and voting features, and guest access. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -792,7 +792,7 @@
       <category>Design &amp; Collaboration</category>
     </item>
     <item>
-      <title>Novita â€” $0.50 Free Credits (1 Year)</title>
+      <title>Novita — $0.50 Free Credits (1 Year)</title>
       <link>https://devcheap.click/deals/novita/</link>
       <description>$0.50 free inference credits valid for 1 year — minimal but enough for a quick API test LLM inference API with $0.50 free credits valid for 1 year. Access to various open-source models. Minimal but usable for a quick API test.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -800,7 +800,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>OpenRouter â€” Free Tier (30+ Models, 20 RPM)</title>
+      <title>OpenRouter — Free Tier (30+ Models, 20 RPM)</title>
       <link>https://devcheap.click/deals/openrouter/</link>
       <description>Free access to 30+ LLMs via one API — compare GPT-4, Claude, Gemini from a single endpoint Unified API for 30+ LLMs including free models with 20 requests per minute rate limit.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -808,7 +808,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>RocketScrape â€” Lifetime License - $69</title>
+      <title>RocketScrape — Lifetime License - $69</title>
       <link>https://devcheap.click/deals/rocketscrape/</link>
       <description>Pay $69 once vs. $50/mo for ScrapingBee — web scraping API with no monthly cap Web scraping and data extraction tool with API access, proxy rotation, and structured JSON output.</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
@@ -816,7 +816,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Stripe Atlas â€” $2,500 Stripe Credits + $50K Partner Perks</title>
+      <title>Stripe Atlas — $2,500 Stripe Credits + $50K Partner Perks</title>
       <link>https://devcheap.click/deals/stripe-atlas/</link>
       <description>$500 incorporation + $2.5K Stripe credits + $50K partner perks — all-in-one startup launch package Stripe Atlas incorporates your startup as a Delaware C-Corp or LLC for $500. Includes $2,500 in Stripe product credits for payment processing and access to over $50,000 in partner discounts from AWS, Google Cloud, Notion, GitHub, MongoDB, and more.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -824,7 +824,7 @@
       <category>APIs &amp; Payments</category>
     </item>
     <item>
-      <title>Turso â€” Free Tier (3GB)</title>
+      <title>Turso — Free Tier (3GB)</title>
       <link>https://devcheap.click/deals/turso/</link>
       <description>Free 3GB edge SQLite — global read replicas without the complexity Edge SQLite database for global applications with generous free tier.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -832,7 +832,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>Whimsical â€” Free Forever Plan</title>
+      <title>Whimsical — Free Forever Plan</title>
       <link>https://devcheap.click/deals/whimsical/</link>
       <description>Best free wireframing and diagramming tool — unlimited team members, all file types, 100 AI actions, no CC Visual collaboration tool for wireframing, mind maps, flowcharts, docs, and sticky notes. Free plan includes unlimited team members, all file types, 100 AI actions, and unlimited docs. Clean, fast interface. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -840,7 +840,7 @@
       <category>Design &amp; Collaboration</category>
     </item>
     <item>
-      <title>Cloudinary â€” 25 Monthly Credits Free</title>
+      <title>Cloudinary — 25 Monthly Credits Free</title>
       <link>https://devcheap.click/deals/cloudinary/</link>
       <description>25 free monthly credits for image/video optimization and CDN — standard media transformation tool, no CC Cloudinary&apos;s free tier provides 25 monthly credits (reset each month) for image and video transformations, optimization, and CDN delivery. Includes 3 users and 1 account. Credits cover transformations, storage, and bandwidth. Low-volume but free. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -848,7 +848,7 @@
       <category>Media &amp; Images</category>
     </item>
     <item>
-      <title>N8Nitiator â€” Lifetime 1-Click Instance - $149</title>
+      <title>N8Nitiator — Lifetime 1-Click Instance - $149</title>
       <link>https://devcheap.click/deals/n8nitiator/</link>
       <description>Pay $149 once vs. $50/mo for Zapier — managed n8n automation at 70% off Managed n8n instance with pre-configured integrations, unlimited workflows, and isolated deployment.</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
@@ -856,7 +856,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Nebius AI â€” $2K–$150K Startup Credits</title>
+      <title>Nebius AI — $2K–$150K Startup Credits</title>
       <link>https://devcheap.click/deals/nebius-ai/</link>
       <description>$2K–$150K AI startup credits — only useful for registered companies with funding AI cloud platform for ML training and inference. AI Explorer: $2K cloud + $2K inference credits. AI Builder/Scaler: up to $150K (requires VC backing, legal entity, logo exchange). Not available to individuals.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -864,7 +864,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Postmark â€” 1,000 Emails Free</title>
+      <title>Postmark — 1,000 Emails Free</title>
       <link>https://devcheap.click/deals/postmark/</link>
       <description>1,000 free transactional emails/month — reliable delivery for startups Transactional email service with 1,000 free emails per month.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -872,7 +872,7 @@
       <category>APIs &amp; Email</category>
     </item>
     <item>
-      <title>Snyk â€” Free for Open Source</title>
+      <title>Snyk — Free for Open Source</title>
       <link>https://devcheap.click/deals/snyk/</link>
       <description>Free open-source dependency scanning — catch vulnerabilities before they ship Developer security platform for finding and fixing vulnerabilities in dependencies.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -880,7 +880,7 @@
       <category>Security</category>
     </item>
     <item>
-      <title>Twilio â€” $15 Free API Credit</title>
+      <title>Twilio — $15 Free API Credit</title>
       <link>https://devcheap.click/deals/twilio/</link>
       <description>$15 free API credit — test SMS, voice, email APIs before committing Cloud communications platform for SMS, voice, video, email (SendGrid), and authentication APIs.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -888,7 +888,7 @@
       <category>APIs &amp; Email</category>
     </item>
     <item>
-      <title>AI21 Studio â€” $10 Free Credits (3 Months)</title>
+      <title>AI21 Studio — $10 Free Credits (3 Months)</title>
       <link>https://devcheap.click/deals/ai21/</link>
       <description>$10 free Jamba API credits for 3 months — test 256K-context models at no cost Jamba family LLM API (Jamba Large 398B, Jamba Mini 52B, Jamba 3B) all with 256K context window. $10 free credits valid for 3 months. No permanent free tier — credit card required after trial.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -896,7 +896,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Baseten â€” $30 Free GPU Credits (One-Time)</title>
+      <title>Baseten — $30 Free GPU Credits (One-Time)</title>
       <link>https://devcheap.click/deals/baseten/</link>
       <description>$30 free GPU credits for model deployment — test custom LLM inference on A100s/H100s GPU model deployment platform. $30 one-time free credits for deploying custom models or using the Model Library. Pay-per-minute GPU billing (T4: $0.63/hr, A100: $4.00/hr, H100: $6.50/hr). Credit card required after credits are exhausted.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -904,7 +904,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Coda â€” $1,000 Credit</title>
+      <title>Coda — $1,000 Credit</title>
       <link>https://devcheap.click/deals/coda/</link>
       <description>$1,000 Coda credit — all-in-one docs/spreadsheets/apps platform, use code DEVDEALS Coda offers $1,000 in credits through devdeals.org. All-in-one doc platform that combines docs, spreadsheets, and apps. Features automations, formulas, and deep integrations. Use code DEVDEALS at signup.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -912,7 +912,7 @@
       <category>Productivity</category>
     </item>
     <item>
-      <title>Hetzner Cloud â€” €20 Cloud Credit for New Users</title>
+      <title>Hetzner Cloud — €20 Cloud Credit for New Users</title>
       <link>https://devcheap.click/deals/hetzner/</link>
       <description>EUR 20 cloud credit — high-performance VPS at 60% less than AWS European cloud provider with affordable VPS, dedicated servers, and storage. €20 credit for new accounts.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -920,7 +920,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Koyeb â€” Free Tier for Web Services</title>
+      <title>Koyeb — Free Tier for Web Services</title>
       <link>https://devcheap.click/deals/koyeb/</link>
       <description>Free serverless hosting with global edge deploys Serverless hosting platform with global deployment, Docker containers, and free tier.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -928,7 +928,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>MongoDB Atlas Startup Program â€” $500–$5K Startup Credits (12 mo)</title>
+      <title>MongoDB Atlas Startup Program — $500–$5K Startup Credits (12 mo)</title>
       <link>https://devcheap.click/deals/mongodb-atlas-startups/</link>
       <description>Separate high-value startup credit program on top of the existing Atlas free tier. MongoDB Atlas startup credits for managed document database hosting on AWS, GCP, or Azure. Credits apply to paid Atlas tiers and include technical advisor support.</description>
       <pubDate>Fri, 01 Jan 2027 00:00:00 GMT</pubDate>
@@ -936,7 +936,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>NLP Cloud â€” $15 Free Credits</title>
+      <title>NLP Cloud — $15 Free Credits</title>
       <link>https://devcheap.click/deals/nlp-cloud/</link>
       <description>$15 free NLP API credits — test various open models with a generous trial (phone verification needed) NLP API platform offering $15 free credits on signup. Access to various open-source models for text generation, embeddings, and classification. Phone number verification required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -944,7 +944,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>NVIDIA NIM â€” Free Tier (1K-5K Inference Credits)</title>
+      <title>NVIDIA NIM — Free Tier (1K-5K Inference Credits)</title>
       <link>https://devcheap.click/deals/nvidia-nim/</link>
       <description>1K-5K free inference credits on NVIDIA hardware — test A100/H100 inference for free (phone verification often broken) Free LLM inference API with 1,000-5,000 inference credits. Access to 160+ models with ~50 free endpoints including Nemotron, Llama, Qwen, and DeepSeek. 40 requests per minute. Self-host available free on up to 16 GPUs. Phone verification required — system is frequently reported as broken.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -952,7 +952,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>PocketBase â€” Free &amp; Open Source</title>
+      <title>PocketBase — Free &amp; Open Source</title>
       <link>https://devcheap.click/deals/pocketbase/</link>
       <description>Free open-source backend — SQLite, auth, file storage, realtime in one binary Open-source backend with realtime database, auth, and file storage.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -960,7 +960,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>Scaleway â€” €20 Cloud Credits for New Users</title>
+      <title>Scaleway — €20 Cloud Credits for New Users</title>
       <link>https://devcheap.click/deals/scaleway/</link>
       <description>EUR 20 cloud credits — European cloud at a fraction of Big 3 prices European cloud provider with VMs, Kubernetes, object storage, and serverless functions.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -968,7 +968,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Upstage â€” $10 Free Credits (3 Months)</title>
+      <title>Upstage — $10 Free Credits (3 Months)</title>
       <link>https://devcheap.click/deals/upstage/</link>
       <description>$10 free Solar API credits for 3 months — test Korean AI lab&apos;s LLM for free Solar Pro/Mini LLM API from Upstage (Korean AI lab). $10 free credits valid for 3 months. No permanent free tier.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -976,7 +976,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>HubSpot â€” Free CRM + $1,000 Startup Credits</title>
+      <title>HubSpot — Free CRM + $1,000 Startup Credits</title>
       <link>https://devcheap.click/deals/hubspot/</link>
       <description>Free CRM + $1,000 startup credits — enterprise sales tools for free CRM, marketing automation, and sales tools with generous startup program credits.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -984,7 +984,7 @@
       <category>APIs &amp; Email</category>
     </item>
     <item>
-      <title>SenderStack â€” Lifetime License - $69</title>
+      <title>SenderStack — Lifetime License - $69</title>
       <link>https://devcheap.click/deals/senderstack/</link>
       <description>Pay $69 once vs. $40/mo for Mailwarm — email warm-up without subscription fees Email warm-up and deliverability tool with automated sending sequences and inbox placement monitoring.</description>
       <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
@@ -992,7 +992,7 @@
       <category>APIs &amp; Email</category>
     </item>
     <item>
-      <title>SendFox â€” Lifetime License - $49</title>
+      <title>SendFox — Lifetime License - $49</title>
       <link>https://devcheap.click/deals/sendfox/</link>
       <description>Pay $49 once vs. $30/mo for Mailchimp — email 5K subscribers forever Email marketing for content creators — unlimited emails to 5,000 subscribers with a one-time payment.</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
@@ -1000,7 +1000,7 @@
       <category>APIs &amp; Email</category>
     </item>
     <item>
-      <title>Sticky Password Premium â€” Lifetime Subscription - $29.99</title>
+      <title>Sticky Password Premium — Lifetime Subscription - $29.99</title>
       <link>https://devcheap.click/deals/stickypassword/</link>
       <description>Pay $30 once vs. $35/yr for 1Password — password manager at 90% off Password manager with biometric login, cloud sync, form filling, and secure sharing across unlimited devices.</description>
       <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
@@ -1008,7 +1008,7 @@
       <category>Security</category>
     </item>
     <item>
-      <title>CircleCI â€” 6,000 Credits/Week Free</title>
+      <title>CircleCI — 6,000 Credits/Week Free</title>
       <link>https://devcheap.click/deals/circleci/</link>
       <description>6,000 free CI credits/week (Linux) — viable for small projects and open-source builds, 4 concurrent jobs, no CC CircleCI&apos;s free tier provides 6,000 credits/week (Linux builds), 1 user, and 4 concurrent jobs. Each credit covers ~1 minute of CI/CD build time. Useful for small personal projects and open-source. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1016,7 +1016,7 @@
       <category>CI/CD</category>
     </item>
     <item>
-      <title>Datadog â€” 14-day Free Trial + $100 Credits</title>
+      <title>Datadog — 14-day Free Trial + $100 Credits</title>
       <link>https://devcheap.click/deals/datadog/</link>
       <description>$100 credits + 14-day trial — test full APM suite for free Monitor infrastructure, logs, and applications with 14-day free trial.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1024,7 +1024,7 @@
       <category>Monitoring</category>
     </item>
     <item>
-      <title>Emailit â€” Lifetime License - $49</title>
+      <title>Emailit — Lifetime License - $49</title>
       <link>https://devcheap.click/deals/emailit/</link>
       <description>Pay $49 once vs. $25/mo for SendGrid — transactional email with no monthly bill Email sending API with high deliverability, analytics, and scalable infrastructure for transactional mail.</description>
       <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
@@ -1032,7 +1032,7 @@
       <category>APIs &amp; Email</category>
     </item>
     <item>
-      <title>TidyCal â€” Lifetime License - $29</title>
+      <title>TidyCal — Lifetime License - $29</title>
       <link>https://devcheap.click/deals/tidycal/</link>
       <description>Pay $29 once vs. $12/mo for Calendly — breaks even in 3 months Alternative to Calendly with unlimited booking types, calendar integrations, and payment collection.</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
@@ -1040,7 +1040,7 @@
       <category>Productivity</category>
     </item>
     <item>
-      <title>Vercel Pro for Startups â€” 1 Year Free Pro Plan</title>
+      <title>Vercel Pro for Startups — 1 Year Free Pro Plan</title>
       <link>https://devcheap.click/deals/vercel-pro-startup/</link>
       <description>1 year Vercel Pro free — 1TB bandwidth, team features, advanced analytics for startups Vercel offers 1 year of Pro plan free for qualifying startups through SaaSOffers. Pro plan ($20/user/month) includes team collaboration, 1TB bandwidth/month (vs 100GB free), advanced analytics, serverless functions with 60-second execution, Edge Functions, and preview deployments for every PR.</description>
       <pubDate>Sun, 04 Jul 2027 00:00:00 GMT</pubDate>
@@ -1048,7 +1048,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>FastestVPN â€” Lifetime Subscription (10 Devices) - $29.99</title>
+      <title>FastestVPN — Lifetime Subscription (10 Devices) - $29.99</title>
       <link>https://devcheap.click/deals/fastestvpn/</link>
       <description>Pay $30 once vs. $12/mo for NordVPN — 10-device VPN for life VPN with 250+ servers in 50+ countries, ad-blocker, malware protection, and NAT firewall for 10 devices.</description>
       <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
@@ -1056,7 +1056,7 @@
       <category>Security</category>
     </item>
     <item>
-      <title>IONOS â€” 93% OFF All Hosting Plans + Free Domain</title>
+      <title>IONOS — 93% OFF All Hosting Plans + Free Domain</title>
       <link>https://devcheap.click/deals/ionos/</link>
       <description>93% off hosting + free domain — cheapest entry point for new projects Web hosting, domains, VPS, and cloud solutions from a global provider. Deep discounts on hosting plans.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1064,7 +1064,7 @@
       <category>Domains &amp; Hosting</category>
     </item>
     <item>
-      <title>Lucidchart â€” Free Basic Plan</title>
+      <title>Lucidchart — Free Basic Plan</title>
       <link>https://devcheap.click/deals/lucidchart/</link>
       <description>Free diagramming with 500 shapes per doc — 3 editable documents, real-time collaboration, no CC Diagramming and visualization tool for flowcharts, org charts, network diagrams, and wireframes. Free plan includes 3 editable documents, 500 shapes per document, real-time collaboration, and basic templates. No credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1072,7 +1072,7 @@
       <category>Design &amp; Collaboration</category>
     </item>
     <item>
-      <title>Ollama â€” Free &amp; Open Source</title>
+      <title>Ollama — Free &amp; Open Source</title>
       <link>https://devcheap.click/deals/ollama/</link>
       <description>Run 100+ LLMs locally for free — fully offline, no rate limits, OpenAI-compatible API Run large language models locally with a simple CLI and API. Supports 100+ models including Llama 3, Mistral, Gemma, Phi, and Qwen. OpenAI-compatible API endpoint. No cloud dependency, no rate limits, fully offline. Mac, Linux, and Windows. MIT licensed.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1080,7 +1080,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Screpy â€” Lifetime License - $59</title>
+      <title>Screpy — Lifetime License - $59</title>
       <link>https://devcheap.click/deals/screpy/</link>
       <description>Pay $59 once vs. $30/mo for Ahrefs — AI web and SEO analysis with page speed AI-powered SEO and web analysis tool with page speed tests, competitor analysis, and keyword tracking.</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
@@ -1088,7 +1088,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Teable â€” Lifetime License - $69</title>
+      <title>Teable — Lifetime License - $69</title>
       <link>https://devcheap.click/deals/teable/</link>
       <description>Pay $69 once vs. $40/mo for Airtable — no-code apps without recurring fees AI-native no-code platform for building custom apps, CRMs, and project management systems.</description>
       <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
@@ -1096,7 +1096,7 @@
       <category>Database</category>
     </item>
     <item>
-      <title>Vercel AI Gateway â€” $5/Month Free Credits (Limited Models)</title>
+      <title>Vercel AI Gateway — $5/Month Free Credits (Limited Models)</title>
       <link>https://devcheap.click/deals/vercel-ai-gateway/</link>
       <description>$5/mo free AI gateway credits — unified billing and observability, but many models blocked on free tier AI gateway with unified billing and observability across providers. $5/month free credits for a restricted subset of models. Many premium models (Gemini 3, Claude Opus, DeepSeek, Grok) are blocked on the free tier. Best for Vercel ecosystem users.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1104,7 +1104,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>FuseBase â€” Lifetime License - $79</title>
+      <title>FuseBase — Lifetime License - $79</title>
       <link>https://devcheap.click/deals/fusebase/</link>
       <description>Pay $79 once vs. $50/mo for Monday.com — client portal + CRM for life Client portal and collaboration hub with project management, document sharing, and CRM features.</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
@@ -1112,7 +1112,7 @@
       <category>Productivity</category>
     </item>
     <item>
-      <title>Polypane â€” Lifetime License - $69</title>
+      <title>Polypane — Lifetime License - $69</title>
       <link>https://devcheap.click/deals/polypane/</link>
       <description>Pay $69 once vs. $15/mo for BrowserStack — responsive design testing without subscription Specialized browser for responsive design and web development with multi-viewport preview and accessibility audit.</description>
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
@@ -1120,7 +1120,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>PostHog for Startups â€” $50K Startup Credits (12 mo) + Free Tier</title>
+      <title>PostHog for Startups — $50K Startup Credits (12 mo) + Free Tier</title>
       <link>https://devcheap.click/deals/posthog-startups/</link>
       <description>Best-in-class product analytics suite for early-stage startups — $50K credits make it effectively free while you grow. Product analytics, session replay, feature flags, surveys, and error tracking in one platform. Early-stage startups can apply for $50,000 in startup credits on top of the generous free tier.</description>
       <pubDate>Fri, 01 Jan 2027 00:00:00 GMT</pubDate>
@@ -1128,7 +1128,7 @@
       <category>Web Analytics</category>
     </item>
     <item>
-      <title>Sociamonials â€” Lifetime License - $69</title>
+      <title>Sociamonials — Lifetime License - $69</title>
       <link>https://devcheap.click/deals/sociamonials/</link>
       <description>Pay $69 once vs. $50/mo for Hootsuite — schedule social media forever Social media management and analytics tool with scheduling, reporting, and QR code generation.</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
@@ -1136,7 +1136,7 @@
       <category>Social Media</category>
     </item>
     <item>
-      <title>WordHero â€” Lifetime License - $89</title>
+      <title>WordHero — Lifetime License - $89</title>
       <link>https://devcheap.click/deals/wordhero/</link>
       <description>Pay $89 once vs. $79/mo for Copy.ai — 80+ AI writing tools for life AI writing assistant with 80+ tools for blog posts, social media, emails, and ad copy generation.</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
@@ -1144,7 +1144,7 @@
       <category>AI</category>
     </item>
     <item>
-      <title>Cron-Job.org â€” Free Cron Jobs</title>
+      <title>Cron-Job.org — Free Cron Jobs</title>
       <link>https://devcheap.click/deals/cron-job/</link>
       <description>Free cron scheduling — replaces costly cloud scheduler services Free cron job service for scheduling tasks and running scripts.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1152,7 +1152,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>MinIO â€” Free &amp; Open Source</title>
+      <title>MinIO — Free &amp; Open Source</title>
       <link>https://devcheap.click/deals/minio/</link>
       <description>Free S3-compatible storage — self-hosted alternative to AWS S3 at zero cost Open-source S3-compatible object storage for on-premise and hybrid cloud deployments.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1160,7 +1160,7 @@
       <category>Storage &amp; Cloud</category>
     </item>
     <item>
-      <title>ngrok â€” Free Tunnel (4 endpoints)</title>
+      <title>ngrok — Free Tunnel (4 endpoints)</title>
       <link>https://devcheap.click/deals/ngrok/</link>
       <description>Free secure tunnels — expose localhost for testing webhooks without deploying Expose local servers to the internet securely with free tunnels.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1168,7 +1168,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Nx â€” Free &amp; Open Source</title>
+      <title>Nx — Free &amp; Open Source</title>
       <link>https://devcheap.click/deals/nx/</link>
       <description>Free open-source monorepo tool — enterprise build caching at no cost Monorepo build system with intelligent code generation, caching, and dependency graph analysis.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1176,7 +1176,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>SiteGuru â€” Lifetime License - $79</title>
+      <title>SiteGuru — Lifetime License - $79</title>
       <link>https://devcheap.click/deals/siteguru/</link>
       <description>Pay $79 once vs. $30/mo for SEMrush — lifetime SEO audits at 80% off SEO audit tool that crawls your website and provides actionable recommendations for better rankings.</description>
       <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
@@ -1184,7 +1184,7 @@
       <category>SEO</category>
     </item>
     <item>
-      <title>Writecream â€” Lifetime License - $59</title>
+      <title>Writecream — Lifetime License - $59</title>
       <link>https://devcheap.click/deals/writecream/</link>
       <description>Pay $59 once vs. $49/mo for Jasper — AI content at 90% less AI content writer with 40+ templates for blog posts, emails, ads, social media, and voiceovers.</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
@@ -1192,7 +1192,7 @@
       <category>AI</category>
     </item>
     <item>
-      <title>1minAI â€” Lifetime License - $39</title>
+      <title>1minAI — Lifetime License - $39</title>
       <link>https://devcheap.click/deals/1minai/</link>
       <description>Pay $39 once vs. $40/mo for Midjourney — GPT-4 + image gen in one lifetime deal All-in-one AI toolkit with GPT-4, Claude, Gemini, Midjourney, Stable Diffusion, and DALL-E in one subscription.</description>
       <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
@@ -1200,7 +1200,7 @@
       <category>AI</category>
     </item>
     <item>
-      <title>AdGuard â€” Lifetime Subscription - $11</title>
+      <title>AdGuard — Lifetime Subscription - $11</title>
       <link>https://devcheap.click/deals/adguard/</link>
       <description>Pay $11 once vs. $40/yr for uBlock Origin premium — lifetime ad blocking Ad-blocker and privacy protection suite with DNS filtering, tracking prevention, and multi-platform support.</description>
       <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
@@ -1208,7 +1208,7 @@
       <category>Security</category>
     </item>
     <item>
-      <title>Cohere â€” Free Trial (1,000 API calls/month)</title>
+      <title>Cohere — Free Trial (1,000 API calls/month)</title>
       <link>https://devcheap.click/deals/cohere/</link>
       <description>1,000 free API calls/month for embeddings and RAG — no credit card required Enterprise LLM API for embedding, RAG, classification, and text generation. Free trial with 1,000 calls/month.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1216,7 +1216,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>CopyMail â€” Lifetime License - $59</title>
+      <title>CopyMail — Lifetime License - $59</title>
       <link>https://devcheap.click/deals/copymail/</link>
       <description>Pay $59 once vs. $20/mo for BeeFree — drag-and-drop email templates for life Email template builder and editor with drag-and-drop design, responsive templates, and team collaboration.</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
@@ -1224,7 +1224,7 @@
       <category>APIs &amp; Email</category>
     </item>
     <item>
-      <title>Headway â€” Lifetime License - $59</title>
+      <title>Headway — Lifetime License - $59</title>
       <link>https://devcheap.click/deals/headway/</link>
       <description>Pay $59 once vs. $15/mo for Blinkist — book summaries at 70% less lifetime Book summary app with key insights from non-fiction bestsellers — personalized daily recommendations.</description>
       <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
@@ -1232,7 +1232,7 @@
       <category>Productivity</category>
     </item>
     <item>
-      <title>PayForm â€” Lifetime License - $49</title>
+      <title>PayForm — Lifetime License - $49</title>
       <link>https://devcheap.click/deals/payform/</link>
       <description>Pay $49 once vs. $25/mo for Typeform — payment forms without recurring charges No-code payment form builder with Stripe/PayPal, recurring billing, invoices, and customizable checkout.</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
@@ -1240,7 +1240,7 @@
       <category>APIs &amp; Payments</category>
     </item>
     <item>
-      <title>AiAssistWorks Plus â€” Lifetime Plan - $29.99</title>
+      <title>AiAssistWorks Plus — Lifetime Plan - $29.99</title>
       <link>https://devcheap.click/deals/aiassistworks/</link>
       <description>Pay $30 once vs. $20/mo for ChatGPT Plus — AI assistant without monthly fees AI-powered business assistant for content creation, data analysis, image generation, and task automation.</description>
       <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
@@ -1248,7 +1248,7 @@
       <category>AI</category>
     </item>
     <item>
-      <title>Umami â€” Free &amp; Open Source</title>
+      <title>Umami — Free &amp; Open Source</title>
       <link>https://devcheap.click/deals/umami/</link>
       <description>Free open-source Google Analytics alternative — privacy-first, no cookie banner needed Open-source privacy-focused web analytics platform. Self-hosted with a simple JS snippet. No cookie banners required, GDPR-compliant by design. Track page views, events, sessions, and custom metrics. MIT licensed. Also offers hosted cloud option at umami.is.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1256,7 +1256,7 @@
       <category>Web Analytics</category>
     </item>
     <item>
-      <title>Incogniton â€” Lifetime License - </title>
+      <title>Incogniton — Lifetime License - </title>
       <link>https://devcheap.click/deals/incogniton/</link>
       <description>Pay  once vs. /mo for GoLogin — multi-account browser management at lifetime price Multi-account browser profile management with antidetect technology for secure online operations.</description>
       <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
@@ -1264,7 +1264,7 @@
       <category>Security</category>
     </item>
     <item>
-      <title>NVIDIA Inception â€” Free Membership + GPU Credits</title>
+      <title>NVIDIA Inception — Free Membership + GPU Credits</title>
       <link>https://devcheap.click/deals/nvidia-inception/</link>
       <description>Free NVIDIA Inception membership — unlocks GPU credits and partner discounts for AI startups NVIDIA Inception program provides free membership with access to GPU credits, discounts, and technical support. Unlocks higher tiers at partner platforms like Nebius and CoreWeave. Includes investor intros, go-to-market support, and access to NVIDIA AI expertise.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1272,7 +1272,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Sturppy â€” Lifetime License - $19</title>
+      <title>Sturppy — Lifetime License - $19</title>
       <link>https://devcheap.click/deals/sturppy/</link>
       <description>Pay $19 once vs. $40/mo for ProjectionHub — startup financial planning at a steal Financial planning and forecasting for startups with scenario modeling, runway tracking, and investor reports.</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
@@ -1280,7 +1280,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Workiom â€” Lifetime Discount</title>
+      <title>Workiom — Lifetime Discount</title>
       <link>https://devcheap.click/deals/workiom/</link>
       <description>Lifetime discount — flexible no-code project management at a fraction of Asana Flexible project management and no-code database platform with custom views, automations, and team collaboration.</description>
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
@@ -1288,7 +1288,7 @@
       <category>Productivity</category>
     </item>
     <item>
-      <title>Zendesk â€” 6 Months Free (Support + Sell)</title>
+      <title>Zendesk — 6 Months Free (Support + Sell)</title>
       <link>https://devcheap.click/deals/zendesk/</link>
       <description>6 months free Zendesk Support + Sell — ticketing, live chat, AI agents, use code DEVDEALS Zendesk offers 6 months free of Support Suite and Sell Suite through devdeals.org. Customer service platform with ticketing, live chat, AI agents, and CRM functionality. Includes omnichannel support and automation tools. Use code DEVDEALS at signup.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1296,7 +1296,7 @@
       <category>Customer Support</category>
     </item>
     <item>
-      <title>Axeptio â€” Lifetime License - $59</title>
+      <title>Axeptio — Lifetime License - $59</title>
       <link>https://devcheap.click/deals/axeptio/</link>
       <description>Pay $59 once vs. $30/mo for Cookiebot — GDPR consent management at half the cost GDPR/CCPA consent management platform with customizable cookie banners, consent logs, and compliance workflows.</description>
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
@@ -1304,7 +1304,7 @@
       <category>Security</category>
     </item>
     <item>
-      <title>Notion â€” Team Plan Trial + Bonus Credits</title>
+      <title>Notion — Team Plan Trial + Bonus Credits</title>
       <link>https://devcheap.click/deals/notion/</link>
       <description>Free team plan trial — all-in-one docs and project management All-in-one workspace for docs, wikis, databases, and project management with AI features.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1312,7 +1312,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Support Board â€” Lifetime License - $69.99</title>
+      <title>Support Board — Lifetime License - $69.99</title>
       <link>https://devcheap.click/deals/supportboard/</link>
       <description>Pay $70 once vs. $30/mo for Intercom — self-hosted live chat with AI replies Self-hosted live chat and customer support ticket system with AI auto-replies and multi-channel integration.</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
@@ -1320,7 +1320,7 @@
       <category>Customer Support</category>
     </item>
     <item>
-      <title>ClickUp â€” 20% Off Workspace Plans</title>
+      <title>ClickUp — 20% Off Workspace Plans</title>
       <link>https://devcheap.click/deals/clickup/</link>
       <description>20% off workspaces — saves $100+/year on project management All-in-one productivity platform with docs, sprints, goals, and AI-powered project management.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1328,7 +1328,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>GetTerms â€” Lifetime License - $79</title>
+      <title>GetTerms — Lifetime License - $79</title>
       <link>https://devcheap.click/deals/getterms/</link>
       <description>Pay $79 once vs. $20/mo for Termly — cookie consent + policy generator for life Cookie consent, GDPR privacy policy, and terms &amp; conditions generator with auto-updates and multi-language.</description>
       <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
@@ -1336,7 +1336,7 @@
       <category>Security</category>
     </item>
     <item>
-      <title>ChatPlayGround AI â€” Lifetime License - $39</title>
+      <title>ChatPlayGround AI — Lifetime License - $39</title>
       <link>https://devcheap.click/deals/chatplayground/</link>
       <description>Pay $39 once vs. $20/mo for ChatGPT — compare GPT-4, Claude, Gemini forever Multi-model AI chat interface that lets you compare responses from GPT-4, Claude, Gemini, and other models.</description>
       <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
@@ -1344,7 +1344,7 @@
       <category>AI</category>
     </item>
     <item>
-      <title>Checkly â€” 20% Off Annual Plan</title>
+      <title>Checkly — 20% Off Annual Plan</title>
       <link>https://devcheap.click/deals/checkly/</link>
       <description>20% off annual plan — saves $60+/year on Playwright-based monitoring Synthetic monitoring for APIs and browser apps. Uptime checks, Playwright-based browser checks, and alerting.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1352,7 +1352,7 @@
       <category>Monitoring</category>
     </item>
     <item>
-      <title>Hostinger â€” 80% OFF Web Hosting Plans</title>
+      <title>Hostinger — 80% OFF Web Hosting Plans</title>
       <link>https://devcheap.click/deals/hostinger/</link>
       <description>80% off hosting — shared plans start at $2/mo for developers on a budget Budget-friendly hosting with shared, VPS, and cloud plans. Includes free SSL, domain, and 24/7 support.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1360,7 +1360,7 @@
       <category>Hosting &amp; Cloud</category>
     </item>
     <item>
-      <title>Namecheap â€” Up to 50% Off Domains &amp; Hosting</title>
+      <title>Namecheap — Up to 50% Off Domains &amp; Hosting</title>
       <link>https://devcheap.click/deals/namecheap/</link>
       <description>50% off domains + free WHOIS privacy — saves $10+/domain/year Register domains and get 50% off hosting plans. Free WHOIS privacy included.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1368,7 +1368,7 @@
       <category>Domains &amp; Hosting</category>
     </item>
     <item>
-      <title>Loom â€” 25 Business Seats for 1 Year</title>
+      <title>Loom — 25 Business Seats for 1 Year</title>
       <link>https://devcheap.click/deals/loom/</link>
       <description>25 Business seats for 1 year — async video messaging with HD recording, use code SU25DEEL Loom offers 25 Business seats for 1 year through a special partnership. Async video messaging platform with recording, transcription, comments, and viewer insights. Business tier includes HD video, custom branding, and team analytics. Use code SU25DEEL at signup.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1376,7 +1376,7 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Plausible â€” 30-Day Free Trial</title>
+      <title>Plausible — 30-Day Free Trial</title>
       <link>https://devcheap.click/deals/plausible/</link>
       <description>30-day free trial of privacy-first analytics — cookie-less, GDPR-compliant, no CC required ($9/mo after) Plausible offers a 30-day free trial (no credit card required) of their privacy-focused web analytics. After trial, pricing starts at $9/month for 10,000 pageviews. Cookie-less, GDPR-compliant, open-source alternative to Google Analytics.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1384,7 +1384,7 @@
       <category>Web Analytics</category>
     </item>
     <item>
-      <title>ZenCall â€” Lifetime License - </title>
+      <title>ZenCall — Lifetime License - </title>
       <link>https://devcheap.click/deals/zencall/</link>
       <description>Pay  once vs. /mo for Aircall — AI phone agents in 16 languages at lifetime pricing AI phone agents that capture leads 24/7 in 16 languages with 7,000+ integrations.</description>
       <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
@@ -1392,7 +1392,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>SiteGround â€” 75% OFF Web Hosting Plans</title>
+      <title>SiteGround — 75% OFF Web Hosting Plans</title>
       <link>https://devcheap.click/deals/siteground/</link>
       <description>75% off managed hosting — optimized WordPress with top-rated support Premium web hosting with managed WordPress, WooCommerce, and cloud hosting solutions.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1400,7 +1400,7 @@
       <category>Domains &amp; Hosting</category>
     </item>
     <item>
-      <title>Rezi â€” Lifetime License</title>
+      <title>Rezi — Lifetime License</title>
       <link>https://devcheap.click/deals/rezi/</link>
       <description>AI resume builder at lifetime pricing — create ATS-optimized resumes without monthly fees AI-powered resume builder that creates ATS-friendly resumes and tailors them to specific job descriptions.</description>
       <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
@@ -1408,7 +1408,7 @@
       <category>Productivity</category>
     </item>
     <item>
-      <title>Brevo â€” 75% Off Annual Premium Plan</title>
+      <title>Brevo — 75% Off Annual Premium Plan</title>
       <link>https://devcheap.click/deals/brevo/</link>
       <description>75% off annual Brevo Premium — all-in-one marketing with email, SMS, CRM, use code DEVDEALS Brevo (formerly Sendinblue) offers 75% off the annual Premium plan through devdeals.org. All-in-one marketing platform with email campaigns, SMS, chat, CRM, and automation. Premium tier includes unlimited contacts, advanced segmentation, and A/B testing. Use code DEVDEALS at signup.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1416,7 +1416,7 @@
       <category>APIs &amp; Email</category>
     </item>
     <item>
-      <title>Canva â€” 20% Off Pro Annual</title>
+      <title>Canva — 20% Off Pro Annual</title>
       <link>https://devcheap.click/deals/canva/</link>
       <description>20% off Canva Pro annual — graphic design with millions of templates, use code CANVASECRET20 Canva offers 20% off Pro annual plan. Graphic design platform with drag-and-drop editor, millions of templates, stock photos, and brand kits. Pro tier includes background removal, brand management, and team collaboration. Use code CANVASECRET20 at signup.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1424,7 +1424,7 @@
       <category>Design &amp; Collaboration</category>
     </item>
     <item>
-      <title>Lightning AI â€” 80 Free GPU Hours/Month</title>
+      <title>Lightning AI — 80 Free GPU Hours/Month</title>
       <link>https://devcheap.click/deals/lightning-ai/</link>
       <description>80 free GPU hours/month — solid for learning/prototyping, not for production deployment Cloud AI development platform with persistent VS Code-like environment. 80 free GPU hours/month. Phone verification required. Best for learning and prototyping — not for production serving.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1432,7 +1432,7 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>Gamma â€” Free Tier — 10 Cards/Prompt</title>
+      <title>Gamma — Free Tier — 10 Cards/Prompt</title>
       <link>https://devcheap.click/deals/gamma/</link>
       <description>Free AI presentation and doc creation — no credit card needed, 10 cards per prompt AI-powered presentation, document, and webpage creator with free tier. No credit card needed.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
@@ -1440,12 +1440,132 @@
       <category>AI</category>
     </item>
     <item>
-      <title>DeepLearning.AI â€” 1 Month Free Pro Membership</title>
+      <title>DeepLearning.AI — 1 Month Free Pro Membership</title>
       <link>https://devcheap.click/deals/deeplearning-ai/</link>
-      <description>1 month free DeepLearning.AI Pro � full AI course catalog with labs and projects, use code AMDAIDEV22 DeepLearning.AI Pro membership gives you full access to the complete course catalog including hands-on labs, projects, and expert-led content. Get 1 month free exclusively through the AMD AI Developer Program. Code works for new DeepLearning.AI Pro members. Must join the free AMD AI Developer Program to access the code.</description>
+      <description>1 month free DeepLearning.AI Pro — full AI course catalog with labs and projects, use code AMDAIDEV22 DeepLearning.AI Pro membership gives you full access to the complete course catalog including hands-on labs, projects, and expert-led content. Get 1 month free exclusively through the AMD AI Developer Program. Code works for new DeepLearning.AI Pro members. Must join the free AMD AI Developer Program to access the code.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">deeplearning-ai</guid>
       <category>AI</category>
+    </item>
+    <item>
+      <title>Tailscale — Free for 100 Devices, 3 Users</title>
+      <link>https://devcheap.click/deals/tailscale/</link>
+      <description>100 free devices on zero-config WireGuard VPN — the simplest, most modern secure networking for dev teams Zero-config WireGuard-based VPN for secure device connectivity. Free tier includes 100 devices, 3 users, subnet routing, MagicDNS, and ACLs. Works across all platforms. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">tailscale</guid>
+      <category>Security</category>
+    </item>
+    <item>
+      <title>Oracle Cloud Free Tier — 4 ARM Cores + 24GB RAM + 200GB Storage Forever</title>
+      <link>https://devcheap.click/deals/oracle-cloud-free/</link>
+      <description>4 ARM cores + 24GB RAM free forever — unmatched value for a permanently free VPS from a major cloud provider Oracle&apos;s Always Free tier includes 4 ARM Ampere A1 instances (up to 4 OCPU, 24GB RAM total), 2 AMD micro instances, 200GB block storage, 10GB object storage, and 10GB autonomous database. No time limit. Credit card required for signup.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">oracle-cloud-free</guid>
+      <category>Hosting &amp; Cloud</category>
+    </item>
+    <item>
+      <title>GitHub Pages — Unlimited Free Static Sites</title>
+      <link>https://devcheap.click/deals/github-pages/</link>
+      <description>Most convenient free static hosting — deploy from any GitHub repo, unlimited sites, free SSL, no CC Free static site hosting directly from GitHub repositories. Unlimited sites (1 per account + unlimited project pages), free SSL via Cloudflare, custom domain support, 100GB/month bandwidth, 1GB storage per repo. Built-in Jekyll integration. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">github-pages</guid>
+      <category>Hosting &amp; Cloud</category>
+    </item>
+    <item>
+      <title>Cloudflare Registrar — At-Cost Domain Registration</title>
+      <link>https://devcheap.click/deals/cloudflare-registrar/</link>
+      <description>Cheapest domain registration available — pay exact registry cost with no markup, free WHOIS privacy Domain registration with zero markup — you pay only the wholesale registry cost plus ICANN fee. No hidden fees, no renewal surprises, no upsells. Free WHOIS privacy redaction, free DNSSEC, and Cloudflare DNS management. Typical .com domains around $9.15/year.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">cloudflare-registrar</guid>
+      <category>Domains &amp; Hosting</category>
+    </item>
+    <item>
+      <title>Cypress — Free &amp; Open Source Test Runner</title>
+      <link>https://devcheap.click/deals/cypress/</link>
+      <description>Industry-standard front-end testing — free open-source test runner with time-travel debugging and real-time reloads Front-end testing framework for end-to-end, component, integration, and API tests. Free and open-source test runner with time-travel debugging, automatic waiting, and real-time reloads. Dashboard free for open-source projects with 5 users. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">cypress</guid>
+      <category>Testing &amp; QA</category>
+    </item>
+    <item>
+      <title>Intercom Early Stage — 93% Off Year 1 + Fin AI Free</title>
+      <link>https://devcheap.click/deals/intercom-early-stage/</link>
+      <description>93% off Intercom year 1 with Fin AI free — saves $3K-$10K on enterprise customer support platform Intercom Early Stage program offers 93% off the first year of the Support or Growth plan plus free Fin AI chatbot credits. Includes ticketing, live chat, knowledge base, and automation. Requires application through partner programs like FounderPass or Secret.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">intercom-early-stage</guid>
+      <category>Customer Support</category>
+    </item>
+    <item>
+      <title>Amplitude for Startups — 1 Year Free Growth Plan ($36K Value)</title>
+      <link>https://devcheap.click/deals/amplitude-startups/</link>
+      <description>1 year free Amplitude Growth ($36K/yr) — enterprise product analytics with behavioral cohorts and experimentation Amplitude Growth plan free for 1 year for qualifying startups. Includes product analytics, behavioral cohorts, real-time dashboards, user paths, and experimentation tools. Single application gives $36K/year value.</description>
+      <pubDate>Fri, 09 Jul 2027 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">amplitude-startups</guid>
+      <category>Web Analytics</category>
+    </item>
+    <item>
+      <title>New Relic for Startups — 100GB + 5 Users Free + Startup Credits</title>
+      <link>https://devcheap.click/deals/new-relic-startups/</link>
+      <description>100GB free + 5 users on full-stack observability — APM, logs, traces, and AI-powered insights for startups New Relic startup program provides 100GB of data ingestion free, 5 full-platform users, APM, infrastructure monitoring, logs, and traces. Full-stack observability platform with AI-powered error grouping and incident intelligence.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">new-relic-startups</guid>
+      <category>Monitoring</category>
+    </item>
+    <item>
+      <title>Algolia Startup Program — $10,000 API Credits for Startups</title>
+      <link>https://devcheap.click/deals/algolia-startup-program/</link>
+      <description>$10K Algolia search credits for startups — enterprise search API with typo-tolerance and AI recommendations Algolia Startup Program offers $10,000 in search API credits for qualifying early-stage startups. Access to hosted search with typo-tolerance, faceting, analytics, and AI-powered recommendations. In addition to the existing free tier (10K records).</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">algolia-startup-program</guid>
+      <category>APIs &amp; Search</category>
+    </item>
+    <item>
+      <title>CockroachDB Cloud — Free Tier (50M RUs + 10GB Storage/Month)</title>
+      <link>https://devcheap.click/deals/cockroachdb-cloud/</link>
+      <description>Free distributed SQL with 50M RUs + 10GB — PostgreSQL-compatible, multi-region, auto-scaling database at zero cost Distributed SQL database with free Serverless tier. 50M request units/month, 10GB storage, multi-region replication, automatic scaling, and PostgreSQL compatibility. Ideal for global applications needing resilience without operational complexity.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">cockroachdb-cloud</guid>
+      <category>Database</category>
+    </item>
+    <item>
+      <title>Asana — Free for Up to 15 Teammates</title>
+      <link>https://devcheap.click/deals/asana-free/</link>
+      <description>Free for 15 teammates — project management with timeline, boards, and automation for growing teams Project management platform with timeline, boards, calendars, and workflow automation. Free tier supports up to 15 teammates with unlimited tasks, projects, and messages. Includes list, board, and calendar views. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">asana-free</guid>
+      <category>Productivity</category>
+    </item>
+    <item>
+      <title>Contabo — High-Spec VPS from $6.99/Month</title>
+      <link>https://devcheap.click/deals/contabo/</link>
+      <description>8GB RAM VPS at $6.99/mo — best RAM-per-dollar in the VPS market, 4x competitors&apos; specs at the same price Budget cloud VPS known for offering far more resources per dollar than competitors. Basic VPS S: 4 vCPU, 8GB RAM, 200GB NVMe, 32TB traffic at $6.99/mo. 14-day money-back guarantee. 9 global data center regions. 99.996% uptime SLA.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">contabo</guid>
+      <category>Hosting &amp; Cloud</category>
+    </item>
+    <item>
+      <title>Surge.sh — Unlimited Static Sites, Custom Domains</title>
+      <link>https://devcheap.click/deals/surge/</link>
+      <description>Simplest static hosting — one CLI command deploys unlimited sites with custom domains, no CC needed CLI-based static web publishing with unlimited projects, custom domains, and basic SSL. Single-command deployment (surge). Supports SPA pushState routing, custom 404s, CORS headers, and password protection. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">surge</guid>
+      <category>Hosting &amp; Cloud</category>
+    </item>
+    <item>
+      <title>Buildkite — Free for 3 Users, 5,000 Job Minutes/Month</title>
+      <link>https://devcheap.click/deals/buildkite/</link>
+      <description>5K free CI minutes/month — hybrid CI/CD with your own infrastructure, no credit card needed Hybrid CI/CD platform with your own infrastructure. Free tier includes 3 users, 5,000 job minutes/month, unlimited pipelines, and parallel builds. Runs on your own build agents for full control. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">buildkite</guid>
+      <category>CI/CD</category>
+    </item>
+    <item>
+      <title>ImageKit — 20GB Bandwidth + 20GB Storage Free</title>
+      <link>https://devcheap.click/deals/imagekit/</link>
+      <description>20GB free image CDN with real-time transformations — Cloudinary alternative with generous free tier, no CC Image CDN and optimization platform with real-time transformations, automatic optimization, and global CDN. Free tier includes 20GB bandwidth/month, 20GB storage, 2 user seats, and 1,000 transformations/month. No credit card required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">imagekit</guid>
+      <category>Media &amp; Images</category>
     </item>
   </channel>
 </rss>
