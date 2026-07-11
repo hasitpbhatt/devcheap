@@ -4,7 +4,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/hasitpbhatt/devcheap)](https://github.com/hasitpbhatt/devcheap/commits/main)
 [![Deployed](https://img.shields.io/badge/Cloudflare%20Pages-Deployed-brightgreen)](https://devcheap.click)
 
-Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **195 deals** across **22 categories**.
+Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **196 deals** across **22 categories**.
 
 ---
 
@@ -23,7 +23,7 @@ devcheap/
 ├── .github/workflows/   # CI/deploy pipelines (Cloudflare Pages)
 ├── css/                 # Stylesheets (light/dark theme)
 ├── data/
-│   └── deals.jsonl      # Deal database (JSONL format, 195 lines)
+│   └── deals.jsonl      # Deal database (JSONL format, 196 lines)
 ├── functions/api/       # Cloudflare Functions (email subscribe)
 ├── js/                  # Search, category filter, affiliate tracking
 ├── scripts/             # Utility scripts (feed generation, data entry)
@@ -45,7 +45,7 @@ devcheap/
 | Category | Deals |
 |---|---|
 | AI & LLM | 40 |
-| Developer Tools | 33 |
+| Developer Tools | 34 |
 | Hosting & Cloud | 22 |
 | Database | 15 |
 | APIs & Email | 10 |
