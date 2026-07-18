@@ -272,7 +272,9 @@ function renderDeals() {
       ? `<button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> ${code}</button>`
       : `<button class="deal-card-btn deal-card-btn-code" data-deal-id="${deal.id}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg> Copy Code</button>`;
 
-    const expiresHTML = deal.expires ? `<span class="deal-card-expires">Expires ${deal.expires}</span>` : '';
+    const expiresHTML = deal.expires
+      ? `<span class="deal-card-expires" data-expires="${escapeHtml(deal.expires)}">Expires ${escapeHtml(deal.expires)}</span>`
+      : '';
     const whyHTML = deal.why ? `<p class="deal-card-why">${deal.why}</p>` : '';
     const isRecommended = deal.tags && deal.tags.toLowerCase().includes('recommended');
     const recommendedBadge = isRecommended ? `<span class="deal-card-badge-recommended"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Recommended</span>` : '';
@@ -307,6 +309,7 @@ function renderDeals() {
   });
   renderPagination(filtered.length, currentPage);
   renderActiveFilterBadges();
+  updateExpiryCountdowns();
 }
 
 function copyCoupon(button, code) {
@@ -456,6 +459,54 @@ function injectItemListJSONLD(deals) {
     }))
   });
   document.head.appendChild(script);
+}
+
+function renderSpotlight() {
+  const section = document.getElementById('spotlight');
+  const link = document.getElementById('spotlight-link');
+  const nameEl = document.getElementById('spotlight-name');
+  const dealEl = document.getElementById('spotlight-deal');
+  if (!section || !link || !nameEl || !dealEl) return;
+
+  const aiDeals = dealsData.filter(d =>
+    (d.category || '').toLowerCase().includes('ai') &&
+    d.tags && (d.tags.toLowerCase().includes('spotlight') || d.tags.toLowerCase().includes('recommended'))
+  );
+  const pool = aiDeals.length ? aiDeals : dealsData.filter(d => d.tags && d.tags.toLowerCase().includes('recommended'));
+  if (pool.length === 0) return;
+
+  // Deterministic pick so the "deal of the day" is stable per UTC day.
+  const dayIndex = Math.floor(Date.now() / 86400000) % pool.length;
+  const deal = pool[dayIndex];
+  const trackedUrl = buildTrackedUrl(deal);
+
+  link.href = trackedUrl;
+  nameEl.textContent = deal.name;
+  dealEl.textContent = deal.deal;
+  section.hidden = false;
+}
+
+function updateExpiryCountdowns() {
+  const now = Date.now();
+  document.querySelectorAll('.deal-card-expires[data-expires]').forEach(el => {
+    const exp = new Date(el.dataset.expires).getTime();
+    if (isNaN(exp)) return;
+    const diff = exp - now;
+    if (diff <= 0) {
+      el.textContent = 'Expired';
+      el.classList.add('deal-card-expires--urgent');
+      return;
+    }
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    if (days <= 30) {
+      el.classList.add('deal-card-expires--urgent');
+      el.textContent = days > 0 ? `Expires in ${days}d ${hours}h` : `Expires in ${hours}h`;
+    } else {
+      const months = Math.floor(days / 30);
+      el.textContent = `Expires in ~${months}mo`;
+    }
+  });
 }
 
 function animateCounters() {
@@ -754,6 +805,7 @@ async function boot() {
   }
   try { dealsData = await loadDeals(); } catch (e) { renderError(e.message || 'Unable to load deals'); }
   injectItemListJSONLD(dealsData);
+  renderSpotlight();
   setupTheme();
   const turnstileContainer = document.getElementById('turnstile-widget');
   if (turnstileContainer) {
@@ -763,6 +815,7 @@ async function boot() {
   }
   setupNewsletterForm();
   animateCounters();
+  setInterval(updateExpiryCountdowns, 3600000);
 
   const searchInput = document.getElementById('search-input');
   const clearBtn = document.getElementById('clear-search-btn');

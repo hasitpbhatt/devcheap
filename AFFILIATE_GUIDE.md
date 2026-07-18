@@ -119,3 +119,39 @@ npm test
 - Use **affiliates@devcheap.click** as your email alias for tracking
 - Start with Impact.com for maximum coverage
 - SiteGround is the easiest individual program to get started with
+
+---
+
+## Phased monetization plan (new site, low domain authority)
+
+Affiliate networks (Impact.com, ShareASale, Awin) often reject or low-ball sites
+with no traffic history. Order the work so audience comes first and *unlocks* payouts.
+
+### Phase 1 — Owned audience (now, no affiliate approval needed)
+- Email capture is wired through `/api/subscribe` (Turnstile-protected, stores to
+  KV `SUBSCRIBERS` namespace or logs `NEW_SUBSCRIBER`). Bind that KV in Cloudflare.
+- Post 1 deal/day to r/SaaS, r/startups, IndieHackers, and X. These convert on trust,
+  not domain rank. Link back to the deal detail page.
+- Keep `gamma.app` (the only live affiliate link) as proof-of-concept.
+
+### Phase 2 — Direct vendor programs (apply now, lenient on traffic)
+Apply to these individually; they are more likely to approve a real site + email list
+than aggregated networks:
+- **SiteGround** — auto-approved, no traffic floor. $40–100/sale.
+- **Hostinger** — quick approval, 40%+ rev share.
+- **DigitalOcean** — direct referral program.
+- **Vercel** — direct referral program (credits + enterprise).
+- **Sentry** — referral program ($10 credit/referral, email-only).
+- **Cloudflare** — Impact.com, apply once Phase 1 audience exists.
+
+Backfill `affiliate_url` for the matching deals in `data/deals.jsonl`, set
+`has_affiliate: true`, then `npm run build` + `pwsh scripts/generate-feed.ps1`.
+
+### Phase 3 — Aggregated networks (after ~1–3 months of audience)
+- **Impact.com** — one signup covers Vercel, Cloudflare, GitHub, DigitalOcean,
+  Stripe, 1000+ others. Apply with email-subscriber count as proof.
+- **ShareASale**, **Awin** — broader SaaS catalog.
+
+### Current status
+- `has_affiliate: true` on only 1 of 196 deals (gamma.app). Highest-leverage backlog
+  item is backfilling affiliate links for the 40 AI & LLM deals once Phase 2 is approved.

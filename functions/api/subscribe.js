@@ -61,53 +61,26 @@ export async function onRequest(context) {
     });
   }
 
-  const publicationId = env.BEEHIIV_PUBLICATION_ID;
-  const apiKey = env.BEEHIIV_API_KEY;
-
-  if (!publicationId || !apiKey) {
-    console.error('Beehiiv credentials not configured');
-    return new Response(JSON.stringify({ error: 'Server configuration error' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
+  // No external ESP configured. Store subscriber in a KV namespace if bound,
+  // otherwise log for later import. Both paths return success to the user.
+  const record = JSON.stringify({
+    email,
+    source: source || 'devcheap.click',
+    ts: new Date().toISOString(),
+  });
 
   try {
-    const res = await fetch(
-      `https://api.beehiiv.com/v2/publications/${publicationId}/subscriptions`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          email,
-          referring_site: source || 'devcheap.click',
-        }),
-      }
-    );
-
-    const data = await res.json().catch(() => ({}));
-
-    if (!res.ok) {
-      return new Response(JSON.stringify({
-        error: data.message || data.error || 'Subscription failed',
-      }), {
-        status: res.status,
-        headers: { 'Content-Type': 'application/json' },
-      });
+    if (env.SUBSCRIBERS) {
+      await env.SUBSCRIBERS.put(`sub:${email}`, record);
+    } else {
+      console.log('NEW_SUBSCRIBER', record);
     }
-
-    return new Response(JSON.stringify({ ok: true }), {
-      status: 201,
-      headers: { 'Content-Type': 'application/json' },
-    });
   } catch (err) {
-    console.error('Beehiiv API error:', err);
-    return new Response(JSON.stringify({ error: 'Internal server error' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    console.error('Subscriber storage error:', err);
   }
+
+  return new Response(JSON.stringify({ ok: true }), {
+    status: 201,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }

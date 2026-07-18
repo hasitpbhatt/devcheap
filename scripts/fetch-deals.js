@@ -2,12 +2,10 @@
 
 /**
  * fetch-deals.js
- * Offline tool to add new developer deals to data/deals.json.
+ * Offline tool to add new developer deals to data/deals.jsonl (JSONL, one deal per line).
  * Edit the `newDeals` array below, then run: node scripts/fetch-deals.js
  *
- * data/deals.json is the source of truth for the site.
- * After adding deals, update the inline JSON in index.html if needed
- * (search for `<script id="deals-data">`).
+ * data/deals.jsonl is the source of truth for the site.
  */
 
 import fs from 'fs/promises';
@@ -15,7 +13,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DEALS_PATH = path.join(__dirname, '..', 'data', 'deals.json');
+// NOTE: source of truth is deals.jsonl (one JSON object per line), NOT deals.json.
+const DEALS_PATH = path.join(__dirname, '..', 'data', 'deals.jsonl');
 
 // ── Add new deals below ────────────────────────────────────────
 const newDeals = [
@@ -180,7 +179,7 @@ const newDeals = [
 
 async function mergeDeals() {
   const raw = await fs.readFile(DEALS_PATH, 'utf-8');
-  const existing = JSON.parse(raw);
+  const existing = raw.split('\n').filter(l => l.trim()).map(l => JSON.parse(l));
   const existingIds = new Set(existing.map(d => d.id));
   const added = [];
 
@@ -195,7 +194,8 @@ async function mergeDeals() {
   }
 
   existing.sort((a, b) => a.name.localeCompare(b.name));
-  await fs.writeFile(DEALS_PATH, JSON.stringify(existing, null, 2) + '\n', 'utf-8');
+  const jsonl = existing.map(d => JSON.stringify(d)).join('\n') + '\n';
+  await fs.writeFile(DEALS_PATH, jsonl, 'utf-8');
 
   if (added.length > 0) {
     console.log(`✅ Added: ${added.join(', ')}`);

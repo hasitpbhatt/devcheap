@@ -177,6 +177,60 @@ body {
   z-index: 1;
 }
 
+.spotlight-section {
+  padding: 0 0 16px;
+}
+.spotlight-container {
+  max-width: 760px;
+}
+.spotlight-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent, #6ea8fe);
+  margin-bottom: 10px;
+}
+.spotlight-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(110,168,254,0.12), rgba(110,168,254,0.04));
+  border: 1px solid rgba(110,168,254,0.3);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.spotlight-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(110,168,254,0.6);
+}
+.spotlight-info {
+  min-width: 0;
+}
+.spotlight-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.spotlight-deal {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.spotlight-cta {
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--accent, #6ea8fe);
+  white-space: nowrap;
+}
+
 .hero-title {
   font-size: clamp(40px, 8vw, 64px);
   font-weight: 700;
@@ -623,6 +677,12 @@ body {
   border-radius: 4px;
   border: 1px solid rgba(255, 159, 10, 0.2);
   white-space: nowrap;
+}
+.deal-card-expires--urgent {
+  color: var(--red);
+  background: rgba(255, 59, 48, 0.12);
+  border-color: rgba(255, 59, 48, 0.3);
+  font-weight: 600;
 }
 
 .deal-card-footer {
