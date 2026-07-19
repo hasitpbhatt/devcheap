@@ -11,6 +11,19 @@ const PAGE_SIZE = 24;
 let currentPage = 1;
 let currentSort = 'default';
 
+// Deals with rating below this threshold are demoted from the homepage grid
+// but remain directly linkable via /deals/<id>/ and discoverable on /archive.html.
+const FEATURED_RATING_MIN = 8.0;
+let showArchive = false;
+
+function isFeatured(deal) {
+  // Affiliate deals are always featured regardless of rating
+  if (deal.has_affiliate) return true;
+  if (deal.expires && new Date(deal.expires).getTime() < Date.now()) return false;
+  const r = typeof deal.rating === 'number' ? deal.rating : 0;
+  return r >= FEATURED_RATING_MIN;
+}
+
 function debug(...args) {
   if (window.__DEVcheap_DEBUG) console.log(...args);
 }
@@ -201,15 +214,20 @@ function renderDeals() {
     if (activeFilters[k]) filtered = filtered.filter(deal => deal.pricing === k);
   });
 
+  if (!showArchive) {
+    filtered = filtered.filter(deal => isFeatured(deal));
+  }
+
   if (countEl) {
     const start = (currentPage - 1) * PAGE_SIZE;
     const end = Math.min(start + PAGE_SIZE, filtered.length);
+    const scope = showArchive ? 'all deals' : 'featured deals';
     if (filtered.length === 0) {
-      countEl.textContent = '0 active deals';
+      countEl.textContent = `0 ${scope}`;
     } else if (start >= filtered.length) {
-      countEl.textContent = `${filtered.length} active deal${filtered.length === 1 ? '' : 's'}`;
+      countEl.textContent = `${filtered.length} ${scope}`;
     } else {
-      countEl.textContent = `Showing ${start + 1}–${end} of ${filtered.length} deal${filtered.length === 1 ? '' : 's'}`;
+      countEl.textContent = `Showing ${start + 1}–${end} of ${filtered.length} ${scope}`;
     }
   }
 
@@ -473,7 +491,10 @@ function renderSpotlight() {
     d.tags && (d.tags.toLowerCase().includes('spotlight') || d.tags.toLowerCase().includes('recommended'))
   );
   const pool = aiDeals.length ? aiDeals : dealsData.filter(d => d.tags && d.tags.toLowerCase().includes('recommended'));
-  if (pool.length === 0) return;
+  if (pool.length === 0) {
+    section.hidden = true;
+    return;
+  }
 
   // Deterministic pick so the "deal of the day" is stable per UTC day.
   const dayIndex = Math.floor(Date.now() / 86400000) % pool.length;
@@ -676,6 +697,26 @@ function updateSortURL(sort) {
   window.history.replaceState(null, '', url.pathname + url.search + url.hash);
 }
 
+function setupArchiveToggle() {
+  const btn = document.getElementById('toggle-archive-btn');
+  if (!btn) return;
+  const updateLabel = () => {
+    btn.textContent = showArchive ? 'Show featured deals only' : 'Show all deals (incl. archive)';
+    btn.setAttribute('aria-pressed', String(showArchive));
+    const section = document.getElementById('deals');
+    if (section) section.classList.toggle('showing-archive', showArchive);
+  };
+  btn.addEventListener('click', () => {
+    showArchive = !showArchive;
+    currentPage = 1;
+    updateSortURL(currentSort);
+    updatePageURL(currentPage);
+    updateLabel();
+    renderDeals();
+  });
+  updateLabel();
+}
+
 function setupSortSelect() {
   const select = document.getElementById('sort-select');
   if (!select) return;
@@ -838,6 +879,7 @@ async function boot() {
 
   setupSortSelect();
   setupPagination();
+  setupArchiveToggle();
 
   generateMissingCategories();
   setupCategoryDelegation();
@@ -1084,6 +1126,7 @@ window.setupPagination = setupPagination;
 window.restoreStateFromURL = restoreStateFromURL;
 window.__getPageState = () => ({ currentPage, currentSort, pageSize: PAGE_SIZE });
 window.__setDealsData = (d) => { dealsData = d; };
+window.__setShowArchive = (v) => { showArchive = !!v; };
 window.__setPage = (p) => { currentPage = p; };
 window.__setSort = (s) => { currentSort = s; };
 window.resetModuleState = () => {

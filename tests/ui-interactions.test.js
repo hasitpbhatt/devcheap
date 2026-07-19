@@ -225,6 +225,7 @@ describe('Pagination controls', () => {
 beforeEach(() => {
   window.__setDealsData(SAMPLE_DEALS_FULL);
   window.resetModuleState();
+  window.__setShowArchive(true);
   window.activeCategories = [];
   const input = document.getElementById('search-input');
   if (input) input.value = '';
@@ -354,7 +355,7 @@ beforeEach(() => {
     window.__setPage(2);
     window.renderDeals();
     const countEl = document.getElementById('deals-count');
-    expect(/Showing 25–48 of \d+ deals/.test(countEl.textContent)).toBe(true);
+    expect(/Showing 25–48 of \d+ (featured |all )?deals/.test(countEl.textContent)).toBe(true);
   });
 });
 
@@ -362,6 +363,7 @@ describe('Pricing filter chips', () => {
   beforeEach(() => {
     window.__setDealsData(SAMPLE_EXPIRING);
     window.resetModuleState();
+    window.__setShowArchive(true);
     window.activeCategories = [];
     const input = document.getElementById('search-input');
     if (input) input.value = '';

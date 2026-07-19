@@ -74,11 +74,40 @@ describe('deals.json schema', () => {
       'APIs & Search', 'AI & LLM', 'Auth', 'Developer Tools',
       'Monitoring', 'Domains & Hosting', 'Storage & Cloud', 'Security',
       'Productivity', 'SEO', 'AI', 'Social Media', 'Customer Support',
-      'Sales & Marketing', 'Services', 'APIs & Email', 'APIs & Payments',
-      'Design & Collaboration', 'Web Analytics', 'Media & Images', 'CI/CD', 'Testing & QA'
+      'Sales & Marketing', 'Services', 'Design & Collaboration',
+      'Web Analytics', 'Media & Images', 'CI/CD', 'Testing & QA'
     ];
+    expect(new Set(validCategories).size).toBe(validCategories.length);
     deals.forEach((deal, i) => {
       expect(validCategories).toContain(deal.category);
+    });
+  });
+
+  it('has_affiliate and affiliate_url are consistent', () => {
+    deals.forEach((deal, i) => {
+      const hasUrl = Boolean(deal.affiliate_url && deal.affiliate_url.trim());
+      const msg = `deal[${i}] ${deal.id}: has_affiliate=${deal.has_affiliate} but affiliate_url=${JSON.stringify(deal.affiliate_url)}`;
+      if (deal.has_affiliate) {
+        expect(hasUrl, msg).toBe(true);
+        expect(() => new URL(deal.affiliate_url), `deal[${i}] ${deal.id} invalid affiliate_url`).not.toThrow();
+      } else {
+        expect(hasUrl, msg).toBe(false);
+      }
+    });
+  });
+
+  it('ids are URL-safe slugs (lowercase, [a-z0-9-])', () => {
+    deals.forEach((deal, i) => {
+      expect(deal.id, `deal[${i}] id not a slug`).toMatch(/^[a-z0-9-]+$/);
+    });
+  });
+
+  it('expires is null or a valid ISO date', () => {
+    deals.forEach((deal, i) => {
+      if (deal.expires === null) return;
+      expect(typeof deal.expires, `deal[${i}] ${deal.id} expires type`).toBe('string');
+      const t = new Date(deal.expires).getTime();
+      expect(Number.isFinite(t), `deal[${i}] ${deal.id} unparseable expires: ${deal.expires}`).toBe(true);
     });
   });
 

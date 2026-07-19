@@ -98,6 +98,84 @@ function renderDealCard(deal, isNested = false) {
       </div>`;
 }
 
+// Deals with rating below this threshold are demoted from the homepage grid.
+// Must stay in sync with FEATURED_RATING_MIN in js/search.js.
+const FEATURED_RATING_MIN = 8.0;
+
+async function generateArchive(ROOT_DIR, deals, getFileLastMod) {
+  const archivePath = path.join(ROOT_DIR, 'archive.html');
+  const lastMod = getFileLastMod('data/deals.jsonl');
+
+const archived = deals
+  .filter(d => {
+    if (d.has_affiliate) return false;
+    if (d.expires && new Date(d.expires).getTime() < Date.now()) return false;
+    const r = typeof d.rating === 'number' ? d.rating : 0;
+    return r < FEATURED_RATING_MIN;
+  })
+    .sort((a, b) => (b.rating || 0) - (a.rating || 0));
+
+  const cards = archived.map(d => renderDealCard(d)).join('\n');
+
+  const html = `<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="https://devcheap.click/archive.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <title>Deal Archive — DevCheap</title>
+  <meta name="description" content="All DevCheap developer deals, including community and lower-rated picks. Every deal stays directly linkable.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Deal Archive — DevCheap">
+  <meta property="og:description" content="Every DevCheap deal, including lower-rated picks kept directly linkable.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://devcheap.click/archive.html">
+  <meta property="og:site_name" content="DevCheap">
+  <meta property="og:image" content="https://devcheap.click/images/og-image.svg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="nav-logo-badge">devcheap</span></a>
+      <div class="nav-links">
+        <a href="/#deals" class="nav-link">Deals</a>
+        <a href="/#newsletter" class="nav-link">Newsletter</a>
+      </div>
+    </div>
+  </nav>
+  <main class="container" style="padding-top:calc(var(--nav-height) + 32px); padding-bottom:64px;">
+    <a href="/" class="breadcrumb" style="display:inline-block;margin-bottom:24px;color:var(--text-secondary);text-decoration:none;">&larr; Back to DevCheap</a>
+    <h1 class="section-title">Deal Archive</h1>
+    <p class="results-info" style="margin-bottom:24px;">
+      ${archived.length} additional deal${archived.length === 1 ? '' : 's'} not shown on the homepage.
+      These are still verified and directly linkable — share any <code>/deals/&lt;id&gt;/</code> page.
+    </p>
+    <div class="deals-grid">
+${cards}
+    </div>
+  </main>
+  <footer class="footer" role="contentinfo" aria-label="Site footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="nav-logo-badge">devcheap</span>
+        <p class="footer-text">Verified developer deals, curated weekly.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/hasitpbhatt/devcheap" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+        <a href="/#newsletter" class="footer-link">Newsletter</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+`;
+  await fs.writeFile(archivePath, html, 'utf-8');
+  console.log(`✅ Generated archive.html with ${archived.length} archived deals (rating < ${FEATURED_RATING_MIN}).`);
+}
+
 async function main() {
   console.log('🏁 Starting build process...');
 
@@ -134,8 +212,8 @@ console.log(`📊 Loaded ${totalDeals} deals across ${totalCategories} categorie
     `<span class="hero-stat-num" id="stat-partners" data-prefix="">${totalDeals}</span>`
   );
   indexHtml = indexHtml.replace(
-    /<div id="deals-count" class="results-info">.*?<\/div>/,
-    `<div id="deals-count" class="results-info">${totalDeals} active deals</div>`
+    /<p id="deals-count"[^>]*>.*?<\/p>/,
+    `<p id="deals-count" class="results-info" aria-live="polite">${totalDeals} active deals</p>`
   );
 
 const categoryDisplayMap = {
@@ -317,7 +395,11 @@ const productJson = {
   
   console.log('✅ Generated sitemap.xml with all deal detail pages.');
   console.log('✅ Generated sitemap_index.xml.');
-console.log('✨ Build complete! Time to deploy.');
+
+  // 6. Generate archive.html — low-value deals kept linkable but off the homepage
+  await generateArchive(ROOT_DIR, deals, getFileLastMod);
+
+  console.log('✨ Build complete! Time to deploy.');
 }
 
 main().catch(err => {

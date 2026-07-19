@@ -1122,6 +1122,24 @@ body {
   gap: 12px;
   margin-bottom: 16px;
 }
+.archive-toggle {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid transparent;
+  border-radius: 980px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.archive-toggle:hover {
+  border-color: var(--accent);
+}
+.archive-toggle[aria-pressed="true"] {
+  background: var(--accent);
+  color: #fff;
+}
 .sort-wrap {
   display: inline-flex;
   align-items: center;

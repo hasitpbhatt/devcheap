@@ -45,8 +45,17 @@ export async function onRequest(context) {
   }
 
   const { email, source, 'cf-turnstile-response': turnstileResp } = body;
-  if (!email) {
+  if (!email || typeof email !== 'string') {
     return new Response(JSON.stringify({ error: 'Email is required' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  const normalized = email.trim().toLowerCase();
+  // RFC-ish: local@domain, neither side empty, domain has a dot.
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized);
+  if (!emailOk) {
+    return new Response(JSON.stringify({ error: 'Invalid email' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
     });
@@ -63,8 +72,14 @@ export async function onRequest(context) {
 
   // No external ESP configured. Store subscriber in a KV namespace if bound,
   // otherwise log for later import. Both paths return success to the user.
+  if (normalized.length > 320) {
+    return new Response(JSON.stringify({ error: 'Email too long' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
   const record = JSON.stringify({
-    email,
+    email: normalized,
     source: source || 'devcheap.click',
     ts: new Date().toISOString(),
   });
