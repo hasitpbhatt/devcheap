@@ -19,6 +19,10 @@ global.requestAnimationFrame = dom.window.requestAnimationFrame;
 
 const affiliateJs = fs.readFileSync(path.resolve('js/affiliate.js'), 'utf-8').replace(/^export\s+/gm, '');
 dom.window.eval(affiliateJs);
+const sanitizeJs = fs
+  .readFileSync(path.resolve('js/sanitize-deal-value.js'), 'utf-8')
+  .replace(/^export\s+/gm, '');
+dom.window.eval(sanitizeJs);
 const searchJs = fs.readFileSync(path.resolve('js/search.js'), 'utf-8').replace(/^import\s+\{[^}]+\}\s+from\s+['"][^'"]+['"];?\s*$/gm, '');
 dom.window.eval(searchJs);
 

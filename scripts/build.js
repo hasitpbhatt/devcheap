@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
+import { sanitizeDealValue } from '../js/sanitize-deal-value.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.join(__dirname, '..');
@@ -86,7 +87,7 @@ function renderDealCard(deal, isNested = false) {
           <h3 class="deal-card-title"><a href="${folderPrefix}${deal.id}/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">${escapeHtml(deal.name)}</a></h3>
           <span class="deal-card-cat">${escapeHtml(deal.category)}</span>
         </div>
-        <div class="deal-card-deal">${escapeHtml(deal.deal)}</div>
+        <div class="deal-card-deal">${escapeHtml(sanitizeDealValue(deal.deal))}</div>
         ${recommendedBadge}${spotlightBadge}
         ${whyHTML}
         <p class="deal-card-desc">${escapeHtml(deal.desc)}</p>
@@ -346,7 +347,7 @@ const productJson = {
     let populated = detailTemplate
       .replace(/{{DEAL_ID}}/g, escapeHtml(deal.id))
       .replace(/{{DEAL_NAME}}/g, escapeHtml(deal.name))
-      .replace(/{{DEAL_OFFER}}/g, escapeHtml(deal.deal))
+      .replace(/{{DEAL_OFFER}}/g, escapeHtml(sanitizeDealValue(deal.deal)))
       .replace(/{{DEAL_DESC}}/g, escapeHtml(deal.desc))
       .replace(/{{DEAL_WHY}}/g, escapeHtml(deal.why || ''))
       .replace(/{{DEAL_CATEGORY}}/g, escapeHtml(deal.category))

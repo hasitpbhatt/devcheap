@@ -1,4 +1,5 @@
 import { buildTrackedUrl, trackOutboundClick } from './affiliate.js';
+import { sanitizeDealValue } from './sanitize-deal-value.js';
 let dealsData = [];
 const REPORT_EMAIL = 'hi@devcheap.page';
 var activeCategories = [];
@@ -308,7 +309,7 @@ function renderDeals() {
         <h3 class="deal-card-title">${deal.name}</h3>
         <span class="deal-card-cat">${deal.category}</span>
       </div>
-      <div class="deal-card-deal">${deal.deal}</div>
+      <div class="deal-card-deal">${sanitizeDealValue(deal.deal)}</div>
       ${recommendedBadge}${spotlightBadge}${pricingBadge}
       ${whyHTML}
       <p class="deal-card-desc">${deal.desc}</p>
@@ -503,7 +504,7 @@ function renderSpotlight() {
 
   link.href = trackedUrl;
   nameEl.textContent = deal.name;
-  dealEl.textContent = deal.deal;
+  dealEl.textContent = sanitizeDealValue(deal.deal);
   section.hidden = false;
 }
 

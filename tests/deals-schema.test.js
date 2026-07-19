@@ -111,10 +111,26 @@ describe('deals.json schema', () => {
     });
   });
 
-  it('each deal has at least one tag', () => {
-    deals.forEach((deal, i) => {
-      expect(deal.tags).toBeDefined();
-      expect(deal.tags.split(',').length).toBeGreaterThanOrEqual(1);
+const CORRUPT_DEAL_VALUE_RE = /playwright-mcp|\.\.\/|\.yml/i;
+
+it('each deal has at least one tag', () => {
+  deals.forEach((deal, i) => {
+    expect(deal.tags).toBeDefined();
+    expect(deal.tags.split(',').length).toBeGreaterThanOrEqual(1);
+  });
+});
+
+it('deal values do not contain file-path or playwright-artifact contamination', () => {
+  const textFields = ['deal', 'desc', 'why', 'tags'];
+  deals.forEach((deal, i) => {
+    textFields.forEach((field) => {
+      const value = deal[field];
+      if (typeof value === 'string' && CORRUPT_DEAL_VALUE_RE.test(value)) {
+        throw new Error(
+          `deal[${i}] ${deal.id} field="${field}" contains a suspect value: ${value}`
+        );
+      }
     });
   });
+});
 });
