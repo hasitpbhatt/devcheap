@@ -26,7 +26,7 @@
   <meta name="twitter:title" content="404 — Page Not Found | DevCheap">
   <meta name="twitter:description" content="The page you're looking for doesn't exist. Browse verified developer deals and free credits instead.">
   <meta name="twitter:image" content="https://devcheap.click/images/og-image.svg">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com; script-src 'self'; connect-src 'self'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -140,16 +140,6 @@
     </div>
   </footer>
 
-  <script>
-    var input = document.getElementById('search-input');
-    input.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        var q = input.value.trim();
-        if (q) {
-          window.location.href = '/#search?q=' + encodeURIComponent(q);
-        }
-      }
-    });
-  </script>
+<script type="module" src="js/404-search-handler.js"></script>
 </body>
 </html>
