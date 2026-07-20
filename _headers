@@ -1,6 +1,7 @@
 /*
 Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="service-meta", </.well-known/mcp/server-card.json>; rel="service-meta", </auth.md>; rel="service-meta", </.well-known/oauth-protected-resource>; rel="oauth-protected-resource", </.well-known/oauth-authorization-server>; rel="oauth-protected-resource", </data/deals.jsonl>; rel="describedby", <//_index._agents.devcheap.click>; rel="service-meta"; type="application/svcb+json"
 X-Robots-Tag: all
+Vary: Accept
 
 Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; img-src 'self' data: https://devcheap.click; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://challenges.cloudflare.com https://static.cloudflareinsights.com; connect-src 'self' https://challenges.cloudflare.com https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com
 X-Frame-Options: DENY

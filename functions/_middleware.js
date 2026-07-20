@@ -118,6 +118,7 @@ export async function onRequest(context) {
       headers: {
         'Content-Type': 'text/markdown; charset=utf-8',
         'Access-Control-Allow-Origin': '*',
+        'Vary': 'Accept',
         'X-Markdown-Tokens': String(markdown.split(/\s+/).length)
       }
     });
