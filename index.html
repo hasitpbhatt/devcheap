@@ -38,10 +38,14 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://devcheap.click/#website",
   "name": "DevCheap",
   "url": "https://devcheap.click/",
   "description": "Verified deals on APIs, hosting, databases, and AI tools. Free credits, lifetime discounts, and limited offers curated weekly.",
   "image": "https://devcheap.click/images/og-image.svg",
+  "publisher": {
+    "@id": "https://devcheap.click/#organization"
+  },
   "potentialAction": {
     "@type": "SearchAction",
     "target": {
@@ -53,13 +57,37 @@
 }
   </script>
   <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://devcheap.click/#organization",
+  "name": "DevCheap",
+  "url": "https://devcheap.click/",
+  "logo": "https://devcheap.click/favicon.svg",
+  "description": "Verified deals on developer tools, curated weekly.",
+  "sameAs": [
+    "https://github.com/hasitpbhatt/devcheap",
+    "https://x.com/devcheap"
+  ]
+}
+  </script>
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "DevCheap",
+    "@type": "WebPage",
+    "@id": "https://devcheap.click/#webpage",
     "url": "https://devcheap.click/",
-    "logo": "https://devcheap.click/favicon.svg",
-    "description": "Verified deals on developer tools, curated weekly."
+    "name": "DevCheap — Verified Developer Deals & Free Credits",
+    "description": "Verified deals on APIs, hosting, databases, and AI tools. Free credits, lifetime discounts, and limited offers curated weekly.",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@id": "https://devcheap.click/#website"
+    },
+    "about": {
+      "@id": "https://devcheap.click/#organization"
+    },
+    "dateModified": "2026-07-20",
+    "datePublished": "2024-01-01"
   }
   </script>
   <script type="application/ld+json">

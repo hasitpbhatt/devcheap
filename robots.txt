@@ -1,5 +1,30 @@
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
 User-agent: *
 Allow: /
-Content-Signal: search=yes, ai-train=no, ai-input=no
+Disallow: /cdn-cgi/
+Disallow: /.well-known/
 
 Sitemap: https://devcheap.click/sitemap_index.xml

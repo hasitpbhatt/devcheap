@@ -10,6 +10,7 @@ const ROOT = path.resolve('.');
 const DEALS_PATH = path.join(ROOT, 'data', 'deals.jsonl');
 const INDEX_PATH = path.join(ROOT, 'index.html');
 const SITEMAP_PATH = path.join(ROOT, 'sitemap.xml');
+const LLMS_PATH = path.join(ROOT, 'llms.txt');
 const DEALS_DIR = path.join(ROOT, 'deals');
 
 const deals = fs.readFileSync(DEALS_PATH, 'utf-8')
@@ -79,5 +80,27 @@ describe('build freshness', () => {
     expect(html).toContain('how-it-works-section');
     expect(html).toContain('how-it-works-item');
     expect(html).toContain('How DevCheap Works');
+  });
+
+  it('llms.txt exists after build', () => {
+    expect(fs.existsSync(LLMS_PATH)).toBe(true);
+    const content = fs.readFileSync(LLMS_PATH, 'utf-8');
+    expect(content.length).toBeGreaterThan(1000);
+    expect(content).toContain('# DevCheap');
+    expect(content).toContain('## Categories');
+  });
+
+  it('homepage has stable @id in JSON-LD', () => {
+    const html = fs.readFileSync(INDEX_PATH, 'utf-8');
+    expect(html).toContain('"@id": "https://devcheap.click/#website"');
+    expect(html).toContain('"@id": "https://devcheap.click/#organization"');
+    expect(html).toContain('"sameAs"');
+  });
+
+  it('robots.txt explicitly allows AI crawlers', () => {
+    const robots = fs.readFileSync(path.join(ROOT, 'robots.txt'), 'utf-8');
+    expect(robots).toContain('User-agent: GPTBot');
+    expect(robots).toContain('User-agent: Claude-Web');
+    expect(robots).toContain('Allow: /');
   });
 });

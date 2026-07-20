@@ -152,3 +152,36 @@ describe('How It Works section', () => {
     expect(summary).not.toBeNull();
   });
 });
+
+describe('JSON-LD structured data', () => {
+  it('has WebSite with @id', () => {
+    const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+    const allJson = Array.from(scripts).map(s => JSON.parse(s.textContent));
+    const website = allJson.find(j => j['@type'] === 'WebSite');
+    expect(website).toBeDefined();
+    expect(website['@id']).toBe('https://devcheap.click/#website');
+    expect(website.publisher).toBeDefined();
+    expect(website.publisher['@id']).toBe('https://devcheap.click/#organization');
+  });
+
+  it('has Organization with @id and sameAs', () => {
+    const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+    const allJson = Array.from(scripts).map(s => JSON.parse(s.textContent));
+    const org = allJson.find(j => j['@type'] === 'Organization');
+    expect(org).toBeDefined();
+    expect(org['@id']).toBe('https://devcheap.click/#organization');
+    expect(org.sameAs).toBeInstanceOf(Array);
+    expect(org.sameAs.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('has WebPage with @id and dateModified', () => {
+    const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+    const allJson = Array.from(scripts).map(s => JSON.parse(s.textContent));
+    const page = allJson.find(j => j['@type'] === 'WebPage');
+    expect(page).toBeDefined();
+    expect(page['@id']).toBe('https://devcheap.click/#webpage');
+    expect(page.dateModified).toBeDefined();
+    expect(page.isPartOf['@id']).toBe('https://devcheap.click/#website');
+    expect(page.about['@id']).toBe('https://devcheap.click/#organization');
+  });
+});

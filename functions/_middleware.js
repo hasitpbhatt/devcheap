@@ -1,14 +1,26 @@
 const ALLOWED_ORIGINS = ['https://devcheap.click', 'https://devcheap-3uq.pages.dev'];
 
 function htmlToMarkdown(html) {
+  // Extract main content area only — strip nav, newsletter, footer, etc.
   let md = html;
 
-  // Remove script and style tags
+  // Strip nav, newsletter, footer, and other non-content sections
+  md = md.replace(/<nav[^>]*>[\s\S]*?<\/nav>/gi, '');
+  md = md.replace(/<footer[^>]*>[\s\S]*?<\/footer>/gi, '');
+  md = md.replace(/<section[^>]*id="newsletter"[^>]*>[\s\S]*?<\/section>/gi, '');
+  md = md.replace(/<section[^>]*class="[^"]*newsletter-section[^"]*"[^>]*>[\s\S]*?<\/section>/gi, '');
+  md = md.replace(/<section[^>]*class="[^"]*spotlight-section[^"]*"[^>]*>[\s\S]*?<\/section>/gi, '');
+
+  // Remove script, style, svg, and decorative elements
   md = md.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
   md = md.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '');
   md = md.replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, '');
-  md = md.replace(/<path[^>]*\/>/gi, '');
-  md = md.replace(/<use[^>]*\/>/gi, '');
+  md = md.replace(/<use[^>]*\/?>/gi, '');
+  md = md.replace(/<path[^>]*\/?>/gi, '');
+
+  // Remove aria and hidden elements
+  md = md.replace(/<[^>]+hidden[^>]*>[\s\S]*?<\/[^>]+>/gi, '');
+  md = md.replace(/<[^>]+aria-hidden="true"[^>]*>[\s\S]*?<\/[^>]+>/gi, '');
 
   // Headings
   md = md.replace(/<h1[^>]*>(.*?)<\/h1>/gi, '# $1\n\n');

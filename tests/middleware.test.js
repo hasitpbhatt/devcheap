@@ -72,4 +72,25 @@ describe('middleware content negotiation', () => {
       expect(c.next).toHaveBeenCalled();
     }
   });
+
+  it('strips nav, newsletter, and footer from markdown output', async () => {
+    const { onRequest } = loadMiddleware();
+    const noisyHtml = `<!DOCTYPE html><html><head><title>DevCheap</title></head><body>
+<nav>Navigation links</nav>
+<section id="newsletter"><h2>Subscribe</h2><p>Newsletter form</p></section>
+<footer>Footer content</footer>
+<h1>Deals</h1><p>$200 free credits</p>
+<section class="spotlight-section"><p>Spotlight</p></section>
+</body></html>`;
+    const ctx = mockContext({ accept: 'text/markdown', html: noisyHtml });
+    const res = await onRequest(ctx);
+    const body = await res.text();
+
+    expect(body).not.toContain('Navigation links');
+    expect(body).not.toContain('Newsletter form');
+    expect(body).not.toContain('Footer content');
+    expect(body).not.toContain('Spotlight');
+    expect(body).toContain('Deals');
+    expect(body).toContain('$200 free credits');
+  });
 });

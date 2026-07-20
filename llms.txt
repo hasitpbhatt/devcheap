@@ -2,56 +2,80 @@
 
 > Curated deals, discounts, and free tiers for developers. Updated daily with verified listings across cloud, AI, DevOps, databases, and more.
 
-DevCheap tracks **196 deals** across **22 categories**. Every deal is manually reviewed, rated, and categorized. All deals include pricing, expiration, coupon codes, and affiliate tracking where available.
+DevCheap tracks **196 deals** across **22 categories**. Every deal is manually reviewed, rated (1-10), and categorized. All deals include pricing, expiration dates, coupon codes, and affiliate tracking where available.
 
 ## Featured
 - [Homepage — Browse All Deals](https://devcheap.click/): All active deals with filtering, search, and pagination
-- [Archive — Expired & Lower-Rated Deals](https://devcheap.click/archive.html): Historical deals rated < 8.0, kept for reference
+- [Archive — Expired & Lower-Rated Deals](https://devcheap.click/archive.html): Historical deals kept for reference
+- [Raw Deal Data (JSONL)](https://devcheap.click/data/deals.jsonl): Full dataset for programmatic consumption
+
+## Quick Stats
+- Total deals: **196**
+- Categories: **22**
+- Top-rated deals (≥ 8.0): **17**
+- Expired deals: **157**
+- Pricing: free: 151, lifetime: 31, paid: 10, trial: 4
+- Last updated: 2026-07-20
 
 ## Top Deals
-- [Credit for Startups](https://creditforstartups.com) — Credit for Startups is a comprehensive directory of 43+ credit programs worth over $1M total. Browse AI/ML credits (21 p… [rating: 8.5] [free]
-- [Gamma](https://try.gamma.app/vwi953t7x0ir) — AI-powered presentation, document, and webpage creator with free tier. No credit card needed. [rating: 8.5] [free]
-- [LaunchDarkly](https://launchdarkly.com) — LaunchDarkly's free Developer tier includes unlimited seats, unlimited feature flags, 10M logs and traces, 5K session re… [rating: 8.4] [free]
-- [Netlify](https://netlify.com) — Netlify's free tier includes 300 credits/month (~$2 value), unlimited deploy previews, custom domains with automated SSL… [rating: 8.4] [free]
-- [Neon Startup Credits](https://neon.tech/startups) — Neon offers startup credits of up to $100,000 for early-stage companies, plus their generous free tier. Serverless Postg… [rating: 8.3] [free]
-- [Anthropic Claude for Startups](https://claude.com/programs/startups) — Anthropic Startup Program offers up to $25,000 in Claude API credits for early-stage startups. Open to any startup with … [rating: 8.2] [free]
-- [OpenAI Startup Credits](https://openai.com/startups) — OpenAI offers startup credits ranging from $5,000 to $50,000+ for qualifying startups. Access to GPT-4, GPT-5, and other… [rating: 8.2] [free]
-- [PostHog](https://posthog.com) — PostHog's generous free tier includes 1 million events/month, 5,000 session recordings, 1 million feature flag requests,… [rating: 8.2] [free]
-- [GitHub Copilot Free](https://github.com/features/copilot) — AI code completion and chat assistant. Free tier includes 2,000 code completions per month and 50 chat messages per mont… [rating: 8.1] [free]
-- [AWS Activate](https://aws.amazon.com/activate/) — AWS Activate provides startups with $1,000-$100,000 in cloud credits, technical support, and training. Founders tier off… [rating: 8] [free]
-- [CircleCI Startup Credits](https://circleci.com/startup/) — CircleCI offers up to $20,000 in compute credits for startups. Provides access to parallel testing, faster builds, and a… [rating: 8] [free]
-- [Cloudflare for Startups](https://www.cloudflare.com/forstartups/) — Cloudflare for Startups offers $250,000 in enterprise credits for qualifying startups. Access to Workers, Workers AI, CD… [rating: 8] [free]
-- [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai) — Global edge inference platform with 10,000 free neurons per day (resets daily ΓÇö ~200 LLM requests). 50+ open-source mo… [rating: 8] [free]
-- [DigitalOcean Startups](https://www.digitalocean.com/startups) — DigitalOcean Startups program offers up to $100,000 in credits over 12 months. Access to VMs, Kubernetes, databases, and… [rating: 8] [free]
-- [Figma](https://figma.com) — Figma's forever-free Starter plan includes unlimited drafts and personal files, UI kits and templates, 150 AI credits/da… [rating: 8] [free]
+- [Credit for Startups](https://creditforstartups.com) — Credit for Startups is a comprehensive directory of 43+ credit programs worth over $1M total. Browse AI/ML credits (21 p… [rating: 8.5] [free] (no expiry) — [Details](https://devcheap.click/deals/credit-for-startups/)
+- [Gamma](https://try.gamma.app/vwi953t7x0ir) — AI-powered presentation, document, and webpage creator with free tier. No credit card needed. [rating: 8.5] [free] (no expiry) — [Details](https://devcheap.click/deals/gamma/)
+- [LaunchDarkly](https://launchdarkly.com) — LaunchDarkly's free Developer tier includes unlimited seats, unlimited feature flags, 10M logs and traces, 5K session re… [rating: 8.4] [free] (no expiry) — [Details](https://devcheap.click/deals/launchdarkly/)
+- [Netlify](https://netlify.com) — Netlify's free tier includes 300 credits/month (~$2 value), unlimited deploy previews, custom domains with automated SSL… [rating: 8.4] [free] (no expiry) — [Details](https://devcheap.click/deals/netlify/)
+- [Neon Startup Credits](https://neon.tech/startups) — Neon offers startup credits of up to $100,000 for early-stage companies, plus their generous free tier. Serverless Postg… [rating: 8.3] [free] (no expiry) — [Details](https://devcheap.click/deals/neon-startup-credits/)
+- [Anthropic Claude for Startups](https://claude.com/programs/startups) — Anthropic Startup Program offers up to $25,000 in Claude API credits for early-stage startups. Open to any startup with … [rating: 8.2] [free] (no expiry) — [Details](https://devcheap.click/deals/anthropic-claude-startups/)
+- [OpenAI Startup Credits](https://openai.com/startups) — OpenAI offers startup credits ranging from $5,000 to $50,000+ for qualifying startups. Access to GPT-4, GPT-5, and other… [rating: 8.2] [free] (no expiry) — [Details](https://devcheap.click/deals/openai-startup-credits/)
+- [PostHog](https://posthog.com) — PostHog's generous free tier includes 1 million events/month, 5,000 session recordings, 1 million feature flag requests,… [rating: 8.2] [free] (no expiry) — [Details](https://devcheap.click/deals/posthog/)
+- [GitHub Copilot Free](https://github.com/features/copilot) — AI code completion and chat assistant. Free tier includes 2,000 code completions per month and 50 chat messages per mont… [rating: 8.1] [free] (no expiry) — [Details](https://devcheap.click/deals/github-copilot/)
+- [AWS Activate](https://aws.amazon.com/activate/) — AWS Activate provides startups with $1,000-$100,000 in cloud credits, technical support, and training. Founders tier off… [rating: 8] [free] (no expiry) — [Details](https://devcheap.click/deals/aws-activate/)
+- [CircleCI Startup Credits](https://circleci.com/startup/) — CircleCI offers up to $20,000 in compute credits for startups. Provides access to parallel testing, faster builds, and a… [rating: 8] [free] (no expiry) — [Details](https://devcheap.click/deals/circleci-startup/)
+- [Cloudflare for Startups](https://www.cloudflare.com/forstartups/) — Cloudflare for Startups offers $250,000 in enterprise credits for qualifying startups. Access to Workers, Workers AI, CD… [rating: 8] [free] (no expiry) — [Details](https://devcheap.click/deals/cloudflare-for-startups/)
+- [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai) — Global edge inference platform with 10,000 free neurons per day (resets daily ΓÇö ~200 LLM requests). 50+ open-source mo… [rating: 8] [free] (no expiry) — [Details](https://devcheap.click/deals/cloudflare-workers-ai/)
+- [DigitalOcean Startups](https://www.digitalocean.com/startups) — DigitalOcean Startups program offers up to $100,000 in credits over 12 months. Access to VMs, Kubernetes, databases, and… [rating: 8] [free] (no expiry) — [Details](https://devcheap.click/deals/digitalocean-startups/)
+- [Figma](https://figma.com) — Figma's forever-free Starter plan includes unlimited drafts and personal files, UI kits and templates, 150 AI credits/da… [rating: 8] [free] (no expiry) — [Details](https://devcheap.click/deals/figma/)
 
 ## Categories
-- [AI & LLM](https://claude.com/programs/startups) — 40 deals. Examples: Anthropic Claude for Startups, OpenAI Startup Credits, GitHub Copilot Free
-- [Developer Tools](https://creditforstartups.com) — 34 deals. Examples: Credit for Startups, LaunchDarkly, Codeium
-- [Hosting & Cloud](https://netlify.com) — 26 deals. Examples: Netlify, AWS Activate, Cloudflare for Startups
-- [Database](https://neon.tech/startups) — 16 deals. Examples: Neon Startup Credits, Appwrite Cloud, Aiven
-- [APIs & Email](https://resend.com) — 10 deals. Examples: Resend, Twilio SendGrid, Postmark
-- [Productivity](https://airtable.com) — 9 deals. Examples: Airtable, Asana, Cal.com
-- [Security](https://tailscale.com) — 8 deals. Examples: Tailscale, Snyk, Sticky Password Premium
-- [Design & Collaboration](https://figma.com) — 8 deals. Examples: Figma, Miro, Penpot
-- [AI](https://try.gamma.app/vwi953t7x0ir) — 7 deals. Examples: Gamma, DeepLearning.AI, WordHero
-- [Monitoring](https://grafana.com/products/cloud) — 7 deals. Examples: Grafana Cloud Free, Better Stack, New Relic for Startups
-- [Web Analytics](https://posthog.com) — 5 deals. Examples: PostHog, Amplitude for Startups, PostHog for Startups
-- [Domains & Hosting](https://cloudflare.com/products/registrar/) — 4 deals. Examples: Cloudflare Registrar, IONOS, Namecheap
-- [APIs & Payments](https://konghq.com/solutions/startup-program) — 4 deals. Examples: Kong for Startups, Stripe, Stripe Atlas
-- [CI/CD](https://circleci.com/startup/) — 3 deals. Examples: CircleCI Startup Credits, Buildkite, CircleCI
-- [Customer Support](https://intercom.com/early-stage) — 3 deals. Examples: Intercom Early Stage, Zendesk, Support Board
-- [APIs & Search](https://www.algolia.com) — 2 deals. Examples: Algolia, Algolia Startup Program
-- [Auth](https://auth0.com) — 2 deals. Examples: Auth0, Clerk
-- [Storage & Cloud](https://www.backblaze.com) — 2 deals. Examples: Backblaze B2, MinIO
-- [Testing & QA](https://cypress.io) — 2 deals. Examples: Cypress, BrowserStack
-- [Media & Images](https://imagekit.io) — 2 deals. Examples: ImageKit, Cloudinary
-- [SEO](https://siteguru.co) — 1 deals. Examples: SiteGuru
-- [Social Media](https://sociamonials.com) — 1 deals. Examples: Sociamonials
+- **AI & LLM** (40 deals, free: 38, trial: 1, lifetime: 1) — [Anthropic Claude for Startups](https://devcheap.click/deals/anthropic-claude-startups/) [rating: 8.2, free]; [OpenAI Startup Credits](https://devcheap.click/deals/openai-startup-credits/) [rating: 8.2, free]; [GitHub Copilot Free](https://devcheap.click/deals/github-copilot/) [rating: 8.1, free]
+- **Developer Tools** (34 deals, free: 26, lifetime: 5, paid: 2, trial: 1) — [Credit for Startups](https://devcheap.click/deals/credit-for-startups/) [rating: 8.5, free]; [LaunchDarkly](https://devcheap.click/deals/launchdarkly/) [rating: 8.4, free]; [Codeium](https://devcheap.click/deals/codeium/) [rating: 7.9, free]
+- **Hosting & Cloud** (26 deals, free: 24, paid: 2) — [Netlify](https://devcheap.click/deals/netlify/) [rating: 8.4, free]; [AWS Activate](https://devcheap.click/deals/aws-activate/) [rating: 8, free]; [Cloudflare for Startups](https://devcheap.click/deals/cloudflare-for-startups/) [rating: 8, free]
+- **Database** (16 deals, free: 15, lifetime: 1) — [Neon Startup Credits](https://devcheap.click/deals/neon-startup-credits/) [rating: 8.3, free]; [Appwrite Cloud](https://devcheap.click/deals/appwrite/) [rating: 7.9, free]; [Aiven](https://devcheap.click/deals/aiven/) [rating: 7.6, free]
+- **APIs & Email** (10 deals, free: 5, lifetime: 4, paid: 1) — [Resend](https://devcheap.click/deals/resend/) [rating: 7.4, free]; [Twilio SendGrid](https://devcheap.click/deals/twilio-sendgrid/) [rating: 7.2, free]; [Postmark](https://devcheap.click/deals/postmark/) [rating: 6.9, free]
+- **Productivity** (9 deals, lifetime: 5, free: 4) — [Airtable](https://devcheap.click/deals/airtable/) [rating: 7.4, free]; [Asana](https://devcheap.click/deals/asana-free/) [rating: 7.2, free]; [Cal.com](https://devcheap.click/deals/cal-com/) [rating: 7, free]
+- **Security** (8 deals, lifetime: 6, free: 2) — [Tailscale](https://devcheap.click/deals/tailscale/) [rating: 7.5, free]; [Snyk](https://devcheap.click/deals/snyk/) [rating: 6.9, free]; [Sticky Password Premium](https://devcheap.click/deals/stickypassword/) [rating: 6.7, lifetime]
+- **Design & Collaboration** (8 deals, free: 7, paid: 1) — [Figma](https://devcheap.click/deals/figma/) [rating: 8, free]; [Miro](https://devcheap.click/deals/miro/) [rating: 7.3, free]; [Penpot](https://devcheap.click/deals/penpot/) [rating: 7.3, free]
+- **AI** (7 deals, lifetime: 5, free: 2) — [Gamma](https://devcheap.click/deals/gamma/) [rating: 8.5, free]; [DeepLearning.AI](https://devcheap.click/deals/deeplearning-ai/) [rating: 7.5, free]; [WordHero](https://devcheap.click/deals/wordhero/) [rating: 6.4, lifetime]
+- **Monitoring** (7 deals, free: 5, paid: 1, trial: 1) — [Grafana Cloud Free](https://devcheap.click/deals/grafana-cloud/) [rating: 7.4, free]; [Better Stack](https://devcheap.click/deals/better-stack/) [rating: 7.3, free]; [New Relic for Startups](https://devcheap.click/deals/new-relic-startups/) [rating: 7.2, free]
+- **Web Analytics** (5 deals, free: 4, trial: 1) — [PostHog](https://devcheap.click/deals/posthog/) [rating: 8.2, free]; [Amplitude for Startups](https://devcheap.click/deals/amplitude-startups/) [rating: 7.3, free]; [PostHog for Startups](https://devcheap.click/deals/posthog-startups/) [rating: 6.4, free]
+- **Domains & Hosting** (4 deals, paid: 3, free: 1) — [Cloudflare Registrar](https://devcheap.click/deals/cloudflare-registrar/) [rating: 7.5, paid]; [IONOS](https://devcheap.click/deals/ionos/) [rating: 6.5, free]; [Namecheap](https://devcheap.click/deals/namecheap/) [rating: 5.5, paid]
+- **APIs & Payments** (4 deals, free: 3, lifetime: 1) — [Kong for Startups](https://devcheap.click/deals/kong-for-startups/) [rating: 7.8, free]; [Stripe](https://devcheap.click/deals/stripe/) [rating: 7.4, free]; [Stripe Atlas](https://devcheap.click/deals/stripe-atlas/) [rating: 7, free]
+- **CI/CD** (3 deals, free: 3) — [CircleCI Startup Credits](https://devcheap.click/deals/circleci-startup/) [rating: 8, free]; [Buildkite](https://devcheap.click/deals/buildkite/) [rating: 7, free]; [CircleCI](https://devcheap.click/deals/circleci/) [rating: 6.6, free]
+- **Customer Support** (3 deals, free: 2, lifetime: 1) — [Intercom Early Stage](https://devcheap.click/deals/intercom-early-stage/) [rating: 7.3, free]; [Zendesk](https://devcheap.click/deals/zendesk/) [rating: 6, free]; [Support Board](https://devcheap.click/deals/supportboard/) [rating: 5.9, lifetime]
+- **APIs & Search** (2 deals, free: 2) — [Algolia](https://devcheap.click/deals/algolia/) [rating: 7.2, free]; [Algolia Startup Program](https://devcheap.click/deals/algolia-startup-program/) [rating: 7.2, free]
+- **Auth** (2 deals, free: 2) — [Auth0](https://devcheap.click/deals/auth0/) [rating: 7.8, free]; [Clerk](https://devcheap.click/deals/clerk/) [rating: 7.8, free]
+- **Storage & Cloud** (2 deals, free: 2) — [Backblaze B2](https://devcheap.click/deals/backblaze-b2/) [rating: 7.1, free]; [MinIO](https://devcheap.click/deals/minio/) [rating: 6.3, free]
+- **Testing & QA** (2 deals, free: 2) — [Cypress](https://devcheap.click/deals/cypress/) [rating: 7.5, free]; [BrowserStack](https://devcheap.click/deals/browserstack/) [rating: 7.1, free]
+- **Media & Images** (2 deals, free: 2) — [ImageKit](https://devcheap.click/deals/imagekit/) [rating: 7, free]; [Cloudinary](https://devcheap.click/deals/cloudinary/) [rating: 6.9, free]
+- **SEO** (1 deals, lifetime: 1) — [SiteGuru](https://devcheap.click/deals/siteguru/) [rating: 6.3, lifetime]
+- **Social Media** (1 deals, lifetime: 1) — [Sociamonials](https://devcheap.click/deals/sociamonials/) [rating: 6.4, lifetime]
+
+## How to Use This Site
+- **Browse**: Visit the [homepage](https://devcheap.click/) to see all active deals. Use category buttons and search to filter.
+- **Detail pages**: Each deal has a dedicated page at `https://devcheap.click/deals/{id}/` with full description, pricing, coupon code, and affiliate tracking.
+- **Coupon codes**: If a deal has a coupon code, it is shown on the detail page. Click "Copy Code" to copy it to clipboard.
+- **Affiliate links**: Some deals use affiliate links (marked with tracking_id) to support the site. These are always disclosed.
+- **Ratings**: Each deal is rated 1-10. Deals ≥ 8.0 are featured on the homepage. Deals < 8.0 are moved to the [archive](https://devcheap.click/archive.html).
+- **RSS**: Subscribe to [feed.xml](https://devcheap.click/feed.xml) for deal updates.
+- **Data access**: Full dataset at [data/deals.jsonl](https://devcheap.click/data/deals.jsonl) (one JSON object per line).
+
+## Content Negotiation
+- This site supports content negotiation via the `Accept` header.
+- Request `Accept: text/markdown` to receive a clean markdown version of any page.
+- The `Vary: Accept` header is set on all responses to ensure proper caching.
+- Structured data is available via JSON-LD in the HTML `<head>`.
 
 ## About
 - **Site**: [devcheap.click](https://devcheap.click/)
 - **Deal count**: 196
 - **Categories**: 22
 - **Content**: Deals are added and updated continuously. Each deal has a dedicated detail page with description, pricing, coupon code, and affiliate link.
-- **Pricing types**: free, freemium, lifetime, subscription, one-time, credit
+- **Pricing types**: free, lifetime, paid, trial

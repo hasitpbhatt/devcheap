@@ -27,6 +27,11 @@ describe('llms.txt', () => {
     expect(content).toContain('## Featured');
   });
 
+  it('contains ## Quick Stats section', () => {
+    const content = fs.readFileSync(LLMS_PATH, 'utf-8');
+    expect(content).toContain('## Quick Stats');
+  });
+
   it('contains ## Top Deals section', () => {
     const content = fs.readFileSync(LLMS_PATH, 'utf-8');
     expect(content).toContain('## Top Deals');
@@ -37,6 +42,16 @@ describe('llms.txt', () => {
     expect(content).toContain('## Categories');
   });
 
+  it('contains ## How to Use This Site section', () => {
+    const content = fs.readFileSync(LLMS_PATH, 'utf-8');
+    expect(content).toContain('## How to Use This Site');
+  });
+
+  it('contains ## Content Negotiation section', () => {
+    const content = fs.readFileSync(LLMS_PATH, 'utf-8');
+    expect(content).toContain('## Content Negotiation');
+  });
+
   it('contains ## About section', () => {
     const content = fs.readFileSync(LLMS_PATH, 'utf-8');
     expect(content).toContain('## About');
@@ -44,7 +59,8 @@ describe('llms.txt', () => {
 
   it('mentions the correct total deal count', () => {
     const content = fs.readFileSync(LLMS_PATH, 'utf-8');
-    expect(content).toContain(String(dealCount));
+    const matches = content.match(new RegExp(String(dealCount), 'g'));
+    expect(matches).not.toBeNull();
   });
 
   it('mentions the correct category count', () => {
@@ -55,7 +71,7 @@ describe('llms.txt', () => {
   it('includes links to devcheap.click', () => {
     const content = fs.readFileSync(LLMS_PATH, 'utf-8');
     const links = (content.match(/https:\/\/devcheap\.click/g) || []).length;
-    expect(links).toBeGreaterThanOrEqual(2);
+    expect(links).toBeGreaterThanOrEqual(3);
   });
 
   it('lists at least 1 top-rated deal', () => {
@@ -67,5 +83,17 @@ describe('llms.txt', () => {
   it('is not empty', () => {
     const content = fs.readFileSync(LLMS_PATH, 'utf-8');
     expect(content.trim().length).toBeGreaterThan(500);
+  });
+
+  it('contains deal detail page links', () => {
+    const content = fs.readFileSync(LLMS_PATH, 'utf-8');
+    expect(content).toContain('/deals/');
+  });
+
+  it('references content negotiation with Accept header', () => {
+    const content = fs.readFileSync(LLMS_PATH, 'utf-8');
+    expect(content).toContain('Accept');
+    expect(content).toContain('text/markdown');
+    expect(content).toContain('Vary');
   });
 });
