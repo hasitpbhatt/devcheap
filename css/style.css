@@ -320,6 +320,63 @@ body {
   margin-bottom: 6px;
 }
 
+/* ---- How It Works Section ---- */
+.how-it-works-section {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.how-it-works-section .section-title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.how-it-works-item {
+  text-align: center;
+}
+.how-it-works-step {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+.how-it-works-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.how-it-works-item p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.how-it-works-summary {
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+  .how-it-works-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
 /* ---- Deals Section ---- */
 .deals-section {
   padding-top: 40px;

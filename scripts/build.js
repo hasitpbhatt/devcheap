@@ -261,12 +261,31 @@ const categoryButtons = [
     .map(cat => `<button type="button" class="cat-btn" data-cat="${escapeHtml(cat.toLowerCase())}" role="tab" aria-selected="false">${escapeHtml(cat)}</button>`)
 ];
 
-indexHtml = indexHtml.replace(
-  /<div class="categories" id="categories-container" role="tablist">[\s\S]*?<\/div>/,
-  `<div class="categories" id="categories-container" role="tablist">\n ${categoryButtons.join('\n ')}\n </div>`
-);
+ indexHtml = indexHtml.replace(
+   new RegExp('<div class="categories" id="categories-container" role="tablist">[\\s\\S]*?<\\/div>', 's'),
+   `<div class="categories" id="categories-container" role="tablist">\n ${categoryButtons.join('\n ')}\n </div>`
+ );
 
-await fs.writeFile(INDEX_PATH, indexHtml, 'utf-8');
+  // Render featured deal cards for SEO (rating >= 8.0 or has_affiliate)
+  const featuredDeals = deals.filter(deal => {
+    if (deal.has_affiliate) return true;
+    if (deal.expires && new Date(deal.expires).getTime() < Date.now()) return false;
+    const r = typeof deal.rating === 'number' ? deal.rating : 0;
+    return r >= FEATURED_RATING_MIN;
+  });
+  const featuredCards = featuredDeals.map(d => renderDealCard(d)).join('\n');
+  indexHtml = indexHtml.replace('{{DEAL_CARDS}}', featuredCards);
+
+  // Update How It Works section counts
+  indexHtml = indexHtml.replace(
+    /<span id="how-it-works-count">.*?<\/span>/,
+    `<span id="how-it-works-count">${totalDeals}</span>`
+  );
+  indexHtml = indexHtml.replace(
+    /<span id="how-it-works-cats">.*?<\/span>/,
+    `<span id="how-it-works-cats">${totalCategories}</span>`
+  );
+  await fs.writeFile(INDEX_PATH, indexHtml, 'utf-8');
 console.log('✅ Main index.html updated.');
 
 // 3. Generate Deal Detail Pages

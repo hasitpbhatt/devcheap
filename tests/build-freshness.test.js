@@ -55,4 +55,29 @@ describe('build freshness', () => {
     const orphans = entries.filter(name => !dealIds.has(name));
     expect(orphans, `orphaned deal dirs: ${orphans.slice(0, 5).join(', ')}…`).toEqual([]);
   });
+
+  it('homepage has pre-rendered featured deal cards', () => {
+    const html = fs.readFileSync(INDEX_PATH, 'utf-8');
+    const cardCount = (html.match(/<div class="deal-card">/g) || []).length;
+    expect(cardCount).toBeGreaterThanOrEqual(17);
+  });
+
+  it('homepage has at least 1700 readable words', () => {
+    const html = fs.readFileSync(INDEX_PATH, 'utf-8');
+    const text = html
+      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const words = text.split(/\s+/).filter(Boolean).length;
+    expect(words).toBeGreaterThanOrEqual(1700);
+  });
+
+  it('homepage has How It Works section', () => {
+    const html = fs.readFileSync(INDEX_PATH, 'utf-8');
+    expect(html).toContain('how-it-works-section');
+    expect(html).toContain('how-it-works-item');
+    expect(html).toContain('How DevCheap Works');
+  });
 });

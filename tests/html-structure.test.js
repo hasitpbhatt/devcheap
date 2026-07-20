@@ -135,3 +135,20 @@ describe('Footer', () => {
     expect(link).not.toBeNull();
   });
 });
+
+describe('How It Works section', () => {
+  it('has section in the DOM', () => {
+    const section = document.querySelector('.how-it-works-section');
+    expect(section).not.toBeNull();
+  });
+
+  it('has 3 step items', () => {
+    const items = document.querySelectorAll('.how-it-works-item');
+    expect(items.length).toBe(3);
+  });
+
+  it('has summary text', () => {
+    const summary = document.querySelector('.how-it-works-summary');
+    expect(summary).not.toBeNull();
+  });
+});
