@@ -10,6 +10,7 @@ When adding, removing, or modifying deals in `data/deals.jsonl`, these files mus
 | `index.html` | Homepage stats + category buttons | Yes — run `npm run build` (via `scripts/build.js`) |
 | `deals/<id>/index.html` | Per-deal detail pages | Yes — run `npm run build` (via `scripts/build.js`) |
 | `sitemap.xml` | Full sitemap rewritten from `deals.jsonl` | Yes — run `npm run build` (via `scripts/build.js`). Do NOT hand-edit; it will be overwritten on the next build. |
+| `llms.txt` | LLM-friendly site summary generated from `deals.jsonl` | Yes — run `npm run build` (via `scripts/generate-llmstxt.js`). |
 | `feed.xml` | Regenerate from `data/deals.jsonl` | Yes — run `pwsh scripts/generate-feed.ps1` (use `powershell` if `pwsh` is not installed) |
 | `README.md` | Update deal count, category list, date | No (manual) |
 | `CONTRIBUTING.md` | Update category list, file references | No (manual) |
@@ -18,7 +19,7 @@ When adding, removing, or modifying deals in `data/deals.jsonl`, these files mus
 ## Regeneration Commands
 
 ```powershell
-# Regenerate index.html, deals/<id>/index.html pages, and sitemap.xml from deals.jsonl
+# Regenerate index.html, deals/<id>/index.html pages, sitemap.xml, and llms.txt from deals.jsonl
 npm run build
 
 # Regenerate feed.xml from deals.jsonl (RSS feed is NOT covered by `npm run build`)

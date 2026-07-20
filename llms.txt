@@ -1,0 +1,57 @@
+# DevCheap — Developer Deals & Discounts
+
+> Curated deals, discounts, and free tiers for developers. Updated daily with verified listings across cloud, AI, DevOps, databases, and more.
+
+DevCheap tracks **196 deals** across **22 categories**. Every deal is manually reviewed, rated, and categorized. All deals include pricing, expiration, coupon codes, and affiliate tracking where available.
+
+## Featured
+- [Homepage — Browse All Deals](https://devcheap.click/): All active deals with filtering, search, and pagination
+- [Archive — Expired & Lower-Rated Deals](https://devcheap.click/archive.html): Historical deals rated < 8.0, kept for reference
+
+## Top Deals
+- [Credit for Startups](https://creditforstartups.com) — Credit for Startups is a comprehensive directory of 43+ credit programs worth over $1M total. Browse AI/ML credits (21 p… [rating: 8.5] [free]
+- [Gamma](https://try.gamma.app/vwi953t7x0ir) — AI-powered presentation, document, and webpage creator with free tier. No credit card needed. [rating: 8.5] [free]
+- [LaunchDarkly](https://launchdarkly.com) — LaunchDarkly's free Developer tier includes unlimited seats, unlimited feature flags, 10M logs and traces, 5K session re… [rating: 8.4] [free]
+- [Netlify](https://netlify.com) — Netlify's free tier includes 300 credits/month (~$2 value), unlimited deploy previews, custom domains with automated SSL… [rating: 8.4] [free]
+- [Neon Startup Credits](https://neon.tech/startups) — Neon offers startup credits of up to $100,000 for early-stage companies, plus their generous free tier. Serverless Postg… [rating: 8.3] [free]
+- [Anthropic Claude for Startups](https://claude.com/programs/startups) — Anthropic Startup Program offers up to $25,000 in Claude API credits for early-stage startups. Open to any startup with … [rating: 8.2] [free]
+- [OpenAI Startup Credits](https://openai.com/startups) — OpenAI offers startup credits ranging from $5,000 to $50,000+ for qualifying startups. Access to GPT-4, GPT-5, and other… [rating: 8.2] [free]
+- [PostHog](https://posthog.com) — PostHog's generous free tier includes 1 million events/month, 5,000 session recordings, 1 million feature flag requests,… [rating: 8.2] [free]
+- [GitHub Copilot Free](https://github.com/features/copilot) — AI code completion and chat assistant. Free tier includes 2,000 code completions per month and 50 chat messages per mont… [rating: 8.1] [free]
+- [AWS Activate](https://aws.amazon.com/activate/) — AWS Activate provides startups with $1,000-$100,000 in cloud credits, technical support, and training. Founders tier off… [rating: 8] [free]
+- [CircleCI Startup Credits](https://circleci.com/startup/) — CircleCI offers up to $20,000 in compute credits for startups. Provides access to parallel testing, faster builds, and a… [rating: 8] [free]
+- [Cloudflare for Startups](https://www.cloudflare.com/forstartups/) — Cloudflare for Startups offers $250,000 in enterprise credits for qualifying startups. Access to Workers, Workers AI, CD… [rating: 8] [free]
+- [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai) — Global edge inference platform with 10,000 free neurons per day (resets daily ΓÇö ~200 LLM requests). 50+ open-source mo… [rating: 8] [free]
+- [DigitalOcean Startups](https://www.digitalocean.com/startups) — DigitalOcean Startups program offers up to $100,000 in credits over 12 months. Access to VMs, Kubernetes, databases, and… [rating: 8] [free]
+- [Figma](https://figma.com) — Figma's forever-free Starter plan includes unlimited drafts and personal files, UI kits and templates, 150 AI credits/da… [rating: 8] [free]
+
+## Categories
+- [AI & LLM](https://claude.com/programs/startups) — 40 deals. Examples: Anthropic Claude for Startups, OpenAI Startup Credits, GitHub Copilot Free
+- [Developer Tools](https://creditforstartups.com) — 34 deals. Examples: Credit for Startups, LaunchDarkly, Codeium
+- [Hosting & Cloud](https://netlify.com) — 26 deals. Examples: Netlify, AWS Activate, Cloudflare for Startups
+- [Database](https://neon.tech/startups) — 16 deals. Examples: Neon Startup Credits, Appwrite Cloud, Aiven
+- [APIs & Email](https://resend.com) — 10 deals. Examples: Resend, Twilio SendGrid, Postmark
+- [Productivity](https://airtable.com) — 9 deals. Examples: Airtable, Asana, Cal.com
+- [Security](https://tailscale.com) — 8 deals. Examples: Tailscale, Snyk, Sticky Password Premium
+- [Design & Collaboration](https://figma.com) — 8 deals. Examples: Figma, Miro, Penpot
+- [AI](https://try.gamma.app/vwi953t7x0ir) — 7 deals. Examples: Gamma, DeepLearning.AI, WordHero
+- [Monitoring](https://grafana.com/products/cloud) — 7 deals. Examples: Grafana Cloud Free, Better Stack, New Relic for Startups
+- [Web Analytics](https://posthog.com) — 5 deals. Examples: PostHog, Amplitude for Startups, PostHog for Startups
+- [Domains & Hosting](https://cloudflare.com/products/registrar/) — 4 deals. Examples: Cloudflare Registrar, IONOS, Namecheap
+- [APIs & Payments](https://konghq.com/solutions/startup-program) — 4 deals. Examples: Kong for Startups, Stripe, Stripe Atlas
+- [CI/CD](https://circleci.com/startup/) — 3 deals. Examples: CircleCI Startup Credits, Buildkite, CircleCI
+- [Customer Support](https://intercom.com/early-stage) — 3 deals. Examples: Intercom Early Stage, Zendesk, Support Board
+- [APIs & Search](https://www.algolia.com) — 2 deals. Examples: Algolia, Algolia Startup Program
+- [Auth](https://auth0.com) — 2 deals. Examples: Auth0, Clerk
+- [Storage & Cloud](https://www.backblaze.com) — 2 deals. Examples: Backblaze B2, MinIO
+- [Testing & QA](https://cypress.io) — 2 deals. Examples: Cypress, BrowserStack
+- [Media & Images](https://imagekit.io) — 2 deals. Examples: ImageKit, Cloudinary
+- [SEO](https://siteguru.co) — 1 deals. Examples: SiteGuru
+- [Social Media](https://sociamonials.com) — 1 deals. Examples: Sociamonials
+
+## About
+- **Site**: [devcheap.click](https://devcheap.click/)
+- **Deal count**: 196
+- **Categories**: 22
+- **Content**: Deals are added and updated continuously. Each deal has a dedicated detail page with description, pricing, coupon code, and affiliate link.
+- **Pricing types**: free, freemium, lifetime, subscription, one-time, credit

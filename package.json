@@ -5,7 +5,7 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "build": "node scripts/build.js",
+    "build": "node scripts/build.js && node scripts/generate-llmstxt.js",
     "lint:html": "html-validate index.html",
     "lint:css": "stylelint css/*.css",
     "validate:jsonl": "node -e \"const fs=require('fs');const lines=fs.readFileSync('data/deals.jsonl','utf-8').split('\\n').filter(Boolean);lines.forEach((l,i)=>{try{JSON.parse(l)}catch(e){console.error('Line '+(i+1)+': '+e.message);process.exit(1)}});console.log('✓ '+lines.length+' deals validated')\"",
