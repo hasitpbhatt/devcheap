@@ -43,16 +43,16 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-window.onTurnstileLoad = function () {
+function renderTurnstile() {
   const container = document.getElementById('turnstile-widget');
-  if (!container || typeof turnstile === 'undefined') return;
+  if (!container || typeof turnstile === 'undefined' || turnstileWidgetId !== null) return;
   turnstileWidgetId = turnstile.render(container, {
     sitekey: TURNSTILE_SITE_KEY,
     callback: function (token) { turnstileToken = token; },
     'expired-callback': function () { turnstileToken = null; },
     'error-callback': function () { turnstileToken = null; },
   });
-};
+}
 
 async function loadDeals() {
   const response = await fetch('/data/deals.jsonl');
@@ -449,7 +449,7 @@ function setupNewsletterForm() {
     if (result.ok) {
       showInlineSuccess(form, input, btn);
     } else {
-      showInlineError(btn, 'Try again');
+      showInlineError(btn, result.reason === 'Forbidden' ? 'Blocked by security' : (result.reason || 'Try again'));
     }
   });
 }
@@ -532,10 +532,11 @@ function updateExpiryCountdowns() {
 }
 
 function animateCounters() {
+  const partnerCompanies = new Set(dealsData.map(d => (d.id || '').split('-')[0]));
   const stats = [
     { id: 'stat-deals', target: dealsData.length },
     { id: 'stat-categories', target: new Set(dealsData.map(d => d.category)).size },
-    { id: 'stat-partners', target: dealsData.filter(d => d.has_affiliate).length },
+    { id: 'stat-partners', target: partnerCompanies.size },
   ];
   stats.forEach(({ id, target }) => {
     const el = document.getElementById(id);
@@ -853,6 +854,12 @@ async function boot() {
   if (turnstileContainer) {
     if (!TURNSTILE_SITE_KEY) {
       turnstileContainer.remove();
+    } else {
+      if (typeof turnstile !== 'undefined') {
+        renderTurnstile();
+      } else {
+        window.addEventListener('load', renderTurnstile);
+      }
     }
   }
   setupNewsletterForm();
@@ -999,6 +1006,7 @@ gridEl.addEventListener('click', (e) => {
         });
         updateCategoryURL([]);
         updateBreadcrumbJSONLD([]);
+        updateFiltersURL();
         currentPage = 1;
         currentSort = 'default';
         const sortSelect = document.getElementById('sort-select');

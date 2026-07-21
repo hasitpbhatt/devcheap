@@ -1,4 +1,4 @@
-const ALLOWED_ORIGINS = ['https://devcheap.click', 'https://devcheap-3uq.pages.dev'];
+const ALLOWED_ORIGINS = ['https://devcheap.click', 'https://devcheap-3uq.pages.dev', 'http://localhost:8788', 'http://localhost:3000', 'http://localhost:5173', 'http://127.0.0.1:8788', 'http://127.0.0.1:3000', 'http://127.0.0.1:5173'];
 
 async function verifyTurnstile(token, secret) {
   if (!token || !secret) return false;
