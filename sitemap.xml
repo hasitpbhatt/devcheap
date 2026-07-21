@@ -1123,6 +1123,12 @@
   <priority>0.8</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/vocalbridge/</loc>
+  <lastmod>2026-07-19</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/vultr/</loc>
   <lastmod>2026-07-19</lastmod>
   <changefreq>weekly</changefreq>
@@ -1166,6 +1172,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/deals/ycombinator-deals/</loc>
+  <lastmod>2026-07-19</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/youcam-api/</loc>
   <lastmod>2026-07-19</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
