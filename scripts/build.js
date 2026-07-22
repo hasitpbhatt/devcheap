@@ -271,6 +271,14 @@ const archived = deals
   <meta property="og:site_name" content="DevCheap">
   <meta property="og:image" content="https://devcheap.click/images/og-image.svg">
   <link rel="stylesheet" href="/css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9QV2CZSZP4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9QV2CZSZP4');
+</script>
 </head>
 <body>
   <nav class="nav" aria-label="Main navigation">
