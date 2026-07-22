@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="https://devcheap.click/category/{{CATEGORY_SLUG}}/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme:dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme:light)">
+  <title>{{CATEGORY_TITLE}}</title>
+  <meta name="description" content="{{CATEGORY_META_DESC}}">
+  <meta property="og:title" content="{{CATEGORY_TITLE}}">
+  <meta property="og:description" content="{{CATEGORY_META_DESC}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://devcheap.click/category/{{CATEGORY_SLUG}}/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="DevCheap">
+  <meta property="og:image" content="https://devcheap.click/images/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{CATEGORY_TITLE}}">
+  <meta name="twitter:description" content="{{CATEGORY_META_DESC}}">
+  <meta name="twitter:image" content="https://devcheap.click/images/og-image.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  
+  <style>
+    .category-hero {
+      padding: 48px 0 24px;
+    }
+    .category-hero h1 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .category-hero p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 720px;
+    }
+    .category-stats {
+      display: flex;
+      gap: 24px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .category-stat {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+    .category-stat strong {
+      color: var(--text);
+    }
+    .category-faq {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .category-faq h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--text);
+      letter-spacing: -0.4px;
+    }
+    .faq-item {
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 16px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      background: var(--bg-surface);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.15s;
+    }
+    .faq-question:hover {
+      background: var(--bg-elevated);
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 18px;
+      color: var(--text-tertiary);
+      transition: transform 0.2s;
+    }
+    .faq-question[aria-expanded="true"]::after {
+      content: '−';
+    }
+    .faq-answer {
+      padding: 0 20px 16px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      display: none;
+    }
+    .faq-answer[aria-hidden="false"] {
+      display: block;
+    }
+    .category-nav {
+      margin-bottom: 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-tertiary);
+    }
+    .category-nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .category-nav a:hover {
+      color: var(--accent);
+    }
+    .category-nav .sep {
+      margin: 0 8px;
+      color: var(--text-tertiary);
+    }
+    .page-wrapper {
+      padding-top: var(--nav-height);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .page-wrapper main {
+      flex: 1;
+    }
+  </style>
+
+  {{CATEGORY_JSONLD}}
+</head>
+<body>
+  <div class="page-wrapper">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="../../" class="nav-logo">
+          <span class="nav-logo-badge">devcheap</span>
+        </a>
+        <div class="nav-links">
+          <a href="../../#deals" class="nav-link">All Deals</a>
+          <a href="../../#newsletter" class="nav-link">Newsletter</a>
+          <button type="button" id="theme-toggle" class="theme-btn" title="Toggle theme" aria-label="Toggle theme">
+            <svg class="icon icon-moon" width="18" height="18" style="display:none"><use href="/images/icons.svg#icon-moon"/></svg>
+            <svg class="icon icon-sun" width="18" height="18"><use href="/images/icons.svg#icon-sun"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="category-nav">
+        <a href="../../">Home</a>
+        <span class="sep">/</span>
+        <span>{{CATEGORY_NAME}}</span>
+      </div>
+
+      <div class="category-hero">
+        <h1>{{CATEGORY_H1}}</h1>
+        <p>{{CATEGORY_INTRO}}</p>
+        <div class="category-stats">
+          <span class="category-stat"><strong>{{DEAL_COUNT}}</strong> deals</span>
+          <span class="category-stat"><strong>{{FREE_COUNT}} free</strong>, <strong>{{LIFETIME_COUNT}} lifetime</strong>, <strong>{{PAID_COUNT}} paid</strong></span>
+          <span class="category-stat">Ratings from <strong>1.0</strong> to <strong>10.0</strong></span>
+        </div>
+      </div>
+
+      <div class="deals-grid">
+        {{CATEGORY_DEAL_CARDS}}
+      </div>
+
+      <section class="category-faq">
+        <h2>Frequently Asked Questions</h2>
+        {{CATEGORY_FAQ}}
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo" aria-label="Site footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="nav-logo-badge">devcheap</span>
+          <p class="footer-text">Verified developer deals, curated weekly.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/hasitpbhatt/devcheap" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+          <a href="../../#newsletter" class="footer-link">Newsletter</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // FAQ toggle
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.nextElementSibling.setAttribute('aria-hidden', expanded);
+      });
+    });
+  </script>
+</body>
+</html>

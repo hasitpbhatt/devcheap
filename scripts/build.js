@@ -103,6 +103,142 @@ function renderDealCard(deal, isNested = false) {
 // Must stay in sync with FEATURED_RATING_MIN in js/search.js.
 const FEATURED_RATING_MIN = 8.0;
 
+function categorySlug(category) {
+  return category.toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+const categorySEO = {
+  'hosting & cloud': { title: 'Best Hosting & Cloud Deals 2026 — Free Credits & Discounts for Developers', h1: 'Hosting & Cloud Deals for Developers', intro: 'Discover the best cloud hosting deals, free credits, and startup packages from AWS, Google Cloud, Cloudflare, DigitalOcean, and more. Save thousands on infrastructure with verified offers.', faqs: [{ q: 'Which cloud platform gives the most free credits for startups?', a: 'Cloudflare for Startups offers up to $250,000 in enterprise credits. Google Cloud for Startups provides up to $350,000 for AI-native companies. AWS Activate gives $1,000-$100,000 depending on VC backing.' }, { q: 'Can I get free cloud credits without VC funding?', a: "Yes! AWS Activate Founders tier ($1,000-$5,000) is automatic for any startup. Google Cloud Start ($1,000) and Microsoft Founders Hub ($5,000) also don't require VC backing." }, { q: 'How long are cloud startup credits valid?', a: 'Most cloud credits are valid for 1-2 years. AWS credits last 12 months, Google Cloud credits are valid for 2 years, and DigitalOcean credits last 12 months.' }] },
+  'database': { title: 'Best Database Deals 2026 — Free Tiers & Startup Credits', h1: 'Database Deals for Developers', intro: 'Find the best free database tiers and startup credits for PostgreSQL, MySQL, MongoDB, and more. From serverless Postgres to managed SQL — get enterprise-grade databases for free.', faqs: [{ q: 'What is the best free PostgreSQL database?', a: 'Neon offers a generous free tier with serverless Postgres, branching, and scale-to-zero compute. For startups, they also provide up to $100,000 in credits.' }, { q: 'Which database has the best startup program?', a: 'Neon ($100K credits), CockroachDB (50M RUs free + 10GB storage), and Appwrite (75K MAU free BaaS) all offer exceptional startup programs.' }] },
+  'ai & llm': { title: 'Best AI & LLM Deals 2026 — Free API Credits & Discounts', h1: 'AI & LLM Deals for Developers', intro: 'Get free API credits for GPT-4, Claude, Gemini, and open-source LLMs. Access $50K+ in AI credits from OpenAI, Anthropic, and Cloudflare — all verified and updated.', faqs: [{ q: 'How can I get free GPT-4/Claude API credits?', a: 'Anthropic offers up to $25,000 in Claude API credits for startups. OpenAI provides $5,000-$50,000+ for qualifying startups. GitHub Models gives free rate-limited access to 40+ models including GPT-4o.' }, { q: 'Are there free AI APIs that don\'t require a startup?', a: 'Yes! Cloudflare Workers AI gives 10,000 free neurons/day. GitHub Models offers free access to GPT-4o, DeepSeek-R1, and Llama 3.3. Cerebras provides 1M free tokens/day at 2,100 tok/s.' }] },
+  'developer tools': { title: 'Best Developer Tools Deals 2026 — Free Tiers & Lifetime Licenses', h1: 'Developer Tools Deals for Developers', intro: 'Find the best free and discounted developer tools — from AI coding assistants and API clients to CI/CD and monitoring. Save hundreds on your dev stack with verified deals.', faqs: [{ q: 'What is the best free AI coding assistant?', a: 'GitHub Copilot Free gives 2,000 completions + 50 chat messages/month. Codeium offers unlimited free AI autocomplete. Cursor Pro provides 1 year free for startups through SaaSOffers.' }, { q: 'Are lifetime developer tools worth it?', a: 'Yes — tools like Bruno (free Postman alternative), Coolify (free Heroku alternative), and lifetime deals on AppSumo can save you $100+/year compared to subscription models.' }] },
+  'apis & email': { title: 'Best API & Email Deals 2026 — Free Tiers & Transactional Email', h1: 'APIs & Email Deals for Developers', intro: 'Compare the best free email API tiers and transactional email services. SendGrid, Resend, Mailgun, and more — get reliable email delivery without breaking the bank.', faqs: [{ q: 'What is the best free transactional email service?', a: 'Resend offers a generous free tier with good deliverability. Twilio SendGrid has a free tier of 100 emails/day. Postmark has a free trial with 100 emails.' }, { q: 'How many free emails can I send per month?', a: 'Most email APIs offer 100-300 free emails per day on their free tiers. Brevo (formerly Sendinblue) offers 300 emails/day free with their marketing platform.' }] },
+  'security': { title: 'Best Security Deals 2026 — Free VPN, Privacy & Security Tools', h1: 'Security Deals for Developers', intro: 'Protect your projects with free security tools — VPNs, password managers, GDPR compliance, and ad-blockers. Lifetime deals save you hundreds vs. monthly subscriptions.', faqs: [{ q: 'What is the best free VPN for developers?', a: 'Tailscale offers a generous free tier for personal use with unlimited devices. FastestVPN has a lifetime deal option. For privacy, AdGuard has a lifetime ad-blocking subscription.' }] },
+  'monitoring': { title: 'Best Monitoring Deals 2026 — Free Uptime, APM & Error Tracking', h1: 'Monitoring Deals for Developers', intro: 'Keep your apps running with free monitoring tools — uptime checks, APM, error tracking, and log management. Get enterprise monitoring for free with verified startup deals.', faqs: [{ q: 'What is the best free uptime monitoring tool?', a: 'Better Stack offers free uptime monitoring with 100GB of log storage. Checkly provides Playwright-based browser monitoring. Both have generous free tiers.' }, { q: 'Which APM tool is free for startups?', a: 'New Relic offers startup credits through their startup program. Sentry provides $100/month free for startups with their error monitoring platform.' }] },
+  'productivity': { title: 'Best Productivity Deals 2026 — Free Project Management & Scheduling', h1: 'Productivity Deals for Developers', intro: 'Boost your workflow with free productivity tools — project management, scheduling, and documentation platforms. Lifetime deals save you money on tools you use every day.', faqs: [{ q: 'What is the best free project management tool?', a: 'Asana is free for up to 15 teammates with unlimited tasks and projects. ClickUp offers a generous free tier. Airtable provides $2,000 in credits through partnerships.' }] },
+  'design & collaboration': { title: 'Best Design & Collaboration Deals 2026 — Free UI/UX & Whiteboard Tools', h1: 'Design & Collaboration Deals for Developers', intro: 'Find free design tools, whiteboards, and collaboration platforms. Figma, Excalidraw, Miro — get premium design tools without the premium price tag.', faqs: [{ q: 'Is Figma really free?', a: 'Yes! Figma\'s Starter plan is forever-free with unlimited drafts, UI kits, 150 AI credits/day, and unlimited viewers. The free tier is very generous for individual developers.' }, { q: 'What is the best free whiteboard tool?', a: 'Excalidraw is completely free and open-source with end-to-end encryption. It has a hand-drawn feel and supports real-time collaboration. No account needed for the web version.' }] },
+  'web analytics': { title: 'Best Web Analytics Deals 2026 — Free Product Analytics & Session Recording', h1: 'Web Analytics Deals for Developers', intro: 'Understand your users with free analytics tools — product analytics, session recording, A/B testing, and more. PostHog, Amplitude, and other top tools offer generous free tiers.', faqs: [{ q: 'What is the best free product analytics platform?', a: 'PostHog offers 1M events/month free with session recordings, feature flags, surveys, and error tracking — all open-source. Amplitude offers 1 year free Growth plan ($36K value) for startups.' }] },
+  'ci/cd': { title: 'Best CI/CD Deals 2026 — Free Build Minutes & Compute Credits', h1: 'CI/CD Deals for Developers', intro: 'Speed up your development with free CI/CD pipelines. CircleCI, Buildkite, and other platforms offer free build minutes and startup credits worth thousands.', faqs: [{ q: 'What is the best free CI/CD platform?', a: 'CircleCI offers 6,000 free credits/week (Linux builds) and $20,000 in startup credits. Buildkite gives 5,000 free job minutes/month for 3 users. Both are excellent choices.' }] },
+  'domains & hosting': { title: 'Best Domains & Hosting Deals 2026 — Cheap Domains & Web Hosting', h1: 'Domains & Hosting Deals for Developers', intro: 'Find the cheapest domain registration and web hosting deals. Cloudflare Registrar offers domains at cost, while IONOS and Namecheap provide deep discounts on hosting plans.', faqs: [{ q: 'Where is the cheapest place to buy domains?', a: 'Cloudflare Registrar sells domains at cost — typically $9.15/year for .com with no markup. Namecheap offers up to 50% off domains with free WHOIS privacy.' }] },
+  'auth': { title: 'Best Auth Deals 2026 — Free Authentication & User Management', h1: 'Authentication Deals for Developers', intro: 'Add authentication to your apps for free. Auth0, Clerk, and other auth platforms offer generous free tiers with thousands of monthly active users included.', faqs: [{ q: 'What is the best free authentication provider?', a: 'Auth0 is free for 7,000 MAUs and Clerk is free for 10,000 MAUs. Both support social login, MFA, and modern auth flows. They save $25-30/month compared to paid plans.' }] },
+  'storage & cloud': { title: 'Best Storage & Cloud Deals 2026 — Free Object Storage', h1: 'Storage & Cloud Deals for Developers', intro: 'Get free cloud storage for your projects. Backblaze B2 and MinIO offer S3-compatible object storage with generous free tiers — perfect for backups and media.', faqs: [{ q: 'What is the best free S3-compatible storage?', a: 'Backblaze B2 offers 10GB free storage with affordable egress pricing (cheaper than AWS). MinIO is open-source and self-hostable for unlimited storage.' }] },
+  'media & images': { title: 'Best Media & Image Deals 2026 — Free Image Optimization & CDN', h1: 'Media & Images Deals for Developers', intro: 'Optimize and deliver images and video for free. Cloudinary, ImageKit, and other media tools offer free monthly credits for transformations and CDN delivery.', faqs: [{ q: 'What is the best free image optimization service?', a: 'Cloudinary offers 25 free monthly credits for image and video transformations with CDN delivery. ImageKit has similar capabilities with a free tier.' }] },
+  'testing & qa': { title: 'Best Testing & QA Deals 2026 — Free Cross-Browser & E2E Testing', h1: 'Testing & QA Deals for Developers', intro: 'Test your apps across browsers and devices for free. Cypress, BrowserStack, and other QA tools offer free tiers and trials for cross-browser and end-to-end testing.', faqs: [{ q: 'What is the best free end-to-end testing tool?', a: 'Cypress is free and open-source with time-travel debugging, automatic waiting, and real-time reloads. It\'s the industry standard for front-end testing.' }] },
+  'apis & payments': { title: 'Best Payments & API Deals 2026 — Free Payment Processing', h1: 'APIs & Payments Deals for Developers', intro: 'Start accepting payments for free with Stripe and other payment APIs. Get free processing credits and startup programs worth thousands.', faqs: [{ q: 'How can I get free Stripe processing?', a: 'Stripe offers $100 in free processing credits for new accounts. Stripe Atlas provides additional benefits for startups looking to incorporate.' }] },
+  'api & search': { title: 'Best Search API Deals 2026 — Free Search & Discovery', h1: 'Search API Deals for Developers', intro: 'Add powerful search to your apps with free search APIs. Algolia and other search platforms offer free tiers with thousands of records included.', faqs: [{ q: 'What is the best free search API?', a: 'Algolia offers a free tier with 10,000 records and typo-tolerant search. Their startup program provides $10,000 in API credits for qualifying startups.' }] },
+  'customer support': { title: 'Best Customer Support Deals 2026 — Free Helpdesk & Support Tools', h1: 'Customer Support Deals for Developers', intro: 'Provide great customer support without the cost. Intercom, Zendesk, and other support platforms offer free startup programs and generous free tiers.', faqs: [{ q: 'What is the best free customer support platform?', a: 'Intercom offers startup credits through their early-stage program. Zendesk provides free tiers for small teams. Both offer substantial discounts for startups.' }] },
+  'sales & marketing': { title: 'Best Sales & Marketing Deals 2026 — Free Marketing Tools', h1: 'Sales & Marketing Deals for Developers', intro: 'Grow your startup with free sales and marketing tools. Get CRM, email marketing, and analytics platforms at no cost through generous free tiers and startup programs.' },
+  'services': { title: 'Best Developer Services Deals 2026 — Free Consulting & Support', h1: 'Developer Services Deals', intro: 'Access free consulting, support, and professional services for your startup. Many cloud providers include technical guidance with their credit programs.' },
+  'ai': { title: 'Best AI Tools Deals 2026 — Free AI Apps & Lifetime Licenses', h1: 'AI Tools Deals for Developers', intro: 'Discover the best deals on AI-powered tools — from presentations and content creation to multi-model chat interfaces. Lifetime licenses save you from monthly fees.', faqs: [{ q: 'What are the best lifetime AI tool deals?', a: '1minAI offers a lifetime license with GPT-4, Claude, Gemini, and Midjourney access. ChatPlayGround AI provides multi-model chat for a one-time fee. Gamma has a generous free tier for AI presentations.' }] },
+  'social media': { title: 'Best Social Media Deals 2026 — Free Social Media Management', h1: 'Social Media Deals for Developers', intro: 'Manage your social media presence for less with discounted and lifetime social media management tools.' },
+  'seo': { title: 'Best SEO Deals 2026 — Free SEO Tools & Discounts', h1: 'SEO Deals for Developers', intro: 'Improve your search rankings with discounted SEO tools. Get site audits, keyword research, and optimization tools through exclusive developer deals.' },
+};
+
+const defaultSEO = {
+  title: 'Best Deals for Developers — Free Credits & Discounts | DevCheap',
+  h1: 'Developer Tool Deals',
+  intro: 'Curated deals on developer tools, APIs, hosting, and AI services. Free credits, lifetime licenses, and exclusive discounts verified and updated regularly.',
+  faqs: [{ q: 'How are deals verified?', a: 'Every deal on DevCheap is manually reviewed, rated 1-10, and categorized. We verify each offer\'s terms, pricing, and expiration date before listing.' }, { q: 'Do deals require a startup?', a: 'Some deals require startup status or VC backing, but many are available to all developers. Use the "startup-only" tag filter to distinguish. Free tiers and lifetime deals typically have no requirements.' }]
+};
+
+async function generateCategoryPages(ROOT_DIR, deals) {
+  const templatePath = path.join(ROOT_DIR, 'templates', 'category.html');
+  const template = await fs.readFile(templatePath, 'utf-8');
+  const categoryDir = path.join(ROOT_DIR, 'category');
+  await fs.mkdir(categoryDir, { recursive: true });
+
+  const cats = [...new Set(deals.map(d => d.category))].sort();
+
+  const promises = cats.map(async (cat) => {
+    const slug = categorySlug(cat);
+    const seo = categorySEO[cat.toLowerCase()] || defaultSEO;
+    const catDeals = deals.filter(d => d.category === cat)
+      .sort((a, b) => (b.rating || 0) - (a.rating || 0));
+
+    const freeCount = catDeals.filter(d => d.pricing === 'free').length;
+    const lifetimeCount = catDeals.filter(d => d.pricing === 'lifetime').length;
+    const paidCount = catDeals.filter(d => d.pricing === 'paid' || d.pricing === 'trial').length;
+
+    // Generate a clean meta description from intro
+    const dealLabel = catDeals.length === 1 ? 'verified deal' : 'verified deals';
+    const metaDesc = `${seo.intro} ${catDeals.length} ${dealLabel} — free credits, lifetime licenses, and startup packages.`;
+
+    const dealCards = catDeals.map(d => renderDealCard(d)).join('\n');
+
+    const faqs = (seo.faqs || defaultSEO.faqs).map((faq, i) => `
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">${escapeHtml(faq.q)}</button>
+      <div class="faq-answer" aria-hidden="true">${escapeHtml(faq.a)}</div>
+    </div>`).join('\n');
+
+    // JSON-LD structured data
+    const itemListJson = {
+      "@context": "https://schema.org",
+      "@type": ["CollectionPage", "ItemList"],
+      "@id": `https://devcheap.click/category/${slug}/`,
+      "name": seo.h1,
+      "description": metaDesc,
+      "url": `https://devcheap.click/category/${slug}/`,
+      "numberOfItems": catDeals.length,
+      "itemListElement": catDeals.map((d, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "url": `https://devcheap.click/deals/${d.id}/`
+      })),
+      "isPartOf": { "@id": "https://devcheap.click/#website" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://devcheap.click/" },
+          { "@type": "ListItem", "position": 2, "name": cat, "item": `https://devcheap.click/category/${slug}/` }
+        ]
+      }
+    };
+
+    // FAQ structured data
+    if (faqs.length > 0) {
+      const faqJson = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": (seo.faqs || defaultSEO.faqs).map(f => ({
+          "@type": "Question",
+          "name": f.q,
+          "acceptedAnswer": { "@type": "Answer", "text": f.a }
+        }))
+      };
+      itemListJson.mainEntity = faqJson.mainEntity;
+    }
+
+    const jsonLdHtml = `<script type="application/ld+json">\n${JSON.stringify(itemListJson, null, 2)}\n</script>`;
+
+    const pageDir = path.join(categoryDir, slug);
+    await fs.mkdir(pageDir, { recursive: true });
+
+    let html = template
+      .replace(/{{CATEGORY_SLUG}}/g, slug)
+      .replace(/{{CATEGORY_NAME}}/g, escapeHtml(cat))
+      .replace(/{{CATEGORY_TITLE}}/g, escapeHtml(seo.title || defaultSEO.title))
+      .replace(/{{CATEGORY_H1}}/g, escapeHtml(seo.h1 || defaultSEO.h1))
+      .replace(/{{CATEGORY_INTRO}}/g, escapeHtml(seo.intro || defaultSEO.intro))
+      .replace(/{{CATEGORY_META_DESC}}/g, escapeHtml(metaDesc))
+      .replace(/{{DEAL_COUNT}}/g, catDeals.length)
+      .replace(/{{FREE_COUNT}}/g, freeCount)
+      .replace(/{{LIFETIME_COUNT}}/g, lifetimeCount)
+      .replace(/{{PAID_COUNT}}/g, paidCount)
+      .replace('{{CATEGORY_DEAL_CARDS}}', dealCards)
+      .replace('{{CATEGORY_FAQ}}', faqs)
+      .replace('{{CATEGORY_JSONLD}}', jsonLdHtml);
+
+    await fs.writeFile(path.join(pageDir, 'index.html'), html, 'utf-8');
+  });
+
+  await Promise.all(promises);
+  console.log(`✅ Generated ${cats.length} category SEO pages under /category/[slug]/`);
+}
+
 async function generateArchive(ROOT_DIR, deals, getFileLastMod) {
   const archivePath = path.join(ROOT_DIR, 'archive.html');
   const lastMod = getFileLastMod('data/deals.jsonl');
@@ -389,7 +525,10 @@ const productJson = {
   
   console.log(`✅ Generated ${totalDeals} deal detail pages under /deals/[id]/index.html`);
 
-  // 4. Generate sitemap.xml
+  // 4. Generate Category SEO Pages
+  await generateCategoryPages(ROOT_DIR, deals);
+
+  // 5. Generate sitemap.xml
   const sitemapPath = path.join(ROOT_DIR, 'sitemap.xml');
   const today = new Date().toISOString().split('T')[0];
   
@@ -404,10 +543,17 @@ const productJson = {
     sitemapXml += `<url>\n  <loc>https://devcheap.click/deals/${deal.id}/</loc>\n  <lastmod>${globalLastMod}</lastmod>\n  <changefreq>weekly</changefreq>\n  <priority>0.8</priority>\n</url>\n`;
   }
 
+  // Add category SEO pages to sitemap
+  const cats = [...new Set(deals.map(d => d.category))].sort();
+  for (const cat of cats) {
+    const slug = categorySlug(cat);
+    sitemapXml += `<url>\n  <loc>https://devcheap.click/category/${slug}/</loc>\n  <lastmod>${globalLastMod}</lastmod>\n  <changefreq>weekly</changefreq>\n  <priority>0.7</priority>\n</url>\n`;
+  }
+
   sitemapXml += `</urlset>\n`;
   await fs.writeFile(sitemapPath, sitemapXml, 'utf-8');
-  
-  // 5. Generate sitemap_index.xml
+
+  // 6. Generate sitemap_index.xml
   const sitemapIndexPath = path.join(ROOT_DIR, 'sitemap_index.xml');
   const sitemapIndexXml = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<sitemap>\n  <loc>https://devcheap.click/sitemap.xml</loc>\n  <lastmod>${today}</lastmod>\n</sitemap>\n</sitemapindex>\n`;
   await fs.writeFile(sitemapIndexPath, sitemapIndexXml, 'utf-8');
@@ -415,7 +561,7 @@ const productJson = {
   console.log('✅ Generated sitemap.xml with all deal detail pages.');
   console.log('✅ Generated sitemap_index.xml.');
 
-  // 6. Generate archive.html — low-value deals kept linkable but off the homepage
+  // 7. Generate archive.html — low-value deals kept linkable but off the homepage
   await generateArchive(ROOT_DIR, deals, getFileLastMod);
 
   console.log('✨ Build complete! Time to deploy.');

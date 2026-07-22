@@ -47,6 +47,7 @@ Before committing, you must verify your changes:
 * **Validate JSONL syntax:** Each line in `data/deals.jsonl` must be valid JSON. Run `npm run validate:jsonl`.
 * **Run tests:** Run `npm test` to ensure schema validation, UI interactions, HTML structure, and accessibility checks pass.
 * **Regenerate RSS:** Run `pwsh scripts/generate-feed.ps1` to regenerate `feed.xml` from the deal database.
+* **Regenerate SEO pages:** Run `npm run build` to regenerate `index.html`, `/deals/[id]/index.html` detail pages, `/category/[slug]/index.html` SEO landing pages, `sitemap.xml`, and `llms.txt`. The category pages include FAQ structured data and item list schema for search engines.
 * **Validate Links:** Double-check that all URLs added are active, direct, secure (HTTPS), and point to the official site. **Do not submit affiliate, spam, or tracking redirect links.**
 * **Local Preview:** Run a local server (e.g. `python -m http.server 8000`) and verify that the page renders correctly and search/filters work as expected.
 

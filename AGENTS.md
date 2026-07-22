@@ -9,6 +9,7 @@ When adding, removing, or modifying deals in `data/deals.jsonl`, these files mus
 | `data/deals.jsonl` | Edit deals directly | No (manual) |
 | `index.html` | Homepage stats + category buttons | Yes — run `npm run build` (via `scripts/build.js`) |
 | `deals/<id>/index.html` | Per-deal detail pages | Yes — run `npm run build` (via `scripts/build.js`) |
+| `category/<slug>/index.html` | SEO-optimized category landing pages | Yes — run `npm run build` (via `scripts/build.js`) |
 | `sitemap.xml` | Full sitemap rewritten from `deals.jsonl` | Yes — run `npm run build` (via `scripts/build.js`). Do NOT hand-edit; it will be overwritten on the next build. |
 | `llms.txt` | LLM-friendly site summary generated from `deals.jsonl` | Yes — run `npm run build` (via `scripts/generate-llmstxt.js`). |
 | `feed.xml` | Regenerate from `data/deals.jsonl` | Yes — run `pwsh scripts/generate-feed.ps1` (use `powershell` if `pwsh` is not installed) |

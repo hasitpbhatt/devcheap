@@ -34,6 +34,7 @@ devcheap/
 ├── README.md            # This file
 ├── index.html           # Main page
 ├── feed.xml             # RSS feed (auto-generated from deals.jsonl via scripts/generate-feed.ps1)
+├── category/             # Category SEO landing pages (auto-generated via build.js — do not hand-edit)
 ├── sitemap.xml          # Sitemap (auto-generated from deals.jsonl via scripts/build.js — do not hand-edit)
 └── package.json         # Scripts: validate, test, lint
 ```

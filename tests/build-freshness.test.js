@@ -33,10 +33,11 @@ describe('build freshness', () => {
     expect(parseInt(match[1], 10)).toBe(dealCount);
   });
 
-  it('sitemap.xml contains exactly one <url> per deal (+ homepage)', () => {
+  it('sitemap.xml contains <url> for homepage, every deal, and every category page', () => {
     const sitemap = fs.readFileSync(SITEMAP_PATH, 'utf-8');
     const urlCount = (sitemap.match(/<loc>/g) || []).length;
-    expect(urlCount).toBe(dealCount + 1);
+    const categories = [...new Set(deals.map(d => d.category))].length;
+    expect(urlCount).toBe(dealCount + 1 + categories);
   });
 
   it('every deal in deals.jsonl has a generated detail page', () => {
