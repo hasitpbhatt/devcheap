@@ -5,7 +5,7 @@
     <link>https://devcheap.click/</link>
     <description>Verified deals on APIs, hosting, databases, and AI tools. Free credits, lifetime discounts, and limited offers curated weekly.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Jul 2026 10:14:09 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2026 08:13:00 GMT</lastBuildDate>
     <atom:link href="https://devcheap.click/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>1minAI — Lifetime License - $39</title>
@@ -1590,6 +1590,94 @@
       <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">youcam-api</guid>
       <category>Media &amp; Images</category>
+    </item>
+    <item>
+      <title>IBM Cloud for Startups — Up to $120,000 Cloud Credits</title>
+      <link>https://devcheap.click/deals/ibm-cloud-startups/</link>
+      <description>Up to $120K IBM Cloud credits ΓÇö no VC needed for Builder tier, includes Watson AI and Kubernetes IBM Cloud for Startups offers up to $120,000 in cloud credits for qualifying early-stage startups. Access to IBM Cloud services including compute, storage, AI/ML (Watson), Kubernetes, and databases. No VC backing required for Builder tier. Includes technical support and co-marketing opportunities.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">ibm-cloud-startups</guid>
+      <category>Hosting &amp; Cloud</category>
+    </item>
+    <item>
+      <title>OVHcloud Startup Program — Γé¼10,000-Γé¼100,000 Cloud Credits</title>
+      <link>https://devcheap.click/deals/ovhcloud-startup/</link>
+      <description>Γé¼10K-Γé¼100K OVHcloud credits ΓÇö bare metal, VPS, and private cloud for European startups OVHcloud Startup Program provides Γé¼10,000 to Γé¼100,000 in cloud credits for early-stage startups. Access to bare metal servers, VPS, hosted private cloud, and AI/ML infrastructure. 30+ data centers worldwide. Strong European data privacy compliance (GDPR).</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">ovhcloud-startup</guid>
+      <category>Hosting &amp; Cloud</category>
+    </item>
+    <item>
+      <title>Membrane Core — Free Forever Tier</title>
+      <link>https://devcheap.click/deals/membrane-core/</link>
+      <description>Free forever API development tool ΓÇö visual debugger, type-safe client, no CC Open-source API development platform with a visual debugger, type-safe API client, and live request inspection. Free forever tier includes unlimited projects, API collections, and local debugging. No credit card required. Launched January 2026.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">membrane-core</guid>
+      <category>Developer Tools</category>
+    </item>
+    <item>
+      <title>Safeguard.sh — Free for Bootstrapped Startups</title>
+      <link>https://devcheap.click/deals/safeguardsh/</link>
+      <description>Free security scanning for bootstrapped startups ΓÇö secrets detection and dependency analysis at zero cost Developer security toolkit for secrets scanning, dependency analysis, and security posture monitoring. Free for bootstrapped startups. Paid Starter plan at $0.99/month for early-stage funded companies. CLI and CI integration with GitHub, GitLab, and Bitbucket.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">safeguardsh</guid>
+      <category>Security</category>
+    </item>
+    <item>
+      <title>Arcee AI Trinity Builders — Up to 1 Billion Tokens Free</title>
+      <link>https://devcheap.click/deals/arcee-ai-trinity/</link>
+      <description>Up to 1B free tokens on Arcee AI ΓÇö domain-adapted LLMs and model merging for specialized AI apps Arcee AI&apos;s Trinity Builders program offers up to 1 billion free tokens for qualifying developers and startups. Access to Arcee&apos;s domain-adapted LLMs and model merging technology. Build specialized AI applications using distilled and merged open-source models. Application required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">arcee-ai-trinity</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Embercloud for Startups — $100 Free Credits (No Credit Card)</title>
+      <link>https://devcheap.click/deals/embercloud-startups/</link>
+      <description>$100 free cloud credits with no credit card ΓÇö managed Kubernetes hosting for startups Embercloud offers $100 in free cloud credits for startups with no credit card required. Managed Kubernetes hosting with automated scaling, built-in CI/CD, and global edge deployment. Simple pricing with no hidden costs.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">embercloud-startups</guid>
+      <category>Hosting &amp; Cloud</category>
+    </item>
+    <item>
+      <title>Confluent for Startups — ~$20,000 Kafka + Flink Credits</title>
+      <link>https://devcheap.click/deals/confluent-startups/</link>
+      <description>~$20K Confluent Cloud credits ΓÇö managed Kafka and Flink for real-time data streaming startups Confluent for Startups offers approximately $20,000 in credits for Confluent Cloud (managed Apache Kafka and Flink). Real-time data streaming, event-driven architectures, and stream processing. Includes access to Kafka clusters, Flink compute, and ksqlDB. Application required for qualifying startups.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">confluent-startups</guid>
+      <category>Database</category>
+    </item>
+    <item>
+      <title>Neo4j Startup Program — $16,000 AuraDB Credits</title>
+      <link>https://devcheap.click/deals/neo4j-startup/</link>
+      <description>$16K Neo4j AuraDB credits ΓÇö managed graph database for recommendation and knowledge graph startups Neo4j Startup Program offers $16,000 in AuraDB (cloud graph database) credits for qualifying startups. Fully managed graph database with Cypher query language, built-in visualization, and ACID compliance. Perfect for recommendation engines, fraud detection, and knowledge graphs.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">neo4j-startup</guid>
+      <category>Database</category>
+    </item>
+    <item>
+      <title>Kubeletto — Free During Beta</title>
+      <link>https://devcheap.click/deals/kubeletto/</link>
+      <description>Free Kubernetes cost optimization during beta ΓÇö identify over-provisioned resources and reduce cloud spend Kubernetes cost optimization and management platform. Free during beta period. Provides real-time cost visibility, resource rightsizing recommendations, and namespace-level cost allocation. Helps teams reduce cloud spend by identifying over-provisioned workloads and unused resources.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">kubeletto</guid>
+      <category>Developer Tools</category>
+    </item>
+    <item>
+      <title>Gradium Startup Program — $2,000+ Voice AI Credits</title>
+      <link>https://devcheap.click/deals/gradium-startup/</link>
+      <description>$2K+ Gradium voice AI credits ΓÇö build voice agents with NLU and real-time voice processing Gradium offers $2,000+ in voice AI platform credits for qualifying startups. Build and deploy voice agents with natural language understanding, text-to-speech, and real-time voice processing. Includes access to Gradium&apos;s voice AI API and agent building tools. Application required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">gradium-startup</guid>
+      <category>AI &amp; LLM</category>
+    </item>
+    <item>
+      <title>Pruna Build Program — $300-$3,900 AI Compute Credits</title>
+      <link>https://devcheap.click/deals/pruna-build/</link>
+      <description>$300-$3,900 Pruna AI compute credits ΓÇö model compression and optimization for efficient AI deployment Pruna AI offers $300 to $3,900 in compute credits through their Build program. Optimize and deploy AI models with Pruna&apos;s compression and acceleration tools. Supports pruning, quantization, distillation, and hardware-aware optimization. Application required, credits depend on project scope.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">pruna-build</guid>
+      <category>AI &amp; LLM</category>
     </item>
   </channel>
 </rss>

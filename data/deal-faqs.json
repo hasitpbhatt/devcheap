@@ -303,6 +303,60 @@
       "a": "The Starter plan limits you to 3 projects and 1 team. You get 150 AI credits per day (up to 500/month). Version history is limited to 30 days. For individual designers and small projects, these limits are generous. Pro ($12/month) removes project limits and adds unlimited AI credits."
     }
   ],
+  "ibm-cloud-startups": [
+    {
+      "q": "How do I apply for IBM Cloud for Startups?",
+      "a": "Visit ibm.com/cloud/startups and submit the application form, or apply directly at orders.cloud.ibm.com/IBMGEP-application/. Provide company info, founding date, revenue estimate, MVP description, and intended use case. Applications are reviewed within 1-2 weeks. Use a professional business email matching your company domain for faster approval."
+    },
+    {
+      "q": "What are the eligibility requirements for IBM Cloud credits?",
+      "a": "Your startup must be under 5 years old, under $1M in annual revenue, and have a working MVP (demo, beta, or live product). You must not be a current paying IBM Cloud customer. No VC sponsor or accelerator affiliation is required for the Builder tier. Premium tier ($120K) requires an approved venture partner referral."
+    },
+    {
+      "q": "How much in credits can I get from IBM Cloud for Startups?",
+      "a": "Builder tier: $1,000/month for 12 months ($12,000 total) for self-funded startups. Premium tier: $10,000/month for 12 months ($120,000 total) for startups with an approved VC or accelerator referral. Credits cover 130+ IBM Cloud services including Watson AI, Db2, Red Hat OpenShift, compute, storage, and object storage."
+    },
+    {
+      "q": "Can I use IBM Cloud credits for Watson AI and OpenShift?",
+      "a": "Yes. IBM Cloud credits cover the full platform including Watson AI/ML services, Red Hat OpenShift (hybrid Kubernetes), IBM Db2 relational database, Cloud Object Storage, Block Storage, and virtual servers. If your enterprise customers require hybrid or on-premises deployments, emphasize OpenShift and Db2 in your application."
+    }
+  ],
+  "confluent-startups": [
+    {
+      "q": "How do I apply for Confluent for Startups?",
+      "a": "Apply at confluent.io/startups by filling out the application form with your startup details. You'll need a functioning company website and corporate email. YC-backed startups can also access credits through YC Deals. Approval includes up to one year of free Confluent Cloud access."
+    },
+    {
+      "q": "What are the eligibility requirements for Confluent startup credits?",
+      "a": "Your startup must be early-stage (Series B or earlier), founded within the last 5-6 years, with annual revenue under $2M. You must not be an existing paying Confluent Cloud customer. Located in major startup hubs (US, UK, EU, Israel, India, Singapore). A corporate email and functioning website are expected."
+    },
+    {
+      "q": "How much in credits does Confluent for Startups provide?",
+      "a": "Qualifying startups receive approximately $20,000 in Confluent Cloud credits valid for up to 12 months. The program also includes a 2-hour consultation with a Confluent architect, $500 in developer support, $2,000 worth of training credits, bi-weekly technical office hours, and access to an exclusive community of program members."
+    },
+    {
+      "q": "What can I use Confluent startup credits for?",
+      "a": "Credits cover all Confluent Cloud services including managed Apache Kafka clusters, Apache Flink stream processing, 100+ built-in connectors (MongoDB, S3, Postgres, BigQuery), ksqlDB, schema registry, and data governance features. Credits can be used across Basic, Standard, Enterprise, and Dedicated cluster tiers."
+    }
+  ],
+  "neo4j-startup": [
+    {
+      "q": "How do I apply for the Neo4j Startup Program?",
+      "a": "Apply at neo4j.com/startup-program by submitting your startup details. You'll need a live functioning website, a valid company LinkedIn profile associated with the applicant, and information about your product. Neo4j accepts both new and existing AuraDB users. Applications are reviewed on a rolling basis."
+    },
+    {
+      "q": "What are the eligibility requirements for Neo4j startup credits?",
+      "a": "Your startup must be at Series B or earlier (pre-seed through Series B). You must be building a single product for many customers (not a custom product for individual clients — agencies and consulting firms are not eligible). You need a live website and a company LinkedIn profile. Revenue under $3M and fewer than 50 employees are also expected."
+    },
+    {
+      "q": "How much in AuraDB credits can I get?",
+      "a": "Qualifying startups receive up to $16,000 in Neo4j AuraDB credits for use on AuraDB Professional or AuraDB Business Critical tiers. Credits are also valid for Aura Graph Analytics. The program also includes 1:1 technical consultations with Neo4j graph engineers, GraphRAG architecture validation, and co-marketing opportunities."
+    },
+    {
+      "q": "What can I build with Neo4j AuraDB credits?",
+      "a": "Neo4j AuraDB is a fully managed cloud graph database. Use cases include knowledge graphs for AI, GraphRAG to enhance LLM performance, fraud detection networks, recommendation engines, supply chain analytics, digital twins, and real-time graph visualization. The credits support rapid prototyping and production deployment on a managed, auto-scaling infrastructure."
+    }
+  ],
   "tailscale": [
     {
       "q": "Is Tailscale really free?",
