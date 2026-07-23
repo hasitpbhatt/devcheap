@@ -33,11 +33,12 @@ describe('build freshness', () => {
     expect(parseInt(match[1], 10)).toBe(dealCount);
   });
 
-  it('sitemap.xml contains <url> for homepage, every deal, and every category page', () => {
+  it('sitemap.xml contains <url> for homepage, every deal, category, and article page', () => {
     const sitemap = fs.readFileSync(SITEMAP_PATH, 'utf-8');
     const urlCount = (sitemap.match(/<loc>/g) || []).length;
     const categories = [...new Set(deals.map(d => d.category))].length;
-    expect(urlCount).toBe(dealCount + 1 + categories);
+    const articles = 5;
+    expect(urlCount).toBe(dealCount + 1 + categories + articles);
   });
 
   it('every deal in deals.jsonl has a generated detail page', () => {

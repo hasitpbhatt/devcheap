@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>https://devcheap.click/</loc>
-  <lastmod>2026-07-22</lastmod>
+  <lastmod>2026-07-23</lastmod>
   <changefreq>weekly</changefreq>
   <priority>1.0</priority>
 </url>
@@ -1325,5 +1325,35 @@
   <lastmod>2026-07-21</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/articles/best-free-cloud-credits/</loc>
+  <lastmod>2026-07-23</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/articles/best-free-ai-apis/</loc>
+  <lastmod>2026-07-23</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/articles/free-developer-tools-2026/</loc>
+  <lastmod>2026-07-23</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/articles/startup-credit-programs/</loc>
+  <lastmod>2026-07-23</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/articles/best-lifetime-deals-developers/</loc>
+  <lastmod>2026-07-23</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
 </url>
 </urlset>

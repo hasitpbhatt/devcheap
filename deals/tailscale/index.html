@@ -241,15 +241,112 @@
       justify-content: flex-end;
       max-width: 60%;
     }
-    .detail-tag {
-      font-size: 11px;
-      font-family: var(--font-mono);
-      color: var(--text-tertiary);
-      background: var(--bg-elevated);
-      padding: 1px 6px;
-      border-radius: 4px;
-    }
-    .related-section {
+  .detail-tag {
+    font-size: 11px;
+    font-family: var(--font-mono);
+    color: var(--text-tertiary);
+    background: var(--bg-elevated);
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+
+  /* FAQ section */
+  .deal-faq {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .deal-faq h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--text);
+    letter-spacing: -0.4px;
+  }
+  .deal-faq .faq-item {
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .deal-faq .faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 16px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--bg-surface);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s;
+  }
+  .deal-faq .faq-question:hover {
+    background: var(--bg-elevated);
+  }
+  .deal-faq .faq-question::after {
+    content: '+';
+    font-size: 18px;
+    color: var(--text-tertiary);
+    transition: transform 0.2s;
+  }
+  .deal-faq .faq-question[aria-expanded="true"]::after {
+    content: '\2212';
+  }
+  .deal-faq .faq-answer {
+    padding: 0 20px 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    display: none;
+  }
+  .deal-faq .faq-answer[aria-hidden="false"] {
+    display: block;
+  }
+
+  /* Social share */
+  .share-section {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .share-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .share-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid var(--border);
+    background: var(--bg-surface);
+    color: var(--text-secondary);
+  }
+  .share-btn:hover {
+    background: var(--bg-elevated);
+    color: var(--text);
+    border-color: var(--border-hover);
+  }
+
+  .related-section {
       margin-top: 48px;
       margin-bottom: 64px;
       border-top: 1px solid var(--border);
@@ -303,6 +400,30 @@
     "description": "Free for 100 Devices, 3 Users",
     "url": "https://devcheap.click/deals/tailscale/"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Tailscale really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Tailscale's free tier includes 100 devices and 3 users with unlimited access controls. It's a zero-config WireGuard-based VPN that connects all your devices securely. No credit card required. For personal use and small teams, the free tier is very generous."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can I do with Tailscale free tier?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Connect up to 100 devices (laptops, servers, Raspberry Pis, cloud VMs) into a secure mesh network. Features include MagicDNS, subnet routing, ACLs (access control lists), and multi-platform support. It's the simplest way to create a secure network for development."
+      }
+    }
+  ]
 }
 </script>
 <!-- Google tag (gtag.js) -->
@@ -397,6 +518,38 @@
         </div>
       </div>
 
+      <section class="deal-faq">
+        <h2>Tailscale FAQ</h2>
+        
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="true">Is Tailscale really free?</button>
+      <div class="faq-answer" aria-hidden="false">Yes, Tailscale&#039;s free tier includes 100 devices and 3 users with unlimited access controls. It&#039;s a zero-config WireGuard-based VPN that connects all your devices securely. No credit card required. For personal use and small teams, the free tier is very generous.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">What can I do with Tailscale free tier?</button>
+      <div class="faq-answer" aria-hidden="true">Connect up to 100 devices (laptops, servers, Raspberry Pis, cloud VMs) into a secure mesh network. Features include MagicDNS, subnet routing, ACLs (access control lists), and multi-platform support. It&#039;s the simplest way to create a secure network for development.</div>
+    </div>
+      </section>
+
+      <div class="share-section">
+        <p class="share-title">Share this deal</p>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?text=Check%20out%20Tailscale%20deal%20on%20DevCheap&url=https://devcheap.click/deals/tailscale/" target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on X (Twitter)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768"/><path d="M20 4l-6.768 6.768"/></svg>
+            X (Twitter)
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://devcheap.click/deals/tailscale/&title=Tailscale%20Deal&summary=Zero-config%20WireGuard-based%20VPN%20for%20secure%20device%20connectivity.%20Free%20tier%20includes%20100%20devices%2C%203%20users%2C%20subnet%20routing%2C" target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-9.799c0-9.411-10.078-9.065-12.018-4.395v-1.806z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://news.ycombinator.com/submitlink?u=https://devcheap.click/deals/tailscale/&t=Tailscale%20Deal" target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on Hacker News">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l10 20h-20z"/></svg>
+            Hacker News
+          </a>
+        </div>
+      </div>
+
       <section class="related-section">
         <h2 class="related-title">Other Security Deals</h2>
         <div class="deals-grid">
@@ -467,5 +620,14 @@
   </div>
 
 <script type="module" src="../../js/detail-page.js"></script>
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      btn.nextElementSibling.setAttribute('aria-hidden', expanded);
+    });
+  });
+</script>
 </body>
 </html>

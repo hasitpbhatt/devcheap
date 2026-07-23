@@ -1,0 +1,316 @@
+{
+  "aws-activate": [
+    {
+      "q": "How do I apply for AWS Activate credits?",
+      "a": "Create an AWS Builder ID, choose your credit tier (Founders for self-funded or Portfolio for VC-backed), provide startup details, link your AWS account, and submit. Self-funded startups get $1,000 automatically. VC-backed startups can get up to $100,000 with an Org ID from their accelerator or VC. Applications are reviewed within 5-10 business days."
+    },
+    {
+      "q": "Can I get AWS Activate credits without VC funding?",
+      "a": "Yes. The AWS Activate Founders package offers $1,000 in credits for self-funded, bootstrapped startups. You need to be pre-Series B, founded within the last 10 years, and have a functioning company website. No VC or accelerator affiliation is required."
+    },
+    {
+      "q": "What can AWS Activate credits be used for?",
+      "a": "Credits work across 200+ AWS services including EC2, S3, Lambda, RDS, and Amazon Bedrock (Claude models). You can use them for compute, storage, databases, AI/ML services, and more. Credits cannot be used for third-party marketplace purchases."
+    },
+    {
+      "q": "How long are AWS Activate credits valid?",
+      "a": "AWS Activate credits are typically valid for 12 months from the date they are applied to your account. If you reapply and qualify for a higher tier, you receive the difference as additional credits."
+    }
+  ],
+  "google-cloud-startups": [
+    {
+      "q": "How do I apply for Google Cloud for Startups?",
+      "a": "Have your 18-character Google Cloud billing account ID ready and apply at cloud.google.com/startup. Choose the Start tier ($2,000 credits) if you're pre-funded with an MVP, or the Scale tier ($200,000, up to $350,000 for AI startups) if you have institutional funding. Applications are reviewed within a few business days."
+    },
+    {
+      "q": "What are the eligibility requirements for Google Cloud startup credits?",
+      "a": "Start tier: founded within 24 months, working MVP, planning to seek funding soon. Scale tier: founded within 5 years, raised pre-seed to Series A from institutional investors, received less than $5,000 in prior Google Cloud credits. AI-first startups may qualify for an additional $150,000."
+    },
+    {
+      "q": "Can I get Google Cloud credits without VC funding?",
+      "a": "Yes, through the Start tier which offers up to $2,000 in credits for pre-funded startups. You need a working MVP, a clear business model, and plans to seek venture funding soon. The company must be founded within the last 24 months."
+    },
+    {
+      "q": "What services can Google Cloud credits be used for?",
+      "a": "Credits cover Google Cloud services including BigQuery, Compute Engine, Cloud Run, Vertex AI, and Gemini Enterprise Agent Platform. They cannot be applied to third-party services on Google Cloud Marketplace. Program credits also cover Google's proprietary models like Gemini and Gemma."
+    }
+  ],
+  "microsoft-for-startups": [
+    {
+      "q": "How do I apply for Microsoft for Startups?",
+      "a": "Visit startups.microsoft.com, sign in with a personal Microsoft account, and apply. Without an investor referral code you get an instant $1,000 in Azure credits after setting up your account. With a 10-character investor referral code, you can qualify for up to $150,000. Applications are reviewed within 3 business days."
+    },
+    {
+      "q": "Can I get Microsoft for Startups credits without an investor referral code?",
+      "a": "Yes. Apply without a code and you'll receive $1,000 in Azure startup credits (first $1,000 for 90 days, then an additional $4,000 for 180 days after business verification). If you later receive a referral code from an investor, you can apply for the higher-tier offer."
+    },
+    {
+      "q": "What are the eligibility requirements for Microsoft for Startups?",
+      "a": "Your startup must be pre-seed through Series C, building a B2B software/AI/technology solution, privately held, and headquartered in a supported region. You need a working MVP or be working toward one. The program is for early-stage B2B startups building scalable products."
+    },
+    {
+      "q": "What do Microsoft for Startups credits cover?",
+      "a": "Credits cover Azure services including VMs, AI infrastructure (GPU-enabled), databases, and more. The program also includes access to GitHub Enterprise, Visual Studio, Microsoft 365, and OpenAI API credits through Azure OpenAI Service."
+    }
+  ],
+  "cloudflare": [
+    {
+      "q": "Is Cloudflare actually free for developers?",
+      "a": "Yes. Cloudflare's free tier includes CDN, DDoS protection, Workers (100,000 requests/day), Pages (unlimited sites), D1 database, R2 object storage (10GB), and Workers AI (10,000 neurons/day). No credit card required for the free tier. It saves developers $200+/month compared to equivalent AWS services."
+    },
+    {
+      "q": "What are the limitations of Cloudflare's free tier?",
+      "a": "Workers Free plan includes 100,000 requests/day, 10ms CPU time per request, and 1,000 Workers per account. Workers AI gives 10,000 neurons/day (resets daily at UTC midnight). D1 database has 5GB storage. R2 includes 10GB storage + 10GB egress/month. For most side projects and small apps, these limits are generous."
+    },
+    {
+      "q": "Does Cloudflare Workers AI require a credit card?",
+      "a": "No. The free allocation of 10,000 neurons per day is available on the Workers Free plan with no credit card required. You only need to upgrade to Workers Paid ($0.011 per 1,000 additional neurons) if you exceed the daily free limit."
+    }
+  ],
+  "cloudflare-for-startups": [
+    {
+      "q": "How do I apply for Cloudflare for Startups?",
+      "a": "Visit cloudflare.com/forstartups and submit an application. The program targets software companies with active websites. Cloudflare reviews applications on a case-by-case basis. Approval includes access to Workers, Workers AI, CDN, DDoS protection, D1 database, R2 storage, and enterprise security features."
+    },
+    {
+      "q": "What is the value of Cloudflare for Startups credits?",
+      "a": "Qualifying startups can receive up to $250,000 in enterprise credits. This covers Cloudflare's enterprise product suite including Argo Smart Routing, Load Balancing, Advanced DDoS Protection, Workers Unbound, and more. The exact amount depends on the startup's stage and needs."
+    }
+  ],
+  "cloudflare-workers-ai": [
+    {
+      "q": "How many free requests can I make with Cloudflare Workers AI?",
+      "a": "You get 10,000 free neurons per day, which covers approximately 200 LLM requests on smaller models. The limit resets daily at 00:00 UTC. Beta models may have lower rate limits. A neuron is Cloudflare's unit for measuring GPU compute across different models."
+    },
+    {
+      "q": "What models are available on Cloudflare Workers AI?",
+      "a": "Access 50+ open-source models including Llama 3.3, Mistral Small, Qwen, Stable Diffusion XL, and Whisper. Models run on Cloudflare's global network of 300+ data centers for low-latency inference. New models are added regularly."
+    },
+    {
+      "q": "Can I use Cloudflare Workers AI without a credit card?",
+      "a": "Yes, completely free with no credit card required. The 10,000 neurons/day free allocation works on the Workers Free plan. If you need more, upgrade to Workers Paid plan."
+    }
+  ],
+  "digitalocean": [
+    {
+      "q": "How do I claim the $200 DigitalOcean credit?",
+      "a": "Sign up for a new DigitalOcean account using the referral link. The $200 credit is applied to your account and is valid for 60 days. You can use it on Droplets (VMs), Kubernetes clusters, databases, and other DigitalOcean services."
+    },
+    {
+      "q": "Does DigitalOcean have a free tier?",
+      "a": "DigitalOcean does not have a permanent free tier like some competitors. The $200 credit for 60 days effectively gives you free compute for testing. After the credits expire or the 60 days are up, you'll need to upgrade to a paid plan starting at $4/month."
+    }
+  ],
+  "aws-free-credits": [
+    {
+      "q": "How do I get the $200 AWS free credits?",
+      "a": "Create a new AWS account and you'll receive $100 automatically. Complete 5 onboarding tasks (each worth $20) for an additional $100. The total of $200 is valid for 12 months and works across 200+ AWS services including EC2, S3, Lambda, and Bedrock."
+    },
+    {
+      "q": "Does everyone qualify for the $200 AWS credits?",
+      "a": "Yes, the $200 AWS promotional credits are available to every new AWS user. Unlike AWS Activate which requires startup status, these credits require no special qualifications. Just create a new AWS account and complete the onboarding tasks."
+    },
+    {
+      "q": "Can I use AWS free credits on Bedrock/Claude?",
+      "a": "Yes. The $200 credits work on Amazon Bedrock including Claude models from Anthropic. This is one of the easiest ways to test Claude without needing an Anthropic account or startup program."
+    }
+  ],
+  "netlify": [
+    {
+      "q": "Is Netlify really free?",
+      "a": "Yes, Netlify's Free plan is $0 forever with 300 credits/month. This covers unlimited deploy previews, static site hosting, serverless Functions (125K requests/mo), edge functions, form handling, and custom domains with automated SSL. No credit card required."
+    },
+    {
+      "q": "What counts against the 300 Netlify credits?",
+      "a": "Credits are consumed by compute, bandwidth, web requests, and AI inference (Agent Runners, AI Gateway). Form submissions are now unlimited and free. Build minutes, function executions, and edge invocations all consume credits. The free plan has a hard limit — your projects pause when credits run out."
+    },
+    {
+      "q": "What happens when I run out of Netlify free credits?",
+      "a": "On the Free plan, your projects pause until the next billing cycle when credits reset. No charges are incurred since the Free plan has a hard spending limit. To avoid mid-cycle pauses, upgrade to Pro ($20/month for 3,000 credits) with optional auto recharge."
+    }
+  ],
+  "github-copilot": [
+    {
+      "q": "What does GitHub Copilot Free include?",
+      "a": "Copilot Free includes 2,000 code completions per month, 50 chat messages per month (including Copilot Edits), and access to models through auto model selection (Haiku 4.5, GPT-5 mini, and more). It also includes Copilot CLI. No credit card required."
+    },
+    {
+      "q": "Is GitHub Copilot Free enough for daily development?",
+      "a": "For light to moderate use, yes. 2,000 completions covers roughly 1-2 weeks of active coding for most developers. The 50 chat messages per month are limited but useful for occasional questions. Heavy users will hit the limits and may need Copilot Pro ($10/month) for unlimited completions."
+    },
+    {
+      "q": "Who is eligible for GitHub Copilot Free?",
+      "a": "Individual developers who don't have Copilot through an organization or enterprise. It's intended for personal use. Students can get Copilot Student with unlimited completions for free. Verified open-source maintainers may qualify for free Copilot Pro."
+    }
+  ],
+  "anthropic-claude-startups": [
+    {
+      "q": "How do I apply for Anthropic Claude startup credits?",
+      "a": "Fill out a 2-minute application at claude.com/programs/startups. You need a Claude Console account (the API console, not the Claude chat app), a company email, website, and short description. Applications are reviewed on a rolling basis."
+    },
+    {
+      "q": "Do I need VC funding for Anthropic startup credits?",
+      "a": "No. The program is open to any early-stage founder or startup with or without VC backing. Bootstrapped companies can apply and be accepted. However, higher credit amounts require VC partner referral."
+    },
+    {
+      "q": "How much in credits can I get from Anthropic?",
+      "a": "The official page doesn't publish a dollar figure, but press reports indicate $25,000+ for qualifying startups. Standard tier ($1K-$5K) is achievable through self-application. Premium tiers ($25K+) require VC partner or accelerator referral. Credits are reportedly valid for 12 months."
+    },
+    {
+      "q": "Can I use Claude credits on AWS Bedrock?",
+      "a": "No. Claude startup credits apply only to the first-party Claude API via the Claude Console. They cannot be used on AWS Bedrock, Google Cloud Vertex AI, or other third-party platforms."
+    }
+  ],
+  "posthog": [
+    {
+      "q": "Is PostHog really free?",
+      "a": "Yes. PostHog's free tier includes 1 million events/month, 5,000 session recordings, 1 million feature flag requests, 1,500 survey responses, 100K error tracking exceptions, 50GB logs, and unlimited team members. No credit card required. More than 90% of companies use PostHog for free."
+    },
+    {
+      "q": "What happens when I exceed PostHog free tier limits?",
+      "a": "PostHog uses usage-based pricing beyond free limits. You can set a billing limit for each product to avoid surprise charges. When you hit the billing limit, PostHog stops ingesting data for that product until the next billing period or until you raise the limit."
+    },
+    {
+      "q": "Can I use PostHog completely free forever?",
+      "a": "Yes, if you stay within the free tier limits. The free tier resets monthly. There's no trial period — the free tier is permanent. PostHog also offers startup credits of $50K for qualifying early-stage companies through their startup program."
+    }
+  ],
+  "neon": [
+    {
+      "q": "What does Neon's free Postgres tier include?",
+      "a": "Neon Free plan ($0/month) includes 100 projects, 100 compute-hours per project/month, 0.5 GB storage per project, 10 branches per project, autoscaling up to 2 CU (8 GB RAM), 5 GB egress/month, and scale-to-zero after 5 minutes of inactivity. No credit card required."
+    },
+    {
+      "q": "Is Neon's free tier permanent or a trial?",
+      "a": "It's permanently free — no expiration or trial period. Unlike AWS RDS Free Tier which expires after 12 months, Neon's Free plan continues forever. The main limitation is 100 compute-hours per project per month, but scale-to-zero means idle projects use zero compute."
+    },
+    {
+      "q": "What happens when I run out of Neon free tier compute hours?",
+      "a": "When you exhaust your 100 CU-hours, your compute is suspended until the next billing period or until you upgrade. Your data is not deleted. Exceeding the 0.5 GB storage cap causes write operations to fail until you free space or upgrade to a paid plan."
+    },
+    {
+      "q": "Can I get Neon startup credits on top of the free tier?",
+      "a": "Yes. Neon offers up to $100,000 in startup credits for early-stage companies through their startup program at neon.tech/startups. These credits are on top of the generous free tier."
+    }
+  ],
+  "vercel": [
+    {
+      "q": "How do I get Vercel free for 3 months?",
+      "a": "The Vercel Hobby plan is free by default with limited features. The $10/month value comes from the Pro plan features including team collaboration, advanced analytics, and faster builds. For startups, Vercel offers 1 year of Pro free through SaaSOffers partnership."
+    },
+    {
+      "q": "What does Vercel's free tier include?",
+      "a": "The Hobby plan includes 100GB bandwidth, 6,000 build minutes/month, serverless functions (10s execution), edge functions, unlimited deploy previews, and custom domains with SSL. For most personal projects, the free tier is sufficient."
+    }
+  ],
+  "supabase": [
+    {
+      "q": "Is Supabase's free tier really free?",
+      "a": "Yes, Supabase Free plan includes 2 active projects, 500 MB database, 1 GB file storage, 50 MB vector storage, 2 GB bandwidth, and shared compute (Micro). However, free projects are paused after 7 days of inactivity — they resume automatically when you make a request."
+    },
+    {
+      "q": "What is the 7-day pause policy on Supabase Free?",
+      "a": "Supabase pauses free tier projects after 7 consecutive days of inactivity. When a project is paused, the database is unavailable until you visit the dashboard to resume it. This is the main limitation compared to Neon which scales to zero instantly."
+    }
+  ],
+  "sentry": [
+    {
+      "q": "What does Sentry's free startup plan include?",
+      "a": "Sentry for Startups gives up to $5,000 in credits valid for 12 months, plus priority support. The free tier alone includes 5K errors/month, 1K performance traces/month, and 1 user. The startup credits unlock full Sentry features including advanced error tracking and performance monitoring."
+    },
+    {
+      "q": "Am I eligible for Sentry startup credits?",
+      "a": "You qualify if your company was founded in the last 2 years, raised less than $5M in venture capital, and is new to paying for Sentry (free plan usage is fine). Apply at sentry.io/for/startups/apply."
+    }
+  ],
+  "github-models": [
+    {
+      "q": "What models are available on GitHub Models for free?",
+      "a": "40+ frontier models including GPT-4o, GPT-5, DeepSeek-R1, Llama 3.3 70B, Mistral, and more. Access is rate-limited and requires only a GitHub account. The API endpoint is OpenAI-compatible at https://models.github.ai."
+    },
+    {
+      "q": "Can I use GitHub Models for production?",
+      "a": "Per GitHub's Terms of Service, GitHub Models is intended for prototyping and experimentation only, not for production use. The rate limits and terms are designed for development and testing."
+    }
+  ],
+  "google-ai-studio": [
+    {
+      "q": "Is Google AI Studio really free?",
+      "a": "Yes. Google AI Studio offers 1.5 million free tokens per day on Gemini Flash models. No credit card required. You also get access to Gemini Pro models with generous daily limits. It's one of the most generous free AI API offerings available."
+    },
+    {
+      "q": "What can I build with Google AI Studio?",
+      "a": "AI Studio provides API access to Google's Gemini models including Gemini Flash (fast, cost-effective) and Gemini Pro (powerful). You can build chatbots, content generators, code assistants, multimodal apps, and more. The 1M token context window supports large document processing."
+    }
+  ],
+  "retool": [
+    {
+      "q": "What does Retool's free tier include?",
+      "a": "Retool Free includes unlimited web and mobile apps, 500 workflow runs/month, 5GB database capacity, up to 5 users, 20 hours/month of Agents runtime, and 250 AI credits/month. Connect to any database or API. No credit card required."
+    },
+    {
+      "q": "Can I get Retool for free for my startup?",
+      "a": "Yes. Retool for Startups offers 1 year free on any monthly Team or Business plan (value up to $60K). Eligibility: bootstrapped to Series A, less than $10M raised, founded within 10 years. You also get 25% off the following year."
+    }
+  ],
+  "flyio": [
+    {
+      "q": "What does Fly.io's free tier include?",
+      "a": "Fly.io offers $10/month in free credits for running full-stack apps on Docker globally. This covers a small VM or two running continuously. Additional services like Postgres, Redis, and larger VMs will consume credits faster."
+    },
+    {
+      "q": "Can I run a production app on Fly.io free tier?",
+      "a": "For small production apps with light traffic, yes. The $10/month free credits can run one or two small VMs. However, you'll need to monitor your credit usage as added services (databases, persistent storage, bandwidth) consume credits."
+    }
+  ],
+  "sambanova-cloud": [
+    {
+      "q": "Does SambaNova have a free tier?",
+      "a": "Yes. You get $5 free credits on signup (~30M tokens on Llama 8B) plus an ongoing rate-limited free tier (~200K tokens/day, ~40 requests/day) that continues even after credits expire. No credit card needed. Models include DeepSeek V3.1, Llama 3.3 70B, MiniMax M2.7, and Gemma 4."
+    },
+    {
+      "q": "How fast is SambaNova inference?",
+      "a": "SambaNova claims the fastest inference for open models using their custom RDU hardware. It's competitive with Groq for speed. The $5 free credits let you benchmark performance for your specific use case before committing."
+    }
+  ],
+  "groq": [
+    {
+      "q": "Is Groq free to use?",
+      "a": "Yes, Groq offers a free tier with 30 requests per minute and 14,400 requests per day. No credit card required. It's one of the fastest LLM inference APIs available, achieving up to 240 tokens/second on Llama 3 models."
+    },
+    {
+      "q": "What models are available on Groq's free tier?",
+      "a": "Groq provides access to Llama 3 and other open-source models running on their custom LPU (Language Processing Unit) hardware. The free tier includes all available models with the same 30 RPM rate limit."
+    }
+  ],
+  "deepgram": [
+    {
+      "q": "What does Deepgram's $200 free credits cover?",
+      "a": "The $200 free credits cover speech-to-text, text-to-speech, and audio intelligence APIs. At Deepgram's pricing, $200 covers approximately 200+ hours of real-time transcription or 100+ hours of pre-recorded audio processing."
+    },
+    {
+      "q": "Does Deepgram require a credit card for the free credits?",
+      "a": "Yes, Deepgram requires a credit card to sign up for the $200 free credits. However, you won't be charged as long as you stay within the free credit balance. Set usage alerts to monitor your consumption."
+    }
+  ],
+  "figma": [
+    {
+      "q": "Is Figma's free plan actually free?",
+      "a": "Yes. Figma's Starter plan is forever-free with unlimited drafts and personal files, UI kits and templates, 150 AI credits/day (up to 500/month), unlimited viewers and commenters, and mobile app access. No credit card required. It's the industry standard for UI/UX design."
+    },
+    {
+      "q": "What are the limits of Figma's free plan?",
+      "a": "The Starter plan limits you to 3 projects and 1 team. You get 150 AI credits per day (up to 500/month). Version history is limited to 30 days. For individual designers and small projects, these limits are generous. Pro ($12/month) removes project limits and adds unlimited AI credits."
+    }
+  ],
+  "tailscale": [
+    {
+      "q": "Is Tailscale really free?",
+      "a": "Yes, Tailscale's free tier includes 100 devices and 3 users with unlimited access controls. It's a zero-config WireGuard-based VPN that connects all your devices securely. No credit card required. For personal use and small teams, the free tier is very generous."
+    },
+    {
+      "q": "What can I do with Tailscale free tier?",
+      "a": "Connect up to 100 devices (laptops, servers, Raspberry Pis, cloud VMs) into a secure mesh network. Features include MagicDNS, subnet routing, ACLs (access control lists), and multi-platform support. It's the simplest way to create a secure network for development."
+    }
+  ]
+}
