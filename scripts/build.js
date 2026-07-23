@@ -25,6 +25,18 @@ async function loadDealFaqs() {
   }
 }
 
+function getDealOfferPrice(deal) {
+  const dealStr = deal.deal || '';
+  if (deal.pricing === 'free' || deal.pricing === 'trial') {
+    return { price: '0', priceCurrency: 'USD' };
+  }
+  const usdMatch = dealStr.match(/\$(\d+(?:\.\d{1,2})?)/);
+  if (usdMatch) return { price: usdMatch[1], priceCurrency: 'USD' };
+  const eurMatch = dealStr.match(/[€€](\d+(?:\.\d{1,2})?)/);
+  if (eurMatch) return { price: eurMatch[1], priceCurrency: 'EUR' };
+  return { price: '0', priceCurrency: 'USD' };
+}
+
 function generateFallbackFaqs(deal) {
   const faqs = [];
   const pricing = (deal.pricing || '').toLowerCase();
@@ -773,12 +785,12 @@ console.log('✅ Main index.html updated.');
     const badgesRow = `${recommendedBadge}${spotlightBadge}`;
 
     const trackedUrl = buildTrackedUrl(deal);
-    const claimButton = `<a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="sidebar-btn sidebar-btn-primary">Claim Deal</a>`;
+    const claimButton = `<a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="sidebar-btn sidebar-btn-primary" aria-label="Claim ${escapeHtml(deal.name)} deal - opens in new tab">Claim Deal</a>`;
 
     const isPromoAutomatic = deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link');
     const couponButton = isPromoAutomatic
-      ? `<button class="sidebar-btn sidebar-btn-secondary" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic Discount</button>`
-      : `<button id="copy-coupon-btn" class="sidebar-btn sidebar-btn-secondary" data-code="${escapeHtml(deal.code)}"><svg class="icon icon-copy" width="14" height="14"><use href="/images/icons.svg#icon-copy"/></svg> Copy Coupon (${escapeHtml(deal.code)})</button>`;
+      ? `<button class="sidebar-btn sidebar-btn-secondary" style="opacity:0.5;cursor:default" disabled aria-label="${escapeHtml(deal.name)} discount is automatic, no code needed"><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic Discount</button>`
+      : `<button id="copy-coupon-btn" class="sidebar-btn sidebar-btn-secondary" data-code="${escapeHtml(deal.code)}" aria-label="Copy coupon code ${escapeHtml(deal.code)} for ${escapeHtml(deal.name)}"><svg class="icon icon-copy" width="14" height="14"><use href="/images/icons.svg#icon-copy"/></svg> Copy Coupon (${escapeHtml(deal.code)})</button>`;
 
     let related = deals.filter(d => d.category === deal.category && d.id !== deal.id);
     if (related.length < 3) {
@@ -800,6 +812,7 @@ console.log('✅ Main index.html updated.');
     };
     const breadcrumbJsonHtml = `<script type="application/ld+json">\n${JSON.stringify(breadcrumbJson, null, 2)}\n</script>`;
 
+const { price, priceCurrency } = getDealOfferPrice(deal);
 const productJson = {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -809,6 +822,9 @@ const productJson = {
   "dateModified": dealLastMod,
   "offers": {
     "@type": "Offer",
+    "price": price,
+    "priceCurrency": priceCurrency,
+    "availability": deal.expires ? "https://schema.org/LimitedAvailability" : "https://schema.org/InStock",
     "description": deal.deal,
     "url": `https://devcheap.click/deals/${deal.id}/`
   }
