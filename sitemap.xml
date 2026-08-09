@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>https://devcheap.click/</loc>
-  <lastmod>2026-07-23</lastmod>
+  <lastmod>2026-08-09</lastmod>
   <changefreq>weekly</changefreq>
   <priority>1.0</priority>
 </url>
@@ -151,7 +151,7 @@
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/deals/brevo/</loc>
+  <loc>https://devcheap.click/deals/bitrig/</loc>
   <lastmod>2026-07-23</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
@@ -182,12 +182,6 @@
 </url>
 <url>
   <loc>https://devcheap.click/deals/cal-com/</loc>
-  <lastmod>2026-07-23</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://devcheap.click/deals/canva/</loc>
   <lastmod>2026-07-23</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
@@ -607,12 +601,6 @@
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/deals/incogniton/</loc>
-  <lastmod>2026-07-23</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
-</url>
-<url>
   <loc>https://devcheap.click/deals/inference-net/</loc>
   <lastmod>2026-07-23</lastmod>
   <changefreq>weekly</changefreq>
@@ -626,6 +614,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/deals/ionos/</loc>
+  <lastmod>2026-07-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/jetbrains-junie/</loc>
   <lastmod>2026-07-23</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
@@ -655,7 +649,19 @@
   <priority>0.8</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/layers/</loc>
+  <lastmod>2026-07-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/lightning-ai/</loc>
+  <lastmod>2026-07-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/limrun/</loc>
   <lastmod>2026-07-23</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
@@ -847,6 +853,12 @@
   <priority>0.8</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/onesignal/</loc>
+  <lastmod>2026-07-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/openai-startup-credits/</loc>
   <lastmod>2026-07-23</lastmod>
   <changefreq>weekly</changefreq>
@@ -968,12 +980,6 @@
 </url>
 <url>
   <loc>https://devcheap.click/deals/retool/</loc>
-  <lastmod>2026-07-23</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://devcheap.click/deals/rezi/</loc>
   <lastmod>2026-07-23</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
@@ -1123,6 +1129,12 @@
   <priority>0.8</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/tenjin/</loc>
+  <lastmod>2026-07-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/tidycal/</loc>
   <lastmod>2026-07-23</lastmod>
   <changefreq>weekly</changefreq>
@@ -1249,12 +1261,6 @@
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/deals/zencall/</loc>
-  <lastmod>2026-07-23</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
-</url>
-<url>
   <loc>https://devcheap.click/deals/zendesk/</loc>
   <lastmod>2026-07-23</lastmod>
   <changefreq>weekly</changefreq>
@@ -1363,6 +1369,12 @@
   <priority>0.7</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/category/sales-and-marketing/</loc>
+  <lastmod>2026-07-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
   <loc>https://devcheap.click/category/security/</loc>
   <lastmod>2026-07-23</lastmod>
   <changefreq>weekly</changefreq>
@@ -1394,31 +1406,31 @@
 </url>
 <url>
   <loc>https://devcheap.click/articles/best-free-cloud-credits/</loc>
-  <lastmod>2026-07-23</lastmod>
+  <lastmod>2026-08-09</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/articles/best-free-ai-apis/</loc>
-  <lastmod>2026-07-23</lastmod>
+  <lastmod>2026-08-09</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/articles/free-developer-tools-2026/</loc>
-  <lastmod>2026-07-23</lastmod>
+  <lastmod>2026-08-09</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/articles/startup-credit-programs/</loc>
-  <lastmod>2026-07-23</lastmod>
+  <lastmod>2026-08-09</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/articles/best-lifetime-deals-developers/</loc>
-  <lastmod>2026-07-23</lastmod>
+  <lastmod>2026-08-09</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>

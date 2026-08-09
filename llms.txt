@@ -2,7 +2,7 @@
 
 > Curated deals, discounts, and free tiers for developers. Updated daily with verified listings across cloud, AI, DevOps, databases, and more.
 
-DevCheap tracks **209 deals** across **22 categories**. Every deal is manually reviewed, rated (1-10), and categorized. All deals include pricing, expiration dates, coupon codes, and affiliate tracking where available.
+DevCheap tracks **210 deals** across **23 categories**. Every deal is manually reviewed, rated (1-10), and categorized. All deals include pricing, expiration dates, coupon codes, and affiliate tracking where available.
 
 ## Featured
 - [Homepage — Browse All Deals](https://devcheap.click/): All active deals with filtering, search, and pagination
@@ -10,12 +10,12 @@ DevCheap tracks **209 deals** across **22 categories**. Every deal is manually r
 - [Raw Deal Data (JSONL)](https://devcheap.click/data/deals.jsonl): Full dataset for programmatic consumption
 
 ## Quick Stats
-- Total deals: **209**
-- Categories: **22**
+- Total deals: **210**
+- Categories: **23**
 - Top-rated deals (≥ 8.0): **17**
-- Expired deals: **169**
-- Pricing: free: 163, lifetime: 31, paid: 10, trial: 5
-- Last updated: 2026-07-23
+- Expired deals: **177**
+- Pricing: free: 164, lifetime: 28, paid: 9, trial: 9
+- Last updated: 2026-08-09
 
 ## Top Deals
 - [Credit for Startups](https://creditforstartups.com) — Credit for Startups is a comprehensive directory of 43+ credit programs worth over $1M total. Browse AI/ML credits (21 p… [rating: 8.5] [free] (no expiry) — [Details](https://devcheap.click/deals/credit-for-startups/)
@@ -35,28 +35,29 @@ DevCheap tracks **209 deals** across **22 categories**. Every deal is manually r
 - [Figma](https://figma.com) — Figma's forever-free Starter plan includes unlimited drafts and personal files, UI kits and templates, 150 AI credits/da… [rating: 8] [free] (no expiry) — [Details](https://devcheap.click/deals/figma/)
 
 ## Categories
-- **AI & LLM** (44 deals, free: 41, trial: 2, lifetime: 1) — [Anthropic Claude for Startups](https://devcheap.click/deals/anthropic-claude-startups/) [rating: 8.2, free]; [OpenAI Startup Credits](https://devcheap.click/deals/openai-startup-credits/) [rating: 8.2, free]; [GitHub Copilot Free](https://devcheap.click/deals/github-copilot/) [rating: 8.1, free]
-- **Developer Tools** (36 deals, free: 28, lifetime: 5, paid: 2, trial: 1) — [Credit for Startups](https://devcheap.click/deals/credit-for-startups/) [rating: 8.5, free]; [LaunchDarkly](https://devcheap.click/deals/launchdarkly/) [rating: 8.4, free]; [Codeium](https://devcheap.click/deals/codeium/) [rating: 7.9, free]
+- **AI & LLM** (43 deals, free: 41, trial: 2) — [Anthropic Claude for Startups](https://devcheap.click/deals/anthropic-claude-startups/) [rating: 8.2, free]; [OpenAI Startup Credits](https://devcheap.click/deals/openai-startup-credits/) [rating: 8.2, free]; [GitHub Copilot Free](https://devcheap.click/deals/github-copilot/) [rating: 8.1, free]
+- **Developer Tools** (39 deals, free: 29, lifetime: 5, paid: 3, trial: 2) — [Credit for Startups](https://devcheap.click/deals/credit-for-startups/) [rating: 8.5, free]; [LaunchDarkly](https://devcheap.click/deals/launchdarkly/) [rating: 8.4, free]; [Codeium](https://devcheap.click/deals/codeium/) [rating: 7.9, free]
 - **Hosting & Cloud** (29 deals, free: 27, paid: 2) — [Netlify](https://devcheap.click/deals/netlify/) [rating: 8.4, free]; [AWS Activate](https://devcheap.click/deals/aws-activate/) [rating: 8, free]; [Cloudflare for Startups](https://devcheap.click/deals/cloudflare-for-startups/) [rating: 8, free]
 - **Database** (18 deals, free: 17, lifetime: 1) — [Neon Startup Credits](https://devcheap.click/deals/neon-startup-credits/) [rating: 8.3, free]; [Appwrite Cloud](https://devcheap.click/deals/appwrite/) [rating: 7.9, free]; [Aiven](https://devcheap.click/deals/aiven/) [rating: 7.6, free]
-- **APIs & Email** (10 deals, free: 5, lifetime: 4, paid: 1) — [Resend](https://devcheap.click/deals/resend/) [rating: 7.4, free]; [Twilio SendGrid](https://devcheap.click/deals/twilio-sendgrid/) [rating: 7.2, free]; [Postmark](https://devcheap.click/deals/postmark/) [rating: 6.9, free]
-- **Security** (9 deals, lifetime: 6, free: 3) — [Tailscale](https://devcheap.click/deals/tailscale/) [rating: 7.5, free]; [Snyk](https://devcheap.click/deals/snyk/) [rating: 6.9, free]; [Safeguard.sh](https://devcheap.click/deals/safeguardsh/) [rating: 6.8, free]
-- **Productivity** (9 deals, lifetime: 5, free: 4) — [Airtable](https://devcheap.click/deals/airtable/) [rating: 7.4, free]; [Asana](https://devcheap.click/deals/asana-free/) [rating: 7.2, free]; [Cal.com](https://devcheap.click/deals/cal-com/) [rating: 7, free]
-- **Design & Collaboration** (8 deals, free: 7, paid: 1) — [Figma](https://devcheap.click/deals/figma/) [rating: 8, free]; [Miro](https://devcheap.click/deals/miro/) [rating: 7.3, free]; [Penpot](https://devcheap.click/deals/penpot/) [rating: 7.3, free]
+- **APIs & Email** (9 deals, free: 5, lifetime: 4) — [Resend](https://devcheap.click/deals/resend/) [rating: 7.4, free]; [Twilio SendGrid](https://devcheap.click/deals/twilio-sendgrid/) [rating: 7.2, free]; [Postmark](https://devcheap.click/deals/postmark/) [rating: 6.9, free]
+- **Security** (8 deals, lifetime: 5, free: 3) — [Tailscale](https://devcheap.click/deals/tailscale/) [rating: 7.5, free]; [Snyk](https://devcheap.click/deals/snyk/) [rating: 6.9, free]; [Safeguard.sh](https://devcheap.click/deals/safeguardsh/) [rating: 6.8, free]
+- **Productivity** (8 deals, free: 4, lifetime: 4) — [Airtable](https://devcheap.click/deals/airtable/) [rating: 7.4, free]; [Asana](https://devcheap.click/deals/asana-free/) [rating: 7.2, free]; [Cal.com](https://devcheap.click/deals/cal-com/) [rating: 7, free]
+- **Design & Collaboration** (8 deals, free: 7, trial: 1) — [Figma](https://devcheap.click/deals/figma/) [rating: 8, free]; [Miro](https://devcheap.click/deals/miro/) [rating: 7.3, free]; [Penpot](https://devcheap.click/deals/penpot/) [rating: 7.3, free]
 - **AI** (7 deals, lifetime: 5, free: 2) — [Gamma](https://devcheap.click/deals/gamma/) [rating: 8.5, free]; [DeepLearning.AI](https://devcheap.click/deals/deeplearning-ai/) [rating: 7.5, free]; [WordHero](https://devcheap.click/deals/wordhero/) [rating: 6.4, lifetime]
 - **Monitoring** (7 deals, free: 5, paid: 1, trial: 1) — [Grafana Cloud Free](https://devcheap.click/deals/grafana-cloud/) [rating: 7.4, free]; [Better Stack](https://devcheap.click/deals/better-stack/) [rating: 7.3, free]; [New Relic for Startups](https://devcheap.click/deals/new-relic-startups/) [rating: 7.2, free]
 - **Web Analytics** (5 deals, free: 4, trial: 1) — [PostHog](https://devcheap.click/deals/posthog/) [rating: 8.2, free]; [Amplitude for Startups](https://devcheap.click/deals/amplitude-startups/) [rating: 7.3, free]; [PostHog for Startups](https://devcheap.click/deals/posthog-startups/) [rating: 6.4, free]
 - **Domains & Hosting** (4 deals, paid: 3, free: 1) — [Cloudflare Registrar](https://devcheap.click/deals/cloudflare-registrar/) [rating: 7.5, paid]; [IONOS](https://devcheap.click/deals/ionos/) [rating: 6.5, free]; [Namecheap](https://devcheap.click/deals/namecheap/) [rating: 5.5, paid]
+- **Customer Support** (4 deals, free: 2, lifetime: 1, trial: 1) — [OneSignal](https://devcheap.click/deals/onesignal/) [rating: 7.5, trial]; [Intercom Early Stage](https://devcheap.click/deals/intercom-early-stage/) [rating: 7.3, free]; [Zendesk](https://devcheap.click/deals/zendesk/) [rating: 6, free]
 - **APIs & Payments** (4 deals, free: 3, lifetime: 1) — [Kong for Startups](https://devcheap.click/deals/kong-for-startups/) [rating: 7.8, free]; [Stripe](https://devcheap.click/deals/stripe/) [rating: 7.4, free]; [Stripe Atlas](https://devcheap.click/deals/stripe-atlas/) [rating: 7, free]
 - **CI/CD** (3 deals, free: 3) — [CircleCI Startup Credits](https://devcheap.click/deals/circleci-startup/) [rating: 8, free]; [Buildkite](https://devcheap.click/deals/buildkite/) [rating: 7, free]; [CircleCI](https://devcheap.click/deals/circleci/) [rating: 6.6, free]
 - **Media & Images** (3 deals, free: 3) — [ImageKit](https://devcheap.click/deals/imagekit/) [rating: 7, free]; [Cloudinary](https://devcheap.click/deals/cloudinary/) [rating: 6.9, free]; [YouCam API](https://devcheap.click/deals/youcam-api/) [rating: 6.5, free]
-- **Customer Support** (3 deals, free: 2, lifetime: 1) — [Intercom Early Stage](https://devcheap.click/deals/intercom-early-stage/) [rating: 7.3, free]; [Zendesk](https://devcheap.click/deals/zendesk/) [rating: 6, free]; [Support Board](https://devcheap.click/deals/supportboard/) [rating: 5.9, lifetime]
 - **APIs & Search** (2 deals, free: 2) — [Algolia](https://devcheap.click/deals/algolia/) [rating: 7.2, free]; [Algolia Startup Program](https://devcheap.click/deals/algolia-startup-program/) [rating: 7.2, free]
 - **Auth** (2 deals, free: 2) — [Auth0](https://devcheap.click/deals/auth0/) [rating: 7.8, free]; [Clerk](https://devcheap.click/deals/clerk/) [rating: 7.8, free]
 - **Storage & Cloud** (2 deals, free: 2) — [Backblaze B2](https://devcheap.click/deals/backblaze-b2/) [rating: 7.1, free]; [MinIO](https://devcheap.click/deals/minio/) [rating: 6.3, free]
 - **Testing & QA** (2 deals, free: 2) — [Cypress](https://devcheap.click/deals/cypress/) [rating: 7.5, free]; [BrowserStack](https://devcheap.click/deals/browserstack/) [rating: 7.1, free]
 - **SEO** (1 deals, lifetime: 1) — [SiteGuru](https://devcheap.click/deals/siteguru/) [rating: 6.3, lifetime]
 - **Social Media** (1 deals, lifetime: 1) — [Sociamonials](https://devcheap.click/deals/sociamonials/) [rating: 6.4, lifetime]
+- **Sales & Marketing** (1 deals, trial: 1) — [Tenjin](https://devcheap.click/deals/tenjin/) [rating: 7, trial]
 
 ## How to Use This Site
 - **Browse**: Visit the [homepage](https://devcheap.click/) to see all active deals. Use category buttons and search to filter.
@@ -75,7 +76,7 @@ DevCheap tracks **209 deals** across **22 categories**. Every deal is manually r
 
 ## About
 - **Site**: [devcheap.click](https://devcheap.click/)
-- **Deal count**: 209
-- **Categories**: 22
+- **Deal count**: 210
+- **Categories**: 23
 - **Content**: Deals are added and updated continuously. Each deal has a dedicated detail page with description, pricing, coupon code, and affiliate link.
 - **Pricing types**: free, lifetime, paid, trial
