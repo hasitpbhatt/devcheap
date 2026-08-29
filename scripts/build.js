@@ -270,6 +270,24 @@ function categorySlug(category) {
     .replace(/^-+|-+$/g, '');
 }
 
+function toolSlug(name, id) {
+  const base = String(name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return base || String(id);
+}
+
+// Deterministic, collision-free slug map for /alternatives/<slug>/ pages.
+function computeAlternativeSlugs(deals) {
+  const map = new Map();
+  const used = new Set();
+  for (const d of deals) {
+    let s = toolSlug(d.name, d.id);
+    if (used.has(s)) s = `${s}-${d.id}`;
+    used.add(s);
+    map.set(d.id, s);
+  }
+  return map;
+}
+
 const categorySEO = {
   'hosting & cloud': { title: 'Best Hosting & Cloud Deals 2026 — Free Credits & Discounts for Developers', h1: 'Hosting & Cloud Deals for Developers', intro: 'Discover the best cloud hosting deals, free credits, and startup packages from AWS, Google Cloud, Cloudflare, DigitalOcean, and more. Save thousands on infrastructure with verified offers.', faqs: [{ q: 'Which cloud platform gives the most free credits for startups?', a: 'Cloudflare for Startups offers up to $250,000 in enterprise credits. Google Cloud for Startups provides up to $350,000 for AI-native companies. AWS Activate gives $1,000-$100,000 depending on VC backing.' }, { q: 'Can I get free cloud credits without VC funding?', a: "Yes! AWS Activate Founders tier ($1,000-$5,000) is automatic for any startup. Google Cloud Start ($1,000) and Microsoft Founders Hub ($5,000) also don't require VC backing." }, { q: 'How long are cloud startup credits valid?', a: 'Most cloud credits are valid for 1-2 years. AWS credits last 12 months, Google Cloud credits are valid for 2 years, and DigitalOcean credits last 12 months.' }] },
   'database': { title: 'Best Database Deals 2026 — Free Tiers & Startup Credits', h1: 'Database Deals for Developers', intro: 'Find the best free database tiers and startup credits for PostgreSQL, MySQL, MongoDB, and more. From serverless Postgres to managed SQL — get enterprise-grade databases for free.', faqs: [{ q: 'What is the best free PostgreSQL database?', a: 'Neon offers a generous free tier with serverless Postgres, branching, and scale-to-zero compute. For startups, they also provide up to $100,000 in credits.' }, { q: 'Which database has the best startup program?', a: 'Neon ($100K credits), CockroachDB (50M RUs free + 10GB storage), and Appwrite (75K MAU free BaaS) all offer exceptional startup programs.' }] },
@@ -335,6 +353,20 @@ async function generateAggregatePages(ROOT_DIR, deals) {
       ]
     },
     {
+      slug: 'how-to-pick-free-llm-api',
+      title: 'How to Pick a Free LLM API (2026) — A Developer Framework',
+      metaDesc: 'A practical framework for picking a free LLM API: Ease of signup, rate limits, context window, and gate friction. Real numbers from Groq, OpenRouter, Google AI Studio, and Cerebras.',
+      h1: 'How to pick a free LLM API (without wasting a weekend)',
+      intro: 'Most "free" LLM APIs make you fight a Cloudflare challenge, hand over a credit card, or pass KYC before you get a key. I walked the path from zero to a working chat call across the major providers. Here is the framework I would actually use — built on three numbers, not marketing.',
+      sections: [
+        { h2: 'Start with Ease, not the model', content: 'The model barely matters at the free tier. What matters is how fast you get a key. I rank providers by Ease: 100 means email signup, instant key, no card. Groq, Google AI Studio, OpenRouter, Cerebras, and Hugging Face all score 100 — you are sending requests in two minutes. Lower scores mean a gate (card, phone, KYC, or captcha) sits between you and production. Pick Ease 100 unless you have a reason not to.' },
+        { h2: 'Count the rate limits like they are money', content: 'Free tiers are not equal. Groq gives 14,400 requests/day at low latency. Google AI Studio gives 1,500 requests/day on Gemini with no card. Cerebras gives about 1M tokens/day. OpenRouter gives 20 RPM and 50 RPD, rising to 1,000 after a $10 top-up. Cloudflare Workers AI gives 10,000 neurons/day. The RPM column is your real ceiling — a free tier that throttles at 1 request/minute is a demo, not a product. Match the limit to your traffic, not your ambition.' },
+        { h2: 'Watch the context window and the gate behind it', content: 'A 1M-token context window sounds great until you see the gate. DeepSeek gives 5M tokens/30 days with no phone number. Qwen gives 70M signup tokens but asks for real-name verification. Zhipu GLM, Baidu, and Tencent all offer tokens, but most require KYC, which drops their Ease score. Big context plus a hard gate is a trap for production. If you cannot re-verify the limit on the pricing page in 10 seconds, do not trust it.' },
+        { h2: 'Use a gateway until you know what you need', content: 'Do not marry a model on day one. OpenRouter puts 25+ free models behind one OpenAI-compatible endpoint and one key. LiteLLM, Portkey, OrcaRouter, and Pollinations do the same, several with their own free tiers. A gateway lets you swap models without rewiring your code. When one provider rate-limits you, you already have a dozen drop-in alternatives wired. Graduate to a direct provider — Groq for speed, Cerebras for throughput — only once the traffic shows your real shape.' },
+        { h2: 'The move I would actually make', content: 'If I were shipping today: open Google AI Studio for a free Gemini key (no card, 1.5K RPD), add Groq for speed (14.4K RPD), and put OpenRouter in front as the fallback. That is three keys, zero cards, and you cover chat, speed, and failover. Then pick one provider to go deep on once the traffic shows up. See the LLM Providers directory for the full ranked list with live rate limits.' }
+      ]
+    },
+    {
       slug: 'free-developer-tools-2026',
       title: 'Best Free Developer Tools 2026',
       metaDesc: 'Discover 40+ free developer tools for coding, testing, monitoring, and deployment. Save hundreds per month on your dev stack.',
@@ -372,6 +404,43 @@ async function generateAggregatePages(ROOT_DIR, deals) {
         { h2: 'Lifetime Security & VPN', content: 'FastestVPN ($29.99 lifetime) covers 10 devices. Sticky Password Premium ($29.99 lifetime) includes password management for unlimited devices. AdGuard ($11 lifetime) offers ad-blocking and privacy protection. Axeptio ($59) provides GDPR cookie consent management. GetTerms ($79) includes cookie consent and privacy policy generation.' },
         { h2: 'Lifetime Email & Productivity', content: 'SendFox ($49) gives unlimited emails to 5,000 subscribers. Emailit ($49) is a transactional email API. CopyMail ($59) provides drag-and-drop email templates. SenderStack ($69) offers email warm-up and deliverability. TidyCal ($29) is a Calendly alternative. Headway ($59) provides book summaries.' }
       ]
+    },
+    {
+      slug: 'saas-zero-budget',
+      title: 'Launch a SaaS on a $0 Infrastructure Budget (2026)',
+      metaDesc: 'Build and ship a SaaS without spending on infra. Stack free cloud credits, serverless databases, auth, and monitoring from AWS, Google Cloud, Neon, Supabase, PostHog, and more.',
+      h1: 'Launch a SaaS on a $0 Infrastructure Budget',
+      intro: "You don't need a credit card to look like you have a real stack. The free tiers and startup programs below get you from idea to production-shaped app at $0, and the bill only arrives when you're actually making money.",
+      sections: [
+        { h2: 'Start with free cloud credits, not your card', content: "Apply to AWS Activate first — the Founders tier hands you $1,000 automatically, no VC required. Google Cloud for Startups runs $1,000 to $350,000 depending on tier, and Microsoft for Startups puts $5,000 in your Founders Hub the moment you sign up. Cloudflare for Startups adds up to $250,000 in enterprise credits, and DigitalOcean Startups goes up to $100,000 over 12 months. Stack two or three and your compute is paid for a year." },
+        { h2: 'Your database is free until you are not', content: "Neon gives you serverless Postgres with branching and a free tier, plus up to $100,000 in startup credits if you qualify. Supabase's free tier ships 2 projects with auth and storage baked in. Need MySQL? PlanetScale's free tier is 10GB. CockroachDB Cloud hands you 50M request units and 10GB a month. Turso puts SQLite at the edge with a 3GB free tier. Pick one, branch it, and stop worrying about the schema bill." },
+        { h2: "Auth and monitoring you don't pay for yet", content: "Auth0 is free for 7,000 monthly active users; Clerk is free for 10,000 — both cover a newborn SaaS comfortably. For product analytics, PostHog's free tier is 1 million events a month with session recordings and feature flags. Sentry gives startups $100 a month free for error tracking. That's your whole observability stack at $0." },
+        { h2: 'Ship the frontend for nothing', content: "Netlify's free tier is 300 build credits a month with unlimited deploy previews and SSL. Vercel's Hobby plan is free for three months out of the gate. Cloudflare sits in front of both for free CDN and DNS. You can deploy ten times a day and still pay zero." }
+      ]
+    },
+    {
+      slug: 'auth-database-setup',
+      title: 'Set Up Auth and a Database for a New App in One Afternoon (2026)',
+      metaDesc: 'Wire up authentication and persistent storage fast. Compare Neon, Supabase, PlanetScale, Upstash, Auth0, and Clerk — all with free tiers that cover a new app.',
+      h1: 'Set Up Auth and a Database for a New App in One Afternoon',
+      intro: "The first afternoon of any new app is the same: where does the data live, and who's allowed in? You can answer both with free tiers that don't expire the week you launch.",
+      sections: [
+        { h2: 'Pick your database shape first', content: "Neon is serverless Postgres with branching, so you get a copy-on-write database per feature. Supabase wraps Postgres with auth, instant APIs, and storage — often all you need. PlanetScale is serverless MySQL with branching of its own. Upstash gives you serverless Redis for queues and caches, and Redis Cloud has a 30MB free tier to start. CockroachDB Cloud brings distributed SQL with 50M request units free, and Turso puts SQLite at the edge with 3GB free." },
+        { h2: 'Add auth without writing it yourself', content: "Auth0 is free for 7,000 monthly active users with social login and MFA. Clerk is free for 10,000 MAUs and is built for Next.js and React apps. Both drop in with a few lines and a redirect. If you'd rather not run two services, Supabase bundles auth and database together on its free tier." },
+        { h2: 'Two paths that just work', content: "Path one: Supabase free tier, two projects, auth and Postgres in one place. Path two: Neon for the database plus Clerk for auth, which keeps your user model clean if you grow past one app. Appwrite (75K MAU free) and the open-source PocketBase are solid if you want a backend-in-a-box instead." }
+      ]
+    },
+    {
+      slug: 'ai-feature-cheap',
+      title: 'Add an AI Feature Without Burning Cash (2026)',
+      metaDesc: 'Prototype and ship AI features on free tiers. Use GitHub Models, Groq, Cerebras, Together AI, Anthropic, and OpenAI startup credits to keep inference costs near zero.',
+      h1: 'Add an AI Feature Without Burning Cash',
+      intro: "Every founder wants an AI feature until they see the invoice. The trick is to prototype free, pay for speed only when latency hurts, and reach for startup credits only when real users show up.",
+      sections: [
+        { h2: 'Prototype on GitHub Models', content: "GitHub Models gives rate-limited access to 40+ frontier models — GPT-4o, GPT-5, DeepSeek-R1, Llama 3.3 — with nothing but a GitHub account. OpenRouter exposes 30+ models at 20 requests a minute free. Both are perfect for clicking through an idea before you commit to a provider." },
+        { h2: 'Pay for speed, not for tokens', content: "Groq's free tier is 14,400 requests a day at low latency — great for chat and classification. Cerebras throws in 1 million tokens a day at 2,100 tokens a second on Wafer-Scale hardware. Together AI gives $5 in free credits on signup, enough for several million tokens across 50+ open models. Cloudflare Workers AI runs 50+ models at the edge with 10,000 free neurons a day, no card needed." },
+        { h2: "When you're shipping to real users", content: "Anthropic's Claude for Startups offers up to $25,000 in API credits, and OpenAI Startup Credits run $5,000 to $50,000+. Both are free to apply for and remove the ceiling once you have traffic. For voice, Deepgram's $200 free credits cover speech-to-text, and ElevenLabs gives 10,000 characters a month of text-to-speech free." }
+      ]
     }
   ];
 
@@ -389,14 +458,19 @@ async function generateAggregatePages(ROOT_DIR, deals) {
     const articleDealSlugs = {
       'best-free-cloud-credits': ['aws-activate','google-cloud-startups','microsoft-for-startups','cloudflare-for-startups','digitalocean-startups','netlify','vercel','flyio','cloudflare'],
       'best-free-ai-apis': ['github-models','google-ai-studio','cloudflare-workers-ai','openrouter','groq','cerebras','sambanova-cloud','together-ai','deepgram','assemblyai','openai-startup-credits','anthropic-claude-startups'],
+      'how-to-pick-free-llm-api': ['google-ai-studio','groq','openrouter','cerebras','huggingface-providers','together-ai'],
       'free-developer-tools-2026': ['github-copilot','codeium','bruno','hoppscotch','posthog','grafana-cloud','better-stack','neon','supabase','appwrite','launchdarkly','retool'],
       'startup-credit-programs': ['aws-activate','google-cloud-startups','microsoft-for-startups','cloudflare-for-startups','digitalocean-startups','openai-startup-credits','anthropic-claude-startups','neon-startup-credits','circleci-startup','credit-for-startups','saasoffers','fin-ai-startup-pack','kong-for-startups'],
-      'best-lifetime-deals-developers': ['polypane','n8nitiator','screpy','fastestvpn','stickypassword','adguard','sendfox','emailit','tidycal','rocketscrape','senderstack','teable']
+      'best-lifetime-deals-developers': ['polypane','n8nitiator','screpy','fastestvpn','stickypassword','adguard','sendfox','emailit','tidycal','rocketscrape','senderstack','teable'],
+      'saas-zero-budget': ['aws-activate','google-cloud-startups','microsoft-for-startups','cloudflare-for-startups','digitalocean-startups','neon','neon-startup-credits','supabase','cockroachdb-cloud','planetscale','turso','auth0','clerk','posthog','sentry','netlify','vercel'],
+      'auth-database-setup': ['neon','supabase','planetscale','upstash','redis-cloud','cockroachdb-cloud','appwrite','pocketbase','auth0','clerk','turso'],
+      'ai-feature-cheap': ['github-models','openrouter','groq','cerebras','together-ai','anthropic-claude-startups','openai-startup-credits','cloudflare-workers-ai','deepgram','elevenlabs']
     };
 
     const relatedDealIds = articleDealSlugs[article.slug] || [];
     const relatedDeals = deals.filter(d => relatedDealIds.includes(d.id));
-    const relatedDealsCards = relatedDeals.map(d => renderDealCard(d)).join('\n');
+    const relatedDealsCards = relatedDeals.map(d => renderDealCard(d)).join('\n')
+      .replace(/href="deals\//g, 'href="/deals/');
     const articleHasAffiliate = relatedDeals.some(d => d.has_affiliate);
     const articleDisclosure = articleHasAffiliate ? renderAffiliateDisclosure() : '';
 
@@ -469,6 +543,7 @@ async function generateAggregatePages(ROOT_DIR, deals) {
         <p>${escapeHtml(article.intro)}</p>
       </div>
       ${sectionsHtml}
+      ${['best-free-ai-apis', 'how-to-pick-free-llm-api'].includes(article.slug) ? `<p style="margin-top:28px;font-size:14.5px;color:var(--text-secondary)">Want the same providers ranked by how fast you actually get a key — no credit card, no KYC paths flagged? See our <a href="/llm-providers/">LLM Providers directory</a>, which ranks 168 providers by signup friction.</p>` : ''}
       <section class="article-deals">
         <h2>Relevant Deals</h2>
         <div class="deals-grid">${relatedDealsCards}</div>
@@ -567,6 +642,10 @@ async function generateCategoryPages(ROOT_DIR, deals) {
       itemListJson.mainEntity = faqJson.mainEntity;
     }
 
+    const hubLinkHtml = cat.toLowerCase() === 'ai & llm' || cat.toLowerCase() === 'ai'
+      ? `<p style="margin-top:14px;font-size:14px;color:var(--text-secondary)">Prefer to compare providers by signup friction instead of category? See our <a href="/llm-providers/">LLM Providers directory</a> — 168 providers ranked by how fast you get an API key.</p>`
+      : '';
+
     const jsonLdHtml = `<script type="application/ld+json">\n${JSON.stringify(itemListJson, null, 2)}\n</script>`;
 
     const pageDir = path.join(categoryDir, slug);
@@ -586,6 +665,7 @@ async function generateCategoryPages(ROOT_DIR, deals) {
       .replace('{{CATEGORY_DEAL_CARDS}}', dealCards)
       .replace('{{CATEGORY_FAQ}}', faqs)
       .replace('{{CATEGORY_JSONLD}}', jsonLdHtml)
+      .replace('{{CATEGORY_HUB_LINK}}', hubLinkHtml)
       .replace('{{AFFILIATE_DISCLOSURE}}', categoryDisclosure);
 
     await fs.writeFile(path.join(pageDir, 'index.html'), html, 'utf-8');
@@ -593,6 +673,109 @@ async function generateCategoryPages(ROOT_DIR, deals) {
 
   await Promise.all(promises);
   console.log(`✅ Generated ${cats.length} category SEO pages under /category/[slug]/`);
+}
+
+async function generateAlternativePages(ROOT_DIR, deals) {
+  const templatePath = path.join(ROOT_DIR, 'templates', 'alternative.html');
+  const template = await fs.readFile(templatePath, 'utf-8');
+  const altDir = path.join(ROOT_DIR, 'alternatives');
+  await fs.mkdir(altDir, { recursive: true });
+
+  const altSlugs = computeAlternativeSlugs(deals);
+
+  // Remove orphaned alternative directories (deal removed from deals.jsonl).
+  const existingDirs = await fs.readdir(altDir, { withFileTypes: true });
+  const removalPromises = existingDirs
+    .filter(entry => entry.isDirectory() && !altSlugs.has(entry.name))
+    .map(async (entry) => {
+      await fs.rm(path.join(altDir, entry.name), { recursive: true, force: true });
+      console.log(`🗑️  Removed orphaned alternative directory: alternatives/${entry.name}/`);
+    });
+  await Promise.all(removalPromises);
+
+  const promises = deals.map(async (deal) => {
+    // Alternatives = same-category deals (exclude self), capped at 10.
+    // Fall back to other categories if fewer than 3 share the category.
+    let alts = deals.filter(d => d.category === deal.category && d.id !== deal.id);
+    if (alts.length < 3) {
+      const extra = deals.filter(d => d.category !== deal.category && d.id !== deal.id);
+      alts = [...alts, ...extra].slice(0, 10);
+    } else {
+      alts = alts.slice(0, 10);
+    }
+
+    const altCards = alts.map(d => renderDealCard(d)).join('\n')
+      .replace(/href="deals\//g, 'href="/deals/');
+    const slug = altSlugs.get(deal.id);
+    const catSlug = categorySlug(deal.category);
+
+    const intro = `Looking for ${escapeHtml(deal.name)} alternatives? We ranked ${alts.length} verified ${escapeHtml(deal.category)} options developers actually ship with — free tiers, startup credits, and pricing that won't surprise you at renewal.`;
+    const metaDesc = `Best ${escapeHtml(deal.name)} alternatives in ${escapeHtml(deal.category)} (2026). ${alts.length} verified developer deals with free tiers, credits, and honest pricing.`;
+    const title = `${escapeHtml(deal.name)} Alternatives — ${escapeHtml(deal.category)} Deals (2026) | DevCheap`;
+
+    const topThree = alts.slice(0, 3).map(d => d.name).join(', ');
+    const faqs = [
+      {
+        q: `What is the best ${deal.name} alternative?`,
+        a: `It depends on your stack. The highest-rated options here are ${topThree}. Each lists verified pricing and free-tier details so you can compare without leaving the page.`
+      },
+      {
+        q: `Is ${deal.name} free?`,
+        a: deal.pricing === 'free'
+          ? `${deal.name} has a free tier. If you need more, the alternatives below include similar free plans and startup credits.`
+          : `${deal.name} is ${deal.pricing}. The alternatives on this page show exactly what is free, trial, or paid so you can pick a cheaper fit.`
+      },
+      {
+        q: `How do I compare ${deal.name} with these alternatives?`,
+        a: `Start with the free tiers listed above, then export your data and import into the tool that matches your usage. Most list a migration guide on their deal page.`
+      }
+    ];
+
+    const faqHtml = faqs.map(f => `<div class="faq-item"><button class="faq-question" aria-expanded="false">${escapeHtml(f.q)}</button><div class="faq-answer" aria-hidden="true">${escapeHtml(f.a)}</div></div>`).join('\n');
+
+    const faqJson = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } }))
+    };
+    const faqJsonHtml = `<script type="application/ld+json">\n${JSON.stringify(faqJson, null, 2)}\n</script>`;
+
+    const breadcrumbJson = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://devcheap.click/" },
+        { "@type": "ListItem", "position": 2, "name": deal.category, "item": `https://devcheap.click/category/${catSlug}/` },
+        { "@type": "ListItem", "position": 3, "name": `${deal.name} Alternatives`, "item": `https://devcheap.click/alternatives/${slug}/` }
+      ]
+    };
+    const breadcrumbJsonHtml = `<script type="application/ld+json">\n${JSON.stringify(breadcrumbJson, null, 2)}\n</script>`;
+
+    const hasAffiliate = deal.has_affiliate || alts.some(d => d.has_affiliate);
+    const disclosure = hasAffiliate ? renderAffiliateDisclosure() : '';
+
+    let html = template
+      .replace(/{{TOOL_SLUG}}/g, slug)
+      .replace(/{{TOOL_TITLE}}/g, title)
+      .replace(/{{TOOL_META_DESC}}/g, metaDesc)
+      .replace(/{{TOOL_NAME}}/g, escapeHtml(deal.name))
+      .replace(/{{TOOL_CATEGORY}}/g, escapeHtml(deal.category))
+      .replace(/{{TOOL_CATEGORY_SLUG}}/g, catSlug)
+      .replace(/{{INTRO}}/g, intro)
+      .replace(/{{ALT_COUNT}}/g, alts.length)
+      .replace('{{ALTERNATIVE_CARDS}}', altCards)
+      .replace('{{BREADCRUMB_JSONLD}}', breadcrumbJsonHtml)
+      .replace('{{FAQ_HTML}}', faqHtml)
+      .replace('{{FAQ_JSONLD}}', faqJsonHtml)
+      .replace('{{AFFILIATE_DISCLOSURE}}', disclosure);
+
+    const pageDir = path.join(altDir, slug);
+    await fs.mkdir(pageDir, { recursive: true });
+    await fs.writeFile(path.join(pageDir, 'index.html'), html, 'utf-8');
+  });
+
+  await Promise.all(promises);
+  console.log(`✅ Generated ${deals.length} alternative pages under /alternatives/[slug]/`);
 }
 
 async function generateArchive(ROOT_DIR, deals, getFileLastMod) {
@@ -716,6 +899,195 @@ async function generateRedirectPages(ROOT_DIR, deals) {
   console.log(`✅ Generated ${deals.length} redirect pages under /r/[id]/`);
 }
 
+async function generateLlmProviderPages(ROOT_DIR) {
+  const templatePath = path.join(ROOT_DIR, 'templates', 'llm-provider-hub.html');
+  let template;
+  try {
+    template = await fs.readFile(templatePath, 'utf-8');
+  } catch {
+    console.log('⚠️ LLM provider hub template not found, skipping.');
+    return;
+  }
+  const dataPath = path.join(ROOT_DIR, 'data', 'llm-providers.json');
+  let providers = [];
+  try {
+    providers = JSON.parse(await fs.readFile(dataPath, 'utf-8'));
+  } catch {
+    console.log('⚠️ data/llm-providers.json not found, skipping LLM hub.');
+    return;
+  }
+
+  const hubDir = path.join(ROOT_DIR, 'llm-providers');
+  await fs.mkdir(hubDir, { recursive: true });
+
+  const easeClass = (e) => e >= 90 ? 'ease-90' : e >= 80 ? 'ease-80' : e >= 70 ? 'ease-70' : e >= 60 ? 'ease-60' : 'ease-low';
+  const statusClass = (s) => ({ active: 'st-active', gated: 'st-gated', trial: 'st-trial', beta: 'st-beta', retired: 'st-retired', warning: 'st-warning' }[s] || 'st-active');
+  const gateChips = (gates) => (gates.length === 1 && gates[0] === 'none')
+    ? '<span class="gate-chip gate-none">No gate</span>'
+    : gates.map((g) => `<span class="gate-chip">${escapeHtml(g)}</span>`).join('');
+
+  const rows = providers.map((d, i) => {
+    const nameCell = d.dealId
+      ? `<a class="hub-prov" href="/deals/${escapeHtml(d.dealId)}/">${escapeHtml(d.name)}</a>`
+      : `<a class="hub-prov" href="${escapeHtml(d.signupUrl)}" target="_blank" rel="noopener noreferrer" data-llm="${escapeHtml(d.id)}">${escapeHtml(d.name)}<span class="ext">↗</span></a>`;
+    return `          <tr data-name="${escapeHtml(d.name.toLowerCase())}" data-type="${escapeHtml(d.type)}" data-ease="${d.ease}" data-isllm="${d.isLLM ? 1 : 0}" data-gates="${escapeHtml(d.gates.join(','))}">
+            <td>${i + 1}</td>
+            <td>${nameCell}</td>
+            <td class="hub-type">${escapeHtml(d.type)}</td>
+            <td><span class="ease-badge ${easeClass(d.ease)}">${d.ease}</span></td>
+            <td>${gateChips(d.gates)}</td>
+            <td>${escapeHtml(d.freeTier || '—')}</td>
+            <td>${escapeHtml(d.rpm || '—')}</td>
+            <td>${escapeHtml(d.context || '—')}</td>
+            <td><span class="status-pill ${statusClass(d.status)}">${escapeHtml(d.status)}</span></td>
+          </tr>`;
+  }).join('\n');
+
+  const buildJsonLd = (list, url, name, desc) => {
+    const itemList = {
+      '@context': 'https://schema.org',
+      '@type': ['CollectionPage', 'ItemList'],
+      '@id': url,
+      'name': name,
+      'description': desc,
+      'url': url,
+      'numberOfItems': list.length,
+      'itemListElement': list.map((d, i) => ({
+        '@type': 'ListItem',
+        'position': i + 1,
+        'url': d.dealId ? `https://devcheap.click/deals/${d.dealId}/` : d.signupUrl,
+        'name': d.name
+      })),
+      'isPartOf': { '@id': 'https://devcheap.click/#website' },
+      'breadcrumb': {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://devcheap.click/' },
+          { '@type': 'ListItem', 'position': 2, 'name': 'LLM Providers', 'item': 'https://devcheap.click/llm-providers/' }
+        ]
+      }
+    };
+    return `<script type="application/ld+json">\n${JSON.stringify(itemList, null, 2)}\n</script>`;
+  };
+
+  const renderRows = (list) => list.map((d, i) => {
+    const nameCell = d.dealId
+      ? `<a class="hub-prov" href="/deals/${escapeHtml(d.dealId)}/">${escapeHtml(d.name)}</a>`
+      : `<a class="hub-prov" href="${escapeHtml(d.signupUrl)}" target="_blank" rel="noopener noreferrer" data-llm="${escapeHtml(d.id)}">${escapeHtml(d.name)}<span class="ext">↗</span></a>`;
+    return `          <tr data-name="${escapeHtml(d.name.toLowerCase())}" data-type="${escapeHtml(d.type)}" data-ease="${d.ease}" data-isllm="${d.isLLM ? 1 : 0}" data-gates="${escapeHtml(d.gates.join(','))}">
+            <td>${i + 1}</td>
+            <td>${nameCell}</td>
+            <td class="hub-type">${escapeHtml(d.type)}</td>
+            <td><span class="ease-badge ${easeClass(d.ease)}">${d.ease}</span></td>
+            <td>${gateChips(d.gates)}</td>
+            <td>${escapeHtml(d.freeTier || '—')}</td>
+            <td>${escapeHtml(d.rpm || '—')}</td>
+            <td>${escapeHtml(d.context || '—')}</td>
+            <td><span class="status-pill ${statusClass(d.status)}">${escapeHtml(d.status)}</span></td>
+          </tr>`;
+  }).join('\n');
+
+  const lastVerified = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+  const buildTop5 = (list) => {
+    const top = [...list].sort((a, b) => b.ease - a.ease).slice(0, 5);
+    return `<div class="hub-top5">${top.map((d, i) => {
+      const href = d.dealId ? `/deals/${escapeHtml(d.dealId)}/` : escapeHtml(d.signupUrl);
+      const target = d.dealId ? '' : ' target="_blank" rel="noopener noreferrer"';
+      return `<a class="hub-top5-card" href="${href}"${target} data-llm="${escapeHtml(d.id)}">
+        <div class="rank">#${i + 1}</div>
+        <div class="name">${escapeHtml(d.name)}</div>
+        <div class="ease"><span class="ease-badge ${easeClass(d.ease)}">${d.ease}</span></div>
+        <div class="ft">${escapeHtml(d.freeTier || '—')}</div>
+      </a>`;
+    }).join('')}</div>`;
+  };
+
+  const buildHtml = (list, meta) => template
+    .replaceAll('{{HUB_TITLE}}', escapeHtml(meta.title))
+    .replaceAll('{{HUB_META_DESC}}', escapeHtml(meta.metaDesc))
+    .replaceAll('{{HUB_H1}}', escapeHtml(meta.h1))
+    .replaceAll('{{HUB_INTRO}}', escapeHtml(meta.intro))
+    .replaceAll('{{HUB_COUNT}}', String(list.length))
+    .replace('{{HUB_TABLE_ROWS}}', renderRows(list))
+    .replace('{{HUB_DATA_JSON}}', JSON.stringify(list))
+    .replace('{{HUB_JSONLD}}', buildJsonLd(list, meta.canonical, meta.jsonName, meta.jsonDesc))
+    .replace('{{HUB_CANONICAL}}', meta.canonical)
+    .replace('{{HUB_OG_URL}}', meta.canonical)
+    .replaceAll('{{HUB_OG_IMAGE}}', 'https://devcheap.click/images/og-llm-providers.svg')
+    .replace('{{HUB_TOP5}}', buildTop5(list))
+    .replace('{{HUB_LAST_VERIFIED}}', lastVerified)
+    .replace('{{HUB_BREADCRUMB_TAIL}}', meta.breadcrumbTail || '')
+    .replace('{{HUB_TABLE_HEADING}}', meta.tableHeading)
+    .replace('{{HUB_CLICK_CATEGORY}}', meta.clickCategory || 'LLM Providers');
+
+  const hubMeta = {
+    title: 'LLM Providers Compared — Free Tiers, Rate Limits & Ease of Signup (2026) | DevCheap',
+    metaDesc: `168 LLM, image, speech & embedding API providers ranked by ease of signup — no credit card and no KYC paths flagged. Free-tier value, RPM rate limits, context windows, OpenRouter alternatives, and signup gates (card, phone, KYC, captcha) for each.`,
+    h1: 'LLM Providers, ranked by how fast you get a key',
+    intro: `Most "free" LLM APIs make you fight a Cloudflare challenge, hand over a credit card, or pass KYC before you get a key. We ranked ${providers.length} providers by an Ease score — how fast you actually reach your first API call with just an email. Filter by gate, type, or free-tier rate limits and skip the ones that waste your afternoon.`,
+    canonical: 'https://devcheap.click/llm-providers/',
+    jsonName: 'LLM Providers — Ranked by How Easy They Are to Use (Free Tiers, Rate Limits, Gates)',
+    jsonDesc: 'A directory of LLM, image, speech, and embedding API providers ranked by an Ease score (how fast you get an API key with just email), with free-tier value, rate limits, and signup gates.',
+    breadcrumbTail: '',
+    tableHeading: '<h2 class="hub-section-title" id="all-providers">All providers, ranked by Ease score</h2>',
+    clickCategory: 'LLM Providers'
+  };
+  await fs.writeFile(path.join(hubDir, 'index.html'), buildHtml(providers, hubMeta), 'utf-8');
+  console.log(`✅ Generated LLM Providers hub with ${providers.length} providers at /llm-providers/`);
+
+  const subPages = [
+    {
+      slug: 'no-credit-card',
+      name: 'No Credit Card',
+      filter: (p) => !p.gates.includes('card'),
+      title: 'LLM & AI APIs With No Credit Card — Free Tiers, No Billing (2026) | DevCheap',
+      metaDesc: 'Free LLM, image, speech, and embedding APIs that need no credit card — just an email. Ranked by Ease score with free-tier value and rate limits for each.',
+      h1: 'Free LLM & AI APIs with no credit card',
+      intro: 'Every provider below issues a key with just an email — no billing, no $0 pre-auth hold. We filtered the full directory down to the zero-card set so you can start building today.',
+      jsonName: 'No-Credit-Card LLM & AI APIs — Ranked by Ease',
+      jsonDesc: 'Free LLM, image, speech, and embedding API providers that require no credit card, ranked by Ease score.',
+      tableHeading: '<h2 class="hub-section-title" id="no-card">No-credit-card providers, ranked by Ease score</h2>',
+      clickCategory: 'LLM Providers / No Credit Card'
+    },
+    {
+      slug: 'media-apis',
+      name: 'Image, Speech & Embedding APIs',
+      filter: (p) => ['Image', 'Speech', 'Embeddings'].includes(p.type),
+      title: 'Free Image, Speech & Embedding APIs (No-Card Options) 2026 | DevCheap',
+      metaDesc: 'Free image generation, speech-to-text, text-to-speech, and embedding APIs ranked by Ease score. No credit card options flagged for each provider.',
+      h1: 'Free image, speech & embedding APIs',
+      intro: 'Not every AI call is a chat completion. This slice ranks the image, speech, and embedding providers from the directory by how fast you get a key — with no-card options flagged.',
+      jsonName: 'Free Image, Speech & Embedding APIs — Ranked by Ease',
+      jsonDesc: 'Free image, speech, and embedding API providers ranked by Ease score, with no-credit-card options flagged.',
+      tableHeading: '<h2 class="hub-section-title" id="media">Image, speech & embedding APIs, ranked by Ease score</h2>',
+      clickCategory: 'LLM Providers / Media APIs'
+    },
+    {
+      slug: 'openrouter-alternatives',
+      name: 'OpenRouter Alternatives',
+      filter: (p) => p.type === 'LLM-Gateway',
+      title: 'OpenRouter Alternatives — 40+ LLM Gateways With Free Tiers (2026) | DevCheap',
+      metaDesc: 'OpenRouter is not the only LLM gateway. Compare 40+ alternatives — one API key, many models, each with a free tier. Ranked by Ease score and free-tier value.',
+      h1: 'OpenRouter alternatives: one key, many models',
+      intro: 'OpenRouter puts 25+ free models behind one key. These gateways do the same — and several add their own free tiers. Ranked by how fast you get a working key.',
+      jsonName: 'OpenRouter Alternatives — LLM Gateways Ranked by Ease',
+      jsonDesc: 'LLM gateway providers (OpenRouter alternatives) ranked by Ease score, each with a free tier.',
+      tableHeading: '<h2 class="hub-section-title" id="gateways">LLM gateways (OpenRouter alternatives), ranked by Ease score</h2>',
+      clickCategory: 'LLM Providers / OpenRouter Alternatives'
+    }
+  ];
+
+  for (const sub of subPages) {
+    const list = providers.filter(sub.filter);
+    const meta = { ...sub, canonical: `https://devcheap.click/llm-providers/${sub.slug}/`, breadcrumbTail: ` <span class="sep">/</span><span>${sub.name}</span>` };
+    const dir = path.join(hubDir, sub.slug);
+    await fs.mkdir(dir, { recursive: true });
+    await fs.writeFile(path.join(dir, 'index.html'), buildHtml(list, meta), 'utf-8');
+    console.log(`✅ Generated LLM sub-page /llm-providers/${sub.slug}/ with ${list.length} providers`);
+  }
+}
+
 async function main() {
   console.log('🏁 Starting build process...');
 
@@ -734,7 +1106,14 @@ const totalCategories = categories.length;
 
 const dealLastMod = getFileLastMod(DEALS_PATH);
 
-console.log(`📊 Loaded ${totalDeals} deals across ${totalCategories} categories. <~deals>`);
+  console.log(`📊 Loaded ${totalDeals} deals across ${totalCategories} categories. <~deals>`);
+
+  // Load LLM Providers hub deal ids for reciprocal internal links (Dharmesh: tighten the web)
+  let llmHubDealIds = new Set();
+  try {
+    const llmRaw = await fs.readFile(path.join(ROOT_DIR, 'data', 'llm-providers.json'), 'utf-8');
+    llmHubDealIds = new Set(JSON.parse(llmRaw).map((p) => p.dealId).filter(Boolean));
+  } catch {}
 
   // 2. Pre-render Main index.html
   let indexHtml = await fs.readFile(INDEX_PATH, 'utf-8');
@@ -952,6 +1331,10 @@ const productJson = {
     const dealNameEncoded = encodeURIComponent(deal.name);
     const dealDescEncoded = encodeURIComponent(deal.desc.substring(0, 120));
 
+    const llmHubLinkHtml = llmHubDealIds.has(deal.id)
+      ? `<p style="margin-top:18px;font-size:13.5px;color:var(--text-secondary)">This provider is also in our <a href="/llm-providers/">LLM Providers directory</a> — 168 APIs ranked by how fast you get a key, with free-tier rate limits and gate analysis.</p>`
+      : '';
+
     let populated = detailTemplate
       .replace(/{{DEAL_ID}}/g, escapeHtml(deal.id))
       .replace(/{{DEAL_NAME}}/g, escapeHtml(deal.name))
@@ -973,6 +1356,7 @@ const productJson = {
       .replace(/{{PRODUCT_JSONLD}}/g, productJsonHtml)
       .replace(/{{DEAL_FAQ_HTML}}/g, dealFaqHtml)
       .replace(/{{DEAL_FAQ_JSONLD}}/g, dealFaqJsonld)
+      .replace('{{LLM_HUB_LINK}}', llmHubLinkHtml)
       .replace('{{AFFILIATE_DISCLOSURE}}', deal.has_affiliate ? renderAffiliateDisclosure() : '');
 
     // This await happens inside the mapped function context concurrently
@@ -989,6 +1373,9 @@ const productJson = {
 
   // 5. Generate Category SEO Pages
   await generateCategoryPages(ROOT_DIR, deals);
+
+  // 5b. Generate Alternatives Pages
+  await generateAlternativePages(ROOT_DIR, deals);
 
   // 6. Generate sitemap.xml
   const sitemapPath = path.join(ROOT_DIR, 'sitemap.xml');
@@ -1013,14 +1400,28 @@ const productJson = {
     sitemapXml += `<url>\n  <loc>https://devcheap.click/category/${slug}/</loc>\n  <lastmod>${globalLastMod}</lastmod>\n  <changefreq>weekly</changefreq>\n  <priority>0.7</priority>\n</url>\n`;
   }
 
+  // Add alternatives pages to sitemap
+  const altSlugs = computeAlternativeSlugs(deals);
+  for (const deal of deals) {
+    const slug = altSlugs.get(deal.id);
+    sitemapXml += `<url>\n  <loc>https://devcheap.click/alternatives/${slug}/</loc>\n  <lastmod>${globalLastMod}</lastmod>\n  <changefreq>weekly</changefreq>\n  <priority>0.6</priority>\n</url>\n`;
+  }
+
   // Add aggregate article pages to sitemap
-  const articleSlugs = ['best-free-cloud-credits', 'best-free-ai-apis', 'free-developer-tools-2026', 'startup-credit-programs', 'best-lifetime-deals-developers'];
+  const articleSlugs = ['best-free-cloud-credits', 'best-free-ai-apis', 'how-to-pick-free-llm-api', 'free-developer-tools-2026', 'startup-credit-programs', 'best-lifetime-deals-developers', 'saas-zero-budget', 'auth-database-setup', 'ai-feature-cheap'];
   for (const slug of articleSlugs) {
     sitemapXml += `<url>\n  <loc>https://devcheap.click/articles/${slug}/</loc>\n  <lastmod>${today}</lastmod>\n  <changefreq>monthly</changefreq>\n  <priority>0.6</priority>\n</url>\n`;
   }
 
   // Add legal/affiliate disclosure page
   sitemapXml += `<url>\n  <loc>https://devcheap.click/disclosure/</loc>\n  <lastmod>${today}</lastmod>\n  <changefreq>monthly</changefreq>\n  <priority>0.3</priority>\n</url>\n`;
+
+  // Add LLM Providers directory hub
+  sitemapXml += `<url>\n  <loc>https://devcheap.click/llm-providers/</loc>\n  <lastmod>${today}</lastmod>\n  <changefreq>weekly</changefreq>\n  <priority>0.7</priority>\n</url>\n`;
+  // Add LLM Providers sub-pages (filtered slices)
+  for (const slug of ['no-credit-card', 'media-apis', 'openrouter-alternatives']) {
+    sitemapXml += `<url>\n  <loc>https://devcheap.click/llm-providers/${slug}/</loc>\n  <lastmod>${today}</lastmod>\n  <changefreq>weekly</changefreq>\n  <priority>0.6</priority>\n</url>\n`;
+  }
 
   sitemapXml += `</urlset>\n`;
   await fs.writeFile(sitemapPath, sitemapXml, 'utf-8');
@@ -1038,6 +1439,9 @@ const productJson = {
 
   // 8. Generate aggregate "best of" article pages
   await generateAggregatePages(ROOT_DIR, deals);
+
+  // 8b. Generate LLM Providers directory hub
+  await generateLlmProviderPages(ROOT_DIR);
 
   console.log('✨ Build complete! Time to deploy.');
 }

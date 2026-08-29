@@ -180,7 +180,7 @@ This is the cumulative shipped work. Updated each cycle.
 
 - Google Analytics `G-9QV2CZSZP4` on `index.html` and all 212 `/deals/<id>/index.html` pages
 - Click-tracking endpoint at `/api/track-click` (KV-backed, 90-day TTL)
-- `link_type` taxonomy: `claim_deal` (regular grid), `top_picks_claim` (Top Picks strip), `coupon_copy` (code copies)
+- `link_type` taxonomy: `claim_deal` (regular grid), `top_picks_claim` (Top Picks strip), `coupon_copy` (code copies), `llm_provider` (LLM Providers directory outbound), `nav_click` (LLM Providers nav link CTR)
 - Google Search Console placeholder ready for token claim
 
 **Surfaces:**
@@ -189,6 +189,7 @@ This is the cumulative shipped work. Updated each cycle.
 - 21 category landing pages
 - 5 pillar articles
 - 1 Top Picks strip (6 cards, computed at build time)
+- 1 LLM Providers directory (`/llm-providers/`, 168 providers ranked by Ease, programmatic SEO hub with internal links to 40+ deal pages)
 - Sitemap.xml, llms.txt, feed.xml (RSS), archive.html
 - Newsletter form with Resend integration + Turnstile bot protection
 
@@ -198,7 +199,7 @@ This is the cumulative shipped work. Updated each cycle.
 - `scripts/generate-feed.ps1` (RSS feed, separate from build)
 - `scripts/generate-llmstxt.js` (LLM-search surface)
 - `scripts/validate-jsonl` (npm run validate:jsonl)
-- 148 tests passing (Vitest: schema, UI, HTML, a11y, affiliate, build-freshness, llmstxt, well-known, spotlight-countdown, middleware)
+- 160 tests passing (Vitest: schema, UI, HTML, a11y, affiliate, build-freshness, llmstxt, well-known, spotlight-countdown, middleware, llm-providers)
 
 **Decisions made:**
 

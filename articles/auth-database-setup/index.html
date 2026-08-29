@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="https://devcheap.click/articles/auth-database-setup/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>Set Up Auth and a Database for a New App in One Afternoon (2026) | DevCheap</title>
+  <meta name="description" content="Wire up authentication and persistent storage fast. Compare Neon, Supabase, PlanetScale, Upstash, Auth0, and Clerk — all with free tiers that cover a new app.">
+  <meta property="og:title" content="Set Up Auth and a Database for a New App in One Afternoon (2026) | DevCheap">
+  <meta property="og:description" content="Wire up authentication and persistent storage fast. Compare Neon, Supabase, PlanetScale, Upstash, Auth0, and Clerk — all with free tiers that cover a new app.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://devcheap.click/articles/auth-database-setup/">
+  <meta property="og:site_name" content="DevCheap">
+  <meta property="og:image" content="https://devcheap.click/images/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Set Up Auth and a Database for a New App in One Afternoon (2026) | DevCheap">
+  <meta name="twitter:description" content="Wire up authentication and persistent storage fast. Compare Neon, Supabase, PlanetScale, Upstash, Auth0, and Clerk — all with free tiers that cover a new app.">
+  <meta name="twitter:image" content="https://devcheap.click/images/og-image.svg">
+  <link rel="stylesheet" href="/css/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QV2CZSZP4"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9QV2CZSZP4');</script>
+  <style>
+    .article-page { padding-top: var(--nav-height); min-height: 100vh; display: flex; flex-direction: column; }
+    .article-page main { flex: 1; }
+    .article-hero { padding: 48px 0 24px; }
+    .article-hero h1 { font-size: 36px; font-weight: 800; letter-spacing: -1px; line-height: 1.15; margin-bottom: 12px; color: var(--text); }
+    .article-hero p { font-size: 16px; color: var(--text-secondary); line-height: 1.6; max-width: 720px; }
+    .article-section { margin-top: 32px; padding: 24px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+    .article-section h2 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--text); letter-spacing: -0.3px; }
+    .article-section p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+    .article-deals { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+    .article-deals h2 { font-size: 24px; font-weight: 700; margin-bottom: 24px; color: var(--text); letter-spacing: -0.4px; }
+    .breadcrumb { font-size: 13px; font-weight: 500; color: var(--text-tertiary); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb .sep { margin: 0 8px; color: var(--text-tertiary); }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Set Up Auth and a Database for a New App in One Afternoon (2026)",
+    "description": "Wire up authentication and persistent storage fast. Compare Neon, Supabase, PlanetScale, Upstash, Auth0, and Clerk — all with free tiers that cover a new app.",
+    "url": "https://devcheap.click/articles/auth-database-setup/",
+    "publisher": { "@type": "Organization", "name": "DevCheap" }
+  }
+  </script>
+</head>
+<body>
+  <div class="article-page">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo"><span class="nav-logo-badge">devcheap</span></a>
+        <div class="nav-links">
+          <a href="/#deals" class="nav-link">All Deals</a>
+          <a href="/#newsletter" class="nav-link">Newsletter</a>
+        </div>
+      </div>
+    </nav>
+    <main class="container">
+      <div class="breadcrumb">
+        <a href="/">Home</a><span class="sep">/</span><span>Set Up Auth and a Database for a New App in One Afternoon</span>
+      </div>
+      <div class="article-hero">
+        <h1>Set Up Auth and a Database for a New App in One Afternoon</h1>
+        <p>The first afternoon of any new app is the same: where does the data live, and who&#039;s allowed in? You can answer both with free tiers that don&#039;t expire the week you launch.</p>
+      </div>
+      
+      <section class="article-section">
+        <h2>Pick your database shape first</h2>
+        <p>Neon is serverless Postgres with branching, so you get a copy-on-write database per feature. Supabase wraps Postgres with auth, instant APIs, and storage — often all you need. PlanetScale is serverless MySQL with branching of its own. Upstash gives you serverless Redis for queues and caches, and Redis Cloud has a 30MB free tier to start. CockroachDB Cloud brings distributed SQL with 50M request units free, and Turso puts SQLite at the edge with 3GB free.</p>
+      </section>
+
+      <section class="article-section">
+        <h2>Add auth without writing it yourself</h2>
+        <p>Auth0 is free for 7,000 monthly active users with social login and MFA. Clerk is free for 10,000 MAUs and is built for Next.js and React apps. Both drop in with a few lines and a redirect. If you&#039;d rather not run two services, Supabase bundles auth and database together on its free tier.</p>
+      </section>
+
+      <section class="article-section">
+        <h2>Two paths that just work</h2>
+        <p>Path one: Supabase free tier, two projects, auth and Postgres in one place. Path two: Neon for the database plus Clerk for auth, which keeps your user model clean if you grow past one app. Appwrite (75K MAU free) and the open-source PocketBase are solid if you want a backend-in-a-box instead.</p>
+      </section>
+      
+      <section class="article-deals">
+        <h2>Relevant Deals</h2>
+        <div class="deals-grid">
+      <div class="deal-card">
+        <div class="deal-card-header">
+          <h3 class="deal-card-title"><a href="/deals/appwrite/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">Appwrite Cloud</a></h3>
+          <span class="deal-card-cat">Database</span>
+        </div>
+        <div class="deal-card-deal">Free Tier (75K MAU, 2GB storage)</div>
+        
+        <p class="deal-card-why">75K MAU free BaaS —€” Firebase alternative with auth, database, storage, and functions</p>
+        <p class="deal-card-desc">Open-source Backend-as-a-Service with authentication, database, storage, and serverless functions. Free cloud tier includes 75,000 monthly active users, 2 GB storage, 750,000 function executions, and 5 GB bandwidth. No credit card required.</p>
+        <div class="deal-card-tags"><span class="deal-card-tag">baas</span><span class="deal-card-tag">backend</span><span class="deal-card-tag">auth</span><span class="deal-card-tag">database</span><span class="deal-card-tag">storage</span><span class="deal-card-tag">open-source</span></div>
+        <div class="deal-card-footer">
+          <a href="https://appwrite.io/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=appwrite" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="appwrite">Claim Deal</a>
+          <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="deal-card-header">
+          <h3 class="deal-card-title"><a href="/deals/auth0/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">Auth0</a></h3>
+          <span class="deal-card-cat">Auth</span>
+        </div>
+        <div class="deal-card-deal">Free for 7,000 MAUs</div>
+        
+        <p class="deal-card-why">Free for 7K MAUs —€” saves $30/mo vs. Auth0 Pro plan</p>
+        <p class="deal-card-desc">Authentication and authorization platform with social login, MFA, and free tier for 7,000 active users.</p>
+        <div class="deal-card-tags"><span class="deal-card-tag">auth</span><span class="deal-card-tag">oauth</span><span class="deal-card-tag">sso</span><span class="deal-card-tag">mfa</span><span class="deal-card-tag">identity</span></div>
+        <div class="deal-card-footer">
+          <a href="https://auth0.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=auth0" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="auth0">Claim Deal</a>
+          <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="deal-card-header">
+          <h3 class="deal-card-title"><a href="/deals/clerk/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">Clerk</a></h3>
+          <span class="deal-card-cat">Auth</span>
+        </div>
+        <div class="deal-card-deal">Free for 10,000 MAUs</div>
+        
+        <p class="deal-card-why">Free for 10K MAUs —€” saves $25/mo vs. Clerk Pro</p>
+        <p class="deal-card-desc">Authentication and user management for Next.js, React, and web apps.</p>
+        <div class="deal-card-tags"><span class="deal-card-tag">auth</span><span class="deal-card-tag">nextjs</span><span class="deal-card-tag">react</span><span class="deal-card-tag">users</span><span class="deal-card-tag">identity</span></div>
+        <div class="deal-card-footer">
+          <a href="https://clerk.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=clerk" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="clerk">Claim Deal</a>
+          <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="deal-card-header">
+          <h3 class="deal-card-title"><a href="/deals/cockroachdb-cloud/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">CockroachDB Cloud</a></h3>
+          <span class="deal-card-cat">Database</span>
+        </div>
+        <div class="deal-card-deal">Free Tier (50M RUs + 10GB Storage/Month)</div>
+        <span class="deal-card-badge-recommended"><svg class="icon icon-star" width="12" height="12"><use href="/images/icons.svg#icon-star"/></svg> Recommended</span>
+        <p class="deal-card-why">Free distributed SQL with 50M RUs + 10GB —€” PostgreSQL-compatible, multi-region, auto-scaling database at zero cost</p>
+        <p class="deal-card-desc">Distributed SQL database with free Serverless tier. 50M request units/month, 10GB storage, multi-region replication, automatic scaling, and PostgreSQL compatibility. Ideal for global applications needing resilience without operational complexity.</p>
+        <div class="deal-card-tags"><span class="deal-card-tag">database</span><span class="deal-card-tag">sql</span><span class="deal-card-tag">distributed</span><span class="deal-card-tag">serverless</span><span class="deal-card-tag">postgres-compatible</span><span class="deal-card-tag">recommended</span></div>
+        <div class="deal-card-footer">
+          <a href="https://cockroachlabs.cloud/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=cockroachdbcloud" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="cockroachdb-cloud">Claim Deal</a>
+          <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="deal-card-header">
+          <h3 class="deal-card-title"><a href="/deals/neon/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">Neon</a></h3>
+          <span class="deal-card-cat">Database</span>
+        </div>
+        <div class="deal-card-deal">$15/month Free Tier</div>
+        
+        <p class="deal-card-why">Free $15/mo Postgres with branching —€” instant database branching for dev workflows</p>
+        <p class="deal-card-desc">Serverless Postgres with branching, instant provisioning, and generous free tier.</p>
+        <div class="deal-card-tags"><span class="deal-card-tag">postgres</span><span class="deal-card-tag">serverless</span><span class="deal-card-tag">database</span><span class="deal-card-tag">branching</span></div>
+        <div class="deal-card-footer">
+          <a href="https://neon.tech/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=neon" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="neon">Claim Deal</a>
+          <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="deal-card-header">
+          <h3 class="deal-card-title"><a href="/deals/planetscale/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">PlanetScale</a></h3>
+          <span class="deal-card-cat">Database</span>
+        </div>
+        <div class="deal-card-deal">Free Tier (10GB)</div>
+        
+        <p class="deal-card-why">Free 10GB MySQL-compatible database with branching —€” $30/mo value</p>
+        <p class="deal-card-desc">Serverless MySQL-compatible database with branching and deploy requests.</p>
+        <div class="deal-card-tags"><span class="deal-card-tag">mysql</span><span class="deal-card-tag">database</span><span class="deal-card-tag">branching</span><span class="deal-card-tag">serverless</span></div>
+        <div class="deal-card-footer">
+          <a href="https://planetscale.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=planetscale" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="planetscale">Claim Deal</a>
+          <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="deal-card-header">
+          <h3 class="deal-card-title"><a href="/deals/pocketbase/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">PocketBase</a></h3>
+          <span class="deal-card-cat">Database</span>
+        </div>
+        <div class="deal-card-deal">Free &amp; Open Source</div>
+        
+        <p class="deal-card-why">Free open-source backend —€” SQLite, auth, file storage, realtime in one binary</p>
+        <p class="deal-card-desc">Open-source backend with realtime database, auth, and file storage.</p>
+        <div class="deal-card-tags"><span class="deal-card-tag">sqlite</span><span class="deal-card-tag">backend</span><span class="deal-card-tag">auth</span><span class="deal-card-tag">realtime</span><span class="deal-card-tag">open-source</span></div>
+        <div class="deal-card-footer">
+          <a href="https://pocketbase.io/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=pocketbase" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="pocketbase">Claim Deal</a>
+          <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="deal-card-header">
+          <h3 class="deal-card-title"><a href="/deals/redis-cloud/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">Redis Cloud</a></h3>
+          <span class="deal-card-cat">Database</span>
+        </div>
+        <div class="deal-card-deal">Free 30MB Tier</div>
+        
+        <p class="deal-card-why">Free 30MB managed Redis —€” caching and pub/sub for small projects</p>
+        <p class="deal-card-desc">Managed Redis database with caching, pub/sub, and vector search. Free 30MB tier.</p>
+        <div class="deal-card-tags"><span class="deal-card-tag">redis</span><span class="deal-card-tag">cache</span><span class="deal-card-tag">pub-sub</span><span class="deal-card-tag">database</span><span class="deal-card-tag">vector</span></div>
+        <div class="deal-card-footer">
+          <a href="https://redis.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=rediscloud" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="redis-cloud">Claim Deal</a>
+          <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="deal-card-header">
+          <h3 class="deal-card-title"><a href="/deals/supabase/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">Supabase</a></h3>
+          <span class="deal-card-cat">Database</span>
+        </div>
+        <div class="deal-card-deal">Free Tier (2 Projects)</div>
+        
+        <p class="deal-card-why">Free Postgres with auth, realtime, and edge functions —€” Firebase alternative</p>
+        <p class="deal-card-desc">Hosted Postgres database with authentication, instant APIs, edge functions.</p>
+        <div class="deal-card-tags"><span class="deal-card-tag">postgres</span><span class="deal-card-tag">database</span><span class="deal-card-tag">auth</span><span class="deal-card-tag">serverless</span><span class="deal-card-tag">realtime</span></div>
+        <div class="deal-card-footer">
+          <a href="https://supabase.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=supabase" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="supabase">Claim Deal</a>
+          <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="deal-card-header">
+          <h3 class="deal-card-title"><a href="/deals/turso/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">Turso</a></h3>
+          <span class="deal-card-cat">Database</span>
+        </div>
+        <div class="deal-card-deal">Free Tier (3GB)</div>
+        
+        <p class="deal-card-why">Free 3GB edge SQLite —€” global read replicas without the complexity</p>
+        <p class="deal-card-desc">Edge SQLite database for global applications with generous free tier.</p>
+        <div class="deal-card-tags"><span class="deal-card-tag">sqlite</span><span class="deal-card-tag">database</span><span class="deal-card-tag">edge</span><span class="deal-card-tag">serverless</span></div>
+        <div class="deal-card-footer">
+          <a href="https://turso.tech/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=turso" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="turso">Claim Deal</a>
+          <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="deal-card-header">
+          <h3 class="deal-card-title"><a href="/deals/upstash/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">Upstash</a></h3>
+          <span class="deal-card-cat">Database</span>
+        </div>
+        <div class="deal-card-deal">Free Tier (10,000 Requests)</div>
+        
+        <p class="deal-card-why">Free 10K requests/day serverless Redis —€” built for edge and serverless</p>
+        <p class="deal-card-desc">Serverless Redis and Kafka for edge applications.</p>
+        <div class="deal-card-tags"><span class="deal-card-tag">redis</span><span class="deal-card-tag">kafka</span><span class="deal-card-tag">database</span><span class="deal-card-tag">serverless</span><span class="deal-card-tag">edge</span></div>
+        <div class="deal-card-footer">
+          <a href="https://upstash.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=upstash" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="upstash">Claim Deal</a>
+          <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
+        </div>
+      </div></div>
+      </section>
+    </main>
+    <footer class="footer" role="contentinfo" aria-label="Site footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="nav-logo-badge">devcheap</span>
+          <p class="footer-text">Verified developer deals, curated weekly.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/hasitpbhatt/devcheap" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+          <a href="/#newsletter" class="nav-link">Newsletter</a>
+        </div>
+      </div>
+      
+    </footer>
+  </div>
+</body>
+</html>

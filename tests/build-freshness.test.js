@@ -38,9 +38,11 @@ describe('build freshness', () => {
     const sitemap = fs.readFileSync(SITEMAP_PATH, 'utf-8');
     const urlCount = (sitemap.match(/<loc>/g) || []).length;
     const categories = [...new Set(deals.map(d => d.category))].length;
-    const articles = 5;
+    const articles = 9;
     const legal = 1;
-    expect(urlCount).toBe(dealCount * 2 + 1 + categories + articles + legal);
+    const alternatives = dealCount;
+    const llmHub = 4; // /llm-providers/ directory hub + 3 sub-pages (no-credit-card, media-apis, openrouter-alternatives)
+    expect(urlCount).toBe(dealCount * 2 + 1 + categories + articles + legal + alternatives + llmHub);
   });
 
   it('every deal in deals.jsonl has a generated detail page', () => {
@@ -74,6 +76,30 @@ describe('build freshness', () => {
     const html = fs.readFileSync(INDEX_PATH, 'utf-8');
     const cardCount = (html.match(/<div class="deal-card">/g) || []).length;
     expect(cardCount).toBeGreaterThanOrEqual(17);
+  });
+
+  it('LLM Providers hub page exists with the full provider table', () => {
+    const hubPath = path.join(ROOT, 'llm-providers', 'index.html');
+    expect(fs.existsSync(hubPath)).toBe(true);
+    const html = fs.readFileSync(hubPath, 'utf-8');
+    expect(html).toContain('<table');
+    expect(html).toContain('/llm-providers/');
+    const rowCount = (html.match(/<tr data-name=/g) || []).length;
+    expect(rowCount).toBeGreaterThanOrEqual(150);
+    // JSON-LD CollectionPage + ItemList
+    expect(html).toContain('"CollectionPage"');
+    expect(html).toContain('"ItemList"');
+  });
+
+  it('LLM Providers sub-pages exist with filtered tables and OG image', () => {
+    for (const slug of ['no-credit-card', 'media-apis', 'openrouter-alternatives']) {
+      const p = path.join(ROOT, 'llm-providers', slug, 'index.html');
+      expect(fs.existsSync(p), `missing sub-page ${slug}`).toBe(true);
+      const html = fs.readFileSync(p, 'utf-8');
+      expect(html).toContain('<table');
+      expect(html).toContain('og-llm-providers.svg');
+      expect(html.includes('{{HUB_'), `sub-page ${slug} has an unfilled template placeholder`).toBe(false);
+    }
   });
 
   it('homepage has at least 1700 readable words', () => {

@@ -86,6 +86,44 @@ async function main() {
   }
 
   lines.push('');
+  lines.push('## Alternatives');
+  lines.push('Side-by-side comparisons for popular tools — each links to a curated page of verified alternatives in the same category:');
+  const altSlugs = new Map();
+  const usedAlt = new Set();
+  for (const d of deals) {
+    let s = String(d.name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || d.id;
+    if (usedAlt.has(s)) s = `${s}-${d.id}`;
+    usedAlt.add(s);
+    altSlugs.set(d.id, s);
+  }
+  const altDeals = deals.filter(d => d.rating >= 8.0).sort((a, b) => b.rating - a.rating).slice(0, 25);
+  for (const d of altDeals) {
+    const slug = altSlugs.get(d.id);
+    const altCount = deals.filter(x => x.category === d.category && x.id !== d.id).length;
+    lines.push(`- [${d.name} Alternatives](https://devcheap.click/alternatives/${slug}/): ${altCount} comparable ${d.category} deals with verified pricing`);
+  }
+
+  lines.push('');
+  lines.push('## LLM Providers');
+  lines.push('A directory of LLM, image, speech, and embedding API providers ranked by an Ease score (how fast you get an API key with just email), with free-tier value, rate limits, and signup gates. The hub is the centerpiece of DevCheap\'s LLM coverage.');
+  try {
+    const llmRaw = await fs.readFile(path.join(ROOT_DIR, 'data', 'llm-providers.json'), 'utf-8');
+    const llm = JSON.parse(llmRaw);
+    lines.push(`- [LLM Providers Directory](https://devcheap.click/llm-providers/): ${llm.length} providers ranked by Ease, with free-tier rate limits and gate analysis (card / phone / KYC / captcha)`);
+    lines.push(`- [No-credit-card LLM APIs](https://devcheap.click/llm-providers/no-credit-card/): free tiers with no billing, just an email`);
+    lines.push(`- [Image, speech & embedding APIs](https://devcheap.click/llm-providers/media-apis/): free media APIs ranked by Ease`);
+    lines.push(`- [OpenRouter alternatives](https://devcheap.click/llm-providers/openrouter-alternatives/): 40+ LLM gateways with free tiers`);
+    lines.push(`- [How to pick a free LLM API](https://devcheap.click/articles/how-to-pick-free-llm-api/): framework for choosing a free LLM API by Ease, rate limits, and gates`);
+    lines.push(`- [Raw provider data (JSON)](https://devcheap.click/data/llm-providers.json): machine-readable dataset of all ${llm.length} providers for programmatic use`);
+    const topLlm = llm.filter((p) => p.isLLM).sort((a, b) => b.ease - a.ease).slice(0, 10);
+    for (const p of topLlm) {
+      lines.push(`- [${p.name}](https://devcheap.click/llm-providers/) — Ease ${p.ease}, ${p.freeTier} [${p.gates.join(', ')}]`);
+    }
+  } catch {
+    lines.push('- [LLM Providers Directory](https://devcheap.click/llm-providers/): ranked directory of free LLM / AI API providers');
+  }
+  lines.push('');
+
   lines.push('## How to Use This Site');
   lines.push('- **Browse**: Visit the [homepage](https://devcheap.click/) to see all active deals. Use category buttons and search to filter.');
   lines.push('- **Detail pages**: Each deal has a dedicated page at `https://devcheap.click/deals/{id}/` with full description, pricing, coupon code, and affiliate tracking.');

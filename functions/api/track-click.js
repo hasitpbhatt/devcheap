@@ -1,6 +1,6 @@
 const ALLOWED_ORIGINS = ['https://devcheap.click', 'https://devcheap-3uq.pages.dev', 'http://localhost:8788', 'http://localhost:3000', 'http://localhost:5173', 'http://127.0.0.1:8788', 'http://127.0.0.1:3000', 'http://127.0.0.1:5173'];
 
-const VALID_LINK_TYPES = new Set(['claim_deal', 'top_picks_claim', 'coupon_copy']);
+const VALID_LINK_TYPES = new Set(['claim_deal', 'top_picks_claim', 'coupon_copy', 'llm_provider', 'nav_click']);
 
 function jsonResponse(body, status) {
   return new Response(JSON.stringify(body), {

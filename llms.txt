@@ -57,6 +57,45 @@ DevCheap tracks **197 deals** across **21 categories**. Every deal is manually r
 - **AI** (2 deals, free: 2) — [Gamma](https://devcheap.click/deals/gamma/) [rating: 8.5, free]; [DeepLearning.AI](https://devcheap.click/deals/deeplearning-ai/) [rating: 7.5, free]
 - **Sales & Marketing** (1 deals, trial: 1) — [Tenjin](https://devcheap.click/deals/tenjin/) [rating: 7, trial]
 
+## Alternatives
+Side-by-side comparisons for popular tools — each links to a curated page of verified alternatives in the same category:
+- [Credit for Startups Alternatives](https://devcheap.click/alternatives/credit-for-startups/): 41 comparable Developer Tools deals with verified pricing
+- [Gamma Alternatives](https://devcheap.click/alternatives/gamma/): 1 comparable AI deals with verified pricing
+- [LaunchDarkly Alternatives](https://devcheap.click/alternatives/launchdarkly/): 41 comparable Developer Tools deals with verified pricing
+- [Netlify Alternatives](https://devcheap.click/alternatives/netlify/): 30 comparable Hosting & Cloud deals with verified pricing
+- [Neon Startup Credits Alternatives](https://devcheap.click/alternatives/neon-startup-credits/): 16 comparable Database deals with verified pricing
+- [Anthropic Claude for Startups Alternatives](https://devcheap.click/alternatives/anthropic-claude-for-startups/): 45 comparable AI & LLM deals with verified pricing
+- [OpenAI Startup Credits Alternatives](https://devcheap.click/alternatives/openai-startup-credits/): 45 comparable AI & LLM deals with verified pricing
+- [PostHog Alternatives](https://devcheap.click/alternatives/posthog/): 4 comparable Web Analytics deals with verified pricing
+- [GitHub Copilot Free Alternatives](https://devcheap.click/alternatives/github-copilot-free/): 45 comparable AI & LLM deals with verified pricing
+- [AWS Activate Alternatives](https://devcheap.click/alternatives/aws-activate/): 30 comparable Hosting & Cloud deals with verified pricing
+- [CircleCI Startup Credits Alternatives](https://devcheap.click/alternatives/circleci-startup-credits/): 2 comparable CI/CD deals with verified pricing
+- [Cloudflare for Startups Alternatives](https://devcheap.click/alternatives/cloudflare-for-startups/): 30 comparable Hosting & Cloud deals with verified pricing
+- [Cloudflare Workers AI Alternatives](https://devcheap.click/alternatives/cloudflare-workers-ai/): 45 comparable AI & LLM deals with verified pricing
+- [DigitalOcean Startups Alternatives](https://devcheap.click/alternatives/digitalocean-startups/): 30 comparable Hosting & Cloud deals with verified pricing
+- [Figma Alternatives](https://devcheap.click/alternatives/figma/): 7 comparable Design & Collaboration deals with verified pricing
+- [Google Cloud for Startups Alternatives](https://devcheap.click/alternatives/google-cloud-for-startups/): 30 comparable Hosting & Cloud deals with verified pricing
+- [Microsoft for Startups Alternatives](https://devcheap.click/alternatives/microsoft-for-startups/): 30 comparable Hosting & Cloud deals with verified pricing
+
+## LLM Providers
+A directory of LLM, image, speech, and embedding API providers ranked by an Ease score (how fast you get an API key with just email), with free-tier value, rate limits, and signup gates. The hub is the centerpiece of DevCheap's LLM coverage.
+- [LLM Providers Directory](https://devcheap.click/llm-providers/): 168 providers ranked by Ease, with free-tier rate limits and gate analysis (card / phone / KYC / captcha)
+- [No-credit-card LLM APIs](https://devcheap.click/llm-providers/no-credit-card/): free tiers with no billing, just an email
+- [Image, speech & embedding APIs](https://devcheap.click/llm-providers/media-apis/): free media APIs ranked by Ease
+- [OpenRouter alternatives](https://devcheap.click/llm-providers/openrouter-alternatives/): 40+ LLM gateways with free tiers
+- [How to pick a free LLM API](https://devcheap.click/articles/how-to-pick-free-llm-api/): framework for choosing a free LLM API by Ease, rate limits, and gates
+- [Raw provider data (JSON)](https://devcheap.click/data/llm-providers.json): machine-readable dataset of all 168 providers for programmatic use
+- [BlockRun](https://devcheap.click/llm-providers/) — Ease 100, 8 models unlimited, no throttle [none]
+- [Cerebras](https://devcheap.click/llm-providers/) — Ease 100, quota ~1M tokens/day (≈$15/mo) [none]
+- [Glhf.chat](https://devcheap.click/llm-providers/) — Ease 100, 2 models unlimited [none]
+- [Google AI Studio](https://devcheap.click/llm-providers/) — Ease 100, quota 15 RPM / 1.5K RPD (≈$20+/mo) [none]
+- [Groq](https://devcheap.click/llm-providers/) — Ease 100, quota 30 RPM / 14.4K RPD (≈$15–50/mo) [none]
+- [Hugging Face Inference](https://devcheap.click/llm-providers/) — Ease 100, $0.10/mo routing + serverless [none]
+- [Lepton AI](https://devcheap.click/llm-providers/) — Ease 100, free tier available [none]
+- [OpenRouter](https://devcheap.click/llm-providers/) — Ease 100, 25+ :free models, 50 RPD → 1K RPD after $10 [none]
+- [Pollinations AI](https://devcheap.click/llm-providers/) — Ease 100, unlimited, no auth [none]
+- [bazaarlink](https://devcheap.click/llm-providers/) — Ease 100, instant key, no auth [none]
+
 ## How to Use This Site
 - **Browse**: Visit the [homepage](https://devcheap.click/) to see all active deals. Use category buttons and search to filter.
 - **Detail pages**: Each deal has a dedicated page at `https://devcheap.click/deals/{id}/` with full description, pricing, coupon code, and affiliate tracking.
