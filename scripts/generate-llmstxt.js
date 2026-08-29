@@ -94,6 +94,7 @@ async function main() {
   lines.push('- **Ratings**: Each deal is rated 1-10. Deals ≥ 8.0 are featured on the homepage. Deals < 8.0 are moved to the [archive](https://devcheap.click/archive.html).');
   lines.push('- **RSS**: Subscribe to [feed.xml](https://devcheap.click/feed.xml) for deal updates.');
   lines.push('- **Data access**: Full dataset at [data/deals.jsonl](https://devcheap.click/data/deals.jsonl) (one JSON object per line).');
+  lines.push('- **Affiliate disclosure**: Some links are affiliate links. See the [affiliate disclosure page](https://devcheap.click/disclosure/) for the full list of partners and editorial policy.');
 
   lines.push('');
   lines.push('## Content Negotiation');

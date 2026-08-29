@@ -27,8 +27,11 @@ describe('deals.json schema', () => {
       expect(typeof deal.url).toBe('string');
       expect(deal.desc).toBeDefined(`deal[${i}] missing desc`);
       expect(typeof deal.desc).toBe('string');
-      expect(deal.tracking_id).toBeDefined(`deal[${i}] missing tracking_id`);
-      expect(typeof deal.tracking_id).toBe('string');
+      // tracking_id is required only for affiliate deals; non-affiliate deals don't need it
+      if (deal.has_affiliate) {
+        expect(deal.tracking_id, `affiliate deal[${i}] ${deal.id} missing tracking_id`).toBeDefined();
+        expect(typeof deal.tracking_id).toBe('string');
+      }
       expect(deal.has_affiliate).toBeDefined(`deal[${i}] missing has_affiliate`);
       expect(typeof deal.has_affiliate).toBe('boolean');
       expect(deal.affiliate_url).toBeDefined(`deal[${i}] missing affiliate_url`);
@@ -57,8 +60,8 @@ describe('deals.json schema', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it('all tracking_ids are unique', () => {
-    const tids = deals.map(d => d.tracking_id);
+  it('all tracking_ids are unique (affiliate deals only)', () => {
+    const tids = deals.filter(d => d.has_affiliate).map(d => d.tracking_id);
     expect(new Set(tids).size).toBe(tids.length);
   });
 

@@ -12,6 +12,12 @@ const INDEX_PATH = path.join(ROOT_DIR, 'index.html');
 const TEMPLATE_PATH = path.join(ROOT_DIR, 'templates', 'deal-detail.html');
 const DEALS_DIR = path.join(ROOT_DIR, 'deals');
 
+const AFFILIATE_DISCLOSURE_URL = '/disclosure/';
+
+function renderAffiliateDisclosure() {
+  return `<p class="footer-disclosure">Some links on this page are affiliate links. DevCheap may earn a commission if you sign up through them, at no extra cost to you. <a href="${AFFILIATE_DISCLOSURE_URL}">Read our full disclosure</a>.</p>`;
+}
+
 let dealFaqCache = null;
 async function loadDealFaqs() {
   if (dealFaqCache) return dealFaqCache;
@@ -225,6 +231,34 @@ function renderDealCard(deal, isNested = false) {
       </div>`;
 }
 
+function renderTopPickCard(deal) {
+  const trackedUrl = buildTrackedUrl(deal);
+  const isPromoAutomatic = deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link');
+  const affiliateClass = deal.has_affiliate ? ' top-picks-card--affiliate' : '';
+  const couponBtn = isPromoAutomatic
+    ? `<button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled>${escapeHtml(deal.code)}</button>`
+    : `<button class="deal-card-btn deal-card-btn-code" data-deal-id="${deal.id}">Copy Code</button>`;
+  const expiresHTML = deal.expires ? `<span class="top-picks-card-expires">Ends ${escapeHtml(deal.expires)}</span>` : '';
+  return `
+      <article class="top-picks-card${affiliateClass}">
+        <div class="top-picks-card-rank">
+          <svg class="icon icon-star" width="14" height="14" aria-hidden="true"><use href="/images/icons.svg#icon-star"/></svg>
+          <span>Editor's Pick</span>
+        </div>
+        <div class="top-picks-card-body">
+          <span class="top-picks-card-cat">${escapeHtml(deal.category)}</span>
+          <h3 class="top-picks-card-title"><a href="deals/${deal.id}/">${escapeHtml(deal.name)}</a></h3>
+          <div class="top-picks-card-deal">${escapeHtml(sanitizeDealValue(deal.deal))}</div>
+          ${deal.why ? `<p class="top-picks-card-why">${escapeHtml(deal.why)}</p>` : ''}
+        </div>
+        <div class="top-picks-card-footer">
+          <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>
+          ${couponBtn}
+          ${expiresHTML}
+        </div>
+      </article>`;
+}
+
 // Deals with rating below this threshold are demoted from the homepage grid.
 // Must stay in sync with FEATURED_RATING_MIN in js/search.js.
 const FEATURED_RATING_MIN = 8.0;
@@ -357,14 +391,14 @@ async function generateAggregatePages(ROOT_DIR, deals) {
       'best-free-ai-apis': ['github-models','google-ai-studio','cloudflare-workers-ai','openrouter','groq','cerebras','sambanova-cloud','together-ai','deepgram','assemblyai','openai-startup-credits','anthropic-claude-startups'],
       'free-developer-tools-2026': ['github-copilot','codeium','bruno','hoppscotch','posthog','grafana-cloud','better-stack','neon','supabase','appwrite','launchdarkly','retool'],
       'startup-credit-programs': ['aws-activate','google-cloud-startups','microsoft-for-startups','cloudflare-for-startups','digitalocean-startups','openai-startup-credits','anthropic-claude-startups','neon-startup-credits','circleci-startup','credit-for-startups','saasoffers','fin-ai-startup-pack','kong-for-startups'],
-      'best-lifetime-deals-developers': ['1minai','chatplayground','wordhero','writecream','polypane','n8nitiator','screpy','sturppy','fastestvpn','stickypassword','adguard','sendfox','emailit','tidycal']
+      'best-lifetime-deals-developers': ['polypane','n8nitiator','screpy','fastestvpn','stickypassword','adguard','sendfox','emailit','tidycal','rocketscrape','senderstack','teable']
     };
 
     const relatedDealIds = articleDealSlugs[article.slug] || [];
-    const relatedDealsCards = deals
-      .filter(d => relatedDealIds.includes(d.id))
-      .map(d => renderDealCard(d))
-      .join('\n');
+    const relatedDeals = deals.filter(d => relatedDealIds.includes(d.id));
+    const relatedDealsCards = relatedDeals.map(d => renderDealCard(d)).join('\n');
+    const articleHasAffiliate = relatedDeals.some(d => d.has_affiliate);
+    const articleDisclosure = articleHasAffiliate ? renderAffiliateDisclosure() : '';
 
     const pageHtml = `<!DOCTYPE html>
 <html lang="en-US">
@@ -448,9 +482,10 @@ async function generateAggregatePages(ROOT_DIR, deals) {
         </div>
         <div class="footer-links">
           <a href="https://github.com/hasitpbhatt/devcheap" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
-          <a href="/#newsletter" class="footer-link">Newsletter</a>
+          <a href="/#newsletter" class="nav-link">Newsletter</a>
         </div>
       </div>
+      ${articleDisclosure}
     </footer>
   </div>
 </body>
@@ -485,6 +520,8 @@ async function generateCategoryPages(ROOT_DIR, deals) {
     const metaDesc = `${seo.intro} ${catDeals.length} ${dealLabel} — free credits, lifetime licenses, and startup packages.`;
 
     const dealCards = catDeals.map(d => renderDealCard(d)).join('\n');
+    const categoryHasAffiliate = catDeals.some(d => d.has_affiliate);
+    const categoryDisclosure = categoryHasAffiliate ? renderAffiliateDisclosure() : '';
 
     const faqs = (seo.faqs || defaultSEO.faqs).map((faq, i) => `
     <div class="faq-item">
@@ -548,7 +585,8 @@ async function generateCategoryPages(ROOT_DIR, deals) {
       .replace(/{{PAID_COUNT}}/g, paidCount)
       .replace('{{CATEGORY_DEAL_CARDS}}', dealCards)
       .replace('{{CATEGORY_FAQ}}', faqs)
-      .replace('{{CATEGORY_JSONLD}}', jsonLdHtml);
+      .replace('{{CATEGORY_JSONLD}}', jsonLdHtml)
+      .replace('{{AFFILIATE_DISCLOSURE}}', categoryDisclosure);
 
     await fs.writeFile(path.join(pageDir, 'index.html'), html, 'utf-8');
   });
@@ -636,6 +674,46 @@ ${cards}
 `;
   await fs.writeFile(archivePath, html, 'utf-8');
   console.log(`✅ Generated archive.html with ${archived.length} archived deals (rating < ${FEATURED_RATING_MIN}).`);
+}
+
+async function generateRedirectPages(ROOT_DIR, deals) {
+  const redirectsDir = path.join(ROOT_DIR, 'r');
+  await fs.mkdir(redirectsDir, { recursive: true });
+
+  const promises = deals.map(async (deal) => {
+    if (!deal.url) return;
+    const trackedUrl = buildTrackedUrl(deal);
+    const pageHtml = `<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=${escapeHtml(trackedUrl)}">
+  <link rel="canonical" href="https://devcheap.click/deals/${escapeHtml(deal.id)}/">
+  <title>Redirecting to ${escapeHtml(deal.name)} — DevCheap</title>
+  <meta name="robots" content="noindex, follow">
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #0f172a; color: #e2e8f0; }
+    .box { text-align: center; padding: 32px; }
+    a { color: #38bdf8; }
+  </style>
+  <script>
+    window.location.replace(${JSON.stringify(trackedUrl)});
+  </script>
+</head>
+<body>
+  <div class="box">
+    <p>Redirecting to <strong>${escapeHtml(deal.name)}</strong>…</p>
+    <p><a href="${escapeHtml(trackedUrl)}">Click here if you are not redirected automatically.</a></p>
+  </div>
+</body>
+</html>`;
+    const dealDir = path.join(redirectsDir, deal.id);
+    await fs.mkdir(dealDir, { recursive: true });
+    await fs.writeFile(path.join(dealDir, 'index.html'), pageHtml, 'utf-8');
+  });
+
+  await Promise.all(promises);
+  console.log(`✅ Generated ${deals.length} redirect pages under /r/[id]/`);
 }
 
 async function main() {
@@ -736,6 +814,42 @@ const categoryButtons = [
   });
   const featuredCards = featuredDeals.map(d => renderDealCard(d)).join('\n');
   indexHtml = indexHtml.replace('{{DEAL_CARDS}}', featuredCards);
+
+  // Top Picks: 6 hand-curated deals for the homepage hero strip.
+  // Selection rules:
+  //   1. Pin the "minimax-week" deal while it is still active (campaign ends 2026-09-06).
+  //   2. Fill remaining slots with active, high-rated affiliate deals.
+  //   3. If fewer than 6 affiliate deals qualify, top up with highest-rated non-affiliate.
+  //   4. Cap at 6.
+  const TOP_PICKS_LIMIT = 6;
+  const isActive = (deal) => !deal.expires || new Date(deal.expires).getTime() >= Date.now();
+  const topPicksPicks = [];
+  const topPicksUsed = new Set();
+  const pinned = featuredDeals.find(d => d.id === 'minimax-week' && isActive(d));
+  if (pinned) {
+    topPicksPicks.push(pinned);
+    topPicksUsed.add(pinned.id);
+  }
+  const affiliatePool = featuredDeals
+    .filter(d => d.has_affiliate && isActive(d) && !topPicksUsed.has(d.id))
+    .sort((a, b) => (b.rating || 0) - (a.rating || 0));
+  for (const d of affiliatePool) {
+    if (topPicksPicks.length >= TOP_PICKS_LIMIT) break;
+    topPicksPicks.push(d);
+    topPicksUsed.add(d.id);
+  }
+  if (topPicksPicks.length < TOP_PICKS_LIMIT) {
+    const topupPool = featuredDeals
+      .filter(d => isActive(d) && !topPicksUsed.has(d.id))
+      .sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    for (const d of topupPool) {
+      if (topPicksPicks.length >= TOP_PICKS_LIMIT) break;
+      topPicksPicks.push(d);
+      topPicksUsed.add(d.id);
+    }
+  }
+  const topPicksCards = topPicksPicks.map(d => renderTopPickCard(d)).join('\n');
+  indexHtml = indexHtml.replace('{{TOP_PICKS}}', topPicksCards);
 
   // Update How It Works section counts
   indexHtml = indexHtml.replace(
@@ -858,7 +972,8 @@ const productJson = {
       .replace(/{{BREADCRUMB_JSONLD}}/g, breadcrumbJsonHtml)
       .replace(/{{PRODUCT_JSONLD}}/g, productJsonHtml)
       .replace(/{{DEAL_FAQ_HTML}}/g, dealFaqHtml)
-      .replace(/{{DEAL_FAQ_JSONLD}}/g, dealFaqJsonld);
+      .replace(/{{DEAL_FAQ_JSONLD}}/g, dealFaqJsonld)
+      .replace('{{AFFILIATE_DISCLOSURE}}', deal.has_affiliate ? renderAffiliateDisclosure() : '');
 
     // This await happens inside the mapped function context concurrently
     await fs.writeFile(path.join(dealDir, 'index.html'), populated, 'utf-8');
@@ -869,10 +984,13 @@ const productJson = {
   
   console.log(`✅ Generated ${totalDeals} deal detail pages under /deals/[id]/index.html`);
 
-  // 4. Generate Category SEO Pages
+  // 4. Generate Redirect Pages
+  await generateRedirectPages(ROOT_DIR, deals);
+
+  // 5. Generate Category SEO Pages
   await generateCategoryPages(ROOT_DIR, deals);
 
-  // 5. Generate sitemap.xml
+  // 6. Generate sitemap.xml
   const sitemapPath = path.join(ROOT_DIR, 'sitemap.xml');
   const today = new Date().toISOString().split('T')[0];
   
@@ -885,6 +1003,7 @@ const productJson = {
   for (const deal of deals) {
     if (!deal.url) continue;
     sitemapXml += `<url>\n  <loc>https://devcheap.click/deals/${deal.id}/</loc>\n  <lastmod>${globalLastMod}</lastmod>\n  <changefreq>weekly</changefreq>\n  <priority>0.8</priority>\n</url>\n`;
+    sitemapXml += `<url>\n  <loc>https://devcheap.click/r/${deal.id}/</loc>\n  <lastmod>${globalLastMod}</lastmod>\n  <changefreq>weekly</changefreq>\n  <priority>0.5</priority>\n</url>\n`;
   }
 
   // Add category SEO pages to sitemap
@@ -900,6 +1019,9 @@ const productJson = {
     sitemapXml += `<url>\n  <loc>https://devcheap.click/articles/${slug}/</loc>\n  <lastmod>${today}</lastmod>\n  <changefreq>monthly</changefreq>\n  <priority>0.6</priority>\n</url>\n`;
   }
 
+  // Add legal/affiliate disclosure page
+  sitemapXml += `<url>\n  <loc>https://devcheap.click/disclosure/</loc>\n  <lastmod>${today}</lastmod>\n  <changefreq>monthly</changefreq>\n  <priority>0.3</priority>\n</url>\n`;
+
   sitemapXml += `</urlset>\n`;
   await fs.writeFile(sitemapPath, sitemapXml, 'utf-8');
 
@@ -908,7 +1030,7 @@ const productJson = {
   const sitemapIndexXml = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<sitemap>\n  <loc>https://devcheap.click/sitemap.xml</loc>\n  <lastmod>${today}</lastmod>\n</sitemap>\n</sitemapindex>\n`;
   await fs.writeFile(sitemapIndexPath, sitemapIndexXml, 'utf-8');
   
-  console.log('✅ Generated sitemap.xml with all deal detail pages.');
+  console.log('✅ Generated sitemap.xml with all deal detail and redirect pages.');
   console.log('✅ Generated sitemap_index.xml.');
 
   // 7. Generate archive.html — low-value deals kept linkable but off the homepage

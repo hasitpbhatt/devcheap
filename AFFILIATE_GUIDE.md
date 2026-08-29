@@ -128,8 +128,10 @@ Affiliate networks (Impact.com, ShareASale, Awin) often reject or low-ball sites
 with no traffic history. Order the work so audience comes first and *unlocks* payouts.
 
 ### Phase 1 — Owned audience (now, no affiliate approval needed)
-- Email capture is wired through `/api/subscribe` (Turnstile-protected, stores to
-  KV `SUBSCRIBERS` namespace or logs `NEW_SUBSCRIBER`). Bind that KV in Cloudflare.
+- Email capture is wired through `/api/subscribe` (Turnstile-protected). Add the
+  subscriber to your Resend audience via `RESEND_API_KEY` + `RESEND_AUDIENCE_ID`
+  env vars, and optionally bind the `SUBSCRIBERS` KV namespace for a local backup
+  copy (falls back to logging `NEW_SUBSCRIBER` if not bound).
 - Post 1 deal/day to r/SaaS, r/startups, IndieHackers, and X. These convert on trust,
   not domain rank. Link back to the deal detail page.
 - Keep `gamma.app` (the only live affiliate link) as proof-of-concept.

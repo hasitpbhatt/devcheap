@@ -32,6 +32,7 @@ function debug(...args) {
 const TURNSTILE_SITE_KEY = '0x4AAAAAADvU7jbz4RuK5Ibz';
 let turnstileWidgetId = null;
 let turnstileToken = null;
+let turnstilePending = null;
 
 function escapeHtml(str) {
   if (!str) return '';
@@ -43,14 +44,48 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
+function settleTurnstile(token) {
+  turnstileToken = token;
+  if (turnstilePending) {
+    const resolve = turnstilePending;
+    turnstilePending = null;
+    resolve(token);
+  }
+}
+
 function renderTurnstile() {
   const container = document.getElementById('turnstile-widget');
   if (!container || typeof turnstile === 'undefined' || turnstileWidgetId !== null) return;
   turnstileWidgetId = turnstile.render(container, {
     sitekey: TURNSTILE_SITE_KEY,
-    callback: function (token) { turnstileToken = token; },
-    'expired-callback': function () { turnstileToken = null; },
-    'error-callback': function () { turnstileToken = null; },
+    appearance: 'execute',
+    callback: function (token) { settleTurnstile(token); },
+    'expired-callback': function () { settleTurnstile(null); },
+    'error-callback': function () { settleTurnstile(null); },
+  });
+}
+
+// Turnstile hands the token back through a callback, so the challenge has to be
+// awaited before the subscribe request goes out. Without this the first submit
+// posts with no token and the API rejects it as a bot.
+function requestTurnstileToken(timeoutMs = 8000) {
+  if (turnstileToken) return Promise.resolve(turnstileToken);
+  if (turnstileWidgetId === null || typeof turnstile === 'undefined') {
+    return Promise.resolve(null);
+  }
+  return new Promise(resolve => {
+    turnstilePending = resolve;
+    setTimeout(() => {
+      if (turnstilePending === resolve) {
+        turnstilePending = null;
+        resolve(turnstileToken);
+      }
+    }, timeoutMs);
+    try {
+      turnstile.execute(turnstileWidgetId);
+    } catch (_) {
+      settleTurnstile(null);
+    }
   });
 }
 
@@ -384,13 +419,11 @@ function updateThemeIcons(theme) {
 }
 
 async function subscribeToNewsletter(email, source = 'devcheap.click') {
-  if (turnstileWidgetId !== null && typeof turnstile !== 'undefined') {
-    turnstile.execute(turnstileWidgetId);
-  }
+  const token = await requestTurnstileToken();
 
   const body = { email, source };
-  if (turnstileToken) {
-    body['cf-turnstile-response'] = turnstileToken;
+  if (token) {
+    body['cf-turnstile-response'] = token;
   }
 
   try {
@@ -408,11 +441,16 @@ async function subscribeToNewsletter(email, source = 'devcheap.click') {
 
     if (turnstileWidgetId !== null && typeof turnstile !== 'undefined') {
       turnstile.reset(turnstileWidgetId);
+      turnstileToken = null;
     }
 
     return { ok: true };
   } catch (err) {
     console.error('Newsletter subscription error:', err);
+    if (turnstileWidgetId !== null && typeof turnstile !== 'undefined') {
+      turnstile.reset(turnstileWidgetId);
+      turnstileToken = null;
+    }
     return { ok: false, reason: err.message };
   }
 }
@@ -1034,7 +1072,10 @@ const btn = e.target.closest('[data-deal-id]');
 
   if (btn.classList.contains('deal-card-btn-primary')) {
         const deal = dealsData.find(d => d.id === btn.dataset.dealId);
-        if (deal) trackOutboundClick(deal, 'claim_deal');
+        if (deal) {
+          const linkType = btn.closest('.top-picks-card') ? 'top_picks_claim' : 'claim_deal';
+          trackOutboundClick(deal, linkType);
+        }
       } else if (btn.classList.contains('deal-card-btn-code') && !btn.disabled) {
         const deal = dealsData.find(d => d.id === btn.dataset.dealId);
         const code = deal ? deal.code : '';

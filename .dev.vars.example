@@ -1,0 +1,21 @@
+# Template for .dev.vars — copy to `.dev.vars` and fill in real values.
+# `.dev.vars` is git-ignored; this example file is committed on purpose.
+#
+#   cp .dev.vars.example .dev.vars
+#
+# Mirror these in the Cloudflare Pages dashboard (Settings > Environment variables,
+# with "Encrypt" checked) for preview and production.
+
+# Cloudflare Turnstile secret key. Must belong to the same widget as the site key
+# hardcoded in js/search.js. Dashboard: https://dash.cloudflare.com/?to=/:account/turnstile
+TURNSTILE_SECRET_KEY=
+
+# Resend API key (starts with re_). Dashboard: https://resend.com/api-keys
+RESEND_API_KEY=
+
+# Resend segment ID that newsletter subscribers are added to. Optional — without it
+# contacts are still created globally, just not placed in a segment.
+# Resend renamed Audiences to Segments; an existing audience ID works here.
+# RESEND_AUDIENCE_ID is accepted as a fallback alias.
+# Dashboard: https://resend.com/segments
+RESEND_SEGMENT_ID=

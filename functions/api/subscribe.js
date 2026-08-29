@@ -70,31 +70,65 @@ export async function onRequest(context) {
     });
   }
 
-  // No external ESP configured. Store subscriber in a KV namespace if bound,
-  // otherwise log for later import. Both paths return success to the user.
   if (normalized.length > 320) {
     return new Response(JSON.stringify({ error: 'Email too long' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
     });
   }
-  const record = JSON.stringify({
+
+  const record = {
     email: normalized,
     source: source || 'devcheap.click',
     ts: new Date().toISOString(),
-  });
+  };
 
+  const errors = [];
+
+  // Store in KV (optional) so we always have our own copy.
   try {
     if (env.SUBSCRIBERS) {
-      await env.SUBSCRIBERS.put(`sub:${email}`, record);
-    } else {
-      console.log('NEW_SUBSCRIBER', record);
+      await env.SUBSCRIBERS.put(`sub:${normalized}`, JSON.stringify(record));
     }
   } catch (err) {
-    console.error('Subscriber storage error:', err);
+    errors.push('kv');
+    console.error('Subscriber KV storage error:', err);
   }
 
-  return new Response(JSON.stringify({ ok: true }), {
+  // Add the subscriber to Resend if configured.
+  // Resend migrated Audiences -> Segments: contacts are now global objects created
+  // via POST /contacts, with optional segment membership. RESEND_AUDIENCE_ID is
+  // still accepted as an alias so older deployments keep working.
+  const resendApiKey = env.RESEND_API_KEY;
+  const resendSegmentId = env.RESEND_SEGMENT_ID || env.RESEND_AUDIENCE_ID;
+  if (resendApiKey) {
+    try {
+      const payload = { email: normalized, unsubscribed: false };
+      if (resendSegmentId) {
+        payload.segments = [{ id: resendSegmentId }];
+      }
+      const resendRes = await fetch('https://api.resend.com/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${resendApiKey}`,
+          // Resend returns 403 (error 1010) when User-Agent is absent.
+          'User-Agent': 'devcheap-newsletter/1.0',
+        },
+        body: JSON.stringify(payload),
+      });
+      if (!resendRes.ok) {
+        const detail = await resendRes.text().catch(() => '');
+        errors.push('resend');
+        console.error('Resend add-contact error:', resendRes.status, detail);
+      }
+    } catch (err) {
+      errors.push('resend');
+      console.error('Resend add-contact error:', err);
+    }
+  }
+
+  return new Response(JSON.stringify({ ok: true, warnings: errors }), {
     status: 201,
     headers: { 'Content-Type': 'application/json' },
   });

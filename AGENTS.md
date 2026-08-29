@@ -57,3 +57,19 @@ Before committing:
    `pwsh scripts/generate-feed.ps1`
 3. Update README deal count and category table if categories/counts changed
 4. Run validation and tests (`npm run validate:jsonl && npm test`)
+
+## AI-Generated Content
+
+When generating or editing any long-form copy (use-case pages, pillar articles, newsletter drafts):
+
+1. **Read [`VOICE.md`](VOICE.md) first.** The Sahil Bloom persona is the house style. Banned words and tone rules are non-negotiable.
+2. **Use the persona prompt in `VOICE.md` §4** as the system prompt. Do not invent your own voice rules.
+3. **Ground every claim in the deal data.** No invented offers, no invented dollar amounts.
+4. **End on a practical next step**, not a platitude.
+5. **Reference the strategy** in [`STRATEGY.md`](STRATEGY.md) §4 (Plan of Record) so generated content matches the active month of the 6-month plan.
+
+## Strategy & Committee
+
+The site operates under a 6-month time-box with a 5-person committee model (Mitchell / Dharmesh / Lenny / Bret / Sahil). For **why** we build what we build, see [`STRATEGY.md`](STRATEGY.md). For **how** to build it, this file. For **what to write**, see [`VOICE.md`](VOICE.md).
+
+When in doubt about a decision: read `STRATEGY.md` §2 (The Committee) to find which persona owns the call.

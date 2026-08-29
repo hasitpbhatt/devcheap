@@ -9,7 +9,7 @@ We welcome contributions from the community to help make this resource even bett
 
 ---
 
-## 📋 Table of Contents
+## 📝 Table of Contents
 
 - [🤝 Code of Conduct](#-code-of-conduct)
 - [🚀 How to Contribute](#-how-to-contribute)
@@ -17,6 +17,7 @@ We welcome contributions from the community to help make this resource even bett
   - [Reporting Issues](#reporting-issues)
   - [Suggesting Improvements](#suggesting-improvements)
 - [📝 Content Guidelines](#-content-guidelines)
+- [✍️ Voice & Style](#-voice--style)
 - [🔍 Review Process](#-review-process)
 - [🎉 Recognition](#-recognition)
 
@@ -92,6 +93,35 @@ Your PR **must** include the following details in its description:
 - Submit duplicate deals.
 - Submit promotional affiliate links.
 - Write overly long, hyped descriptions.
+
+---
+
+## ✍️ Voice & Style
+
+Long-form copy on DevCheap (use-case pages, pillar articles, the eventual newsletter) is written in a specific house voice. The rules are not aesthetic preference; they're how the brand earns trust.
+
+The full reference is in **[`VOICE.md`](VOICE.md)**. The short version:
+
+- **Specific beats generic.** "Save $200" not "save money." "10K requests/day" not "lots of requests."
+- **"You" and "I" beat "developers."** Speak to one person, not a segment.
+- **No marketing speak.** Banned: leverage, synergy, revolutionize, unlock, supercharge, empower, transform, game-changer, ultimate, robust, seamless, cutting-edge.
+- **No AI tells.** No "as an AI" hedges. No "it's worth noting." No "in conclusion."
+- **No emoji in prose.**
+- **Open with a contrarian or surprising claim**, then unpack it.
+- **End on a practical next step**, not a platitude.
+
+### For AI-Assisted Contributions
+
+Use-case pages and pillar articles are often drafted by an LLM in the Sahil Bloom persona. If you're using AI to draft copy for this project:
+
+1. Read [`VOICE.md` §4](VOICE.md) — the persona prompt.
+2. Use it as the system prompt for your generation.
+3. Ground every claim in the actual deal data. No invented offers, no invented dollar amounts.
+4. After generation, run a banned-word check. If any banned word is present, rewrite that sentence.
+
+### When You Can Break The Rules
+
+Three legitimate exceptions: (1) direct quotes from a deal's official description; (2) legal copy like affiliate disclosure; (3) code, configuration, and technical reference. Everything else follows the rules.
 
 ---
 

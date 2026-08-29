@@ -12,6 +12,7 @@ const INDEX_PATH = path.join(ROOT, 'index.html');
 const SITEMAP_PATH = path.join(ROOT, 'sitemap.xml');
 const LLMS_PATH = path.join(ROOT, 'llms.txt');
 const DEALS_DIR = path.join(ROOT, 'deals');
+const REDIRECTS_DIR = path.join(ROOT, 'r');
 
 const deals = fs.readFileSync(DEALS_PATH, 'utf-8')
   .split('\n').filter(Boolean).map(l => JSON.parse(l));
@@ -38,7 +39,8 @@ describe('build freshness', () => {
     const urlCount = (sitemap.match(/<loc>/g) || []).length;
     const categories = [...new Set(deals.map(d => d.category))].length;
     const articles = 5;
-    expect(urlCount).toBe(dealCount + 1 + categories + articles);
+    const legal = 1;
+    expect(urlCount).toBe(dealCount * 2 + 1 + categories + articles + legal);
   });
 
   it('every deal in deals.jsonl has a generated detail page', () => {
@@ -57,6 +59,15 @@ describe('build freshness', () => {
       .map(e => e.name);
     const orphans = entries.filter(name => !dealIds.has(name));
     expect(orphans, `orphaned deal dirs: ${orphans.slice(0, 5).join(', ')}…`).toEqual([]);
+  });
+
+  it('every deal in deals.jsonl has a generated redirect page', () => {
+    const missing = [];
+    for (const id of dealIds) {
+      const p = path.join(REDIRECTS_DIR, id, 'index.html');
+      if (!fs.existsSync(p)) missing.push(id);
+    }
+    expect(missing, `${missing.length} redirect pages missing: ${missing.slice(0, 5).join(', ')}…`).toEqual([]);
   });
 
   it('homepage has pre-rendered featured deal cards', () => {
