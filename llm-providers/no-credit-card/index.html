@@ -3034,13 +3034,63 @@
         document.body.appendChild(widget);
         if (typeof turnstile !== 'undefined') renderTs();
 
+        var STORAGE_KEY = 'devcheap:subscribed';
+
+        function renderState(email, isDuplicate) {
+          var input = document.getElementById('hub-newsletter-email');
+          var row = form.querySelector('.newsletter-input-row');
+          var existingNote = form.querySelector('.newsletter-note');
+          var existingBtn = form.querySelector('.newsletter-submit');
+          if (existingBtn) existingBtn.remove();
+          input.value = email || '';
+          input.disabled = true;
+          if (isDuplicate) {
+            if (existingNote) {
+              existingNote.innerHTML = "You're already on the list. <a href=\"/llm-providers/\" class=\"hub-newsletter-duplicate-link\" data-cta=\"hub-newsletter-duplicate\">Here's the hub →</a>";
+            }
+            var dupLink = form.querySelector('.hub-newsletter-duplicate-link');
+            if (dupLink) {
+              dupLink.addEventListener('click', function () {
+                try {
+                  navigator.sendBeacon('/api/track-click', JSON.stringify({
+                    deal_id: 'hub-newsletter-duplicate',
+                    deal_name: 'Hub newsletter duplicate to hub',
+                    link_type: 'nav_click',
+                    category: 'Newsletter',
+                    has_affiliate: false,
+                    url: dupLink.href,
+                    timestamp: new Date().toISOString()
+                  }));
+                } catch (e) {}
+              });
+            }
+          } else {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'newsletter-submit';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            btn.textContent = '✓ Subscribed!';
+            row.appendChild(btn);
+            if (existingNote) existingNote.textContent = 'Check your inbox — your first issue lands Tuesday.';
+          }
+        }
+
+        try {
+          var stored = localStorage.getItem(STORAGE_KEY);
+          if (stored) {
+            var rec = JSON.parse(stored);
+            if (rec && rec.email) renderState(rec.email, !!rec.duplicate);
+          }
+        } catch (e) {}
+
         form.addEventListener('submit', async function (e) {
           e.preventDefault();
           var input = document.getElementById('hub-newsletter-email');
           var btn = form.querySelector('.newsletter-submit');
           if (!input.value) return;
-          btn.disabled = true;
-          btn.textContent = 'Subscribing…';
+          var originalLabel = btn ? btn.textContent : 'Subscribe';
+          if (btn) { btn.disabled = true; btn.textContent = 'Subscribing…'; }
           try {
             var t = await requestToken();
             var body = { email: input.value, source: 'llm-providers.hub' };
@@ -3053,17 +3103,16 @@
             var data = await res.json().catch(function () { return {}; });
             if (!res.ok) throw new Error(data.error || 'Subscription failed');
             if (widgetId !== null && typeof turnstile !== 'undefined') { turnstile.reset(widgetId); token = null; }
-            input.value = '';
-            input.disabled = true;
-            btn.textContent = '✓ Subscribed!';
-            btn.disabled = true;
-            btn.style.opacity = '0.7';
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ email: input.value, duplicate: !!data.duplicate })); } catch (e) {}
+            renderState(input.value, !!data.duplicate);
           } catch (err) {
             if (widgetId !== null && typeof turnstile !== 'undefined') { turnstile.reset(widgetId); token = null; }
-            btn.disabled = false;
-            btn.style.color = 'var(--red)';
-            btn.textContent = (err && err.message) ? err.message : 'Try again';
-            setTimeout(function () { btn.textContent = 'Get the free LLM deals newsletter'; btn.style.color = ''; }, 3000);
+            if (btn) {
+              btn.disabled = false;
+              btn.style.color = 'var(--red)';
+              btn.textContent = (err && err.message) ? err.message : 'Try again';
+              setTimeout(function () { btn.textContent = originalLabel; btn.style.color = ''; }, 3000);
+            }
           }
         });
       }
