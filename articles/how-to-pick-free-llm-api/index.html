@@ -69,12 +69,12 @@
       
       <section class="article-section">
         <h2>Start with Ease, not the model</h2>
-        <p>The model barely matters at the free tier. What matters is how fast you get a key. I rank providers by Ease: 100 means email signup, instant key, no card. Groq, Google AI Studio, OpenRouter, Cerebras, and Hugging Face all score 100 — you are sending requests in two minutes. Lower scores mean a gate (card, phone, KYC, or captcha) sits between you and production. Pick Ease 100 unless you have a reason not to.</p>
+        <p>The model barely matters at the free tier. What matters is how fast you get a key. I rank providers by Ease: 100 means email signup, instant key, no card. Groq, OpenRouter, Cerebras, and Hugging Face all score 100 — you are sending requests in two minutes. Google AI Studio is close but needs a Google account (phone-verified for new users), so it sits a tier lower. Lower scores mean a gate (card, phone, KYC, or captcha) sits between you and production. Pick Ease 100 unless you have a reason not to.</p>
       </section>
 
       <section class="article-section">
         <h2>Count the rate limits like they are money</h2>
-        <p>Free tiers are not equal. Groq gives 14,400 requests/day at low latency. Google AI Studio gives 1,500 requests/day on Gemini with no card. Cerebras gives about 1M tokens/day. OpenRouter gives 20 RPM and 50 RPD, rising to 1,000 after a $10 top-up. Cloudflare Workers AI gives 10,000 neurons/day. The RPM column is your real ceiling — a free tier that throttles at 1 request/minute is a demo, not a product. Match the limit to your traffic, not your ambition.</p>
+        <p>Free tiers are not equal. Groq gives 14,400 requests/day at low latency. Google AI Studio gives 1,500 requests/day on Gemini with a Google account (no card). Cerebras gives about 1M tokens/day. OpenRouter gives 20 RPM and 50 RPD, rising to 1,000 after a $10 top-up. Cloudflare Workers AI gives 10,000 neurons/day. The RPM column is your real ceiling — a free tier that throttles at 1 request/minute is a demo, not a product. Match the limit to your traffic, not your ambition.</p>
       </section>
 
       <section class="article-section">
@@ -89,7 +89,7 @@
 
       <section class="article-section">
         <h2>The move I would actually make</h2>
-        <p>If I were shipping today: open Google AI Studio for a free Gemini key (no card, 1.5K RPD), add Groq for speed (14.4K RPD), and put OpenRouter in front as the fallback. That is three keys, zero cards, and you cover chat, speed, and failover. Then pick one provider to go deep on once the traffic shows up. See the LLM Providers directory for the full ranked list with live rate limits.</p>
+        <p>If I were shipping today: open Google AI Studio for a free Gemini key (Google account needed, 1.5K RPD), add Groq for speed (14.4K RPD), and put OpenRouter in front as the fallback. That is three keys and no credit cards, and you cover chat, speed, and failover. Then pick one provider to go deep on once the traffic shows up. See the LLM Providers directory for the full ranked list with live rate limits.</p>
       </section>
       <p style="margin-top:28px;font-size:14.5px;color:var(--text-secondary)">Want the same providers ranked by how fast you actually get a key — no credit card, no KYC paths flagged? See our <a href="/llm-providers/">LLM Providers directory</a>, which ranks 168 providers by signup friction.</p>
       <section class="article-deals">

@@ -63,9 +63,10 @@
     "isLLM": true,
     "type": "LLM",
     "gates": [
-      "none"
+      "oauth",
+      "phone"
     ],
-    "ease": 100,
+    "ease": 80,
     "freeTier": "quota 15 RPM / 1.5K RPD (≈$20+/mo)",
     "rpm": "5–30",
     "rpd": "25–1,500",
