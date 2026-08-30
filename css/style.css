@@ -887,6 +887,19 @@ body {
   border-radius: 4px;
 }
 
+.deal-card-tag-program {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 4px;
+  border: 1px solid transparent;
+}
+.deal-card-tag-program-startup { color: #67e8f9; background: rgba(8, 145, 178, 0.15); border-color: rgba(8, 145, 178, 0.35); }
+.deal-card-tag-program-student { color: #c4b5fd; background: rgba(109, 40, 217, 0.15); border-color: rgba(109, 40, 217, 0.35); }
+.deal-card-tag-program-accelerator { color: #fcd34d; background: rgba(180, 83, 9, 0.18); border-color: rgba(180, 83, 9, 0.4); }
+
 .deal-card-expires {
   font-size: 11px;
   font-family: var(--font-mono);

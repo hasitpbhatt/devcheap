@@ -114,6 +114,14 @@ describe('deals.json schema', () => {
     });
   });
 
+  it('requiresProgram, when present, is false, "startup", "student", or "accelerator"', () => {
+    const valid = [false, 'startup', 'student', 'accelerator'];
+    deals.forEach((deal, i) => {
+      if (deal.requiresProgram === undefined) return;
+      expect(valid, `deal[${i}] ${deal.id} invalid requiresProgram: ${JSON.stringify(deal.requiresProgram)}`).toContain(deal.requiresProgram);
+    });
+  });
+
 const CORRUPT_DEAL_VALUE_RE = /playwright-mcp|\.\.\/|\.yml/i;
 
 it('each deal has at least one tag', () => {

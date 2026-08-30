@@ -42,7 +42,8 @@ describe('build freshness', () => {
     const legal = 1;
     const alternatives = dealCount;
     const llmHub = 4; // /llm-providers/ directory hub + 3 sub-pages (no-credit-card, media-apis, openrouter-alternatives)
-    expect(urlCount).toBe(dealCount * 2 + 1 + categories + articles + legal + alternatives + llmHub);
+    const startupPrograms = 1; // /startup-programs/ landing page
+    expect(urlCount).toBe(dealCount * 2 + 1 + categories + articles + legal + alternatives + llmHub + startupPrograms);
   });
 
   it('every deal in deals.jsonl has a generated detail page', () => {

@@ -213,6 +213,9 @@ function renderDealCard(deal, isNested = false) {
   const isSpotlight = deal.tags && deal.tags.toLowerCase().includes('spotlight');
   const spotlightBadge = isSpotlight ? `<span class="deal-card-badge-spotlight"><svg class="icon icon-spotlight" width="12" height="12"><use href="/images/icons.svg#icon-spotlight"/></svg> Spotlight</span>` : '';
 
+  const programLabel = deal.requiresProgram === 'startup' ? 'Requires startup status' : deal.requiresProgram === 'student' ? 'Requires student status' : deal.requiresProgram === 'accelerator' ? 'Requires accelerator status' : '';
+  const programHTML = programLabel ? `<span class="deal-card-tag-program deal-card-tag-program-${escapeHtml(String(deal.requiresProgram))}">${programLabel}</span>` : '';
+
   return `
       <div class="deal-card">
         <div class="deal-card-header">
@@ -223,7 +226,7 @@ function renderDealCard(deal, isNested = false) {
         ${recommendedBadge}${spotlightBadge}
         ${whyHTML}
         <p class="deal-card-desc">${escapeHtml(deal.desc)}</p>
-        <div class="deal-card-tags">${tagsHTML}${expiresHTML}</div>
+        <div class="deal-card-tags">${programHTML}${tagsHTML}${expiresHTML}</div>
         <div class="deal-card-footer">
           <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>
           ${couponBtn}
@@ -1019,11 +1022,12 @@ async function generateLlmProviderPages(ROOT_DIR) {
     .replace('{{HUB_LAST_VERIFIED}}', lastVerified)
     .replace('{{HUB_BREADCRUMB_TAIL}}', meta.breadcrumbTail || '')
     .replace('{{HUB_TABLE_HEADING}}', meta.tableHeading)
-    .replace('{{HUB_CLICK_CATEGORY}}', meta.clickCategory || 'LLM Providers');
+    .replace('{{HUB_CLICK_CATEGORY}}', meta.clickCategory || 'LLM Providers')
+    .replace('{{HUB_SKIP_GATE_CTA}}', meta.skipGate ? `<a class="btn-ghost" href="${escapeHtml(meta.skipGate.href)}">${escapeHtml(meta.skipGate.label)}</a>` : '');
 
   const hubMeta = {
     title: 'LLM Providers Compared — Free Tiers, Rate Limits & Ease of Signup (2026) | DevCheap',
-    metaDesc: `168 LLM, image, speech & embedding API providers ranked by ease of signup — no credit card and no KYC paths flagged. Free-tier value, RPM rate limits, context windows, OpenRouter alternatives, and signup gates (card, phone, KYC, captcha) for each.`,
+    metaDesc: `${providers.length} LLM, image, speech & embedding API providers ranked by ease of signup — no credit card and no KYC paths flagged. Free-tier value, RPM rate limits, context windows, OpenRouter alternatives, and signup gates (card, phone, KYC, captcha) for each.`,
     h1: 'LLM Providers, ranked by how fast you get a key',
     intro: `Most "free" LLM APIs make you fight a Cloudflare challenge, hand over a credit card, or pass KYC before you get a key. We ranked ${providers.length} providers by an Ease score — how fast you actually reach your first API call with just an email. Filter by gate, type, or free-tier rate limits and skip the ones that waste your afternoon.`,
     canonical: 'https://devcheap.click/llm-providers/',
@@ -1031,7 +1035,8 @@ async function generateLlmProviderPages(ROOT_DIR) {
     jsonDesc: 'A directory of LLM, image, speech, and embedding API providers ranked by an Ease score (how fast you get an API key with just email), with free-tier value, rate limits, and signup gates.',
     breadcrumbTail: '',
     tableHeading: '<h2 class="hub-section-title" id="all-providers">All providers, ranked by Ease score</h2>',
-    clickCategory: 'LLM Providers'
+    clickCategory: 'LLM Providers',
+    skipGate: { href: '/llm-providers/no-credit-card/', label: 'Skip the gate: no-card APIs →' }
   };
   await fs.writeFile(path.join(hubDir, 'index.html'), buildHtml(providers, hubMeta), 'utf-8');
   console.log(`✅ Generated LLM Providers hub with ${providers.length} providers at /llm-providers/`);
@@ -1048,7 +1053,8 @@ async function generateLlmProviderPages(ROOT_DIR) {
       jsonName: 'No-Credit-Card LLM & AI APIs — Ranked by Ease',
       jsonDesc: 'Free LLM, image, speech, and embedding API providers that require no credit card, ranked by Ease score.',
       tableHeading: '<h2 class="hub-section-title" id="no-card">No-credit-card providers, ranked by Ease score</h2>',
-      clickCategory: 'LLM Providers / No Credit Card'
+      clickCategory: 'LLM Providers / No Credit Card',
+      skipGate: { href: '/llm-providers/', label: 'Browse all providers →' }
     },
     {
       slug: 'media-apis',
@@ -1061,7 +1067,8 @@ async function generateLlmProviderPages(ROOT_DIR) {
       jsonName: 'Free Image, Speech & Embedding APIs — Ranked by Ease',
       jsonDesc: 'Free image, speech, and embedding API providers ranked by Ease score, with no-credit-card options flagged.',
       tableHeading: '<h2 class="hub-section-title" id="media">Image, speech & embedding APIs, ranked by Ease score</h2>',
-      clickCategory: 'LLM Providers / Media APIs'
+      clickCategory: 'LLM Providers / Media APIs',
+      skipGate: { href: '/llm-providers/no-credit-card/', label: 'Skip the gate: no-card APIs →' }
     },
     {
       slug: 'openrouter-alternatives',
@@ -1074,7 +1081,8 @@ async function generateLlmProviderPages(ROOT_DIR) {
       jsonName: 'OpenRouter Alternatives — LLM Gateways Ranked by Ease',
       jsonDesc: 'LLM gateway providers (OpenRouter alternatives) ranked by Ease score, each with a free tier.',
       tableHeading: '<h2 class="hub-section-title" id="gateways">LLM gateways (OpenRouter alternatives), ranked by Ease score</h2>',
-      clickCategory: 'LLM Providers / OpenRouter Alternatives'
+      clickCategory: 'LLM Providers / OpenRouter Alternatives',
+      skipGate: { href: '/llm-providers/no-credit-card/', label: 'Skip the gate: no-card APIs →' }
     }
   ];
 
@@ -1088,11 +1096,138 @@ async function generateLlmProviderPages(ROOT_DIR) {
   }
 }
 
+async function generateStartupProgramsPage(ROOT_DIR, deals) {
+  const buckets = {
+    startup: deals.filter(d => d.requiresProgram === 'startup'),
+    student: deals.filter(d => d.requiresProgram === 'student'),
+    accelerator: deals.filter(d => d.requiresProgram === 'accelerator'),
+  };
+  const total = buckets.startup.length + buckets.student.length + buckets.accelerator.length;
+  const today = new Date().toISOString().slice(0, 10);
+  const url = 'https://devcheap.click/startup-programs/';
+  const title = 'Startup Programs & Credits for Developers — Verified $1K–$350K+ in Cloud, AI & Infra';
+  const desc = `${total} verified startup, student, and accelerator programs for developers: AWS Activate, Google Cloud for Startups, Microsoft for Startups, Anthropic, OpenAI, and more. Each card is honest about who qualifies.`;
+
+  const sectionHTML = (key, heading, blurb, emptyMsg) => {
+    const list = buckets[key];
+    const body = list.length
+      ? `<div class="sp-grid">${list.map(d => renderDealCard(d, true)).join('\n')}</div>`
+      : `<p class="sp-empty">${emptyMsg}</p>`;
+    return `<section class="sp-section" id="${key}">
+      <h2 class="section-title">${heading}</h2>
+      <p class="sp-blurb">${blurb}</p>
+      ${body}
+    </section>`;
+  };
+
+  const startupSection = sectionHTML(
+    'startup',
+    'Startup programs',
+    'Credits and free tiers for qualifying early-stage startups. Most require being a registered, funded, or formally-incorporated company (YC, VC, or accelerator affiliation opens the bigger tiers).',
+    ''
+  );
+  const studentSection = sectionHTML(
+    'student',
+    'Student programs',
+    'Deals that require verified student status (typically a .edu email or GitHub Student Developer Pack).',
+    'No student-only deals in the directory right now. For general student perks, see the GitHub Student Developer Pack.'
+  );
+  const acceleratorSection = sectionHTML(
+    'accelerator',
+    'Accelerator-exclusive',
+    'Deals gated to current members or alumni of a named accelerator (e.g. Y Combinator).',
+    ''
+  );
+
+  const itemList = [
+    ...buckets.startup,
+    ...buckets.student,
+    ...buckets.accelerator,
+  ].map((d, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: d.name,
+    url: `https://devcheap.click/deals/${d.id}/`
+  }));
+
+  const jsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': ['CollectionPage', 'ItemList'],
+    name: title,
+    description: desc,
+    url: url,
+    numberOfItems: total,
+    itemListElement: itemList,
+    isPartOf: { '@id': 'https://devcheap.click/#website' },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://devcheap.click/' },
+        { '@type': 'ListItem', position: 2, name: 'Startup programs', item: url }
+      ]
+    }
+  });
+
+  const html = `<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>${escapeHtml(title)}</title>
+  <meta name="description" content="${escapeHtml(desc)}">
+  <link rel="canonical" href="${url}">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:title" content="${escapeHtml(title)}">
+  <meta property="og:description" content="${escapeHtml(desc)}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${url}">
+  <meta property="og:site_name" content="DevCheap">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">${jsonLd}</script>
+  <style>
+    .sp-hero { padding: 56px 24px 24px; max-width: 1100px; margin: 0 auto; }
+    .sp-hero h1 { font-size: 30px; line-height: 1.2; margin: 0 0 12px; color: var(--text); letter-spacing: -0.6px; }
+    .sp-hero p { font-size: 15px; color: var(--text-secondary); margin: 0 0 8px; max-width: 720px; line-height: 1.6; }
+    .sp-meta { font-size: 12px; color: var(--text-tertiary); font-family: var(--font-mono); margin-top: 12px; }
+    .sp-section { padding: 32px 24px; max-width: 1100px; margin: 0 auto; border-top: 1px solid var(--border); }
+    .sp-section .section-title { font-size: 22px; margin: 0 0 8px; }
+    .sp-blurb { font-size: 14px; color: var(--text-secondary); margin: 0 0 20px; max-width: 760px; line-height: 1.6; }
+    .sp-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 700px) { .sp-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1000px) { .sp-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .sp-empty { font-size: 14px; color: var(--text-tertiary); padding: 16px 0; }
+    .sp-back { padding: 24px; max-width: 1100px; margin: 0 auto; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header class="sp-hero">
+    <p style="font-size:12px;letter-spacing:0.6px;color:var(--text-tertiary);text-transform:uppercase;margin:0 0 8px;">DevCheap</p>
+    <h1>Startup programs &amp; credits for developers</h1>
+    <p>${total} verified programs from AWS, Google Cloud, Microsoft, Anthropic, OpenAI, Cloudflare, and 35+ more. Each deal card is honest about who qualifies &mdash; we do not pretend a startup-gated credit is open to everyone.</p>
+    <p>Comparing LLM API providers for your stack? See the <a href="/llm-providers/">LLM Providers directory</a> (168 providers ranked by how fast you get a key).</p>
+    <p class="sp-meta">Last verified ${today}</p>
+  </header>
+  <main>
+    ${startupSection}
+    ${studentSection}
+    ${acceleratorSection}
+  </main>
+  <p class="sp-back"><a href="/">&larr; Back to all deals</a></p>
+</body>
+</html>`;
+
+  const outDir = path.join(ROOT_DIR, 'startup-programs');
+  await fs.mkdir(outDir, { recursive: true });
+  await fs.writeFile(path.join(outDir, 'index.html'), html, 'utf-8');
+  console.log(`✅ Generated /startup-programs/ with ${total} program-only deals (${buckets.startup.length} startup, ${buckets.student.length} student, ${buckets.accelerator.length} accelerator)`);
+}
+
 async function main() {
   console.log('🏁 Starting build process...');
 
   // 1. Load Deals Data
-  const rawData = await fs.readFile(DEALS_PATH, 'utf-8');
+  const rawData = await fs.readFile(DEALS_PATH, 'utf-8').then(s => s.replace(/^\uFEFF/, ''));
   const deals = rawData
     .split('\n')
     .filter(line => line.trim())
@@ -1185,7 +1320,10 @@ const categoryButtons = [
  );
 
   // Render featured deal cards for SEO (rating >= 8.0 or has_affiliate)
+  // Program-only deals (startup/student/accelerator) are excluded from the
+  // default homepage featured set; they live on /startup-programs/.
   const featuredDeals = deals.filter(deal => {
+    if (deal.requiresProgram) return false;
     if (deal.has_affiliate) return true;
     if (deal.expires && new Date(deal.expires).getTime() < Date.now()) return false;
     const r = typeof deal.rating === 'number' ? deal.rating : 0;
@@ -1423,6 +1561,7 @@ const productJson = {
     sitemapXml += `<url>\n  <loc>https://devcheap.click/llm-providers/${slug}/</loc>\n  <lastmod>${today}</lastmod>\n  <changefreq>weekly</changefreq>\n  <priority>0.6</priority>\n</url>\n`;
   }
 
+  sitemapXml += `<url>\n  <loc>https://devcheap.click/startup-programs/</loc>\n  <lastmod>${today}</lastmod>\n  <changefreq>weekly</changefreq>\n  <priority>0.7</priority>\n</url>\n`;
   sitemapXml += `</urlset>\n`;
   await fs.writeFile(sitemapPath, sitemapXml, 'utf-8');
 
@@ -1442,6 +1581,9 @@ const productJson = {
 
   // 8b. Generate LLM Providers directory hub
   await generateLlmProviderPages(ROOT_DIR);
+
+  // 8c. Generate startup programs landing page
+  await generateStartupProgramsPage(ROOT_DIR, deals);
 
   console.log('✨ Build complete! Time to deploy.');
 }

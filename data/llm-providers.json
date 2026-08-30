@@ -2562,7 +2562,7 @@
   },
   {
     "id": "aiml-api-2",
-    "name": "AIML API (2)",
+    "name": "AIML API",
     "domain": "aimlapi.com",
     "isLLM": true,
     "type": "LLM-Gateway",
@@ -2909,7 +2909,7 @@
   },
   {
     "id": "seekapi-ai-2",
-    "name": "SeekAPI.ai (2)",
+    "name": "SeekAPI.ai",
     "domain": "seekapi.ai",
     "isLLM": true,
     "type": "LLM-Gateway",
@@ -2928,7 +2928,7 @@
   },
   {
     "id": "kkapi-2",
-    "name": "KKAPI (2)",
+    "name": "KKAPI",
     "domain": "kkapi.cc",
     "isLLM": true,
     "type": "LLM-Gateway",
@@ -2947,7 +2947,7 @@
   },
   {
     "id": "kkiai-com-2",
-    "name": "kkiai.com (2)",
+    "name": "Kkiai",
     "domain": "kkiai.com",
     "isLLM": true,
     "type": "LLM-Gateway",
@@ -3229,6 +3229,387 @@
     "expiry": "—",
     "status": "retired",
     "signupUrl": "https://freetheai.xyz",
+    "dealId": null
+  }
+,
+  {
+    "id": "nekoapi",
+    "name": "NekoAPI",
+    "domain": "nekoapi.ai",
+    "isLLM": true,
+    "type": "LLM-Gateway",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 75,
+    "status": "active",
+    "signupUrl": "https://nekoapi.ai",
+    "freeTier": "—",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "bluesminds",
+    "name": "Bluesminds",
+    "domain": "bluesminds.com",
+    "isLLM": true,
+    "type": "LLM-Gateway",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 50,
+    "status": "gated",
+    "signupUrl": "https://bluesminds.com",
+    "freeTier": "— (Request access for api.bluesminds LLM API)",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "true-sota",
+    "name": "TrueSOTA",
+    "domain": "true-sota.com",
+    "isLLM": true,
+    "type": "LLM-Gateway",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 80,
+    "status": "active",
+    "signupUrl": "https://true-sota.com",
+    "freeTier": "—",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "aerolink",
+    "name": "Aerolink",
+    "domain": "aerolink.lat",
+    "isLLM": true,
+    "type": "LLM-Gateway",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 80,
+    "status": "active",
+    "signupUrl": "https://aerolink.lat",
+    "freeTier": "$35 free credits (1-week Starter plan)",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "truefoundry",
+    "name": "TrueFoundry",
+    "domain": "truefoundry.com",
+    "isLLM": true,
+    "type": "LLM-Gateway",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 80,
+    "status": "active",
+    "signupUrl": "https://truefoundry.com",
+    "freeTier": "Free tier, no credit card required",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "openpipe",
+    "name": "OpenPipe",
+    "domain": "openpipe.ai",
+    "isLLM": true,
+    "type": "LLM",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 80,
+    "status": "active",
+    "signupUrl": "https://openpipe.ai",
+    "freeTier": "Free fine-tune & inference tier",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "zenmux",
+    "name": "ZenMux",
+    "domain": "zenmux.ai",
+    "isLLM": true,
+    "type": "Token-Reseller",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 80,
+    "status": "active",
+    "signupUrl": "https://zenmux.ai",
+    "freeTier": "Some free models (e.g. Grok 4.5); pay-as-you-go top-up",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "302-ai",
+    "name": "302.AI",
+    "domain": "302.ai",
+    "isLLM": true,
+    "type": "Token-Reseller",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 75,
+    "status": "active",
+    "signupUrl": "https://302.ai",
+    "freeTier": "—",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "aihubmix",
+    "name": "AIHubMix",
+    "domain": "aihubmix.com",
+    "isLLM": true,
+    "type": "LLM-Gateway",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 80,
+    "status": "active",
+    "signupUrl": "https://aihubmix.com",
+    "freeTier": "—",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "not-diamond",
+    "name": "Not Diamond",
+    "domain": "notdiamond.ai",
+    "isLLM": true,
+    "type": "Router",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 70,
+    "status": "active",
+    "signupUrl": "https://notdiamond.ai",
+    "freeTier": "— (enterprise router; login at code.notdiamond.ai)",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "ohmygpt",
+    "name": "OhMyGPT",
+    "domain": "ohmygpt.com",
+    "isLLM": true,
+    "type": "Token-Reseller",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 75,
+    "status": "active",
+    "signupUrl": "https://ohmygpt.com",
+    "freeTier": "— (pay-as-you-go)",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "ppio",
+    "name": "PPIO",
+    "domain": "ppio.com",
+    "isLLM": true,
+    "type": "LLM",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 75,
+    "status": "active",
+    "signupUrl": "https://ppio.com",
+    "freeTier": "—",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "dify",
+    "name": "Dify",
+    "domain": "dify.ai",
+    "isLLM": true,
+    "type": "Agent",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 80,
+    "status": "active",
+    "signupUrl": "https://dify.ai",
+    "freeTier": "Free Cloud tier + free self-host (Community Edition)",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "ngrok-ai",
+    "name": "ngrok AI Gateway",
+    "domain": "ngrok.ai",
+    "isLLM": true,
+    "type": "LLM-Gateway",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 80,
+    "status": "active",
+    "signupUrl": "https://ngrok.ai",
+    "freeTier": "Free plan (AI Gateway, persistent domain)",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "helicone",
+    "name": "Helicone",
+    "domain": "helicone.ai",
+    "isLLM": true,
+    "type": "LLM-Gateway",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 80,
+    "status": "active",
+    "signupUrl": "https://helicone.ai",
+    "freeTier": "7-day free trial, no credit card",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "beam-cloud",
+    "name": "Beam Cloud",
+    "domain": "beam.cloud",
+    "isLLM": true,
+    "type": "LLM",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 80,
+    "status": "active",
+    "signupUrl": "https://beam.cloud",
+    "freeTier": "$30 free credit refreshed monthly",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "abacus-ai",
+    "name": "Abacus.AI",
+    "domain": "abacus.ai",
+    "isLLM": true,
+    "type": "LLM-Gateway",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 75,
+    "status": "active",
+    "signupUrl": "https://abacus.ai",
+    "freeTier": "Free trial (ChatLLM); RouteLLM API to 100s of models",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "okrouter",
+    "name": "OkRouter",
+    "domain": "okrouter.com",
+    "isLLM": true,
+    "type": "LLM-Gateway",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 80,
+    "status": "active",
+    "signupUrl": "https://okrouter.com",
+    "freeTier": "—",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "requesty",
+    "name": "Requesty",
+    "domain": "requesty.ai",
+    "isLLM": true,
+    "type": "LLM-Gateway",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 80,
+    "status": "active",
+    "signupUrl": "https://requesty.ai",
+    "freeTier": "Free start, 5% markup on model cost",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
+    "dealId": null
+  },
+  {
+    "id": "cometapi",
+    "name": "CometAPI",
+    "domain": "cometapi.com",
+    "isLLM": true,
+    "type": "Token-Reseller",
+    "gates": [
+      "oauth"
+    ],
+    "ease": 80,
+    "status": "active",
+    "signupUrl": "https://www.cometapi.com",
+    "freeTier": "Free API key + test credits, no credit card",
+    "rpm": "—",
+    "rpd": "—",
+    "context": "—",
+    "expiry": "—",
     "dealId": null
   }
 ]
