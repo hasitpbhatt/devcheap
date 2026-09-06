@@ -1,16 +1,16 @@
-# DevCheap
+﻿# DevCheap
 
 [![GitHub License](https://img.shields.io/github/license/hasitpbhatt/devcheap)](LICENSE)
 [![GitHub last commit](https://img.shields.io/github/last-commit/hasitpbhatt/devcheap)](https://github.com/hasitpbhatt/devcheap/commits/main)
 [![Deployed](https://img.shields.io/badge/Cloudflare%20Pages-Deployed-brightgreen)](https://devcheap.click)
 
-Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **197 deals** across **21 categories**. Six **Top Picks** (hand-curated, affiliate-supported) sit above the full grid.
+Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools â€” **230 deals** across **21 categories**. Six **Top Picks** (hand-curated, affiliate-supported) sit above the full grid.
 
 The site is built and operated under a documented 6-month strategy with a 5-person committee model (Mitchell / Dharmesh / Lenny / Bret / Sahil). For the strategic frame, decision criteria, and the editorial voice rules, see:
 
-- **[`STRATEGY.md`](STRATEGY.md)** — why we build what we build, who owns what, the 6-month plan of record
-- **[`VOICE.md`](VOICE.md)** — the Sahil Bloom persona system used for AI-generated use-case pages and pillar articles
-- **[`AGENTS.md`](AGENTS.md)** — operational sync instructions for AI agents and contributors
+- **[`STRATEGY.md`](STRATEGY.md)** â€” why we build what we build, who owns what, the 6-month plan of record
+- **[`VOICE.md`](VOICE.md)** â€” the Sahil Bloom persona system used for AI-generated use-case pages and pillar articles
+- **[`AGENTS.md`](AGENTS.md)** â€” operational sync instructions for AI agents and contributors
 
 ---
 
@@ -26,23 +26,23 @@ Visit the live site: **[https://devcheap.click](https://devcheap.click)**
 
 ```
 devcheap/
-├── .github/workflows/   # CI/deploy pipelines (Cloudflare Pages)
-├── css/                 # Stylesheets (light/dark theme)
-├── data/
-│   └── deals.jsonl      # Deal database (JSONL format, 197 lines)
-├── functions/api/       # Cloudflare Functions (email subscribe)
-├── js/                  # Search, category filter, affiliate tracking
-├── scripts/             # Utility scripts (feed generation, data entry)
-├── tests/               # Vitest: schema validation, UI, HTML, a11y
-├── AGENTS.md            # Agent sync instructions (auto-aware bots)
-├── CNAME                # Custom domain (devcheap.click)
-├── CONTRIBUTING.md      # Contribution guide
-├── README.md            # This file
-├── index.html           # Main page
-├── feed.xml             # RSS feed (auto-generated from deals.jsonl via scripts/generate-feed.ps1)
-├── category/             # Category SEO landing pages (auto-generated via build.js — do not hand-edit)
-├── sitemap.xml          # Sitemap (auto-generated from deals.jsonl via scripts/build.js — do not hand-edit)
-└── package.json         # Scripts: validate, test, lint
+â”œâ”€â”€ .github/workflows/   # CI/deploy pipelines (Cloudflare Pages)
+â”œâ”€â”€ css/                 # Stylesheets (light/dark theme)
+â”œâ”€â”€ data/
+â”‚   â””â”€â”€ deals.jsonl      # Deal database (JSONL format, 197 lines)
+â”œâ”€â”€ functions/api/       # Cloudflare Functions (email subscribe)
+â”œâ”€â”€ js/                  # Search, category filter, affiliate tracking
+â”œâ”€â”€ scripts/             # Utility scripts (feed generation, data entry)
+â”œâ”€â”€ tests/               # Vitest: schema validation, UI, HTML, a11y
+â”œâ”€â”€ AGENTS.md            # Agent sync instructions (auto-aware bots)
+â”œâ”€â”€ CNAME                # Custom domain (devcheap.click)
+â”œâ”€â”€ CONTRIBUTING.md      # Contribution guide
+â”œâ”€â”€ README.md            # This file
+â”œâ”€â”€ index.html           # Main page
+â”œâ”€â”€ feed.xml             # RSS feed (auto-generated from deals.jsonl via scripts/generate-feed.ps1)
+â”œâ”€â”€ category/             # Category SEO landing pages (auto-generated via build.js â€” do not hand-edit)
+â”œâ”€â”€ sitemap.xml          # Sitemap (auto-generated from deals.jsonl via scripts/build.js â€” do not hand-edit)
+â””â”€â”€ package.json         # Scripts: validate, test, lint
 ```
 
 ---
@@ -81,11 +81,11 @@ The site offers filter chips below the category buttons:
 
 | Chip | Behaviour | Group |
 |---|---|---|
-| **Recommended** | Shows only deals tagged `recommended`. Independent toggle — combinable with any other filter. | None (standalone) |
-| **Spotlight** | Shows only deals tagged `spotlight`. Independent toggle — combinable with any other filter. | None (standalone) |
+| **Recommended** | Shows only deals tagged `recommended`. Independent toggle â€” combinable with any other filter. | None (standalone) |
+| **Spotlight** | Shows only deals tagged `spotlight`. Independent toggle â€” combinable with any other filter. | None (standalone) |
 | **Expiring Soon** | Deals with an `expires` date within the next 30 days. Mutually exclusive with No Expiry. | Expiry |
 | **No Expiry** | Deals with no `expires` field. Mutually exclusive with Expiring Soon. | Expiry |
-| **Coupons** | Shows only deals with a copyable coupon code (excludes automatic/link codes). Independent toggle — combinable with any other filter. | None (standalone) |
+| **Coupons** | Shows only deals with a copyable coupon code (excludes automatic/link codes). Independent toggle â€” combinable with any other filter. | None (standalone) |
 | **Free** | Shows only deals with `pricing: free`. Mutually exclusive with Trial, Paid, and Lifetime. | Pricing |
 | **Trial** | Shows only deals with `pricing: trial`. Mutually exclusive with Free, Paid, and Lifetime. | Pricing |
 | **Paid** | Shows only deals with `pricing: paid`. Mutually exclusive with Free, Trial, and Lifetime. | Pricing |
@@ -139,6 +139,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Quick checklist:
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT â€” see [LICENSE](LICENSE).
 
 **Maintainer:** [@hasitpbhatt](https://github.com/hasitpbhatt)

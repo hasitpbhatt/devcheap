@@ -3352,12 +3352,10 @@
     "domain": "zenmux.ai",
     "isLLM": true,
     "type": "Token-Reseller",
-    "gates": [
-      "oauth"
-    ],
+    "gates": ["oauth"],
     "ease": 80,
     "status": "active",
-    "signupUrl": "https://zenmux.ai",
+    "signupUrl": "https://zenmux.ai/invite/4ZHT3Q",
     "freeTier": "Some free models (e.g. Grok 4.5); pay-as-you-go top-up",
     "rpm": "—",
     "rpd": "—",

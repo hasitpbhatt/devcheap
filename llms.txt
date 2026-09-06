@@ -2,7 +2,7 @@
 
 > Curated deals, discounts, and free tiers for developers. Updated daily with verified listings across cloud, AI, DevOps, databases, and more.
 
-DevCheap tracks **197 deals** across **21 categories**. Every deal is manually reviewed, rated (1-10), and categorized. All deals include pricing, expiration dates, coupon codes, and affiliate tracking where available.
+DevCheap tracks **230 deals** across **21 categories**. Every deal is manually reviewed, rated (1-10), and categorized. All deals include pricing, expiration dates, coupon codes, and affiliate tracking where available.
 
 ## Featured
 - [Homepage — Browse All Deals](https://devcheap.click/): All active deals with filtering, search, and pagination
@@ -10,91 +10,99 @@ DevCheap tracks **197 deals** across **21 categories**. Every deal is manually r
 - [Raw Deal Data (JSONL)](https://devcheap.click/data/deals.jsonl): Full dataset for programmatic consumption
 
 ## Quick Stats
-- Total deals: **197**
+- Total deals: **230**
 - Categories: **21**
-- Top-rated deals (≥ 8.0): **17**
-- Expired deals: **182**
-- Pricing: free: 172, trial: 10, paid: 9, lifetime: 6
-- Last updated: 2026-08-29
+- Top-rated deals (≥ 8.0): **27**
+- Expired deals: **221**
+- Pricing: free: 205, trial: 10, paid: 9, lifetime: 6
+- Last updated: 2026-09-06
 
 ## Top Deals
 - [Credit for Startups](https://creditforstartups.com) — Credit for Startups is a comprehensive directory of 43+ credit programs worth over $1M total. Browse AI/ML credits (21 p… [rating: 8.5] [free] (no expiry) — [Details](https://devcheap.click/deals/credit-for-startups/)
 - [Gamma](https://try.gamma.app/vwi953t7x0ir) — AI-powered presentation, document, and webpage creator with free tier. No credit card needed. [rating: 8.5] [free] (no expiry) — [Details](https://devcheap.click/deals/gamma/)
+- [Postman](https://www.postman.com) — API platform for building testing APIs. [rating: 8.5] [free] (no expiry) — [Details](https://devcheap.click/deals/postman-free/)
+- [Notion](https://www.notion.so) — All-in-one workspace for notes and tasks. [rating: 8.5] [free] (no expiry) — [Details](https://devcheap.click/deals/notion-free/)
 - [LaunchDarkly](https://launchdarkly.com) — LaunchDarkly's free Developer tier includes unlimited seats, unlimited feature flags, 10M logs and traces, 5K session re… [rating: 8.4] [free] (no expiry) — [Details](https://devcheap.click/deals/launchdarkly/)
 - [Netlify](https://netlify.com) — Netlify's free tier includes 300 credits/month (~$2 value), unlimited deploy previews, custom domains with automated SSL… [rating: 8.4] [free] (no expiry) — [Details](https://devcheap.click/deals/netlify/)
+- [Figma](https://figma.com) — Collaborative design and prototyping. [rating: 8.4] [free] (no expiry) — [Details](https://devcheap.click/deals/figma-free/)
 - [Neon Startup Credits](https://neon.tech/startups) — Neon offers startup credits of up to $100,000 for early-stage companies, plus their generous free tier. Serverless Postg… [rating: 8.3] [free] (no expiry) — [Details](https://devcheap.click/deals/neon-startup-credits/)
 - [Anthropic Claude for Startups](https://claude.com/programs/startups) — Anthropic Startup Program offers up to $25,000 in Claude API credits for early-stage startups. Open to any startup with … [rating: 8.2] [free] (no expiry) — [Details](https://devcheap.click/deals/anthropic-claude-startups/)
 - [OpenAI Startup Credits](https://openai.com/startups) — OpenAI offers startup credits ranging from $5,000 to $50,000+ for qualifying startups. Access to GPT-4, GPT-5, and other… [rating: 8.2] [free] (no expiry) — [Details](https://devcheap.click/deals/openai-startup-credits/)
 - [PostHog](https://posthog.com) — PostHog's generous free tier includes 1 million events/month, 5,000 session recordings, 1 million feature flag requests,… [rating: 8.2] [free] (no expiry) — [Details](https://devcheap.click/deals/posthog/)
+- [StackBlitz](https://stackblitz.com) — Instant dev environments in browser. [rating: 8.2] [free] (no expiry) — [Details](https://devcheap.click/deals/stackblitz-free/)
+- [Supabase Free Tier](https://supabase.com) — Postgres database, auth, storage. [rating: 8.2] [free] (no expiry) — [Details](https://devcheap.click/deals/supabase-free/)
+- [Sentry](https://sentry.io) — Error tracking and performance monitoring. [rating: 8.2] [free] (no expiry) — [Details](https://devcheap.click/deals/sentry-free/)
 - [GitHub Copilot Free](https://github.com/features/copilot) — AI code completion and chat assistant. Free tier includes 2,000 code completions per month and 50 chat messages per mont… [rating: 8.1] [free] (no expiry) — [Details](https://devcheap.click/deals/github-copilot/)
-- [AWS Activate](https://aws.amazon.com/activate/) — AWS Activate provides startups with $1,000-$100,000 in cloud credits, technical support, and training. Founders tier off… [rating: 8] [free] (no expiry) — [Details](https://devcheap.click/deals/aws-activate/)
-- [CircleCI Startup Credits](https://circleci.com/startup/) — CircleCI offers up to $20,000 in compute credits for startups. Provides access to parallel testing, faster builds, and a… [rating: 8] [free] (no expiry) — [Details](https://devcheap.click/deals/circleci-startup/)
-- [Cloudflare for Startups](https://www.cloudflare.com/forstartups/) — Cloudflare for Startups offers $250,000 in enterprise credits for qualifying startups. Access to Workers, Workers AI, CD… [rating: 8] [free] (no expiry) — [Details](https://devcheap.click/deals/cloudflare-for-startups/)
-- [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai) — Global edge inference platform with 10,000 free neurons per day (resets daily —€” ~200 LLM requests). 50+ open-source mo… [rating: 8] [free] (no expiry) — [Details](https://devcheap.click/deals/cloudflare-workers-ai/)
-- [DigitalOcean Startups](https://www.digitalocean.com/startups) — DigitalOcean Startups program offers up to $100,000 in credits over 12 months. Access to VMs, Kubernetes, databases, and… [rating: 8] [free] (no expiry) — [Details](https://devcheap.click/deals/digitalocean-startups/)
-- [Figma](https://figma.com) — Figma's forever-free Starter plan includes unlimited drafts and personal files, UI kits and templates, 150 AI credits/da… [rating: 8] [free] (no expiry) — [Details](https://devcheap.click/deals/figma/)
 
 ## Categories
+- **Developer Tools** (48 deals, free: 39, lifetime: 4, paid: 3, trial: 2) — [Credit for Startups](https://devcheap.click/deals/credit-for-startups/) [rating: 8.5, free]; [Postman](https://devcheap.click/deals/postman-free/) [rating: 8.5, free]; [LaunchDarkly](https://devcheap.click/deals/launchdarkly/) [rating: 8.4, free]
 - **AI & LLM** (46 deals, free: 44, trial: 2) — [Anthropic Claude for Startups](https://devcheap.click/deals/anthropic-claude-startups/) [rating: 8.2, free]; [OpenAI Startup Credits](https://devcheap.click/deals/openai-startup-credits/) [rating: 8.2, free]; [GitHub Copilot Free](https://devcheap.click/deals/github-copilot/) [rating: 8.1, free]
-- **Developer Tools** (42 deals, free: 33, lifetime: 4, paid: 3, trial: 2) — [Credit for Startups](https://devcheap.click/deals/credit-for-startups/) [rating: 8.5, free]; [LaunchDarkly](https://devcheap.click/deals/launchdarkly/) [rating: 8.4, free]; [Codeium](https://devcheap.click/deals/codeium/) [rating: 7.9, free]
-- **Hosting & Cloud** (31 deals, free: 29, paid: 2) — [Netlify](https://devcheap.click/deals/netlify/) [rating: 8.4, free]; [AWS Activate](https://devcheap.click/deals/aws-activate/) [rating: 8, free]; [Cloudflare for Startups](https://devcheap.click/deals/cloudflare-for-startups/) [rating: 8, free]
-- **Database** (17 deals, free: 17) — [Neon Startup Credits](https://devcheap.click/deals/neon-startup-credits/) [rating: 8.3, free]; [Appwrite Cloud](https://devcheap.click/deals/appwrite/) [rating: 7.9, free]; [Aiven](https://devcheap.click/deals/aiven/) [rating: 7.6, free]
-- **Design & Collaboration** (8 deals, free: 7, trial: 1) — [Figma](https://devcheap.click/deals/figma/) [rating: 8, free]; [Miro](https://devcheap.click/deals/miro/) [rating: 7.3, free]; [Penpot](https://devcheap.click/deals/penpot/) [rating: 7.3, free]
-- **Monitoring** (7 deals, free: 5, paid: 1, trial: 1) — [Grafana Cloud Free](https://devcheap.click/deals/grafana-cloud/) [rating: 7.4, free]; [Better Stack](https://devcheap.click/deals/better-stack/) [rating: 7.3, free]; [New Relic for Startups](https://devcheap.click/deals/new-relic-startups/) [rating: 7.2, free]
-- **Productivity** (6 deals, free: 4, lifetime: 1, trial: 1) — [Plane](https://devcheap.click/deals/plane/) [rating: 7.5, trial]; [Airtable](https://devcheap.click/deals/airtable/) [rating: 7.4, free]; [Asana](https://devcheap.click/deals/asana-free/) [rating: 7.2, free]
+- **Hosting & Cloud** (34 deals, free: 32, paid: 2) — [Netlify](https://devcheap.click/deals/netlify/) [rating: 8.4, free]; [Cloudflare Workers](https://devcheap.click/deals/cloudflare-workers-free/) [rating: 8.1, free]; [AWS Activate](https://devcheap.click/deals/aws-activate/) [rating: 8, free]
+- **Database** (22 deals, free: 22) — [Neon Startup Credits](https://devcheap.click/deals/neon-startup-credits/) [rating: 8.3, free]; [Supabase Free Tier](https://devcheap.click/deals/supabase-free/) [rating: 8.2, free]; [Appwrite Cloud](https://devcheap.click/deals/appwrite/) [rating: 7.9, free]
+- **Monitoring** (13 deals, free: 11, paid: 1, trial: 1) — [Sentry](https://devcheap.click/deals/sentry-free/) [rating: 8.2, free]; [PostHog](https://devcheap.click/deals/posthog-free/) [rating: 8, free]; [Better Stack](https://devcheap.click/deals/betterstack-free/) [rating: 7.6, free]
+- **Design & Collaboration** (9 deals, free: 8, trial: 1) — [Figma](https://devcheap.click/deals/figma-free/) [rating: 8.4, free]; [Figma](https://devcheap.click/deals/figma/) [rating: 8, free]; [Miro](https://devcheap.click/deals/miro/) [rating: 7.3, free]
+- **Productivity** (8 deals, free: 6, lifetime: 1, trial: 1) — [Notion](https://devcheap.click/deals/notion-free/) [rating: 8.5, free]; [Plane](https://devcheap.click/deals/plane/) [rating: 7.5, trial]; [Airtable](https://devcheap.click/deals/airtable-free-tier/) [rating: 7.5, free]
+- **Auth** (7 deals, free: 7) — [WorkOS](https://devcheap.click/deals/workos/) [rating: 7.9, free]; [Auth0](https://devcheap.click/deals/auth0/) [rating: 7.8, free]; [Clerk](https://devcheap.click/deals/clerk/) [rating: 7.8, free]
 - **APIs & Email** (6 deals, free: 5, lifetime: 1) — [Resend](https://devcheap.click/deals/resend/) [rating: 7.4, free]; [Twilio SendGrid](https://devcheap.click/deals/twilio-sendgrid/) [rating: 7.2, free]; [Postmark](https://devcheap.click/deals/postmark/) [rating: 6.9, free]
 - **Web Analytics** (5 deals, free: 4, trial: 1) — [PostHog](https://devcheap.click/deals/posthog/) [rating: 8.2, free]; [Amplitude for Startups](https://devcheap.click/deals/amplitude-startups/) [rating: 7.3, free]; [PostHog for Startups](https://devcheap.click/deals/posthog-startups/) [rating: 6.4, free]
+- **Storage & Cloud** (4 deals, free: 4) — [Cloudflare R2](https://devcheap.click/deals/cloudflare-r2/) [rating: 8, free]; [Backblaze B2](https://devcheap.click/deals/backblaze-b2/) [rating: 7.1, free]; [IDrive Cloud Backup](https://devcheap.click/deals/idrive-cloud-backup/) [rating: 6.9, free]
 - **Domains & Hosting** (4 deals, paid: 3, free: 1) — [Cloudflare Registrar](https://devcheap.click/deals/cloudflare-registrar/) [rating: 7.5, paid]; [IONOS](https://devcheap.click/deals/ionos/) [rating: 6.5, free]; [Namecheap](https://devcheap.click/deals/namecheap/) [rating: 5.5, paid]
+- **Customer Support** (4 deals, free: 3, trial: 1) — [Slack](https://devcheap.click/deals/slack-free/) [rating: 7.8, free]; [OneSignal](https://devcheap.click/deals/onesignal/) [rating: 7.5, trial]; [Intercom Early Stage](https://devcheap.click/deals/intercom-early-stage/) [rating: 7.3, free]
+- **APIs & Search** (3 deals, free: 3) — [Meilisearch Cloud Free](https://devcheap.click/deals/meilisearch-free/) [rating: 7.8, free]; [Algolia](https://devcheap.click/deals/algolia/) [rating: 7.2, free]; [Algolia Startup Program](https://devcheap.click/deals/algolia-startup-program/) [rating: 7.2, free]
+- **Testing & QA** (3 deals, free: 3) — [Cypress](https://devcheap.click/deals/cypress/) [rating: 7.5, free]; [Qase](https://devcheap.click/deals/qase-test-management/) [rating: 7.4, free]; [BrowserStack](https://devcheap.click/deals/browserstack/) [rating: 7.1, free]
 - **CI/CD** (3 deals, free: 3) — [CircleCI Startup Credits](https://devcheap.click/deals/circleci-startup/) [rating: 8, free]; [Buildkite](https://devcheap.click/deals/buildkite/) [rating: 7, free]; [CircleCI](https://devcheap.click/deals/circleci/) [rating: 6.6, free]
-- **Customer Support** (3 deals, free: 2, trial: 1) — [OneSignal](https://devcheap.click/deals/onesignal/) [rating: 7.5, trial]; [Intercom Early Stage](https://devcheap.click/deals/intercom-early-stage/) [rating: 7.3, free]; [Zendesk](https://devcheap.click/deals/zendesk/) [rating: 6, free]
 - **APIs & Payments** (3 deals, free: 3) — [Kong for Startups](https://devcheap.click/deals/kong-for-startups/) [rating: 7.8, free]; [Stripe](https://devcheap.click/deals/stripe/) [rating: 7.4, free]; [Stripe Atlas](https://devcheap.click/deals/stripe-atlas/) [rating: 7, free]
 - **Security** (3 deals, free: 3) — [Tailscale](https://devcheap.click/deals/tailscale/) [rating: 7.5, free]; [Snyk](https://devcheap.click/deals/snyk/) [rating: 6.9, free]; [Safeguard.sh](https://devcheap.click/deals/safeguardsh/) [rating: 6.8, free]
-- **APIs & Search** (2 deals, free: 2) — [Algolia](https://devcheap.click/deals/algolia/) [rating: 7.2, free]; [Algolia Startup Program](https://devcheap.click/deals/algolia-startup-program/) [rating: 7.2, free]
-- **Auth** (2 deals, free: 2) — [Auth0](https://devcheap.click/deals/auth0/) [rating: 7.8, free]; [Clerk](https://devcheap.click/deals/clerk/) [rating: 7.8, free]
-- **Storage & Cloud** (2 deals, free: 2) — [Backblaze B2](https://devcheap.click/deals/backblaze-b2/) [rating: 7.1, free]; [MinIO](https://devcheap.click/deals/minio/) [rating: 6.3, free]
-- **Testing & QA** (2 deals, free: 2) — [Cypress](https://devcheap.click/deals/cypress/) [rating: 7.5, free]; [BrowserStack](https://devcheap.click/deals/browserstack/) [rating: 7.1, free]
 - **Media & Images** (2 deals, free: 2) — [ImageKit](https://devcheap.click/deals/imagekit/) [rating: 7, free]; [Cloudinary](https://devcheap.click/deals/cloudinary/) [rating: 6.9, free]
 - **AI** (2 deals, free: 2) — [Gamma](https://devcheap.click/deals/gamma/) [rating: 8.5, free]; [DeepLearning.AI](https://devcheap.click/deals/deeplearning-ai/) [rating: 7.5, free]
 - **Sales & Marketing** (1 deals, trial: 1) — [Tenjin](https://devcheap.click/deals/tenjin/) [rating: 7, trial]
 
 ## Alternatives
 Side-by-side comparisons for popular tools — each links to a curated page of verified alternatives in the same category:
-- [Credit for Startups Alternatives](https://devcheap.click/alternatives/credit-for-startups/): 41 comparable Developer Tools deals with verified pricing
+- [Credit for Startups Alternatives](https://devcheap.click/alternatives/credit-for-startups/): 47 comparable Developer Tools deals with verified pricing
 - [Gamma Alternatives](https://devcheap.click/alternatives/gamma/): 1 comparable AI deals with verified pricing
-- [LaunchDarkly Alternatives](https://devcheap.click/alternatives/launchdarkly/): 41 comparable Developer Tools deals with verified pricing
-- [Netlify Alternatives](https://devcheap.click/alternatives/netlify/): 30 comparable Hosting & Cloud deals with verified pricing
-- [Neon Startup Credits Alternatives](https://devcheap.click/alternatives/neon-startup-credits/): 16 comparable Database deals with verified pricing
+- [Postman Alternatives](https://devcheap.click/alternatives/postman/): 47 comparable Developer Tools deals with verified pricing
+- [Notion Alternatives](https://devcheap.click/alternatives/notion-notion-free/): 7 comparable Productivity deals with verified pricing
+- [LaunchDarkly Alternatives](https://devcheap.click/alternatives/launchdarkly/): 47 comparable Developer Tools deals with verified pricing
+- [Netlify Alternatives](https://devcheap.click/alternatives/netlify/): 33 comparable Hosting & Cloud deals with verified pricing
+- [Figma Alternatives](https://devcheap.click/alternatives/figma-figma-free/): 8 comparable Design & Collaboration deals with verified pricing
+- [Neon Startup Credits Alternatives](https://devcheap.click/alternatives/neon-startup-credits/): 21 comparable Database deals with verified pricing
 - [Anthropic Claude for Startups Alternatives](https://devcheap.click/alternatives/anthropic-claude-for-startups/): 45 comparable AI & LLM deals with verified pricing
 - [OpenAI Startup Credits Alternatives](https://devcheap.click/alternatives/openai-startup-credits/): 45 comparable AI & LLM deals with verified pricing
 - [PostHog Alternatives](https://devcheap.click/alternatives/posthog/): 4 comparable Web Analytics deals with verified pricing
+- [StackBlitz Alternatives](https://devcheap.click/alternatives/stackblitz/): 47 comparable Developer Tools deals with verified pricing
+- [Supabase Free Tier Alternatives](https://devcheap.click/alternatives/supabase-free-tier/): 21 comparable Database deals with verified pricing
+- [Sentry Alternatives](https://devcheap.click/alternatives/sentry-sentry-free/): 12 comparable Monitoring deals with verified pricing
 - [GitHub Copilot Free Alternatives](https://devcheap.click/alternatives/github-copilot-free/): 45 comparable AI & LLM deals with verified pricing
-- [AWS Activate Alternatives](https://devcheap.click/alternatives/aws-activate/): 30 comparable Hosting & Cloud deals with verified pricing
+- [Cloudflare Workers Alternatives](https://devcheap.click/alternatives/cloudflare-workers/): 33 comparable Hosting & Cloud deals with verified pricing
+- [AWS Activate Alternatives](https://devcheap.click/alternatives/aws-activate/): 33 comparable Hosting & Cloud deals with verified pricing
 - [CircleCI Startup Credits Alternatives](https://devcheap.click/alternatives/circleci-startup-credits/): 2 comparable CI/CD deals with verified pricing
-- [Cloudflare for Startups Alternatives](https://devcheap.click/alternatives/cloudflare-for-startups/): 30 comparable Hosting & Cloud deals with verified pricing
+- [Cloudflare for Startups Alternatives](https://devcheap.click/alternatives/cloudflare-for-startups/): 33 comparable Hosting & Cloud deals with verified pricing
 - [Cloudflare Workers AI Alternatives](https://devcheap.click/alternatives/cloudflare-workers-ai/): 45 comparable AI & LLM deals with verified pricing
-- [DigitalOcean Startups Alternatives](https://devcheap.click/alternatives/digitalocean-startups/): 30 comparable Hosting & Cloud deals with verified pricing
-- [Figma Alternatives](https://devcheap.click/alternatives/figma/): 7 comparable Design & Collaboration deals with verified pricing
-- [Google Cloud for Startups Alternatives](https://devcheap.click/alternatives/google-cloud-for-startups/): 30 comparable Hosting & Cloud deals with verified pricing
-- [Microsoft for Startups Alternatives](https://devcheap.click/alternatives/microsoft-for-startups/): 30 comparable Hosting & Cloud deals with verified pricing
+- [DigitalOcean Startups Alternatives](https://devcheap.click/alternatives/digitalocean-startups/): 33 comparable Hosting & Cloud deals with verified pricing
+- [Figma Alternatives](https://devcheap.click/alternatives/figma/): 8 comparable Design & Collaboration deals with verified pricing
+- [Google Cloud for Startups Alternatives](https://devcheap.click/alternatives/google-cloud-for-startups/): 33 comparable Hosting & Cloud deals with verified pricing
+- [Microsoft for Startups Alternatives](https://devcheap.click/alternatives/microsoft-for-startups/): 33 comparable Hosting & Cloud deals with verified pricing
+- [Cloudflare R2 Alternatives](https://devcheap.click/alternatives/cloudflare-r2/): 3 comparable Storage & Cloud deals with verified pricing
 
 ## LLM Providers
 A directory of LLM, image, speech, and embedding API providers ranked by an Ease score (how fast you get an API key with just email), with free-tier value, rate limits, and signup gates. The hub is the centerpiece of DevCheap's LLM coverage.
-- [LLM Providers Directory](https://devcheap.click/llm-providers/): 168 providers ranked by Ease, with free-tier rate limits and gate analysis (card / phone / KYC / captcha)
+- [LLM Providers Directory](https://devcheap.click/llm-providers/): 188 providers ranked by Ease, with free-tier rate limits and gate analysis (card / phone / KYC / captcha)
 - [No-credit-card LLM APIs](https://devcheap.click/llm-providers/no-credit-card/): free tiers with no billing, just an email
 - [Image, speech & embedding APIs](https://devcheap.click/llm-providers/media-apis/): free media APIs ranked by Ease
 - [OpenRouter alternatives](https://devcheap.click/llm-providers/openrouter-alternatives/): 40+ LLM gateways with free tiers
 - [How to pick a free LLM API](https://devcheap.click/articles/how-to-pick-free-llm-api/): framework for choosing a free LLM API by Ease, rate limits, and gates
-- [Raw provider data (JSON)](https://devcheap.click/data/llm-providers.json): machine-readable dataset of all 168 providers for programmatic use
+- [Raw provider data (JSON)](https://devcheap.click/data/llm-providers.json): machine-readable dataset of all 188 providers for programmatic use
 - [BlockRun](https://devcheap.click/llm-providers/) — Ease 100, 8 models unlimited, no throttle [none]
 - [Cerebras](https://devcheap.click/llm-providers/) — Ease 100, quota ~1M tokens/day (≈$15/mo) [none]
 - [Glhf.chat](https://devcheap.click/llm-providers/) — Ease 100, 2 models unlimited [none]
-- [Google AI Studio](https://devcheap.click/llm-providers/) — Ease 100, quota 15 RPM / 1.5K RPD (≈$20+/mo) [none]
 - [Groq](https://devcheap.click/llm-providers/) — Ease 100, quota 30 RPM / 14.4K RPD (≈$15–50/mo) [none]
 - [Hugging Face Inference](https://devcheap.click/llm-providers/) — Ease 100, $0.10/mo routing + serverless [none]
 - [Lepton AI](https://devcheap.click/llm-providers/) — Ease 100, free tier available [none]
 - [OpenRouter](https://devcheap.click/llm-providers/) — Ease 100, 25+ :free models, 50 RPD → 1K RPD after $10 [none]
 - [Pollinations AI](https://devcheap.click/llm-providers/) — Ease 100, unlimited, no auth [none]
 - [bazaarlink](https://devcheap.click/llm-providers/) — Ease 100, instant key, no auth [none]
+- [GitHub Models](https://devcheap.click/llm-providers/) — Ease 100, 100+ models, generous daily [none]
 
 ## How to Use This Site
 - **Browse**: Visit the [homepage](https://devcheap.click/) to see all active deals. Use category buttons and search to filter.
@@ -114,7 +122,7 @@ A directory of LLM, image, speech, and embedding API providers ranked by an Ease
 
 ## About
 - **Site**: [devcheap.click](https://devcheap.click/)
-- **Deal count**: 197
+- **Deal count**: 230
 - **Categories**: 21
 - **Content**: Deals are added and updated continuously. Each deal has a dedicated detail page with description, pricing, coupon code, and affiliate link.
 - **Pricing types**: free, lifetime, paid, trial
