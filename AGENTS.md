@@ -42,6 +42,10 @@ Current categories:
 - Customer Support, Sales & Marketing, Services
 - Design & Collaboration, Web Analytics, Media & Images, CI/CD, Testing & QA
 
+## Encoding Guardrail
+
+All source files are UTF-8. Never use PowerShell `Set-Content` / `Out-File` for Markdown, JSONL, or HTML files — PowerShell defaults to legacy codepages and will introduce mojibake e.g. `â€”`. Always write files with Python using `encoding='utf-8'` or use the `npm` build scripts. After any edit, grep for mojibake patterns like `\xc3\xa2` / `â€` in `data/deals.jsonl` and README.
+
 ## Validation
 
 After editing `data/deals.jsonl`, always run:
