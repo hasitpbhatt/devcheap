@@ -1,0 +1,31 @@
+{
+  "name": "DevCheap",
+  "description": "Curated developer deals and discounts",
+  "url": "https://devcheap.click/",
+  "endpoints": [
+    {
+      "path": "/data/deals.jsonl",
+      "method": "GET",
+      "description": "All deals in JSONL format (one JSON object per line)",
+      "contentType": "application/jsonl+json"
+    },
+    {
+      "path": "/feed.xml",
+      "method": "GET",
+      "description": "RSS feed of latest deals",
+      "contentType": "application/rss+xml"
+    },
+    {
+      "path": "/sitemap.xml",
+      "method": "GET",
+      "description": "XML sitemap of all pages",
+      "contentType": "application/xml"
+    },
+    {
+      "path": "/llms.txt",
+      "method": "GET",
+      "description": "LLM-friendly site summary",
+      "contentType": "text/plain"
+    }
+  ]
+}

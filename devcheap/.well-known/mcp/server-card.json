@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0",
+  "server": {
+    "name": "DevCheap Deals API",
+    "version": "1.0.0",
+    "description": "Curated developer deals, discounts, and free tiers. Browse 196+ verified deals across cloud, AI, DevOps, databases, and more.",
+    "url": "https://devcheap.click/",
+    "contact": {
+      "email": "hello@devcheap.click",
+      "url": "https://devcheap.click/"
+    }
+  },
+  "capabilities": {
+    "resources": {
+      "listChanged": true,
+      "subscribe": true
+    },
+    "tools": {
+      "listChanged": true
+    },
+    "prompts": {
+      "listChanged": true
+    }
+  },
+  "resources": [
+    {
+      "uri": "data://devcheap/deals.jsonl",
+      "name": "All Deals",
+      "description": "Complete list of all developer deals in JSONL format (one JSON object per line)",
+      "mimeType": "application/jsonl+json"
+    },
+    {
+      "uri": "data://devcheap/categories",
+      "name": "Deal Categories",
+      "description": "List of all deal categories with counts",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "data://devcheap/top-deals",
+      "name": "Top Rated Deals",
+      "description": "Highest-rated deals (rating >= 8.0) with full details",
+      "mimeType": "application/json"
+    }
+  ],
+  "tools": [
+    {
+      "name": "search-deals",
+      "description": "Search developer deals by keyword, category, or pricing type",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string", "description": "Search query" },
+          "category": { "type": "string", "description": "Filter by category" },
+          "pricing": { "type": "string", "enum": ["free", "freemium", "lifetime", "subscription", "one-time", "credit"] },
+          "minRating": { "type": "number", "description": "Minimum rating (1-10)" }
+        }
+      }
+    }
+  ],
+  "prompts": [
+    {
+      "name": "best-free-tiers",
+      "description": "Get the best free-tier developer tools",
+      "arguments": [
+        { "name": "category", "description": "Optional category filter", "required": false }
+      ]
+    },
+    {
+      "name": "lifetime-deals",
+      "description": "Find lifetime license deals for developer tools",
+      "arguments": []
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+run = "bash 9router/run.sh"
+
+modules = ["nodejs-20"]
+[nix]
+packages = ["vim"]
+
+[userenv]
+
+[userenv.shared]
+
+[[ports]]
+localPort = 20127
+externalPort = 80

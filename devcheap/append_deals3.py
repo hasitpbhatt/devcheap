@@ -1,0 +1,20 @@
+import json
+from pathlib import Path
+deals_path = Path("C:/Users/Lenovo/daily/devcheap/data/deals.jsonl")
+existing = deals_path.read_text(encoding="utf-8").strip().splitlines()
+new_deals = [
+{"id":"insomnia-free","name":"Insomnia","category":"Developer Tools","pricing":"free","deal":"Free Essentials Plan","code":"Automatic (Link)","url":"https://insomnia.rest","affiliate_url":"","tracking_id":"insomnia","has_affiliate":False,"desc":"API client by Kong for REST, GraphQL, gRPC.","tags":"api,client","why":"Free API client with Git Sync.","expires":None,"rating":7.8},
+{"id":"mintlify-free","name":"Mintlify","category":"Developer Tools","pricing":"free","deal":"Free Starter Plan","code":"Automatic (Link)","url":"https://mintlify.com","affiliate_url":"","tracking_id":"mintlify","has_affiliate":False,"desc":"AI-native documentation platform.","tags":"documentation","why":"Free docs with custom domain.","expires":None,"rating":7.9},
+{"id":"azure-cosmosdb-free","name":"Azure Cosmos DB Free Tier","category":"Database","pricing":"free","deal":"Lifetime Free Tier","code":"Automatic (Link)","url":"https://learn.microsoft.com/en-us/azure/cosmos-db/free-tier","affiliate_url":"","tracking_id":"azure-cosmos","has_affiliate":False,"desc":"Lifetime free tier 1000 RU/s + 25 GB.","tags":"cosmosdb","why":"Lifetime free NoSQL.","expires":None,"rating":7.2},
+{"id":"firebase-firestore","name":"Firebase Firestore","category":"Database","pricing":"free","deal":"Spark Free Tier","code":"Automatic (Link)","url":"https://firebase.google.com/products/firestore","affiliate_url":"","tracking_id":"firebase-firestore","has_affiliate":False,"desc":"Firestore NoSQL free tier.","tags":"firestore","why":"Free NoSQL for apps.","expires":None,"rating":7.6},
+{"id":"axiom-logs","name":"Axiom","category":"Monitoring","pricing":"free","deal":"Personal Free Plan","code":"Automatic (Link)","url":"https://axiom.co","affiliate_url":"","tracking_id":"axiom","has_affiliate":False,"desc":"Modern machine data platform.","tags":"logs","why":"Always Free allowance.","expires":None,"rating":4.6},
+{"id":"rollbar-error-tracking","name":"Rollbar","category":"Monitoring","pricing":"free","deal":"Free Forever","code":"Automatic (Link)","url":"https://rollbar.com","affiliate_url":"","tracking_id":"rollbar","has_affiliate":False,"desc":"Error monitoring and session replay.","tags":"error-tracking","why":"Generous free quota.","expires":None,"rating":4.5},
+{"id":"descope","name":"Descope","category":"Auth","pricing":"free","deal":"Free Forever 7,500 MAUs","code":"Automatic (Link)","url":"https://www.descope.com","affiliate_url":"","tracking_id":"descope","has_affiliate":False,"desc":"Identity platform with auth methods.","tags":"auth","why":"Generous free tier.","expires":None,"rating":7.6},
+{"id":"logto","name":"Logto","category":"Auth","pricing":"free","deal":"Free for 50,000 MAU","code":"Automatic (Link)","url":"https://logto.io","affiliate_url":"","tracking_id":"logto","has_affiliate":False,"desc":"Open-source identity cloud.","tags":"auth","why":"50K MAU free.","expires":None,"rating":7.7},
+{"id":"weaviate-free-tier","name":"Weaviate Cloud Free Tier","category":"APIs & Search","pricing":"free","deal":"Free Forever","code":"Automatic (Link)","url":"https://weaviate.io/pricing","affiliate_url":"","tracking_id":"weaviate","has_affiliate":False,"desc":"Managed AI Database free tier.","tags":"vector","why":"Free vector DB.","expires":None,"rating":4.5},
+{"id":"cloudflare-r2","name":"Cloudflare R2","category":"Storage & Cloud","pricing":"free","deal":"Free Tier","code":"Automatic (Link)","url":"https://www.cloudflare.com/products/r2","affiliate_url":"","tracking_id":"r2","has_affiliate":False,"desc":"S3-compatible object storage zero egress.","tags":"s3","why":"10GB free zero egress.","expires":None,"rating":8.0}
+]
+output_lines = existing + [json.dumps(d, ensure_ascii=False) for d in new_deals]
+deals_path.write_text("\n".join(output_lines) + "\n", encoding="utf-8")
+print("Appended", len(new_deals))
+

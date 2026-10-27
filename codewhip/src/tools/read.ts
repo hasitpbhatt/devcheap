@@ -1,0 +1,86 @@
+import * as fs from "node:fs";
+import * as path from "node:path";
+import type { ToolContext, ToolResult } from "./types.js";
+import { isPrivateKeyPath, isSecretFileName, jailPath } from "./jail.js";
+
+export type ReadArgs = {
+  path: string;
+  offset?: number;
+  limit?: number;
+};
+
+/** Hand-guard (Week-1): static spec + guard instead of zod, zero new deps. */
+export function isReadArgs(x: unknown): x is ReadArgs {
+  if (typeof x !== "object" || x === null) return false;
+  const r = x as Record<string, unknown>;
+  return (
+    typeof r["path"] === "string" &&
+    (r["offset"] === undefined || typeof r["offset"] === "number") &&
+    (r["limit"] === undefined || typeof r["limit"] === "number")
+  );
+}
+
+export async function readTool(ctx: ToolContext, args: ReadArgs): Promise<ToolResult> {
+  if (!args.path || typeof args.path !== "string") {
+    return { ok: false, output: "read: missing required arg `path` (string)" };
+  }
+  const offset = args.offset ?? 1;
+  const limit = args.limit ?? 200;
+  if (!Number.isInteger(offset) || offset < 1) {
+    return { ok: false, output: "read: `offset` must be an integer >= 1" };
+  }
+  if (!Number.isInteger(limit) || limit < 1 || limit > 2000) {
+    return { ok: false, output: "read: `limit` must be 1..2000" };
+  }
+  const safe = jailPath(ctx.cwd, args.path, ctx.roots);
+  if (safe === null) {
+    return { ok: false, output: "read: path escapes workspace jail" };
+  }
+  // Secret material is refused, not redacted: search skips the same list,
+  // and push-time redaction is only a pattern-based second net.
+  if (isSecretFileName(path.basename(safe))) {
+    return { ok: false, output: "read: refused — secret material (.env/.pem/.key/credentials.json)" };
+  }
+  if (isPrivateKeyPath(safe)) {
+    return { ok: false, output: "read: refused — harness signing key" };
+  }
+  let stat: fs.Stats;
+  try {
+    stat = fs.statSync(safe);
+  } catch {
+    return { ok: false, output: `read: not found: ${args.path}` };
+  }
+  if (!stat.isFile()) {
+    return { ok: false, output: `read: not a file: ${args.path}` };
+  }
+  if (stat.size > 1024 * 1024) {
+    return { ok: false, output: "read: file too large (>1MB), use search instead" };
+  }
+  // Binary sniff (same \0 heuristic search uses): a PNG fed through utf8
+  // decode would push mojibake into the transcript and waste the model's
+  // context. Refuse with a hint instead.
+  try {
+    const head = Buffer.alloc(8192);
+    const fd = fs.openSync(safe, "r");
+    try {
+      const got = fs.readSync(fd, head, 0, head.length, 0);
+      if (got > 0 && head.subarray(0, got).includes(0)) {
+        return { ok: false, output: "read: binary file — this tool reads text only (images/fonts/archives are out of scope)" };
+      }
+    } finally {
+      fs.closeSync(fd);
+    }
+  } catch (err) {
+    return { ok: false, output: `read: failed: ${(err as Error).message}` };
+  }
+  try {
+    const text = fs.readFileSync(safe, "utf8");
+    const lines = text.split("\n");
+    const slice = lines.slice(offset - 1, offset - 1 + limit);
+    const numbered = slice.map((l, i) => `${offset + i}: ${l}`);
+    const suffix = offset - 1 + limit < lines.length ? `\n… (${lines.length} total lines)` : "";
+    return { ok: true, output: numbered.join("\n") + suffix };
+  } catch (err) {
+    return { ok: false, output: `read: failed: ${(err as Error).message}` };
+  }
+}

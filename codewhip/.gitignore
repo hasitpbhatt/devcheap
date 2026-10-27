@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.codewhip/
+.opencode/
+.zcode/
+.workbuddy-ai/
+.qoder/
+*.log
+*.tgz
+.env
+.env.*
+.DS_Store

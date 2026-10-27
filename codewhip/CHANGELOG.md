@@ -1,0 +1,886 @@
+# Changelog
+
+All notable changes to this project are documented here. Format follows
+[Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows
+[SemVer](https://semver.org/). Every run prints its receipts
+(`tokens / model mix / $`) — cost behavior changes are called out explicitly.
+
+## [Unreleased]
+
+Cost behavior: `--max-budget-usd` is a new *stop* condition, not a new price
+source — it meters through the existing `estimateCost` table and refuses to
+guess. Any route that prints `cost untracked` also refuses the flag. The free
+chain (`--free`, `--auto-failover`) never bills, so the flag is rejected at
+parse time there rather than silently doing nothing.
+
+### Added
+
+- **Headless scripting: `run -p`, `--output-format text|json|stream-json`,
+  stdin piping and `--max-budget-usd`.** Parity-matrix Wave 1
+  (`docs/moat/20-parity-matrix.md`); closes the four GAP-1 rows.
+  - `-p`/`--headless` makes stdout carry **only** the result: every banner,
+    receipt line and refusal cause moves to stderr, the REPL never opens, and
+    interactive approvals are suppressed (asks are held and denied, so pair it
+    with `--yolo` or a remembered rule). `--print` keeps its existing
+    share-markdown meaning; `run -p --tui` is a parse error, because two
+    writers cannot own stdout.
+  - `--output-format` implies `-p`. `json` prints one result document;
+    `stream-json` prints NDJSON — an `init` line, one line per loop event
+    (tool/retry/failover/policy/compact/hook), then the `result` line. The
+    result document carries the governance fields, not just the text:
+    `subtype` derived from a new `LoopResult.stopReason`, `usage` per model
+    with the `estimated` flag preserved, `total_cost_usd` **null** when any hop
+    is unpriced, `receipt`, `budget`, `failovers`, `waited_ms`, `compacted`,
+    `checkpointed_files`, `audit_entries_dropped`, `polish_gate`, `share` and
+    the full `trace`.
+  - Prompts and material now arrive from a pipe. With no argv prompt, stdin *is*
+    the prompt: `echo "fix the typo" | codewhip run -p`, or the explicit
+    `codewhip run -p -`. With an argv prompt, piped stdin is appended to it as
+    context — `cat diff.patch | codewhip run -p "review this"` — which is the
+    idiom that makes the flag worth having. A silent pipe cannot hang the run:
+    the context read is opportunistic (250 ms) and abandons the handle, while
+    the prompt read waits, since there is no run to continue without it. 1 MB
+    cap on both.
+  - `--max-budget-usd <n>` stops the run the moment metered cost crosses the
+    ceiling, mid-loop and after every hop's usage lands, with a partial
+    transcript and a receipt — the same discipline `--token-budget` already had.
+    If a failover hop turns out to be unpriced the run stops with `error`
+    rather than continuing past a ceiling it can no longer measure.
+  - Pre-loop refusals (bad keys, unpriced ceiling, policy denials, 13 sites)
+    emit the same envelope with `result: null` and a `reason`, so a script that
+    reads stdout always parses exactly one document, whatever happened.
+- **Sessions get names, tags and lineage: `-r <name>`, `--name`, `--tag`,
+  `--fork-session`, `codewhip sessions rename|tag`, REPL `.rename`/`.tag`/
+  `.branch`.** Parity-matrix Wave 2a; closes three GAP-2 rows.
+  - `-r` and `--resume` are now spellings of `--continue`, and the reference
+    resolves **by name first, then by ≥4-char id prefix** — so
+    `codewhip run "one more thing" -r auth` keeps accumulating into the session
+    named `auth`. An ambiguous reference is an error naming both candidates,
+    never a coin flip.
+  - A session file still *is* its id, so a resume writes one growing transcript
+    rather than a chain of files. `--fork-session` takes that transcript and
+    starts a **new** file that records `parent`, which is what `--name auth-v2
+    --fork-session -r auth` is for: keep the history, branch the file. In the
+    REPL, `.branch [name]` does the same from wherever the conversation stands.
+  - `--name`/`--tag` **arm persistence** without resuming anything: a name
+    nobody saved would be a silent no-op, so naming a session writes it. The run
+    says so before it starts (`… arms session saving: this transcript will be
+    written on exit`), because "nothing touches disk unless you arm it" is only
+    honest if arming is visible.
+  - Names are one word, ≤64 chars, cannot start with `-`/`/`/`!`/`.`, and are
+    unique. That strictness exists for one reason: `-r <name>` is copy-pasted
+    off a hint line, and a name with a space in it prints a command that does
+    not resume. Tags accept phrases — they are only displayed. A collision is
+    refused **before the run** rather than after it has spent a transcript
+    nobody can find again.
+  - `codewhip sessions` gained the name, tags (`#wip`) and parent (`←a1b2c3d4`)
+    columns, and two subcommands that edit a session on disk:
+    `sessions rename <session> <name>` and `sessions tag <session> <tag>`. Both
+    redact through the ordinary write path, so a rename cannot smuggle a secret
+    back into a file that had none.
+  - The stored record keeps `v: 1` and gains four optional fields — `lastRunId`
+    (the run that wrote it, which is the id the audit chain knows), `name`,
+    `tags`, `parent`. Old files read unchanged; sessions were never one of the
+    frozen schemas (policy, audit and memory are — `docs/moat/00-convergence.md`).
+
+- **Run-scoped tool filters and prompt surface: `--allowed-tools`,
+  `--disallowed-tools`, `--append-system-prompt[-file]`,
+  `--exclude-dynamic-system-prompt-sections`.** Parity-matrix Wave 2b; closes
+  two GAP-2 rows.
+  - `--allowed-tools read,bash(git status *)` answers an *ask* without a prompt
+    for this run only. Nothing is written to disk — this is the rung between
+    `y` (once) and `a` (forever), and it is what makes a headless run able to
+    do targeted work without `--yolo`. It never outranks a policy deny, never
+    outranks `--plan`, and never covers a `.codewhip/` path, so it cannot widen
+    the denylist's reach. `--allowedTools` is accepted too, and an allow is
+    consulted before `--yolo` so the audit line names the flag that granted it.
+  - `--disallowed-tools webfetch,edit(src/a.ts)` refuses *above* the ladder: no
+    `--yolo`, remembered rule or human yes lets it through, and a bare tool name
+    is dropped from the advertised tool list so the model is never offered a
+    call this run refuses. Where the two lists overlap, the disallow wins.
+    Filtering out `read` or `search` also refuses `delegate` — a subagent's only
+    authority is reading, so delegation would be reading by proxy.
+  - The grammar is the one remembered rules already use (bash head plus
+    optional trailing ` *`, exact path, one https origin), and a pattern carrying
+    a shell separator is refused at parse time. What the command line adds is
+    authority, not syntax: a typed pattern may name any head, because `--yolo`
+    already proves the human can grant more broadly than the click-time
+    curation list.
+  - `--append-system-prompt <text>` / `--append-system-prompt-file <path>` put
+    the operator's own words last in the system message, capped at 8000 chars
+    because it re-pays on every turn; the file is read pre-flight, so a bad path
+    fails before a token is spent. `--exclude-dynamic-system-prompt-sections`
+    drops the per-run delegable-agent roster — advertising only; the plan-mode
+    and refusal notes are never dropped, because a prompt that hides a refusal
+    produces a model that retries it.
+  - Every flag is announced on stderr with an `!!` banner naming its scope, and
+    `--output-format stream-json`'s `init` line gains `allowed_tools`,
+    `disallowed_tools`, `appended_system_prompt_chars` and
+    `exclude_dynamic_system_prompt_sections`. Cost behaviour is unchanged:
+    receipts print exactly as before.
+- **Permission modes, extra jail roots and a default mode:
+  `--permission-mode <mode>`, `--add-dir <path>`,
+  `permissions.defaultMode`/`additionalDirectories` in `settings.json`.**
+  Parity-matrix Wave 2c; closes three GAP-2 rows.
+  - Six modes — `default`, `acceptEdits`, `plan`, `bypassPermissions`,
+    `dontAsk`, `manual` (`src/settings.ts`). Each one answers the question
+    "who replies to this ask", and none of them outranks a denial: the
+    non-overridable denylist, structural refusals, `--disallowed-tools` and
+    policy denies all still fire first. `auto` is deliberately not shipped —
+    it names a classifier, and a mode string that behaves like `acceptEdits`
+    while advertising judgement would be a label, not a feature.
+  - `acceptEdits` answers edit/write asks itself, but never a write into
+    self-protected `.codewhip/` state or past the jail, and never a
+    policy `ask` on `bash`. `dontAsk` **denies** instead of prompting, and
+    records `+mode:dontAsk` with actor `policy`, so "nothing happened" and
+    "something refused" stay distinguishable in the audit. `manual` is the
+    loud one: it is immune to `--allowed-tools`, remembered rules and
+    `--yolo`, because an operator who asked to be asked has already answered.
+    `plan` stays structural — `--plan` outranks `--yolo`, and a mode string
+    cannot un-plan a run either.
+  - A mode granted by a flag, a setting or `--yolo` says which in its `ruleId`
+    (`+mode:acceptEdits`, `+mode:bypassPermissions`, `+yolo`), so the audit
+    answers "was this written because of a flag?" without a schema change.
+    `AuditActor` stays the frozen four and `POLICY_VERSION` is unchanged —
+    `checkPermission` returns the same verdicts it always did. The outcome
+    record gains one additive field, `permission_mode`, on the `task_class`
+    precedent (absence means unknown, never `default`).
+  - `--add-dir <path>` (repeatable, ≤16, also
+    `permissions.additionalDirectories`) widens the file-tool jail to real
+    directories outside cwd. Roots are realpath'd and existence-checked
+    before the run starts, and a mistyped one is reported as refused rather
+    than quietly ignored. Inside an extra root the rules are the same as
+    inside cwd: secret files and `.codewhip/` state stay refused. Widening is
+    containment, never authority.
+  - The undo path follows the jail: writes into an `--add-dir` root are
+    checkpointed, so `codewhip rollback` can restore or remove them. This
+    caught a real bug — `rollbackRun` rejected any manifest entry whose path
+    escaped cwd, which made an authorized out-of-cwd write un-rollback-able.
+    Protection is now checked by absolute path, which keeps the wall against a
+    hand-edited manifest and admits the roots the run was given. Children
+    inherit the roots but **not** the mode: a subagent still runs plan-mode
+    read-only (`src/subagents.ts:237`), so no parent-side grant can delegate
+    its way past the ladder into a write.
+  - `settings.json` is read from the config dir and then
+    `.codewhip/settings.json` on top; a malformed file costs one reported
+    `!! settings:` line and never the run. Mode is announced on stderr with
+    its source (`--permission-mode`, `a shorthand`, or
+    `permissions.defaultMode`), and the `stream-json` `init` line gains
+    `permission_mode` and `additional_directories`. Cost behaviour is
+    unchanged; a mode changes who approves, not what a run pays.
+- **`--json-schema` / `--json-schema-file`: the answer must be one JSON
+  document that satisfies a schema.** Parity-matrix Wave 2d; closes one GAP-2
+  row.
+  - `src/structured.ts` is a validator for a **documented subset** — `type`,
+    `properties`, `required`, `additionalProperties`, `items` (schema or
+    tuple), `enum`, `const`, `min`/`maxLength`, `pattern`,
+    `min`/`max(Exclusive)imum`, `min`/`maxItems`. A schema naming anything
+    else (`$ref`, `allOf`, `not`, `if`, `format`, or a typo like `tipe`) is
+    **refused before the run starts**, with the offending keyword and its path:
+    a gate that cannot fire must not look armed, or the caller writes `jq`
+    against a contract nothing enforced. `integer` accepts whole numbers and
+    is accepted by `number`, never the reverse; `pattern` reports the check it
+    could not make on oversized input rather than approving it silently.
+  - The schema is parsed and checked at **argv-parse time**
+    (`src/index.ts:666`/`:677`) and resolved before any request goes out
+    (`:1236`), so a bad document costs no tokens. Its length is reported as
+    `json_schema_chars` in the `stream-json` `init` line.
+  - A miss costs exactly one **billed** repair turn (`MAX_REPAIRS = 1`,
+    `src/loop.ts:672`): the loop pushes a real `user` message and continues,
+    so `num_turns`, `usage` and the receipt all show the extra spend. An answer
+    that still fails ends the run with `stopReason: "error"` — never as a
+    result carrying a document that broke the contract.
+  - `structured_output` is added **beside** the prose `result`
+    (`src/run-output.ts:208`), with `structured_errors` and `structured_repairs`
+    when they apply; the raw answer stays recoverable. Text mode prints the
+    validated document, and in `-p` mode the repair chatter is an event on
+    stderr so stdout remains one machine document.
+  - `--plan` plus `--json-schema` is refused: a plan is prose, and arming both
+    would pay for a document the run has already decided not to act on.
+- **`--input-format stream-json`: stdin becomes a conversation.**
+  Parity-matrix Wave 2e; closes one GAP-2 row.
+  - `printf '%s\n' '{"type":"user","message":{"role":"user","content":"…"}}' |
+    codewhip run --input-format stream-json --output-format stream-json` drives
+    several turns in one process against one session — the scripted idiom the
+    REPL was standing in for. Each line is an ordinary run whose transcript is
+    fed back as history, so `agentLoop`, the policy ladder, step budgets and
+    per-run audit records are unchanged by it.
+  - One accepted shape, and every other line is refused **by name**
+    (`src/stream-input.ts:47`): a bad JSON line, a non-text content block, an
+    unknown `type`, a `role` that is not `user`. Skipping what it could not
+    parse was the alternative, and it drops an instruction without saying so.
+    A `role:"assistant"` line is refused specifically because it would assert
+    what the agent already said — history is the loop's to write.
+  - The limit is stated rather than faked: input is read at the **turn
+    boundary**, never inside a running step, so `tool_result` and
+    `control_response` have no inbound path and no pipe line can answer a
+    permission prompt (asks stay held and denied, as under any `-p` run).
+    Capped at 64 messages per process.
+  - **Cost behaviour:** both ceilings move to process scope.
+    `--max-budget-usd` is metered against what the earlier turns already spent
+    and `--token-budget` is handed to each turn as what remains, so N turns
+    cannot spend N times the cap; the `result` envelope keeps reporting the
+    configured ceiling. Every finished turn emits its own `result` line with
+    its own `run_id`, usage and receipt, and `runId`/`checkpoints` still refer
+    to the **last** turn (each turn's undo line is printed as it completes).
+  - The session file is pinned to the first turn, so a stream accumulates into
+    one transcript instead of one file per message. `--input-format` requires
+    `--output-format stream-json` and refuses a positional prompt or `-`,
+    because one `json` document for N turns would have to drop N-1 receipts and
+    stdin has exactly one meaning per run.
+- **`npm run parity`: the parity matrix now counts itself.**
+  `scripts/parity.mjs` parses the status column of every row in
+  `docs/moat/20-parity-matrix.md`, recomputes the percentage and the
+  per-wave totals, and exits non-zero if the Score section no longer matches
+  its own rows or if any row carries a status word the parser does not know.
+  Both failure modes are historical, not hypothetical: the first Score line was
+  hand-counted 13 points too high because it counted table separators as
+  capability rows, and this wave a `PARTIAL → HAVE` cell silently counted as
+  `PARTIAL` because the counter read the first word of the cell — an arrow in a
+  status column now reads left-to-right, final state wins. An invented status
+  is now an error rather than a dropped row, so the instrument cannot be
+  quietly flattered. `npm run parity` is the gate on claiming completion.
+- **Host-provided tools, and an ask that carries its own evidence.**
+  `agentLoop` accepts `customTools` — functions a caller in the same process
+  offers the model. A host tool inherits the fail-closed defaults rather than a
+  private path around them: it has no policy row of its own (so it asks every
+  time), is never remembered, never memoized, is refused by plan mode and
+  refused inside a `delegate` child — while the denylist and a `policy.md`
+  `deny <tool>:<shape>` still bite. The ask callback gained a second argument
+  (`{tool, subject, ruleId, …}`), so a decider sees the exact subject policy was
+  graded against instead of a display string. Cost behaviour is unchanged: the
+  receipt line still prints `tokens / model mix / $`, and an unmeterable route
+  still prints `cost untracked`. 9 tests (`src/host-tools.test.ts`).
+- **The programmatic entry: `query()`, `tool()` and `canUseTool`.**
+  Parity-matrix Wave 2f (`docs/moat/20-parity-matrix.md`), which closes
+  that wave. `src/sdk.ts` is a second mouth on one engine, not a second engine:
+  `query()` resolves the route with the CLI's own `resolveRoute` → allowlist →
+  `resolveKey` chain, refuses a dollar ceiling on an unpriced route, honours
+  plan mode, re-reads hooks and remembered rules per turn, and yields the same
+  `init` / `event` / `result` documents `--output-format stream-json` writes —
+  receipt included, `total_cost_usd` still `null` on an unpriced hop.
+  `canUseTool` is mounted on the `ask` rung only, so a host decider can refuse
+  more than the harness, never less; a gate that refuses throws `SdkError` from
+  the first iteration, having contacted no provider. Three affordances are
+  deliberately absent — `updatedInput`, a host-supplied deny message, and any
+  way to talk past a deny — and each absence is recorded as a ruling.
+  `package.json` publishes `main`/`exports` → `dist/sdk.js` (the `bin` is
+  unchanged); Python and any other language drive the same engine over NDJSON.
+  11 tests (`src/sdk.test.ts`), plus a live run of the built binary on the
+  keyless `pollinations:openai-fast` route at $0.0000.
+- **A task list whose blockers bite.** Parity-matrix Wave 3a
+  (`docs/moat/20-parity-matrix.md`): the `TaskCreate/Get/List/Update` row.
+  `todo` is no longer one flat list — items carry `description` (what finishing
+  means), `activeForm` (the label while in progress), `owner`, and
+  `blocks`/`blockedBy` edges that either side may write because both are stored.
+  The edges gate rather than decorate: claiming a blocked item is refused, an
+  edge naming an id outside the list is refused instead of dropped (a dropped
+  blocker is a grant), a cycle is refused with its path printed, and `blocked`
+  is derived from the graph instead of stored next to it where it could disagree.
+  Every write re-passes the validator — an `update` reads the store, flips one
+  status and writes the whole list back — so the rules hold for the file on
+  disk, not for whichever call happened to be well-formed. `get` is the verb
+  that makes a shared list safe to pick up: it prints the contract, the owner,
+  both edge directions with the far end's status, and what is ready to claim.
+  Split along its own seam to keep the tool under its line bar (graph rules in
+  `src/tools/todo-store.ts`, verbs in `src/tools/todo.ts`), each action still
+  its own policy subject so `deny todo:get` compiles without losing the plan.
+  13 new tests (`src/tools/todo.test.ts`) with the 9 existing kept as a
+  compatibility contract — a store written by an older build still loads.
+  Nothing in the cost path moved: same models, same meter, same receipt line;
+  the prompt is 785 characters (≈200 tokens) longer for the new spec and
+  guidance, which is the whole price of the feature.
+- **`--debug` and `--debug-file <path>`: the harness's own decisions on a
+  channel.** Parity-matrix Wave 3b: the `--debug`, `--debug-file` row. This is
+  not a verbosity dial — the transcript already prints every tool call, verdict
+  and hop, on stderr and on the audit chain. What had no channel was the
+  *reasoning*: which rung of the consent ladder answered a call, why model
+  rotation was skipped, what the transcript weighed when the budget was
+  re-read, what a hook returned, how long a tool actually took. Sixteen
+  sentences now go to `--debug` (stderr under `-p`, so stdout stays data) or to
+  an appended file. Three rules are enforced by the sink rather than by
+  discipline at the call sites: every line is redacted before it lands, because
+  a debug log sees more than anything else in the program; an `*.env*` target
+  and any path inside `.codewhip/` are refused at parse time, because that is
+  where the audit chain, the stored keys and the policy this log describes
+  live; and at 8 MiB — or on any write error — it warns once and goes quiet,
+  since a broken diagnostic must not kill the run it is explaining. Lines
+  append synchronously on purpose: the tail of the run that crashed is the only
+  part anyone ever reads, and a buffered stream is how that tail gets lost.
+  Subagents inherit the parent's sink, because delegation is where surprises
+  hide and a child that cannot be debugged is a child that cannot be trusted.
+  11 tests (`src/debug.test.ts`) cover the refusals, redaction, the warn-once
+  path and the cap, plus one loop test asserting the sink is silent until armed.
+  Cost: disk and nothing else — no prompt token is added, so every receipt is
+  unchanged.
+- **`.context`, `.usage` and `.cost` in the REPL: what this session has already
+  spent.** Parity-matrix Wave 3c: the `/context`, `/usage`, `/cost` row, which
+  was PARTIAL because each run printed its own receipt and the session kept
+  nothing. Now one ledger rides the transcript: `agentLoop` reports the shape it
+  actually put on the wire — system prompt, tool specs, and the compaction
+  ceiling it used — and the REPL folds that plus the run's usage in per turn.
+  `.context` is a grid: the two fixed costs, the transcript by role, tool calls,
+  what is used and what is free, with percentages against the ceiling. `.usage`
+  totals per `provider:model` across the session; `.cost` totals dollars.
+  Honesty rules, all enforced in the renderer (`src/session-ledger.ts`): every
+  number is labelled `est. tokens (chars/4…)` because that is the measure
+  compaction budgets with, a route whose provider sent no usage block is tagged
+  `(est.)`, the ceiling is named as the compaction limit rather than the model's
+  window, and **one unpriced leg buys no total** — `.cost` names the route that
+  has no price row and points at its console instead of printing `$0.00`, the
+  same rule `--max-budget-usd` and the polish gate follow. The ledger is
+  in-memory until `.exit`, like the transcript: the three verbs write no files.
+  15 tests (`src/session-ledger.test.ts`) cover the merge arithmetic, the sticky
+  estimated flag, the immutability of the folded ledger, over-ceiling reporting
+  and both cost branches. Cost: three numbers on an existing return value — no
+  prompt token is added, so every receipt is unchanged.
+- **`tools:` and `disallowedTools:` in agent files, and the eight fields that
+  are refused by name.** Parity-matrix Wave 3d: the ten-field subagent-frontmatter
+  row, which read "not honoured". A `.codewhip/agents/<name>.md` can now say what
+  its child may touch. `tools:` **narrows and cannot widen** — a child's whole
+  authority is `read` and `search`, so `tools: bash` is a parse error rather than
+  a promise the harness breaks on the first call, and `CHILD_TOOL_NAMES`
+  (`src/tools/types.ts:37`) is the single list both the parser and the child's
+  spec builder read. `disallowedTools:` takes the same grammar as
+  `--disallowed-tools` (bare names, `webfetch(https://x.com)`, comma lists), so
+  there is still one shape language here. Both fields compile onto the one
+  refusal list the child is born with (`src/subagents.ts:298`): a narrowed child
+  is *un-advertised* through the same filter path that refuses its calls, which
+  is why `tools: read` sends one tool spec where it used to send two. That list
+  now also inherits the run's own `--disallowed-tools`
+  (`src/loop.ts:1197` → `src/tools/child-run.ts:47`) — stated exactly, this is
+  not a fixed escape: no filter a child could evade is expressible today, since
+  `read`/`search` take no shape and a child cannot reach the four shapeful tools.
+  What shipped is a child that honours the operator's refusals by construction
+  instead of by that accident. `permissionMode`, `skills`, `mcpServers`, `hooks`,
+  `memory`, `background`, `effort` and `isolation` are refused BY NAME, each with
+  the reason it cannot be honoured, and so is any unknown key — a field that
+  parses and then silently does nothing is the failure mode worth more than a
+  load error, and `codewhip agents` prints the skipped file with the line needed
+  to fix it. `parseFlatFrontmatter` accepts camelCase keys for that reason
+  (`src/frontmatter.ts:30`), and the parser is pinned directly now
+  (`src/frontmatter.test.ts`). 9 tests, including an end-to-end one: a
+  `tools: Read` child is measured at one advertised spec, and a child whose file
+  says `disallowedTools: Search` is refused inside its own run. Cost: a narrower
+  child prompt; nothing added to any system prompt, so receipts are unchanged.
+- **`ask_user`: the model can ask a question back.** Parity-matrix Wave 3e: the
+  `AskUserQuestion` row, which read "the model cannot ask a multiple-choice
+  question back". It is the thirteenth builtin (`src/tools/ask-user.ts`) — one
+  question, 2-6 distinct choices, optional `multiSelect` — and the answer comes
+  back as an ordinary tool result, `the human answered: <what they said>`. Three
+  decisions make it safe to hand an agent:
+  - **It grants nothing.** Allow-class at the ladder (`default:ask_user:allow`),
+    because its whole effect is one keystroke from a human who cannot be coerced
+    by it — the edit, `rm` or fetch the model goes on to attempt still walks the
+    normal consent check. Grading the *question* as an ask would be circular
+    (consent to ask for consent), and in a headless run, where asks auto-deny,
+    it would make the tool unreachable by construction. It is still deniable:
+    the rule sits after promoted-deny matching and its subject is the question
+    text, so `deny ask_user:Revert the branch?*` in `policy.md` holds.
+  - **It exists only where a human is.** The channel is injected by the CLI when
+    it owns a readline prompt on a real TTY; headless `-p`, an SDK `query()` and
+    a TUI run that cannot draw a question get *no spec at all*
+    (`src/tools/registry.ts:316`) — the same "never advertise what the harness
+    refuses" rule already used for children and `--disallowed-tools`. Exec still
+    refuses without a channel, and the refusal echoes the question it could not
+    ask, so silence can never be read as assent.
+  - **One keyboard, one owner.** A child that could prompt would be the parent's
+    consent gate with a second caller: refused before the ladder as
+    `loop:child-no-prompt`, recorded on the child's own audit runId.
+  Free text outranks the menu: a number in range picks an option, anything else —
+  a sentence, an out-of-range digit, an option typed in another case — is the
+  human's own answer verbatim (`src/index.ts:995`), because a forced choice is an
+  interrogation and the interesting answers are the ones nobody listed. 15 tests,
+  including an end-to-end one that reads the child's deny back out of
+  `outcomes.jsonl`. Cost: one extra tool spec in interactive runs only — 843
+  characters of serialized schema (`node -e` over `dist/tools/registry.js`,
+  2026-09-25), re-sent per provider call, against a rough 4 chars/token; headless
+  and SDK runs send nothing, and no prompt text was added anywhere, so receipts
+  are otherwise unchanged.
+- **Parallel tool execution: independent read-only batches now overlap.** The
+  `Parallel tool execution` row was `GAP-3`, deferred in the Torvalds review as
+  needing per-turn batches "with audit-ordering discipline". A model that returns
+  two or more tool calls in one turn now gets them executed concurrently where
+  that is provably safe, capped at 4 in flight.
+  - **A batch is parallel or the turn is serial, never a mix.** Eligibility is
+    decided by one scan before anything runs (`src/loop.ts:813`–`:864`). The
+    eligible set is `read` plus `webfetch` **only when already granted** — by
+    policy, a matching `--allowed-tools` shape, `--yolo` /
+    `--permission-mode bypassPermissions`, or a remembered origin. A configured
+    hook, a host tool (opaque caller code), a mutating or interactive tool, a
+    duplicate or empty call id, a memo hit, or any call that would still need a
+    keystroke sends the whole turn down the unchanged serial path. A `read` in the
+    same turn as an edit must not observe a half-applied file, and two approvals
+    must never race for one keyboard.
+  - **The audit story is identical to serial.** Each candidate still runs the
+    real `checkPermission`/`matchToolFilter` gates and keeps the exact ruleId
+    and actor the ladder would have recorded, so a yolo `webfetch` lands as
+    `allow:default:webfetch:ask+yolo` / actor `yolo` either way. `seq` is
+    reserved for the whole batch up front, and `tool_result` messages, the trace,
+    `outcomes.jsonl` and the hash chain are appended in **assistant order**, not
+    completion order (`src/loop.ts:906`–`:930`).
+  - **Bounded and failure-isolated.** `runBoundedParallel`
+    (`src/parallel-tools.ts`) is a 4-slot worker pool, so a 40-call turn is 10
+    deep, not 40. Each call keeps its own `withTimeout` and `try/catch`: a crash
+    or timeout becomes that one call's `ToolResult` string and every sibling
+    result still commits. Nothing is re-run — the repeat memo is written on the
+    ordered commit, not inside the worker.
+  - **`read` is in the set for correctness, not speed.** It is a synchronous walk
+    behind an `async` signature, so a read batch buys little wall clock; the real
+    speedup is pre-approved `webfetch`. Both are covered by instrumented tests
+    that assert observed overlap rather than inferring it. This narrow first cut
+    avoids refactoring every denial, hook and approval branch just to widen the
+    set; the seam is that single eligibility scan, so extending it is additive.
+  6 new tests in `src/parallel-tools.test.ts`. Cost: one eligibility scan and one
+  pool per parallel turn — no new prompt tokens, no new dependency, no schema
+  change, so receipts and frozen policy/audit/memory contracts are unchanged.
+- **`--agents '<json>'` and `--agent <name>`: the roster on the command line.**
+  Parity-matrix Wave 3f: GAP 42 → 41, wave 3 20 → 19 (PARTIAL, with three named
+  deltas — the prompt appends rather than replaces, a `tools` narrowing can only
+  refuse `read`/`search`, and there is no mid-session switch).
+  - `--agents '{"scout":{"description":"…","prompt":"…"}}'` is
+    `.codewhip/agents/*.md` in JSON (`src/subagents.ts:209`) — parsed into the
+    same `AgentDef` through the same `parseToolsField` and `entryProblems`, so a
+    flag cannot be laxer than a commit: `tools` still only narrows, `maxTurns`
+    still bounds 1–25, and `permissionMode`/`hooks`/`mcpServers` are still
+    refused **by name**. One payload cap (64 KB) does the size work a file's
+    8 000-char prompt cap does.
+  - Precedence is built-ins → committed files → `--agents`
+    (`src/subagents.ts:424`), and the flag list is handed to the delegation
+    tools too (`src/tools/types.ts:128`, `src/loop.ts:426`), so `codewhip
+    agents`, the parent's roster line and `delegate` all resolve one name to one
+    entry. A roster the summariser could see but the model could not summon is a
+    false roster.
+  - Anything that cannot be honoured stops the run **before a token is spent**:
+    `--agents nonsense` → `--agents is not valid JSON: Unexpected token 'o',
+    "nonsense" is not valid JSON (see: codewhip help run)`, and `--agent nosuch`
+    → `codewhip: --agent "nosuch" is not on the roster (explore, plan, review)`
+    followed by `receipt: 0 prompt + 0 completion tokens / … / $0.0000`. Both are
+    real output, captured 2026-09-25.
+  - `--agent <name>` puts an entry on the **main thread** (`src/index.ts:670` →
+    `mainThreadTurn` at `src/subagents.ts:522`): its prompt is appended to the
+    harness base, because the base is what tells the model which calls get
+    refused — replace it and the model learns its limits by collision. Children
+    keep replacing it; their whole authority is two allow-class tools.
+  - Two precedences were decided, not inherited. An entry's `model` applies only
+    when `--model` was not typed, and applying it turns **rotation off** —
+    `--models a,b` are candidates for one routed family, so honouring a pinned
+    model while hopping between them describes a run that did not happen.
+    `maxTurns` does **not** bound a main thread: a run's step budget is the
+    operator's `--max-steps`.
+  - `--agent` compiles its refusals through the child's own path
+    (`agentFilters`, renamed from `childFiltersFor` at `src/subagents.ts:480`),
+    which is exactly as strong as it sounds and no stronger: `tools` narrows over
+    the child set, so on a main thread it can mute `read` and `search` and
+    nothing else. Widening stays `--disallowed-tools`/`--permission-mode`
+    business.
+  - 14 tests (9 in `src/subagents.test.ts`, 5 in the new
+    `src/agents-flag.test.ts`). Cost: an appended prompt, which re-pays every
+    turn of one run — so the run says it out loud: `!! --agent auditor: its
+    10-char prompt joins the system prompt and re-pays every turn; model pinned
+    to some/model (rotation off — candidates belong to the routed family); 1
+    refusal(s) added above the ladder`. It shares the existing 8 000-char
+    `APPEND_MAX_CHARS` budget with `--append-system-prompt[-file]` and is checked
+    before the run, so the cap errors instead of slicing a sentence; a run
+    without `--agent` pays nothing.
+
+### Changed
+
+- **README cut from 734 lines to 162.** The per-feature essays and the
+  provider catalog moved to `docs/features.md` and `docs/providers.md`
+  (content preserved, not deleted); dev-environment walkthroughs folded into
+  `CONTRIBUTING.md`, which already owned `Setup`. The README keeps the wedge,
+  quickstart, design model, a one-line-per-feature tour and the roadmap. Fixed
+  the stale "Five tools" design claim — the loop ships twelve
+  (`read search edit write bash webfetch todo delegate delegate_many
+  run_in_background task_output task_stop`) — and stopped advertising
+  `npm install -g codewhip`, which cannot work: the package is unpublished.
+- **`docs/roadmap.md` 148 → 118 lines.** One H2 checkbox had accreted 39
+  lines of dated provider changelog (53 → 96 → 134 builtins, hop counts,
+  per-row join dates) and was left with a broken sentence in the middle of it.
+  Collapsed to a backlog item that points at `docs/providers.md`,
+  `docs/features.md` and this file; every fact removed from it is verifiably
+  preserved in one of those three.
+
+### Fixed
+
+- **A child budget split could hand out more than the parent had.**
+  `allocateChildBudgets` clamped each share at `Math.max(1, …)`, so four
+  children on a two-token remainder each drew 1 and the *sum exceeded the
+  pool* while `parentBudget` still reported 2 — exactly the tight-budget case
+  the split exists for. The clamps are gone (the fix is their deletion), the
+  remainder stays in the coordination reserve, and `src/budget.test.ts` pins
+  the invariant over a table of (parent, count) pairs; the module had no test
+  file at all. A 0 allocation is now dropped and *named* in the tool output
+  rather than re-floored into a run, and `delegate`'s pool-exhausted case is
+  a refusal with the numbers instead of a 1-token child.
+- **A `delegate_many` on a run with no token budget started silently.** The
+  "`[agent] started:`" lines sat inside the `budget !== undefined` branch, so
+  a fan-out went quiet between the last parent event and the first report.
+  The start line is unconditional now — it is the reason the line exists.
+- **A single child had no dollar ceiling of its own.** `childArgs` carried no
+  `costCheck`, so `delegate` under `--max-budget-usd` spent its whole 85%
+  token share before the parent re-read the ceiling at its next turn. The
+  ceiling is forwarded to a *single* child; a fan-out deliberately does not
+  get it — four concurrent holders each see only their own buckets, so each
+  would believe it alone owns the cap and the fan-out would spend four times
+  what it reports. Its ceiling stays at the parent's turn boundary.
+- **Three capability rows were silently deleted from the parity matrix, and
+  the counter agreed.** A debranding sweep deleted the substring "serve" from
+  the whole tree, which took "pre**served**", "ob**serve**d", "mcp**Servers**"
+  and "WaitForMcp**Servers**" with it and sliced five rows in half;
+  `scripts/parity.mjs` skipped any table line with fewer than 3 cells, so the
+  counter under-reported (97 in-scope against the truth of 101) and the drift
+  read as *the score being wrong*. The rows are restored, the parser now
+  reports a truncated row as an error instead of skipping it (its own header
+  prohibited exactly that), and the Score paragraph is **written by
+  `npm run parity -- --write`** from the same parse — a hand-counted progress
+  bar is what this script exists to replace. Parity is now a CI step, so it
+  cannot drift again. The `--add-dir` row's `MAX_ROOTS:5` was also wrong
+  (`src/tools/jail.ts:5` says 16) and two of its `index.ts` anchors pointed at
+  unrelated lines; `docs/roadmap.md` lost its third hand-maintained copy of
+  the tally (`AGENTS.md` forbids shadow roadmaps).
+- **`--free`/`--auto-failover` let a private-class prompt through to a cloud
+  tier.** The free chain picks its own head, and cmdRun handed that head to
+  `resolveRoute` as an explicit provider — which short-circuits class routing,
+  so `localRoute`'s private-without-consent refusal never ran while the banner
+  *under* the run claimed consent ("private run: head provider only"). The hops
+  were cleared; the head still ran. The run now refuses, naming the local
+  runtime to register or `--provider` to consent. `--provider x --free` still
+  consents, because the human named x.
+- **`npm test` ran 16 of 64 test files.** The script was
+  `tsx --test src/**/*.test.ts`; npm runs scripts through a POSIX shell, where
+  `**` without `globstar` is `*`, so the pattern expanded to only
+  `src/<dir>/*.test.ts`. `loop.test.ts`, `policy.test.ts`, `audit.test.ts`,
+  `subagents.test.ts` and 44 other files never executed — in CI and in
+  `prepublishOnly`, which is how this package's governance story shipped on a
+  suite that had not run it. The patterns are now explicit and expanded by the
+  shell, which is the one form that behaves identically on Node 20 and Node 22
+  (a *quoted* glob works only on ≥21, where the test runner expands it itself);
+  `AGENTS.md` records the consequence, that a test nested deeper than
+  `src/<dir>/` is discovered by neither pattern.
+- **A hook that exits without draining stdin crashed the run.** `sh -c` hooks
+  (`exit 2`, `false`, `grep -q`, `git diff --quiet`) lose the write race
+  against the child's exit, and the resulting EPIPE had no `error` listener on
+  the stdin socket, so it surfaced as an uncaught exception inside the hook
+  spawner. `src/hooks.test.ts` caught it — in one of the 48 files that never
+  ran. Reproduced 7 failures in 20 runs before the guard, 0 in 20 after.
+- **`--agent <entry>` routed a private-class prompt past the refusal and onto a
+  cloud provider.** The entry's pinned model was carried by setting
+  `modelExplicit`, so `resolveRoute` short-circuited on an override-shaped
+  model and never called `routeFor("private")`/`localRoute`;
+  `codewhip run "read the .env" --agent auditor` went to nvidia with no
+  consent, and the receipt claimed an explicit override nobody typed. `router.ts`
+  now takes a distinct `pin` — a model *on the routed provider*, not an
+  override — so class routing (and its refusal) runs and the note on the
+  receipt stays true. The same line also shipped a pinned id belonging to
+  another provider (`qwen3:35b` on an ollama run) to nvidia's API; the head
+  gate now grades the routed pair and refuses it by name.
+- **A committed agent file could dial any model on the operator's key.** A
+  child's `model:` rides the parent's port and was never checked against the
+  consent allowlist, so `.codewhip/agents/review.md` (a file a repo commit, or
+  a clone, can drop in) chose the model — with the file's body replacing the
+  child's system prompt. One gate, in both mouths that resolve a provider
+  (`cmdRun`, `sdk.prepare`), grades the resolved roster against the run's head
+  plus every hop a failover could hand a child, and refuses with a sentence
+  naming the provider the id *is* enabled for. Refused, not stripped: the loop
+  re-derives the roster from disk, so a "pin dropped" banner would be a lie
+  over a pin that still dials. The old `src/subagents.test.ts` case that
+  asserted the pin reaching the port is kept and relabelled as core plumbing
+  only — consent was never this layer's job.
+
+## [0.4.0] — 2026-09-24
+
+Cost behavior: new builtins are unpriced (`cost untracked`, console
+pointer) except where noted; the free chain is unchanged (43 hops).
+
+### Added
+
+- **38 providers (96 → 134 builtins)** — OmniRoute registry + the
+  awesome-freellm/awesome-free-llm-apis/cool-ai-stuff readmes, deduped
+  against existing rows: first-party labs and clouds (openai, perplexity,
+  writer, lambda, featherless, metallama, yi, baichuan, internlm, iflytek,
+  reka, sarvam, typhoon, plamo, liquid, inception, nous, byteplus, xiaomi,
+  arcee) and keyed aggregators/GPU clouds (heroku, modal, baseten,
+  predibase, monsterapi, wandb, aimlapi, bytez, synthetic, nanogpt, kie,
+  morph, galadriel, v0, factory, poe) — plus user-sourced `wrouter`
+  (AccelsRouter, trial credit) and `arouter` (ARouter keyed gateway),
+  endpoints verified against their own docs. Reachable via `--provider`;
+  none joins `--free` (quotas unverified — trial credit is not free). Left out
+  deliberately: same-backend dupes, oauth/cookie/IDE/web-scraper entries,
+  non-bearer auths, image/audio-only and SDK-only providers, and relays
+  with no verifiable default model.
+- **`run --auto-failover`** — the $0-only chain with a quiet terminal:
+  backend hops are recorded in the outcome/audit (receipt still splits per
+  model) but not printed; total exhaustion still reports what was tried.
+  Private runs stay head-only (consent covers one target). Not with
+  `--free`/`--failover`.
+- **Silent serve retry on `auto`** — a fully-auto request hops to the next
+  healthy target on rate-limit/timeout/5xx (≤3 upstream attempts, each
+  failure server-logged, winner named in `serviced_by`). Pinned
+  `provider:model` requests never hop.
+- **C3 research track — verdict-driven privilege (`npm run immunity`)** —
+  `src/immunity/` induces per-repo least-privilege tool permissions from
+  one-bit human verdicts plus near-miss co-signals: samples, rules, miner,
+  simuser, adversarial rows and an escape suite; `--sim --seeds N` runs the
+  robustness sweep (claim holds 16/16), `--export` writes the salted
+  labeled-events corpus artifact, `--replay` stacks the induced set on the
+  static policy through the escape suite (P3 PASS, regression-pinned). The
+  first run found and closed a real Windows force-flag escape. LLM-policy
+  and LLM-judge baselines run behind `ChatPort` (`llm-run`). Protocol and
+  results: `docs/moat/18-verdict-privilege-experiments.md`. Cost behavior:
+  research-only — no run-path change, and `--export` never leaves the repo.
+- **Deny-by-default per-model allowlist** — serve, CLI and the auth UI now
+  share one allowlist: a model is reachable only if explicitly enabled, so
+  an empty playground means nothing is reachable rather than everything is.
+  `/auth/_starter` additively enables the $0 anonymous-chain defaults (cap
+  6, idempotent) and `/auth/_models` carries a `recommended` flag derived
+  from tracked price + live + chat-capable, so an untracked price is never
+  dressed up as free. Cost behavior: routing can no longer fall through to
+  a billed model nobody enabled.
+- **Event hooks** — `PreToolUse`/`PostToolUse`/`Stop` from a self-protected
+  `hooks.json`; fail-open on infrastructure failure, redaction stays
+  downstream, `Stop` is observe-only. Ruling: `docs/moat/19-qol-parity.md`.
+- **Hook lifecycle events: 8 new seams, and what a hook may ask for is now decided per EVENT.** The event surface goes 3 → 11 of 33 — `SessionStart`, `UserPromptSubmit`, `PreCompact`/`PostCompact`, `SubagentStart`/`Stop`, `SessionEnd`, `StopFailure`. Parity-matrix Wave 3h (the row moved GAP → PARTIAL: GAP 39 → 38, wave 3 17 → 16).
+  - **One `hookPolicy` table answers, per seam, "may this verdict stop the run?" and "does `additionalContext` have a turn to land in?"** (`src/hooks.ts:103`). It replaces the old arrangement where the answer depended on which call site happened to honour a field, so a `PreCompact` hook that prints `continue:false` or injected context is now refused **by rule** instead of by accident of where it was called. The refusal is said out loud, so the author learns it.
+  - **Only a pre-turn seam may stop a run — exactly three: `PreToolUse`, `SessionStart`, `UserPromptSubmit`.** Everything else describes work already spent: a `PostCompact` cannot un-compact, a `SubagentStop` cannot un-delegate, a `SessionEnd` has no turn left. A test pins that list, so a new event cannot quietly join it.
+  - **A lifecycle stop costs nothing.** A `SessionStart` veto skips the turn loop entirely (`src/loop.ts:649`), so the receipt shows zero tokens — a run refused before it starts must not look like one that spent money. Tested by asserting the provider was never called.
+  - **A lifecycle event has no tool, so a tool name in `match` is a load error naming the reason** (e.g. `SubagentStart` with `match:"bash"`), not a config that silently never fires. `Stop` keeps its match-agnostic *dispatch* but still *validates* strictly, so a typo is still reported — validation and dispatch are separate concerns on purpose.
+  - **Every seam is awaited, and inherits redaction.** `PreCompact` could have been fired-and-forget (its outcome cannot change compaction), but an un-awaited hook process outliving the run is an orphan and the counters must settle before the outcome record is written. `SubagentStop` sees the child's report only after the same `redactSecrets` pass the model does, so a hook can never read a secret the model will not.
+  6 new tests in `src/loop-hooks.test.ts`. No new dependency, no new prompt tokens (context is honoured only where a turn follows it), and no change to the frozen policy/audit/memory schemas.
+- **Custom slash commands** — `.codewhip/commands/*.md` with `$ARGUMENTS`,
+  REPL `.help`, error on unknown, exact-match expansion in one-shot `run`.
+  Ruling: `docs/moat/19-qol-parity.md`.
+- **`todo` tool** — list/replace/update over `.codewhip/todos.json` as a
+  model-maintained checklist in harness state: allowed by default
+  (`default:todo:allow`), denied to children, redacted at save. Ruling:
+  `docs/moat/19-qol-parity.md`.
+- **Validator-style dark UI for the serve pages** — `/auth`, `/playground`
+  and `/stats` rebuilt on a hand-written GitHub-dark token sheet (no CDN,
+  works offline) with theme toggle, live status pill, sidebar playground
+  with typing dots and a request inspector, prefix-grouped model lists, and
+  a11y pass (disclosure state, `aria-describedby` badges, `role=status/log`,
+  in-place key save). Model saves send only ticked rows, so an unchecked
+  card can no longer be enabled by being visible.
+- **`provider:auto` resolves provider-scoped** — shipping the literal word
+  `auto` upstream caused opaque 500s (e.g. `kilo:auto` with no key). `auto`
+  is a routing word, never an upstream model id: bare `auto` health-weights
+  across every enabled model, `provider:auto` narrows that pick to the
+  provider, and an unhealthy provider answers 400 naming the remedy. The
+  not-enabled 403 names the exact panel to fix (`/auth#prov-<id>`).
+- **2 providers (134 → 136 builtins)** — `tokenrouter` and `darkbloom`
+  (PrismML Bonsai 2 27B ternary). Neither joins `--free`; chain hops
+  unchanged at 43.
+- **Permanent model blocklist on 410 + 24h `balance_low` cooling**, and
+  Orca-review hardening including a provider disable control in the auth UI.
+
+### Changed
+
+- **Core/surface split via provider-port + boundary guard** — `src/`
+  separates the agent core from product surface (registry, serve, TUI), with
+  `src/boundary.test.ts` enforcing the seam and no deletions.
+- **Optional TUI peer renamed `opentui` → `@opentui/core` (>=0.5.0)** and
+  `--tui` wired to its real API; every missing-TUI path degrades gracefully
+  instead of throwing.
+- **Tool modules split back under the size bar** — `background` 383 → 124
+  (process lifecycle / registration+specs / behaviour), `webfetch` 160 → 127
+  (html→text extracted), `delegate_many` 156 → 142 and `delegate` 114 → 99
+  (shared `child-run.ts`), `search` 153 → 100 (filesystem walk extracted).
+  `bash` and the background tools now share one `shell-guard.ts`, so the two
+  shell screens cannot drift — background commands are trimmed before the
+  screen and before spawn, as `bash` already did. No behaviour change beyond
+  that; the `boundary.test.ts` allowlist covers the seven new core modules.
+
+### Fixed
+
+- **serve proxy sent an `Authorization` header to `anonymousKey` providers** —
+  a site key could reach a relay that never asked for it. The header is now
+  guarded at the proxy boundary.
+- **Published package shipped no packs** — `package.json` `files` listed
+  `dist` and `tasks` but not `packs`, while `defaultPacksDir()` resolves
+  `dist/../packs`. An npm-installed `codewhip pack list` came up empty and
+  `pack pull starter` could not work; `packs` is now packed.
+- **Provider stats and blocklist files raced** — owner-only locking plus a
+  read-retry, so concurrent serve writers stop truncating each other.
+- **`empero` 400s on an empty `tools` array** — the key is now omitted
+  entirely when no tools are offered.
+- **Tool-call shape parsing tolerates `tool: name` spacing**, and the
+  escape suite gained never-deny / deny-all reference rows so a reported
+  coverage number has a floor to compare against.
+- **Test suite 133s → ~20s** — `background.test.ts` started an immortal
+  `ping` and never stopped it, pinning the runner until the 120s default
+  timeout killed the child. Tests now stop what they start, with an
+  `after()` backstop for leftovers.
+
+## [0.3.0] — 2026-09-18
+
+Competitive-reality pass (analysis in `docs/moat/10-competitive-reality.md`):
+the gap list a side-by-side produced, with the highest-value
+items fixed the same day. Cost behavior: unchanged — receipts keep their
+shape; eval adds a machine-graded measurement layer.
+
+### Added
+
+- **`codewhip eval`** — the task-success bars (≥70% polish / ≥50% implement)
+  were demanded by the metrics table but never measured; now they are. 12
+  fixture tasks ship in `tasks/` (4 polish / 8 implement), each a tiny repo
+  with a checker script validated to fail on the broken fixture and pass on
+  the solved one. The runner copies each fixture to a disposable temp dir,
+  runs the real loop headless there (yolo armed — the dir is the sandbox,
+  the denylist still applies), grades with the checker, merges the run's
+  outcome row into the host `outcomes.jsonl`, and appends
+  `.codewhip/eval.jsonl` (latest run per task wins). `codewhip metrics`
+  reports the per-class bars (MET/NOT MET). Exit 0 only when everything
+  selected passes (CI-usable). Flags: `--task`, `--provider/--model/--free`,
+  `--max-steps`, `--token-budget`, `--timeout-sec`, `--tasks`, `--keep`.
+- **`codewhip verdict --auto <prefix>`** — verdicts are the claimed
+  compounding moat, but they were only written by manual CLI call; a
+  compounding asset nobody feeds does not compound. `--auto` proposes
+  accepted/edited/reverted from the run's checkpoint manifests vs the tree
+  as it stands (git `status --porcelain` cross-check flags unexplained dirt
+  and drops confidence), prints the evidence, and records on one keypress
+  (explicit verdict override welcome). The judgment stays human-attached;
+  the remembering is done for them. Non-interactive sessions refuse and
+  point at the explicit form.
+- **Live `/model` in the TUI** — `agentLoop` accepts `takePendingSwitch`, a
+  per-turn hook: `/model <provider>[:<model>]` validates the target, builds
+  the port, and the loop swaps it at the next turn boundary; receipts
+  bucket usage per model, so the switch is visible in the mix. `/free`
+  prints in-run free-chain visibility (usable/total hops, keyless count).
+  `/plan` states honestly that plan mode is run-scoped (rerun with
+  `--plan`) instead of silently noting a no-op.
+- **System prompt steering** — grew from 22 lines with what the tool specs
+  cannot carry: workspace/jail context, git conventions (`git status`/
+  `git diff` before claiming tree state; never commit/push unasked),
+  `delegate`/`delegate_many` guidance for read-heavy exploration, and an
+  answer shape (lead with outcome, then evidence). Still deliberately
+  token-efficient — it is re-sent every turn.
+- **Builtin provider `codiv`** (api.codiv.ai): first-party OpenAI-compatible
+  inference host — native `/v1/chat/completions` with standard Bearer auth,
+  the standard `choices`/`usage` envelope, SSE with usage on the final chunk,
+  and function `tools`/`tool_choice`, so it rides the shared adapter as a pure
+  registry row (no new adapter code). Default model `diffusiongemma-26b`: a
+  diffusion LM denoises output in 64-token blocks, so completions take seconds
+  (the 120s default holds) and the server ignores sampling params codewhip
+  never sends. Free experiment tier — no card, 10M text-generation tokens per
+  account, 600 req/min — priced $0 on receipts (the provider's own sticker; an
+  exhausted grant answers 429 `insufficient_quota` rather than a bill). Out of
+  the free chain like the one-time grants (renewability unconfirmed); reach it
+  with `--provider codiv`, key at `CODIV_API_KEY` (signup:
+  https://codiv.ai/signup). `codewhip serve` fronts the whole registry, so
+  codiv is exposed to any OpenAI client as `codiv:diffusiongemma-26b` with no
+  serve-side changes.
+
+### Fixed
+
+- **onemin tool-call template** — the prompt example shown to 1min models
+  had literal `MUN` where the `<tool_call>`/`</tool_call>` tags belong (the
+  only non-OpenAI adapter's emulated tool-calling degraded silently), and
+  the test asserted the broken string. Fixed, and a drift-guard test now
+  requires the rendered example to round-trip through the parser, so the
+  doc and the parser cannot diverge again.
+- **`src/lib` registry fork** — the library export carried its own copy of
+  the provider registry and free chain, ~20 providers and one free-chain
+  prune behind the CLI (nvidia pointed at the wrong host and default
+  model). Both tables now live in Node-free leaves (`provider-registry.ts`,
+  `free-chain.ts`) shared by the CLI and the lib (the Workers bundle must
+  not touch `node:fs`); the facade is pinned by drift-guard tests, one of
+  which statically walks the lib's import graph asserting no `node:` import.
+- **`read` binary files** — a null-byte sniff (same heuristic `search`
+  uses) refuses images/fonts/archives with a hint instead of pushing
+  mojibake into the transcript.
+- **`edit` line endings** — the whitespace-insensitive fallback rewrote
+  CRLF files with the model's LF newString, mixing endings (the old test
+  baked the bug in). The rewrite now normalizes to the file's dominant
+  EOL; LF files are untouched.
+- **`search` skip list** — `target`/`vendor`/`__pycache__`/`build` now skip
+  like `node_modules`, so build trees stop eating the 2,000-file budget
+  before real source. Policy-configurable skip-dirs would extend the
+  frozen schema (needs a recorded ruling); the built-in list is the honest
+  slice.
+- **Dead code** — unused `budget.ts` exports and the vestigial TUI budget
+  cards (`setBudget`/`updateBudgetChild` were never called; budget info
+  flows as text events) removed.
+- **Auto-recovery for failed models (explore/exploit)** — the success-rate
+  gates that steer auto away from unhealthy routes aggregated **lifetime**
+  records, so a bad hour could lock a model out of auto indefinitely:
+  excluded from auto, it never earned the calls that would rehabilitate it.
+  serve's `model: "auto"` and `CODEWHIP_AUTO_RANDOM=1` now judge on a rolling
+  last-20-call window (recency dominates — recovery is immediate), treat a
+  record older than 24h as unproven rather than condemned (staleness reset),
+  and CLI random mode spends ~10% of picks (all of them when nothing passes)
+  on gated-out-but-eligible models as exploration probes, noted on the
+  receipt. Lifetime aggregates on the health page and in metrics unchanged.
+
+### Security & integrity (Linus-review pass, same release)
+
+- **The npm library amputated** — `src/lib` was a phantom product: zero in-repo consumers, a placeholder proxy returning fabricated completions, a Workers path broken twice (`process.env` in KV storage, `build:lib` failing on the shared registry leaves), and routers/price tables drifted from the CLI. Deleted along with `workers/` and the exports map; `serve` remains the only proxy and the package is CLI-only.
+- **Repeat-memo redaction bypass closed** — the memo stored raw tool output before redaction, so an identical second call replayed secrets unredacted and hashed different bytes than the first call. Redaction now happens before anything downstream; the repeat's `result_hash` matches the original byte-for-byte. The memo is also cleared on successful `bash` (stale reads after `npm pkg set`/`git checkout` corrupted edits).
+- **Denylist spelling escapes closed** — `git.exe push --force`, quote-spliced `g"it" push --force`, `cmd.exe /c …`, and PowerShell-native code executors (`iex`, `invoke-expression`, `start-job`, `invoke-command`, `add-type`) all sailed past the "non-overridable" matcher. Matching now normalizes spelling (quotes stripped, `.exe/.com` suffixes dropped), those heads are denied outright, and script blocks / brace payloads are denied on the bash path (`denylist:script-block`). The `--yolo` banner now states the true claim instead of "never bypassed".
+- **Audit chain: silent loss + forgeable prefix fixed** — the lock spin budget was shorter than the stale-lock threshold, so entries were silently dropped under contention (with the chain staying "verifiable" — history the verifier cannot know existed). The spin now exceeds the threshold, failures are surfaced in the run summary and as an additive `audit_dropped` field on the outcome record, and the tail read inside the lock is O(1). `init` appends a signed genesis marker bounding the pre-key unsigned prefix (and upgrades legacy chains), so prepend-forgery after the signed era is detectable instead of forgiven unboundedly.
+- **Rotation × live `/model` bug fixed** — rotation candidates were bare model ids resolved against whatever port was current; after `/model groq`, a 429 sent head-provider model ids to groq and the run died on a foreign-id 404. Candidates are now pre-resolved head-provider targets gated on the provider label, and a terminally failed turn that had a switch applied says so in the error.
+- **Background tasks kill the whole process tree** — `taskkill /pid /T /F` on win32 (process-group kill on POSIX); previously every timed-out background task orphaned its descendants (the dev server kept the port), and `task_stop`'s "sent SIGTERM" was a POSIX lie on Windows.
+- **Compaction is model-aware and CJK-honest** — optional verified `contextWindow` on provider rows (0.7× ceiling; unverified stays the default 60k — never fiction), non-ASCII codepoints count ~1 token each (plain chars/4 underestimated CJK ~4×), and context-overflow 400s join the rotation/hop path instead of killing `--free` runs terminally on small-window relays.
+- **Smalls** — delegate specs no longer claim child webfetch (the loop denies it); the repeat nudge appends after the content instead of replacing it; retry-wait drops the redundant hop-count gate; `read`/`edit` refuse ordinary secret files (`.envrc`, `id_rsa`, `id_ed25519`, `.npmrc`, `secrets.yaml`); `policy.md` is self-protected from checkpoint restore; `find` left the memorable-grants curation (`-exec` is an executor primitive) and a stored `npm run *` grant now prints its compose risk; fakePort gained strict over-consume mode.
+
+### Changed
+
+- **Package identity** — npm name `codewhip-proxy` → `codewhip`
+  (description, keywords, duplicate `engines` key fixed; `prepublishOnly`
+  runs lint+typecheck+build+test; the `tasks/` fixtures ship in the
+  package). README quickstart documents the `npm i -g codewhip` /
+  `npx codewhip` path alongside clone-and-build.
+
+## [0.2.0] — 2026-09-13
+
+### Added
+
+- **Subagents & delegation** (`delegate`, `delegate_many` tools): the parent loop can spawn read-only child runs for exploration, review, and multi-perspective convergence. Agents are declarative: three built-ins (`explore` — find and report with file:line evidence; `review` — adversarial findings with severity; `plan` — an ordered implementation plan) plus `.codewhip/agents/<name>.md` files (flat frontmatter: `description` required, optional `model` served on the parent's port, optional `max_steps` ≤ 25; body = the child's system prompt; a file overrides a same-name built-in). The design beats the competition's failure modes: children run with plan-mode semantics (edit/write/bash/delegate refused pre-ladder — no ask prompts inside children, the known prompt-less-child UX hole), fresh transcripts (no context bloat), summary-only returns, and a hard depth cap of 1. Where the competitors' child runs are black boxes, every codewhip child tool call lands on the global hash-chained audit log under the child's own runId, the child writes its own `outcomes.jsonl` record, and its tokens fold into the parent's receipt buckets — delegation spends the parent's budget honestly, never off-book. `delegate_many` fans up to 4 children concurrently and returns ordered reports; child progress is forwarded to the run's event stream prefixed `[<agent>]`. The delegation roster rides the parent's system message; `delegate` calls are `allow:delegate:read-only` on the audit trail (delegation grants no authority beyond read/search/webfetch) and are never memoized.
+- **Trust certificate** (`codewhip trust [--json] [--verbose]`): one command printing the repo's trust state — audit chain INTACT/BROKEN (pre-key unsigned entries handled honestly), base + promoted deny counts, polish gate evaluated from real polish runs, remembered-rule count, keys split usable (env/file) vs anonymous (rate-limited) vs missing, and a `TRUST: PASS|NEEDS WORK` verdict with contextual next-step commands (only what's actually missing). `--json` for CI/automation; `--verbose` reveals the missing-key list.
+- **Transcript compaction** (committee ruling 3): long runs survive their own context window. When a single provider call's estimated size (chars/4, labelled "est." — no tokenizer dep) crosses the ceiling, the oldest tail is pruned in two tiers: old tool outputs are truncated to a 600-char head with a visible `…[compacted]` marker, then whole old exchanges are elided to stubs naming the tools called (assistant + tool responses move as a block, so no orphan tool messages). System prompt, original task, and the newest exchanges are never touched. On by default (est. 60k-token ceiling), `compactTokens: 0` disables; every compaction prints an honest receipt line and lands in the run summary (`compacted: N old tool output(s) truncated, M exchange(s) elided …`).
+- **Plan mode** (`--plan` run flag): run-scoped read-only policy — `edit`/`write`/`bash` are refused by the harness before the permission ladder for the whole run, so `ask`, `--yolo`, and remembered rules can never grant them (committee ruling 2). Read/search/webfetch stay allowed; the system prompt gains a PLAN MODE preamble making the run's final answer the implementation plan. Every refusal is recorded as `deny:plan:read-only` on the hash-chained audit trail; the banner announces the mode up front.
+- **Undo** (`codewhip rollback`): every `edit`/`write` a run executes is snapshotted first (before-image + sha256 manifest under `.codewhip/checkpoints/<runId>/`, JSONL, self-protecting — harness state is never checkpointed). `codewhip rollback <runId-prefix>` verifies every image against its manifest before touching anything, then restores newest-to-oldest (files the run created are removed); `--list` shows checkpointed runs. Restores land on the hash-chained audit trail (`tool: rollback, actor: human`). Runs print `checkpoints: N file(s) snapshotted — undo: codewhip rollback <prefix>` when files were touched.
+- `webfetch` tool: fetch a page for reading (docs, references, changelogs) as `text` (default, markup stripped) or `html`. https-only, 30s timeout, 1MB cap, secrets redacted before the model sees output; ask-by-default per host, memorable per https origin via `a` (`remembered.jsonl`), promotable to standing denies via `policy approve "webfetch:<origin>"`.
+- **Streaming + slow-endpoint resilience**: chat calls now send `stream: true` and parse SSE, so first output arrives without waiting for the whole completion. The per-call budget (`--timeout-ms`, default 120s) bounds time-to-first-byte; once bytes flow, a 45s idle watchdog (never exceeding the caller's budget) takes over, so a slow-but-alive model is not killed by a total wall clock. A gateway that rejects a streaming body (400/422) or opens a stream that carries nothing gets one automatic non-streaming retry, and that provider stops streaming for the rest of the run. `--no-stream` forces whole-body responses. Receipts print `est.` when a stream ends without a usage block instead of presenting a chars/4 estimate as a meter reading.
+- **Timeout classification fix**: `--timeout-ms`/provider timeouts were aborted with a custom reason, which makes `fetch` reject with that reason object (`name: "Error"`) — so the adapter's name-sniffing read every real timeout as a generic network failure, typed non-retryable. Timers now carry an explicit `timedOut`/`stalled` flag (the same idiom as the loop's `withTimeout`), so timeouts are typed `timeout` and recorded as `timeout` in provider analytics, joining the `--models` rotation / `--failover` / `--free` path and printing the remedy hint instead of dying instantly.
+- `--timeout-ms` ceiling raised from 120000 to 600000 (floor unchanged at 5000, default still 120s): the old maximum equalled the default, so a slow free endpoint (60–100s calls are routine) could not be given headroom without re-registering the provider. Bounds now live in one place (`MIN_CHAT_TIMEOUT_MS`/`MAX_CHAT_TIMEOUT_MS`).
+- **Repeat-call guard**: identical `read`/`search`/`webfetch` calls within a run are served from an in-run memo instead of re-executing and re-appending the same output to a transcript that every later turn re-sends; a successful `edit`/`write` clears the memo so a legitimate re-read still runs. Repeats stay on the audit trail as `allow:loop:repeat-call`, and after three identical repeats the result is replaced by a nudge to act on what it already has. Denials are never memoized (an `a` answer can promote a shape mid-run). The run summary prints the count.
+- Provider-call resilience: chat timeouts are typed `timeout` (120s builtin default, single `DEFAULT_CHAT_TIMEOUT_MS` — no per-provider constant farm) and join the `--models` rotation / `--failover` path instead of dying instantly; `--retry-wait` stays 429-only. New `--timeout-ms` run flag (5000..600000) overrides the per-call budget without re-registering the provider. Unarmed timeouts name the remedy.
+- Per-command help (`codewhip help <command>`, `codewhip <command> --help`); first-run funnel routes `init` → `demo --deny` → `auth login`; dead-end errors name the next command.
+- Builtin providers `bai` (B.AI gateway: `https://api.b.ai/v1`, `BAI_API_KEY`, credit billing via `https://chat.b.ai/chat`) and `fabryka` (router: `https://router.fabryka.ai/v1`, `FABRYKA_API_KEY`, default `qwen3.6-35b-a3b` reasoning model, $0.20/$0.60 per 1M tokens). Both cost-untracked in receipts; the B.AI default is a pricing-table pick tagged untested until a live probe clears it.
+- 8 builtin free aggregators (endpoints live-verified 2026-09-11), 4 of them keyless: `kilo` (`:free` models fully anonymous — chat works with no Authorization header; paid models 401), `opencode` (Zen free tier rides the anonymous `public` bearer plus per-provider static headers — new optional `ProviderConfig.headers` merged into every call — presence-checked `x-opencode-session`), `empero` (`free.empero.org`, openly free with a `free` placeholder key; was in maintenance at the probe), and `llm7` (existing). Free-key tiers: `groq`, `cerebras`, `openrouter`, `gemini`, `zai` (env vars `GROQ_API_KEY`/`CEREBRAS_API_KEY`/`OPENROUTER_API_KEY`/`GEMINI_API_KEY`/`ZAI_API_KEY`). All free-tier defaults are priced $0 in receipts, never fiction-priced.
+- `codewhip free` command: read-only listing of the free-provider chain (keyless rows first, free offer, limits, key consoles; no key, no network).
+- `--free` run flag: arms the ordered free-only chain on a run — head = explicit `--provider` (free-catalog ids only) or the first free candidate with a usable key, hops in catalog order (keyless tiers first, llm7 as the keyless floor) on rate-limit/timeout, each provider once per run; never bills pay-go. Mutually exclusive with `--failover` (`use --free or --failover, not both`).
+- Failover generalized from a single switch to an ordered chain (`agentLoop` `failovers?: FailoverTarget[]`): targets are consumed in order, each at most once per run, and same-provider `--models` rotation stays head-provider-only. The `outcomes.jsonl` `failovers[]` record shape is unchanged (`from/to/reason/waitedMs/step`).
+
+## [0.1.0] — 2026-09-11
+
+H1 agent loop live: `codewhip run` executes a real policy-checked, metered,
+replayable loop. Costs: nvidia free tier = $0; other providers print
+"cost untracked" pointing at their console.
+
+### Added
+
+- `agentLoop()`: stream → permission check → exec → append → repeat;
+  Ctrl-C safe, `--max-steps 25` hard stop, `--token-budget` enforced mid-run.
+- Five tools (`read`, `search`, `write`, `edit`, `bash`); git rides the bash
+  allowlist. Output capped at transcript push so one runaway can't flood
+  context.
+- Harness-side policy: non-overridable denylist + shell-chaining deny;
+  read-allow / edit-write-shell-ask defaults; `--yolo` bypasses ask, never
+  the denylist; CI ask⇒deny.
+- Hash-chained, ed25519-signed audit log (`audit --verify/--last/--replay/
+  --export`); hashes-only at write, redaction holds by construction.
+- Outcomes sidecar (`outcomes.jsonl`), curated "always allow" memory
+  (`.codewhip/remembered.jsonl` with provenance), decline→candidate→promoted
+  `policy.md` denies.
+- Redacted `run --share` bundles anchored to the audit chain (local-file v1).
+- 3-class router (implement / polish / private) with <$0.05 polish gate,
+  6 builtin providers + custom OpenAI-compatible registration
+  (`provider add/list/show/remove`), `--models` rotation, opt-in
+  `--retry-wait` / `--failover` on 429 only.
+- `init` / `auth` / `models` / `audit` / `metrics` / `verdict` / `policy` /
+  `pack` / offline `demo --deny` ($0, no key needed).
+- $0-quota test suite (168 tests) pinning policy, jail, memory, audit chain,
+  redaction, router, metrics, promotion, packs, and loop.
+- GitHub Action (`actions/run`) + starter pack + CI on Node 18/20.

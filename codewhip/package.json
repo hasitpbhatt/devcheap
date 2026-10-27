@@ -1,0 +1,77 @@
+{
+  "name": "codewhip",
+  "version": "0.4.0",
+  "description": "Model-agnostic terminal coding agent — policy-checked loop, signed audit trail, metered receipts, free-provider chain",
+  "author": "Hasit Bhatt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasitpbhatt/codewhip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hasitpbhatt/codewhip/issues"
+  },
+  "homepage": "https://github.com/hasitpbhatt/codewhip#readme",
+  "type": "module",
+  "main": "./dist/sdk.js",
+  "exports": {
+    ".": "./dist/sdk.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "codewhip": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "packs",
+    "tasks",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint src --deny-warnings",
+    "test": "tsx --test src/*.test.ts src/*/*.test.ts",
+    "bench": "tsx src/bench/cli.ts",
+    "parity": "node scripts/parity.mjs",
+    "immunity": "tsx src/immunity/cli.ts",
+    "serve": "node dist/serve.js",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm run build && npm test"
+  },
+  "keywords": [
+    "codewhip",
+    "coding-agent",
+    "cli",
+    "agent",
+    "openai",
+    "llm",
+    "router",
+    "audit",
+    "policy",
+    "typescript",
+    "esm"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@opentui/core": ">=0.5.0"
+  },
+  "peerDependenciesMeta": {
+    "@opentui/core": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "oxlint": "^1.85.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

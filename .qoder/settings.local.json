@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo \"Current directory: $\\(pwd\\)\" && echo \"Node version: $\\(node --version 2>/dev/null || echo 'Not installed'\\)\" && echo \"npm version: $\\(npm --version 2>/dev/null || echo 'Not installed'\\)\" && echo \"uname -a: $\\(uname -a\\)\")",
+      "Bash(curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt-get install -y nodejs)",
+      "Bash(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash && export NVM_DIR=\"$HOME/.nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && \\\\. \"$NVM_DIR/nvm.sh\" && nvm install 20 && node --version)",
+      "Bash(export NVM_DIR=\"/home/runner/workspace/.config/nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && \\\\. \"$NVM_DIR/nvm.sh\" && nvm install 20 && node --version && npm --version)",
+      "Bash(export NVM_DIR=\"/home/runner/workspace/.config/nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && \\\\. \"$NVM_DIR/nvm.sh\" && git clone https://github.com/browseros-ai/BrowserOS.git . && ls -la)",
+      "Bash(export NVM_DIR=\"/home/runner/workspace/.config/nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && \\\\. \"$NVM_DIR/nvm.sh\" && git clone https://github.com/browseros-ai/BrowserOS.git /home/runner/workspace/browseros && cd /home/runner/workspace/browseros && ls -la)",
+      "Bash(which go || echo \"Go not installed\" && curl -sL https://go.dev/dl/go1.23.4.linux-amd64.tar.gz | tar -C /usr/local -xzf - && export PATH=$PATH:/usr/local/go/bin && go version)",
+      "Bash(cd /home/runner/workspace && curl -sL https://go.dev/dl/go1.23.4.linux-amd64.tar.gz -o go.tar.gz && tar -xzf go.tar.gz && export PATH=$PATH:/home/runner/workspace/go/bin && go version && rm go.tar.gz)",
+      "Bash(export NVM_DIR=\"/home/runner/workspace/.config/nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && \\\\. \"$NVM_DIR/nvm.sh\" && curl -fsSL https://bun.sh/install | bash && export PATH=\"$HOME/.bun/bin:$PATH\" && bun --version)",
+      "Bash(export NVM_DIR=\"/home/runner/workspace/.config/nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && \\\\. \"$NVM_DIR/nvm.sh\" && export PATH=\"$HOME/.bun/bin:$PATH\" && cd /home/runner/workspace/browseros/packages/browseros-agent && cp .env.development.example .env.development 2>/dev/null || true && ls -la | head -20)",
+      "Bash(export NVM_DIR=\"/home/runner/workspace/.config/nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && \\\\. \"$NVM_DIR/nvm.sh\" && export PATH=\"$HOME/.bun/bin:$PATH:/home/runner/workspace/go/bin\" && cd /home/runner/workspace/browseros/packages/browseros-agent && bun install 2>&1 | tail -20)"
+    ]
+  }
+}

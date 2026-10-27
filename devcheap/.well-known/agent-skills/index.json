@@ -1,0 +1,32 @@
+{
+  "name": "DevCheap",
+  "description": "Curated developer deals and discounts. Search, browse, and discover free credits, lifetime licenses, and limited offers.",
+  "url": "https://devcheap.click/",
+  "skills": [
+    {
+      "name": "browse-deals",
+      "description": "Browse all active developer deals with filtering by category and pricing",
+      "path": "/"
+    },
+    {
+      "name": "view-deal",
+      "description": "View detailed information about a specific developer deal",
+      "path": "/deals/{id}/"
+    },
+    {
+      "name": "search-deals",
+      "description": "Search developer deals by keyword, category, or pricing type",
+      "path": "/#search?q={query}"
+    },
+    {
+      "name": "archive",
+      "description": "View archived deals with ratings below 8.0",
+      "path": "/archive.html"
+    },
+    {
+      "name": "deals-data",
+      "description": "Access raw deal data in JSONL format for programmatic consumption",
+      "path": "/data/deals.jsonl"
+    }
+  ]
+}

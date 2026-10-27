@@ -1,0 +1,6 @@
+        # Pin the primary key before any attempt, so a retry re-inserts the
+        # same row instead of a fresh UUID: `trace_id` is indexed but not
+        # unique, so without this an ack-loss retry whose probe cannot see the
+        # first attempt's row yet inserts a second row for one trace and
+        # charges it twice. The duplicate INSERT collides on the key instead.
+        log_values.setdefault("id", str(uuid.uuid4()))

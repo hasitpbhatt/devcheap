@@ -1,0 +1,8 @@
+fix(budget): do not overwrite a known streaming cost with the remaining allowance
+
+LiteLLM can price a usage frame on its own via cost_usd, with no
+per-direction token counts alongside. The row records that authoritative
+number, so the delivery is measured — but with no countable token key the
+streaming arm still read it as unmeasured and replaced the known cost with
+the key's entire remaining lifetime allowance. The blocking path already
+guarded this; the streaming arm must not be the exception.

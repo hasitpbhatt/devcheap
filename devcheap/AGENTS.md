@@ -1,0 +1,79 @@
+# Agent Instructions — DevCheap
+
+When adding, removing, or modifying deals in `data/deals.jsonl`, these files must also be kept in sync:
+
+## Files to Update
+
+| File | Action | Auto-generatable? |
+|---|---|---|
+| `data/deals.jsonl` | Edit deals directly | No (manual) |
+| `index.html` | Homepage stats + category buttons | Yes — run `npm run build` (via `scripts/build.js`) |
+| `deals/<id>/index.html` | Per-deal detail pages | Yes — run `npm run build` (via `scripts/build.js`) |
+| `category/<slug>/index.html` | SEO-optimized category landing pages | Yes — run `npm run build` (via `scripts/build.js`) |
+| `sitemap.xml` | Full sitemap rewritten from `deals.jsonl` | Yes — run `npm run build` (via `scripts/build.js`). Do NOT hand-edit; it will be overwritten on the next build. |
+| `llms.txt` | LLM-friendly site summary generated from `deals.jsonl` | Yes — run `npm run build` (via `scripts/generate-llmstxt.js`). |
+| `feed.xml` | Regenerate from `data/deals.jsonl` | Yes — run `pwsh scripts/generate-feed.ps1` (use `powershell` if `pwsh` is not installed) |
+| `README.md` | Update deal count, category list, date | No (manual) |
+| `CONTRIBUTING.md` | Update category list, file references | No (manual) |
+| `tests/deals-schema.test.js` | Add new categories to the `validCategories` array | No (manual) |
+
+## Regeneration Commands
+
+```powershell
+# Regenerate index.html, deals/<id>/index.html pages, sitemap.xml, and llms.txt from deals.jsonl
+npm run build
+
+# Regenerate feed.xml from deals.jsonl (RSS feed is NOT covered by `npm run build`)
+pwsh scripts/generate-feed.ps1
+# fallback if pwsh is unavailable:
+powershell -File scripts/generate-feed.ps1
+```
+
+## Known Categories
+
+When adding a new category to a deal, add it to both:
+1. `data/deals.jsonl` (in the `category` field of the deal)
+2. `tests/deals-schema.test.js` (in the `validCategories` array)
+
+Current categories:
+- Hosting & Cloud, Database, APIs & Email, APIs & Payments, APIs & Search
+- AI & LLM, Auth, Developer Tools, Monitoring, Domains & Hosting
+- Storage & Cloud, Security, Productivity, SEO, AI, Social Media
+- Customer Support, Sales & Marketing, Services
+- Design & Collaboration, Web Analytics, Media & Images, CI/CD, Testing & QA
+
+## Encoding Guardrail
+
+All source files are UTF-8. Never use PowerShell `Set-Content` / `Out-File` for Markdown, JSONL, or HTML files — PowerShell defaults to legacy codepages and will introduce mojibake e.g. `â€”`. Always write files with Python using `encoding='utf-8'` or use the `npm` build scripts. After any edit, grep for mojibake patterns like `\xc3\xa2` / `â€` in `data/deals.jsonl` and README.
+
+## Validation
+
+After editing `data/deals.jsonl`, always run:
+```powershell
+npm run validate:jsonl   # ensures each line is valid JSON
+npm test                 # runs schema, UI, HTML, and accessibility tests
+```
+
+Before committing:
+1. Run the build to regenerate the homepage, per-deal pages, and sitemap:
+   `npm run build`
+2. Regenerate the RSS feed (the build does NOT cover this):
+   `pwsh scripts/generate-feed.ps1`
+3. Update README deal count and category table if categories/counts changed
+4. Run validation and tests (`npm run validate:jsonl && npm test`)
+
+## AI-Generated Content
+
+When generating or editing any long-form copy (use-case pages, pillar articles, newsletter drafts):
+
+1. **Read [`VOICE.md`](VOICE.md) first.** The Sahil Bloom persona is the house style. Banned words and tone rules are non-negotiable.
+2. **Use the persona prompt in `VOICE.md` §4** as the system prompt. Do not invent your own voice rules.
+3. **Ground every claim in the deal data.** No invented offers, no invented dollar amounts.
+4. **End on a practical next step**, not a platitude.
+5. **Reference the strategy** in [`STRATEGY.md`](STRATEGY.md) §4 (Plan of Record) so generated content matches the active month of the 6-month plan.
+
+## Strategy & Committee
+
+The site operates under a 6-month time-box with a 5-person committee model (Mitchell / Dharmesh / Lenny / Bret / Sahil). For **why** we build what we build, see [`STRATEGY.md`](STRATEGY.md). For **how** to build it, this file. For **what to write**, see [`VOICE.md`](VOICE.md).
+
+When in doubt about a decision: read `STRATEGY.md` §2 (The Committee) to find which persona owns the call.

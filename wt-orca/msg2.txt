@@ -1,0 +1,18 @@
+fix(budget): settle known-free models at zero, and pin the blocking row id
+
+Two P1s from the review of this branch:
+
+A catalog entry priced 0.0 in and 0.0 out is a known-free model — the cost
+of anything it delivers is zero, and zero is known. The missing-usage arm
+charged the remaining allowance without consulting that, so a budgeted key
+pointed at orcarouter/free (or the deepseek/qwen free variants) whose
+provider omitted its usage frame was charged its entire lifetime budget by
+one free delivery, then 429-blocked for good. Free now settles at zero on
+both paths, whatever the ending.
+
+The blocking retry loop never pinned the request-log primary key, so each
+attempt inserted a fresh UUID. trace_id is indexed, not unique, so an
+ack-loss retry whose probe cannot yet see the first attempt's row inserts
+a second row for one trace and charges it twice — the same window the
+streaming path closes by pinning the id. Pinned here too, so the duplicate
+INSERT collides instead.

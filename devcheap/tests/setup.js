@@ -1,0 +1,33 @@
+import { vi } from 'vitest';
+import { JSDOM } from 'jsdom';
+import fs from 'fs';
+import path from 'path';
+
+const html = fs.readFileSync(path.resolve('index.html'), 'utf-8');
+const dom = new JSDOM(html, {
+  url: 'https://devcheap-3uq.pages.dev/',
+  runScripts: 'outside-only',
+});
+
+global.document = dom.window.document;
+global.window = dom.window;
+global.navigator = dom.window.navigator;
+global.localStorage = dom.window.localStorage;
+
+dom.window.requestAnimationFrame = (cb) => setTimeout(cb, 16);
+global.requestAnimationFrame = dom.window.requestAnimationFrame;
+
+const affiliateJs = fs.readFileSync(path.resolve('js/affiliate.js'), 'utf-8').replace(/^export\s+/gm, '');
+dom.window.eval(affiliateJs);
+const sanitizeJs = fs
+  .readFileSync(path.resolve('js/sanitize-deal-value.js'), 'utf-8')
+  .replace(/^export\s+/gm, '');
+dom.window.eval(sanitizeJs);
+const searchJs = fs.readFileSync(path.resolve('js/search.js'), 'utf-8').replace(/^import\s+\{[^}]+\}\s+from\s+['"][^'"]+['"];?\s*$/gm, '');
+dom.window.eval(searchJs);
+
+globalThis.document = dom.window.document;
+globalThis.window = dom.window;
+globalThis.navigator = dom.window.navigator;
+globalThis.localStorage = dom.window.localStorage;
+globalThis.vi = vi;
