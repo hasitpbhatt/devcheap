@@ -11,3 +11,4 @@ packages = ["vim"]
 [[ports]]
 localPort = 20127
 externalPort = 80
+exposeLocalhost = true
