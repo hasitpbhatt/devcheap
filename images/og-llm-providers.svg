@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="16" fill="none" stroke="#334155" stroke-width="2"/>
+  <text x="600" y="190" font-family="system-ui,sans-serif" font-size="38" font-weight="600" fill="#38bdf8" text-anchor="middle" letter-spacing="2">DEVICE CHEAP</text>
+  <text x="600" y="290" font-family="system-ui,sans-serif" font-size="74" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="-2">168 LLM Providers</text>
+  <text x="600" y="360" font-family="system-ui,sans-serif" font-size="34" font-weight="500" fill="#94a3b8" text-anchor="middle">Ranked by how fast you get a key</text>
+  <rect x="380" y="410" width="440" height="56" rx="28" fill="#38bdf8"/>
+  <text x="600" y="446" font-family="system-ui,sans-serif" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Free tiers • Rate limits • No-card paths</text>
+  <text x="600" y="520" font-family="system-ui,sans-serif" font-size="20" fill="#64748b" text-anchor="middle">LLMs • Gateways • Image • Speech • Embeddings</text>
+</svg>

@@ -1,0 +1,5 @@
+{
+  "data/deals.jsonl": "npm run validate:jsonl",
+  "*.{js,html}": "npm test",
+  "*.css": "npm run lint:css"
+}
