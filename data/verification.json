@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-11-17T19:57:30.460Z",
+  "checked": 5,
+  "ok": 4,
+  "failed": 1,
+  "failed_ids": [
+    "algolia-startup-program"
+  ],
+  "deals": {
+    "ai21": {
+      "id": "ai21",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://www.ai21.com/",
+      "redirected": true,
+      "latency_ms": 369,
+      "checked_at": "2026-11-17T19:57:30.439Z"
+    },
+    "airtable": {
+      "id": "airtable",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://www.airtable.com/",
+      "redirected": true,
+      "latency_ms": 265,
+      "checked_at": "2026-11-17T19:57:30.460Z"
+    },
+    "aiven": {
+      "id": "aiven",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://aiven.io/",
+      "redirected": true,
+      "latency_ms": 619,
+      "checked_at": "2026-11-17T19:57:30.460Z"
+    },
+    "algolia": {
+      "id": "algolia",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://www.algolia.com/",
+      "redirected": true,
+      "latency_ms": 265,
+      "checked_at": "2026-11-17T19:57:30.460Z"
+    },
+    "algolia-startup-program": {
+      "id": "algolia-startup-program",
+      "status": "error",
+      "http_status": 404,
+      "final_url": "https://www.algolia.com/startups",
+      "redirected": true,
+      "latency_ms": 290,
+      "checked_at": "2026-11-17T19:57:30.460Z"
+    }
+  }
+}

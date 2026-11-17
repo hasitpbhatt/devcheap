@@ -291,32 +291,37 @@ function computeAlternativeSlugs(deals) {
   return map;
 }
 
-const categorySEO = {
-  'hosting & cloud': { title: 'Best Hosting & Cloud Deals 2026 — Free Credits & Discounts for Developers', h1: 'Hosting & Cloud Deals for Developers', intro: 'Discover the best cloud hosting deals, free credits, and startup packages from AWS, Google Cloud, Cloudflare, DigitalOcean, and more. Save thousands on infrastructure with verified offers.', faqs: [{ q: 'Which cloud platform gives the most free credits for startups?', a: 'Cloudflare for Startups offers up to $250,000 in enterprise credits. Google Cloud for Startups provides up to $350,000 for AI-native companies. AWS Activate gives $1,000-$100,000 depending on VC backing.' }, { q: 'Can I get free cloud credits without VC funding?', a: "Yes! AWS Activate Founders tier ($1,000-$5,000) is automatic for any startup. Google Cloud Start ($1,000) and Microsoft Founders Hub ($5,000) also don't require VC backing." }, { q: 'How long are cloud startup credits valid?', a: 'Most cloud credits are valid for 1-2 years. AWS credits last 12 months, Google Cloud credits are valid for 2 years, and DigitalOcean credits last 12 months.' }] },
-  'database': { title: 'Best Database Deals 2026 — Free Tiers & Startup Credits', h1: 'Database Deals for Developers', intro: 'Find the best free database tiers and startup credits for PostgreSQL, MySQL, MongoDB, and more. From serverless Postgres to managed SQL — get enterprise-grade databases for free.', faqs: [{ q: 'What is the best free PostgreSQL database?', a: 'Neon offers a generous free tier with serverless Postgres, branching, and scale-to-zero compute. For startups, they also provide up to $100,000 in credits.' }, { q: 'Which database has the best startup program?', a: 'Neon ($100K credits), CockroachDB (50M RUs free + 10GB storage), and Appwrite (75K MAU free BaaS) all offer exceptional startup programs.' }] },
-  'ai & llm': { title: 'Best AI & LLM Deals 2026 — Free API Credits & Discounts', h1: 'AI & LLM Deals for Developers', intro: 'Get free API credits for GPT-4, Claude, Gemini, and open-source LLMs. Access $50K+ in AI credits from OpenAI, Anthropic, and Cloudflare — all verified and updated.', faqs: [{ q: 'How can I get free GPT-4/Claude API credits?', a: 'Anthropic offers up to $25,000 in Claude API credits for startups. OpenAI provides $5,000-$50,000+ for qualifying startups. GitHub Models gives free rate-limited access to 40+ models including GPT-4o.' }, { q: 'Are there free AI APIs that don\'t require a startup?', a: 'Yes! Cloudflare Workers AI gives 10,000 free neurons/day. GitHub Models offers free access to GPT-4o, DeepSeek-R1, and Llama 3.3. Cerebras provides 1M free tokens/day at 2,100 tok/s.' }] },
-  'developer tools': { title: 'Best Developer Tools Deals 2026 — Free Tiers & Lifetime Licenses', h1: 'Developer Tools Deals for Developers', intro: 'Find the best free and discounted developer tools — from AI coding assistants and API clients to CI/CD and monitoring. Save hundreds on your dev stack with verified deals.', faqs: [{ q: 'What is the best free AI coding assistant?', a: 'GitHub Copilot Free gives 2,000 completions + 50 chat messages/month. Codeium offers unlimited free AI autocomplete. Cursor Pro provides 1 year free for startups through SaaSOffers.' }, { q: 'Are lifetime developer tools worth it?', a: 'Yes — tools like Bruno (free Postman alternative), Coolify (free Heroku alternative), and lifetime deals on AppSumo can save you $100+/year compared to subscription models.' }] },
-  'apis & email': { title: 'Best API & Email Deals 2026 — Free Tiers & Transactional Email', h1: 'APIs & Email Deals for Developers', intro: 'Compare the best free email API tiers and transactional email services. SendGrid, Resend, Mailgun, and more — get reliable email delivery without breaking the bank.', faqs: [{ q: 'What is the best free transactional email service?', a: 'Resend offers a generous free tier with good deliverability. Twilio SendGrid has a free tier of 100 emails/day. Postmark has a free trial with 100 emails.' }, { q: 'How many free emails can I send per month?', a: 'Most email APIs offer 100-300 free emails per day on their free tiers. Brevo (formerly Sendinblue) offers 300 emails/day free with their marketing platform.' }] },
-  'security': { title: 'Best Security Deals 2026 — Free VPN, Privacy & Security Tools', h1: 'Security Deals for Developers', intro: 'Protect your projects with free security tools — VPNs, password managers, GDPR compliance, and ad-blockers. Lifetime deals save you hundreds vs. monthly subscriptions.', faqs: [{ q: 'What is the best free VPN for developers?', a: 'Tailscale offers a generous free tier for personal use with unlimited devices. FastestVPN has a lifetime deal option. For privacy, AdGuard has a lifetime ad-blocking subscription.' }] },
-  'monitoring': { title: 'Best Monitoring Deals 2026 — Free Uptime, APM & Error Tracking', h1: 'Monitoring Deals for Developers', intro: 'Keep your apps running with free monitoring tools — uptime checks, APM, error tracking, and log management. Get enterprise monitoring for free with verified startup deals.', faqs: [{ q: 'What is the best free uptime monitoring tool?', a: 'Better Stack offers free uptime monitoring with 100GB of log storage. Checkly provides Playwright-based browser monitoring. Both have generous free tiers.' }, { q: 'Which APM tool is free for startups?', a: 'New Relic offers startup credits through their startup program. Sentry provides $100/month free for startups with their error monitoring platform.' }] },
-  'productivity': { title: 'Best Productivity Deals 2026 — Free Project Management & Scheduling', h1: 'Productivity Deals for Developers', intro: 'Boost your workflow with free productivity tools — project management, scheduling, and documentation platforms. Lifetime deals save you money on tools you use every day.', faqs: [{ q: 'What is the best free project management tool?', a: 'Asana is free for up to 15 teammates with unlimited tasks and projects. ClickUp offers a generous free tier. Airtable provides $2,000 in credits through partnerships.' }] },
-  'design & collaboration': { title: 'Best Design & Collaboration Deals 2026 — Free UI/UX & Whiteboard Tools', h1: 'Design & Collaboration Deals for Developers', intro: 'Find free design tools, whiteboards, and collaboration platforms. Figma, Excalidraw, Miro — get premium design tools without the premium price tag.', faqs: [{ q: 'Is Figma really free?', a: 'Yes! Figma\'s Starter plan is forever-free with unlimited drafts, UI kits, 150 AI credits/day, and unlimited viewers. The free tier is very generous for individual developers.' }, { q: 'What is the best free whiteboard tool?', a: 'Excalidraw is completely free and open-source with end-to-end encryption. It has a hand-drawn feel and supports real-time collaboration. No account needed for the web version.' }] },
-  'web analytics': { title: 'Best Web Analytics Deals 2026 — Free Product Analytics & Session Recording', h1: 'Web Analytics Deals for Developers', intro: 'Understand your users with free analytics tools — product analytics, session recording, A/B testing, and more. PostHog, Amplitude, and other top tools offer generous free tiers.', faqs: [{ q: 'What is the best free product analytics platform?', a: 'PostHog offers 1M events/month free with session recordings, feature flags, surveys, and error tracking — all open-source. Amplitude offers 1 year free Growth plan ($36K value) for startups.' }] },
-  'ci/cd': { title: 'Best CI/CD Deals 2026 — Free Build Minutes & Compute Credits', h1: 'CI/CD Deals for Developers', intro: 'Speed up your development with free CI/CD pipelines. CircleCI, Buildkite, and other platforms offer free build minutes and startup credits worth thousands.', faqs: [{ q: 'What is the best free CI/CD platform?', a: 'CircleCI offers 6,000 free credits/week (Linux builds) and $20,000 in startup credits. Buildkite gives 5,000 free job minutes/month for 3 users. Both are excellent choices.' }] },
-  'domains & hosting': { title: 'Best Domains & Hosting Deals 2026 — Cheap Domains & Web Hosting', h1: 'Domains & Hosting Deals for Developers', intro: 'Find the cheapest domain registration and web hosting deals. Cloudflare Registrar offers domains at cost, while IONOS and Namecheap provide deep discounts on hosting plans.', faqs: [{ q: 'Where is the cheapest place to buy domains?', a: 'Cloudflare Registrar sells domains at cost — typically $9.15/year for .com with no markup. Namecheap offers up to 50% off domains with free WHOIS privacy.' }] },
-  'auth': { title: 'Best Auth Deals 2026 — Free Authentication & User Management', h1: 'Authentication Deals for Developers', intro: 'Add authentication to your apps for free. Auth0, Clerk, and other auth platforms offer generous free tiers with thousands of monthly active users included.', faqs: [{ q: 'What is the best free authentication provider?', a: 'Auth0 is free for 7,000 MAUs and Clerk is free for 10,000 MAUs. Both support social login, MFA, and modern auth flows. They save $25-30/month compared to paid plans.' }] },
-  'storage & cloud': { title: 'Best Storage & Cloud Deals 2026 — Free Object Storage', h1: 'Storage & Cloud Deals for Developers', intro: 'Get free cloud storage for your projects. Backblaze B2 and MinIO offer S3-compatible object storage with generous free tiers — perfect for backups and media.', faqs: [{ q: 'What is the best free S3-compatible storage?', a: 'Backblaze B2 offers 10GB free storage with affordable egress pricing (cheaper than AWS). MinIO is open-source and self-hostable for unlimited storage.' }] },
-  'media & images': { title: 'Best Media & Image Deals 2026 — Free Image Optimization & CDN', h1: 'Media & Images Deals for Developers', intro: 'Optimize and deliver images and video for free. Cloudinary, ImageKit, and other media tools offer free monthly credits for transformations and CDN delivery.', faqs: [{ q: 'What is the best free image optimization service?', a: 'Cloudinary offers 25 free monthly credits for image and video transformations with CDN delivery. ImageKit has similar capabilities with a free tier.' }] },
-  'testing & qa': { title: 'Best Testing & QA Deals 2026 — Free Cross-Browser & E2E Testing', h1: 'Testing & QA Deals for Developers', intro: 'Test your apps across browsers and devices for free. Cypress, BrowserStack, and other QA tools offer free tiers and trials for cross-browser and end-to-end testing.', faqs: [{ q: 'What is the best free end-to-end testing tool?', a: 'Cypress is free and open-source with time-travel debugging, automatic waiting, and real-time reloads. It\'s the industry standard for front-end testing.' }] },
-  'apis & payments': { title: 'Best Payments & API Deals 2026 — Free Payment Processing', h1: 'APIs & Payments Deals for Developers', intro: 'Start accepting payments for free with Stripe and other payment APIs. Get free processing credits and startup programs worth thousands.', faqs: [{ q: 'How can I get free Stripe processing?', a: 'Stripe offers $100 in free processing credits for new accounts. Stripe Atlas provides additional benefits for startups looking to incorporate.' }] },
-  'api & search': { title: 'Best Search API Deals 2026 — Free Search & Discovery', h1: 'Search API Deals for Developers', intro: 'Add powerful search to your apps with free search APIs. Algolia and other search platforms offer free tiers with thousands of records included.', faqs: [{ q: 'What is the best free search API?', a: 'Algolia offers a free tier with 10,000 records and typo-tolerant search. Their startup program provides $10,000 in API credits for qualifying startups.' }] },
-  'customer support': { title: 'Best Customer Support Deals 2026 — Free Helpdesk & Support Tools', h1: 'Customer Support Deals for Developers', intro: 'Provide great customer support without the cost. Intercom, Zendesk, and other support platforms offer free startup programs and generous free tiers.', faqs: [{ q: 'What is the best free customer support platform?', a: 'Intercom offers startup credits through their early-stage program. Zendesk provides free tiers for small teams. Both offer substantial discounts for startups.' }] },
-  'sales & marketing': { title: 'Best Sales & Marketing Deals 2026 — Free Marketing Tools', h1: 'Sales & Marketing Deals for Developers', intro: 'Grow your startup with free sales and marketing tools. Get CRM, email marketing, and analytics platforms at no cost through generous free tiers and startup programs.' },
-  'services': { title: 'Best Developer Services Deals 2026 — Free Consulting & Support', h1: 'Developer Services Deals', intro: 'Access free consulting, support, and professional services for your startup. Many cloud providers include technical guidance with their credit programs.' },
-  'ai': { title: 'Best AI Tools Deals 2026 — Free AI Apps & Lifetime Licenses', h1: 'AI Tools Deals for Developers', intro: 'Discover the best deals on AI-powered tools — from presentations and content creation to multi-model chat interfaces. Lifetime licenses save you from monthly fees.', faqs: [{ q: 'What are the best lifetime AI tool deals?', a: '1minAI offers a lifetime license with GPT-4, Claude, Gemini, and Midjourney access. ChatPlayGround AI provides multi-model chat for a one-time fee. Gamma has a generous free tier for AI presentations.' }] },
-  'social media': { title: 'Best Social Media Deals 2026 — Free Social Media Management', h1: 'Social Media Deals for Developers', intro: 'Manage your social media presence for less with discounted and lifetime social media management tools.' },
-  'seo': { title: 'Best SEO Deals 2026 — Free SEO Tools & Discounts', h1: 'SEO Deals for Developers', intro: 'Improve your search rankings with discounted SEO tools. Get site audits, keyword research, and optimization tools through exclusive developer deals.' },
-};
+// Category SEO copy and long-form article copy live in JSON so they can be
+// linted by scripts/check-voice.js and edited without touching build logic.
+// See scripts/extract-copy.js for how they were migrated out of this file.
+const CATEGORY_SEO_PATH = path.join(ROOT_DIR, 'data', 'category-seo.json');
+const ARTICLES_PATH = path.join(ROOT_DIR, 'data', 'articles.json');
+
+let categorySEOCache = null;
+async function loadCategorySEO() {
+  if (categorySEOCache) return categorySEOCache;
+  try {
+    const raw = await fs.readFile(CATEGORY_SEO_PATH, 'utf-8');
+    categorySEOCache = JSON.parse(raw);
+    return categorySEOCache;
+  } catch {
+    categorySEOCache = {};
+    return categorySEOCache;
+  }
+}
+
+let articlesCache = null;
+async function loadArticles() {
+  if (articlesCache) return articlesCache;
+  try {
+    const raw = await fs.readFile(ARTICLES_PATH, 'utf-8');
+    articlesCache = JSON.parse(raw);
+    return articlesCache;
+  } catch {
+    articlesCache = [];
+    return articlesCache;
+  }
+}
 
 const defaultSEO = {
   title: 'Best Deals for Developers — Free Credits & Discounts | DevCheap',
@@ -329,124 +334,7 @@ async function generateAggregatePages(ROOT_DIR, deals) {
   const articlesDir = path.join(ROOT_DIR, 'articles');
   await fs.mkdir(articlesDir, { recursive: true });
 
-  const articles = [
-    {
-      slug: 'best-free-cloud-credits',
-      title: 'Best Free Cloud Credits for Developers 2026',
-      metaDesc: 'Compare the best free cloud credits from AWS, Google Cloud, Microsoft Azure, Cloudflare, DigitalOcean, and more. Get up to $350K in startup cloud credits.',
-      h1: 'Best Free Cloud Credits for Developers 2026',
-      intro: 'Cloud infrastructure is the biggest expense for most startups. Here are the best free cloud credit programs that can save you thousands on AWS, Google Cloud, Azure, and more.',
-      sections: [
-        { h2: 'Top Cloud Credit Programs for Startups', content: 'AWS Activate offers $1,000-$100,000 in credits for qualifying startups. Google Cloud for Startups provides $2,000-$350,000 depending on tier. Microsoft for Startups gives $1,000-$150,000 in Azure credits. Cloudflare for Startups offers up to $250,000 in enterprise credits. DigitalOcean Startups provides up to $100,000 over 12 months.' },
-        { h2: 'Free Cloud Credits Without a Startup', content: 'Not a startup? You can still get free cloud credits. AWS gives $200 free to every new user ($100 on signup + $100 for completing onboarding tasks). Google Cloud has a $300 free trial for 90 days. DigitalOcean offers $200 for 60 days. Oracle Cloud provides 4 ARM cores + 24GB RAM free forever. Vultr gives $100 free credit.' },
-        { h2: 'Hosting Platforms for Developers', content: 'Netlify offers 300 free credits/month with unlimited deploy previews and serverless functions. Vercel provides $10/month free hosting for Next.js apps. Cloudflare Pages gives unlimited static sites with 500 monthly builds. Fly.io offers $10/month free credits for Docker-based apps. Render includes $5/month free tier for web services.' }
-      ]
-    },
-    {
-      slug: 'best-free-ai-apis',
-      title: 'Best Free AI APIs for Developers 2026',
-      metaDesc: 'Access GPT-4, Claude, Gemini, and open-source LLMs for free. Compare the best free AI API credits and free tiers from 30+ providers.',
-      h1: 'Best Free AI APIs for Developers 2026',
-      intro: 'AI APIs are essential for modern development. Here are the best free AI API deals — from frontier models like GPT-4 and Claude to open-source LLMs running on cutting-edge hardware.',
-      sections: [
-        { h2: 'Free Access to Frontier LLMs', content: 'GitHub Models gives free rate-limited access to 40+ models including GPT-4o and GPT-5 with just a GitHub account. Google AI Studio offers 1.5M free tokens/day on Gemini Flash with no credit card (a Google account is required, and new Google accounts need a phone number). Cloudflare Workers AI provides 10,000 free neurons/day across 50+ models. OpenRouter gives free access to 30+ models at 20 RPM.' },
-        { h2: 'Startup Credits for AI APIs', content: 'OpenAI Startup Credits offer $5,000-$50,000 for qualifying startups. Anthropic Claude for Startups provides up to $25,000 in API credits. Both programs require an application but are worth it for AI-native companies. Microsoft for Startups includes OpenAI API credits through Azure.' },
-        { h2: 'Free LLM Inference on Specialized Hardware', content: 'Groq offers 14,400 free requests/day at 240 tok/s on custom LPU hardware. Cerebras gives 1M free tokens/day at 2,100 tok/s. SambaNova provides $5 credits + ongoing free tier at ~200K tok/day. Together AI gives $5 free credits covering millions of tokens across 50+ models.' },
-        { h2: 'Free Audio, Speech & Multimodal AI', content: 'Deepgram offers $200 free credits for speech-to-text and TTS APIs. AssemblyAI gives $50 free credits for transcription. ElevenLabs provides 10K free characters/month for TTS. Google AI Studio supports multimodal inputs with free tier access (Google account required).' }
-      ]
-    },
-    {
-      slug: 'how-to-pick-free-llm-api',
-      title: 'How to Pick a Free LLM API (2026) — A Developer Framework',
-      metaDesc: 'A practical framework for picking a free LLM API: Ease of signup, rate limits, context window, and gate friction. Real numbers from Groq, OpenRouter, Google AI Studio, and Cerebras.',
-      h1: 'How to pick a free LLM API (without wasting a weekend)',
-      intro: 'Most "free" LLM APIs make you fight a Cloudflare challenge, hand over a credit card, or pass KYC before you get a key. I walked the path from zero to a working chat call across the major providers. Here is the framework I would actually use — built on three numbers, not marketing.',
-      sections: [
-        { h2: 'Start with Ease, not the model', content: 'The model barely matters at the free tier. What matters is how fast you get a key. I rank providers by Ease: 100 means email signup, instant key, no card. Groq, OpenRouter, Cerebras, and Hugging Face all score 100 — you are sending requests in two minutes. Google AI Studio is close but needs a Google account (phone-verified for new users), so it sits a tier lower. Lower scores mean a gate (card, phone, KYC, or captcha) sits between you and production. Pick Ease 100 unless you have a reason not to.' },
-        { h2: 'Count the rate limits like they are money', content: 'Free tiers are not equal. Groq gives 14,400 requests/day at low latency. Google AI Studio gives 1,500 requests/day on Gemini with a Google account (no card). Cerebras gives about 1M tokens/day. OpenRouter gives 20 RPM and 50 RPD, rising to 1,000 after a $10 top-up. Cloudflare Workers AI gives 10,000 neurons/day. The RPM column is your real ceiling — a free tier that throttles at 1 request/minute is a demo, not a product. Match the limit to your traffic, not your ambition.' },
-        { h2: 'Watch the context window and the gate behind it', content: 'A 1M-token context window sounds great until you see the gate. DeepSeek gives 5M tokens/30 days with no phone number. Qwen gives 70M signup tokens but asks for real-name verification. Zhipu GLM, Baidu, and Tencent all offer tokens, but most require KYC, which drops their Ease score. Big context plus a hard gate is a trap for production. If you cannot re-verify the limit on the pricing page in 10 seconds, do not trust it.' },
-        { h2: 'Use a gateway until you know what you need', content: 'Do not marry a model on day one. OpenRouter puts 25+ free models behind one OpenAI-compatible endpoint and one key. LiteLLM, Portkey, OrcaRouter, and Pollinations do the same, several with their own free tiers. A gateway lets you swap models without rewiring your code. When one provider rate-limits you, you already have a dozen drop-in alternatives wired. Graduate to a direct provider — Groq for speed, Cerebras for throughput — only once the traffic shows your real shape.' },
-        { h2: 'The move I would actually make', content: 'If I were shipping today: open Google AI Studio for a free Gemini key (Google account needed, 1.5K RPD), add Groq for speed (14.4K RPD), and put OpenRouter in front as the fallback. That is three keys and no credit cards, and you cover chat, speed, and failover. Then pick one provider to go deep on once the traffic shows up. See the LLM Providers directory for the full ranked list with live rate limits.' }
-      ]
-    },
-    {
-      slug: 'free-developer-tools-2026',
-      title: 'Best Free Developer Tools 2026',
-      metaDesc: 'Discover 40+ free developer tools for coding, testing, monitoring, and deployment. Save hundreds per month on your dev stack.',
-      h1: 'Best Free Developer Tools 2026',
-      intro: 'Build better software without breaking the bank. Here are the best free developer tools — from AI coding assistants to monitoring and CI/CD — all with generous free tiers.',
-      sections: [
-        { h2: 'Free AI Coding Assistants', content: 'GitHub Copilot Free gives 2,000 completions + 50 chat messages/month. Codeium offers unlimited free AI autocomplete across 70+ IDEs. Cursor Pro provides 1 year free for startups through SaaSOffers. CodeRabbit gives 15 free AI code reviews/month.' },
-        { h2: 'Free API Development & Testing', content: 'Bruno is a free open-source Postman alternative with Git-native collaboration. Hoppscotch provides free REST, GraphQL, and WebSocket API testing. Cron-Job.org offers free cron job scheduling. LaunchDarkly gives unlimited feature flags for free with 10M logs.' },
-        { h2: 'Free Monitoring & Observability', content: 'PostHog provides 1M events/month free with session recordings, feature flags, and surveys. Grafana Cloud Free includes 10K metric series + 50GB logs. Better Stack offers free uptime monitoring with 100GB logs. PagerDuty is free for 5 users.' },
-        { h2: 'Free Database & Backend Tools', content: 'Neon Free gives 100 projects of serverless Postgres with 100 compute-hours each. Supabase Free includes 2 projects with auth, storage, and realtime. Appwrite provides 75K MAU free BaaS. PocketBase is a free open-source backend in a single binary.' }
-      ]
-    },
-    {
-      slug: 'startup-credit-programs',
-      title: 'Startup Credit Programs Worth $1M+ in 2026',
-      metaDesc: 'Complete guide to startup credit programs from AWS, Google Cloud, Microsoft, Anthropic, OpenAI, and 40+ partners. Single applications unlock $500K+ in total value.',
-      h1: 'Startup Credit Programs Worth $1M+',
-      intro: 'Startup credit programs can save your company hundreds of thousands in infrastructure costs. Here is every major program, what it offers, and how to apply.',
-      sections: [
-        { h2: 'Cloud Provider Startup Programs', content: 'AWS Activate: $1,000-$100,000 (automatic $1K for self-funded). Google Cloud for Startups: $2,000-$350,000 (AI-first startups). Microsoft for Startups: $1,000-$150,000 (Founders Hub). Cloudflare for Startups: up to $250,000. DigitalOcean Startups: up to $100,000. Oracle for Startups: up to $10,000.' },
-        { h2: 'AI Company Startup Credits', content: 'OpenAI Startup Credits: $5,000-$50,000+. Anthropic Claude for Startups: up to $25,000. Neon Startup Credits: up to $100,000. CircleCI Startup Credits: up to $20,000. Kong for Startups: $25,000-$100,000. Databricks + Neon: up to $200,000 combined.' },
-        { h2: 'Aggregator Platforms (One Application)', content: 'Fin.ai Startup Pack bundles $500K+ in credits across 50+ partners with a single application. SaaSOffers provides 50+ verified startup deals with instant claims for free tiers. F6S aggregates $500K+ in startup deals and credits. YC Deals offers $500K+ worth of exclusive deals for YC companies.' },
-        { h2: 'Eligibility Tips & Application Strategy', content: 'Most programs accept companies without VC backing. Key requirements: company website, business email, less than 5-10 years old, building a tech product. Apply to ALL programs simultaneously — approvals are independent. Start with AWS Activate (fastest), Google Cloud (best for AI startups), and Microsoft Founders Hub (instant $1K).' }
-      ]
-    },
-    {
-      slug: 'best-lifetime-deals-developers',
-      title: 'Best Lifetime Deals for Developers 2026',
-      metaDesc: 'Save thousands with one-time payment software deals. Compare the best lifetime licenses for developer tools, productivity apps, VPNs, and more.',
-      h1: 'Best Lifetime Deals for Developers 2026',
-      intro: 'Lifetime deals are the best way to save money on software. Pay once, use forever. Here are the best lifetime deals currently available for developers.',
-      sections: [
-        { h2: 'Lifetime AI Tools', content: '1minAI ($39 lifetime) gives access to GPT-4, Claude, Gemini, Midjourney, Stable Diffusion, and DALL-E. ChatPlayGround AI ($39) provides multi-model chat with GPT-4, Claude, and Gemini. WordHero ($89) offers 80+ AI writing tools. Writecream ($59) includes 40+ AI content templates.' },
-        { h2: 'Lifetime Developer Tools', content: 'Bruno (free open-source Postman alternative). Polypane ($69) is a specialized browser for responsive design. N8Nitiator ($149) provides managed n8n workflow automation. Screpy ($59) offers AI-powered SEO analysis. Sturppy ($19) provides financial planning for startups.' },
-        { h2: 'Lifetime Security & VPN', content: 'FastestVPN ($29.99 lifetime) covers 10 devices. Sticky Password Premium ($29.99 lifetime) includes password management for unlimited devices. AdGuard ($11 lifetime) offers ad-blocking and privacy protection. Axeptio ($59) provides GDPR cookie consent management. GetTerms ($79) includes cookie consent and privacy policy generation.' },
-        { h2: 'Lifetime Email & Productivity', content: 'SendFox ($49) gives unlimited emails to 5,000 subscribers. Emailit ($49) is a transactional email API. CopyMail ($59) provides drag-and-drop email templates. SenderStack ($69) offers email warm-up and deliverability. TidyCal ($29) is a Calendly alternative. Headway ($59) provides book summaries.' }
-      ]
-    },
-    {
-      slug: 'saas-zero-budget',
-      title: 'Launch a SaaS on a $0 Infrastructure Budget (2026)',
-      metaDesc: 'Build and ship a SaaS without spending on infra. Stack free cloud credits, serverless databases, auth, and monitoring from AWS, Google Cloud, Neon, Supabase, PostHog, and more.',
-      h1: 'Launch a SaaS on a $0 Infrastructure Budget',
-      intro: "You don't need a credit card to look like you have a real stack. The free tiers and startup programs below get you from idea to production-shaped app at $0, and the bill only arrives when you're actually making money.",
-      sections: [
-        { h2: 'Start with free cloud credits, not your card', content: "Apply to AWS Activate first — the Founders tier hands you $1,000 automatically, no VC required. Google Cloud for Startups runs $1,000 to $350,000 depending on tier, and Microsoft for Startups puts $5,000 in your Founders Hub the moment you sign up. Cloudflare for Startups adds up to $250,000 in enterprise credits, and DigitalOcean Startups goes up to $100,000 over 12 months. Stack two or three and your compute is paid for a year." },
-        { h2: 'Your database is free until you are not', content: "Neon gives you serverless Postgres with branching and a free tier, plus up to $100,000 in startup credits if you qualify. Supabase's free tier ships 2 projects with auth and storage baked in. Need MySQL? PlanetScale's free tier is 10GB. CockroachDB Cloud hands you 50M request units and 10GB a month. Turso puts SQLite at the edge with a 3GB free tier. Pick one, branch it, and stop worrying about the schema bill." },
-        { h2: "Auth and monitoring you don't pay for yet", content: "Auth0 is free for 7,000 monthly active users; Clerk is free for 10,000 — both cover a newborn SaaS comfortably. For product analytics, PostHog's free tier is 1 million events a month with session recordings and feature flags. Sentry gives startups $100 a month free for error tracking. That's your whole observability stack at $0." },
-        { h2: 'Ship the frontend for nothing', content: "Netlify's free tier is 300 build credits a month with unlimited deploy previews and SSL. Vercel's Hobby plan is free for three months out of the gate. Cloudflare sits in front of both for free CDN and DNS. You can deploy ten times a day and still pay zero." }
-      ]
-    },
-    {
-      slug: 'auth-database-setup',
-      title: 'Set Up Auth and a Database for a New App in One Afternoon (2026)',
-      metaDesc: 'Wire up authentication and persistent storage fast. Compare Neon, Supabase, PlanetScale, Upstash, Auth0, and Clerk — all with free tiers that cover a new app.',
-      h1: 'Set Up Auth and a Database for a New App in One Afternoon',
-      intro: "The first afternoon of any new app is the same: where does the data live, and who's allowed in? You can answer both with free tiers that don't expire the week you launch.",
-      sections: [
-        { h2: 'Pick your database shape first', content: "Neon is serverless Postgres with branching, so you get a copy-on-write database per feature. Supabase wraps Postgres with auth, instant APIs, and storage — often all you need. PlanetScale is serverless MySQL with branching of its own. Upstash gives you serverless Redis for queues and caches, and Redis Cloud has a 30MB free tier to start. CockroachDB Cloud brings distributed SQL with 50M request units free, and Turso puts SQLite at the edge with 3GB free." },
-        { h2: 'Add auth without writing it yourself', content: "Auth0 is free for 7,000 monthly active users with social login and MFA. Clerk is free for 10,000 MAUs and is built for Next.js and React apps. Both drop in with a few lines and a redirect. If you'd rather not run two services, Supabase bundles auth and database together on its free tier." },
-        { h2: 'Two paths that just work', content: "Path one: Supabase free tier, two projects, auth and Postgres in one place. Path two: Neon for the database plus Clerk for auth, which keeps your user model clean if you grow past one app. Appwrite (75K MAU free) and the open-source PocketBase are solid if you want a backend-in-a-box instead." }
-      ]
-    },
-    {
-      slug: 'ai-feature-cheap',
-      title: 'Add an AI Feature Without Burning Cash (2026)',
-      metaDesc: 'Prototype and ship AI features on free tiers. Use GitHub Models, Groq, Cerebras, Together AI, Anthropic, and OpenAI startup credits to keep inference costs near zero.',
-      h1: 'Add an AI Feature Without Burning Cash',
-      intro: "Every founder wants an AI feature until they see the invoice. The trick is to prototype free, pay for speed only when latency hurts, and reach for startup credits only when real users show up.",
-      sections: [
-        { h2: 'Prototype on GitHub Models', content: "GitHub Models gives rate-limited access to 40+ frontier models — GPT-4o, GPT-5, DeepSeek-R1, Llama 3.3 — with nothing but a GitHub account. OpenRouter exposes 30+ models at 20 requests a minute free. Both are perfect for clicking through an idea before you commit to a provider." },
-        { h2: 'Pay for speed, not for tokens', content: "Groq's free tier is 14,400 requests a day at low latency — great for chat and classification. Cerebras throws in 1 million tokens a day at 2,100 tokens a second on Wafer-Scale hardware. Together AI gives $5 in free credits on signup, enough for several million tokens across 50+ open models. Cloudflare Workers AI runs 50+ models at the edge with 10,000 free neurons a day, no card needed." },
-        { h2: "When you're shipping to real users", content: "Anthropic's Claude for Startups offers up to $25,000 in API credits, and OpenAI Startup Credits run $5,000 to $50,000+. Both are free to apply for and remove the ceiling once you have traffic. For voice, Deepgram's $200 free credits cover speech-to-text, and ElevenLabs gives 10,000 characters a month of text-to-speech free." }
-      ]
-    }
-  ];
-
+  const articles = await loadArticles();
   const articlePromises = articles.map(async (article) => {
     const articleDir = path.join(articlesDir, article.slug);
     await fs.mkdir(articleDir, { recursive: true });
@@ -581,6 +469,7 @@ async function generateCategoryPages(ROOT_DIR, deals) {
   const categoryDir = path.join(ROOT_DIR, 'category');
   await fs.mkdir(categoryDir, { recursive: true });
 
+  const categorySEO = await loadCategorySEO();
   const cats = [...new Set(deals.map(d => d.category))].sort();
 
   const promises = cats.map(async (cat) => {
@@ -1223,6 +1112,267 @@ async function generateStartupProgramsPage(ROOT_DIR, deals) {
   console.log(`✅ Generated /startup-programs/ with ${total} program-only deals (${buckets.startup.length} startup, ${buckets.student.length} student, ${buckets.accelerator.length} accelerator)`);
 }
 
+async function generateTransparencyPage(ROOT_DIR, deals) {
+  const templatePath = path.join(ROOT_DIR, 'templates', 'transparency.html');
+  const template = await fs.readFile(templatePath, 'utf-8');
+  const today = new Date().toISOString().split('T')[0];
+
+  const affiliateDeals = deals.filter(d => d.has_affiliate);
+  const affiliateCount = affiliateDeals.length;
+  const nonAffiliateCount = deals.length - affiliateCount;
+  const runCost = '$0 (Cloudflare free tier)';
+  const domainCost = '~$12/yr (devcheap.click)';
+  const affiliateShare = affiliateCount > 0 ? `${Math.round((affiliateCount / deals.length) * 100)}%` : '0%';
+  const teamTestedCount = deals.filter(d => d.verified_by_use).length;
+
+  const affiliateRows = affiliateDeals.map(d => `
+    <tr>
+      <td><a href="/deals/${escapeHtml(d.id)}/">${escapeHtml(d.name)}</a></td>
+      <td>${escapeHtml(d.category)}</td>
+      <td>${escapeHtml(d.deal)}</td>
+      <td>${d.rating}</td>
+      <td><a href="${escapeHtml(d.affiliate_url || d.url)}" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>`).join('\n');
+
+  const html = template
+    .replace('{{AFFILIATE_COUNT}}', String(affiliateCount))
+    .replace('{{DEAL_COUNT}}', String(deals.length))
+    .replace('{{NON_AFFILIATE_COUNT}}', String(nonAffiliateCount))
+    .replace('{{RUN_COST}}', runCost)
+    .replace('{{DOMAIN_COST}}', domainCost)
+    .replace('{{AFFILIATE_SHARE}}', affiliateShare)
+    .replace('{{TEAM_TESTED_COUNT}}', String(teamTestedCount))
+    .replace('{{LAST_UPDATED}}', today)
+    .replace('{{AFFILIATE_ROWS}}', affiliateRows);
+
+  const outDir = path.join(ROOT_DIR, 'transparency');
+  await fs.mkdir(outDir, { recursive: true });
+  await fs.writeFile(path.join(outDir, 'index.html'), html, 'utf-8');
+  console.log(`✅ Generated /transparency/ ledger (${affiliateCount} affiliate deals, ${nonAffiliateCount} non-affiliate)`);
+}
+
+async function generateVoicePage(ROOT_DIR) {
+  const templatePath = path.join(ROOT_DIR, 'templates', 'voice.html');
+  const template = await fs.readFile(templatePath, 'utf-8');
+  const outDir = path.join(ROOT_DIR, 'voice');
+  await fs.mkdir(outDir, { recursive: true });
+  await fs.writeFile(path.join(outDir, 'index.html'), template, 'utf-8');
+  console.log(`✅ Generated /voice/ page`);
+}
+
+async function generateRatingRubricPage(ROOT_DIR) {
+  const templatePath = path.join(ROOT_DIR, 'templates', 'rating-rubric.html');
+  const template = await fs.readFile(templatePath, 'utf-8');
+  const outDir = path.join(ROOT_DIR, 'rating-rubric');
+  await fs.mkdir(outDir, { recursive: true });
+  await fs.writeFile(path.join(outDir, 'index.html'), template, 'utf-8');
+  console.log(`✅ Generated /rating-rubric/ page`);
+}
+
+async function generateStackPage(ROOT_DIR) {
+  const templatePath = path.join(ROOT_DIR, 'templates', 'stack.html');
+  const template = await fs.readFile(templatePath, 'utf-8');
+  const outDir = path.join(ROOT_DIR, 'stack');
+  await fs.mkdir(outDir, { recursive: true });
+  await fs.writeFile(path.join(outDir, 'index.html'), template, 'utf-8');
+  console.log(`✅ Generated /stack/ page`);
+}
+
+async function generateSponsorsPage(ROOT_DIR, deals) {
+  const templatePath = path.join(ROOT_DIR, 'templates', 'sponsors.html');
+  const template = await fs.readFile(templatePath, 'utf-8');
+  const categories = [...new Set(deals.map(d => d.category))].sort();
+
+  const html = template
+    .replace('{{SESSIONS_DAY}}', '~100')
+    .replace('{{DEAL_COUNT}}', String(deals.length))
+    .replace('{{CATEGORY_COUNT}}', String(categories.length))
+    .replace('{{LLM_PROVIDER_COUNT}}', '168');
+
+  const outDir = path.join(ROOT_DIR, 'sponsors');
+  await fs.mkdir(outDir, { recursive: true });
+  await fs.writeFile(path.join(outDir, 'index.html'), html, 'utf-8');
+  console.log(`✅ Generated /sponsors/ page`);
+}
+
+async function generateComparisonPages(ROOT_DIR, deals) {
+  const templatePath = path.join(ROOT_DIR, 'templates', 'comparison.html');
+  const template = await fs.readFile(templatePath, 'utf-8');
+  const compDir = path.join(ROOT_DIR, 'deals');
+  await fs.mkdir(compDir, { recursive: true });
+
+  // Generate ~200 pairs: same category, similar rating (diff <= 1.5), both featured (rating >= 8 or affiliate)
+  const featuredDeals = deals.filter(d => {
+    if (d.requiresProgram) return false;
+    if (d.has_affiliate) return true;
+    if (d.expires && new Date(d.expires).getTime() < Date.now()) return false;
+    return (d.rating || 0) >= 8.0;
+  });
+
+  const pairs = [];
+  for (const cat of [...new Set(featuredDeals.map(d => d.category))]) {
+    const catDeals = featuredDeals.filter(d => d.category === cat).sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    for (let i = 0; i < catDeals.length - 1 && pairs.length < 200; i++) {
+      for (let j = i + 1; j < catDeals.length && pairs.length < 200; j++) {
+        const a = catDeals[i];
+        const b = catDeals[j];
+        const diff = Math.abs((a.rating || 0) - (b.rating || 0));
+        if (diff <= 1.5) pairs.push([a, b]);
+      }
+    }
+  }
+
+  console.log(`📊 Generating ${pairs.length} comparison pages…`);
+
+  const promises = pairs.map(async ([a, b]) => {
+    const catSlug = categorySlug(a.category);
+    const metaDesc = `Compare ${escapeHtml(a.name)} vs ${escapeHtml(b.name)} — ${a.category}. Verified pricing, free tiers, ratings, and verdict.`;
+    const intro = `Comparing ${escapeHtml(a.name)} and ${escapeHtml(b.name)}? Both are ${escapeHtml(a.category)} tools with verified free tiers. Here's the side-by-side.`;
+
+    const winner = a.rating >= b.rating ? a : b;
+    const winnerBadge = `<span class="cmp-badge cmp-badge--winner">Our pick: ${escapeHtml(winner.name)} (${winner.rating})</span>`;
+
+    const dealACard = `
+      <article class="cmp-card ${a === winner ? 'cmp-card--winner' : ''}">
+        <div class="cmp-card-header">
+          <div class="cmp-title-row">
+            <h2>${escapeHtml(a.name)}</h2>
+            <span class="cmp-cat">${escapeHtml(a.category)}</span>
+          </div>
+          <div class="cmp-rating">${a.rating}<span>/10</span></div>
+        </div>
+        <div class="cmp-offer">${escapeHtml(sanitizeDealValue(a.deal))}</div>
+        <p class="cmp-why">${escapeHtml(a.why || 'No summary available.')}</p>
+        <div class="cmp-meta">
+          <div class="cmp-meta-item"><span class="cmp-meta-label">Pricing</span><span class="cmp-meta-value">${escapeHtml(a.pricing)}</span></div>
+          <div class="cmp-meta-item"><span class="cmp-meta-label">Expires</span><span class="cmp-meta-value">${escapeHtml(a.expires || 'No expiry')}</span></div>
+          <div class="cmp-meta-item"><span class="cmp-meta-label">Code</span><span class="cmp-meta-value">${escapeHtml(a.code)}</span></div>
+        </div>
+      </article>`;
+
+    const dealBCard = `
+      <article class="cmp-card ${b === winner ? 'cmp-card--winner' : ''}">
+        <div class="cmp-card-header">
+          <div class="cmp-title-row">
+            <h2>${escapeHtml(b.name)}</h2>
+            <span class="cmp-cat">${escapeHtml(b.category)}</span>
+          </div>
+          <div class="cmp-rating">${b.rating}<span>/10</span></div>
+        </div>
+        <div class="cmp-offer">${escapeHtml(sanitizeDealValue(b.deal))}</div>
+        <p class="cmp-why">${escapeHtml(b.why || 'No summary available.')}</p>
+        <div class="cmp-meta">
+          <div class="cmp-meta-item"><span class="cmp-meta-label">Pricing</span><span class="cmp-meta-value">${escapeHtml(b.pricing)}</span></div>
+          <div class="cmp-meta-item"><span class="cmp-meta-label">Expires</span><span class="cmp-meta-value">${escapeHtml(b.expires || 'No expiry')}</span></div>
+          <div class="cmp-meta-item"><span class="cmp-meta-label">Code</span><span class="cmp-meta-value">${escapeHtml(b.code)}</span></div>
+        </div>
+      </article>`;
+
+    const verdict = `${winner.name} wins for most developers: ${winner.why}. Choose ${a.name} if you need ${a.why.slice(0,80)}… Choose ${b.name} if you need ${b.why.slice(0,80)}…`;
+
+    const faqs = [
+      { q: `Which is better, ${a.name} or ${b.name}?`, a: `${winner.name} edges it for most: ${winner.why}. But ${(winner === a ? b : a).name} is better if you need ${(winner === a ? b : a).why.slice(0,100)}…` },
+      { q: `Are both free?`, a: `${a.name} is ${a.pricing}; ${b.name} is ${b.pricing}. Both have usable free tiers.${a.pricing === 'free' && b.pricing === 'free' ? ' You can use both at $0.' : ''}` },
+      { q: `Can I use both?`, a: `Yes. Many teams use ${a.name} for ${a.why.slice(0,60)}… and ${b.name} for ${b.why.slice(0,60)}…` },
+    ];
+
+    const faqHtml = faqs.map(f => `<div class="faq-item"><button class="faq-question" aria-expanded="false">${escapeHtml(f.q)}</button><div class="faq-answer" aria-hidden="true">${escapeHtml(f.a)}</div></div>`).join('\n');
+
+    const faqJson = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
+    const faqJsonHtml = `<script type="application/ld+json">\n${JSON.stringify(faqJson, null, 2)}\n</script>`;
+
+    const breadcrumbJson = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://devcheap.click/" },
+        { "@type": "ListItem", position: 2, name: a.category, item: `https://devcheap.click/category/${catSlug}/` },
+        { "@type": "ListItem", position: 3, name: `${a.name} vs ${b.name}`, item: `https://devcheap.click/deals/${a.id}/vs/${b.id}/` }
+      ]
+    };
+    const breadcrumbJsonHtml = `<script type="application/ld+json">\n${JSON.stringify(breadcrumbJson, null, 2)}\n</script>`;
+
+    const hasAffiliate = a.has_affiliate || b.has_affiliate;
+    const disclosure = hasAffiliate ? renderAffiliateDisclosure() : '';
+
+    const pageDir = path.join(compDir, a.id, 'vs', b.id);
+    await fs.mkdir(pageDir, { recursive: true });
+
+    let html = template
+      .replace(/{{DEAL_A_ID}}/g, escapeHtml(a.id))
+      .replace(/{{DEAL_B_ID}}/g, escapeHtml(b.id))
+      .replace(/{{DEAL_A_NAME}}/g, escapeHtml(a.name))
+      .replace(/{{DEAL_B_NAME}}/g, escapeHtml(b.name))
+      .replace(/{{CATEGORY_NAME}}/g, escapeHtml(a.category))
+      .replace(/{{CATEGORY_SLUG}}/g, escapeHtml(catSlug))
+      .replace(/{{META_DESC}}/g, escapeHtml(metaDesc))
+      .replace(/{{INTRO}}/g, escapeHtml(intro))
+      .replace(/{{WINNER_BADGE}}/g, winnerBadge)
+      .replace('{{DEAL_A_CARD}}', dealACard)
+      .replace('{{DEAL_B_CARD}}', dealBCard)
+      .replace('{{VERDICT}}', escapeHtml(verdict))
+      .replace('{{FAQ_HTML}}', faqHtml)
+      .replace('{{FAQ_JSONLD}}', faqJsonHtml)
+      .replace('{{BREADCRUMB_JSONLD}}', breadcrumbJsonHtml)
+      .replace(/{{DEAL_A_PRICING}}/g, escapeHtml(a.pricing))
+      .replace(/{{DEAL_B_PRICING}}/g, escapeHtml(b.pricing))
+      .replace('{{AFFILIATE_DISCLOSURE}}', disclosure);
+
+    await fs.writeFile(path.join(pageDir, 'index.html'), html, 'utf-8');
+  });
+
+  await Promise.all(promises);
+  console.log(`✅ Generated ${pairs.length} comparison pages under /deals/<a>/vs/<b>/`);
+}
+
+async function generateLlmProviderDetailPages(ROOT_DIR) {
+  const providersPath = path.join(ROOT_DIR, 'data', 'llm-providers.json');
+  let providers = [];
+  try {
+    providers = JSON.parse(await fs.readFile(providersPath, 'utf-8'));
+  } catch {
+    console.log('⚠️ No llm-providers.json, skipping detail pages');
+    return;
+  }
+
+  const templatePath = path.join(ROOT_DIR, 'templates', 'llm-provider-detail.html');
+  let template;
+  try {
+    template = await fs.readFile(templatePath, 'utf-8');
+  } catch {
+    console.log('⚠️ No llm-provider-detail.html template, skipping detail pages');
+    return;
+  }
+
+  const detailDir = path.join(ROOT_DIR, 'llm-providers');
+  await fs.mkdir(detailDir, { recursive: true });
+
+  for (const p of providers) {
+    if (!p.dealId) continue; // only generate for providers that link to our deal pages
+    const cat = p.category || 'LLM';
+    const catSlug = categorySlug(cat);
+
+    const html = template
+      .replace(/{{PROVIDER_NAME}}/g, escapeHtml(p.name))
+      .replace(/{{PROVIDER_SLUG}}/g, escapeHtml(p.id))
+      .replace(/{{PROVIDER_CATEGORY}}/g, escapeHtml(cat))
+      .replace(/{{PROVIDER_EASE}}/g, String(p.ease))
+      .replace(/{{PROVIDER_FREE_TIER}}/g, escapeHtml(p.freeTier || '—'))
+      .replace(/{{PROVIDER_RPM}}/g, escapeHtml(p.rpm || '—'))
+      .replace(/{{PROVIDER_CONTEXT}}/g, escapeHtml(p.context || '—'))
+      .replace(/{{PROVIDER_GATES}}/g, escapeHtml((p.gates || ['none']).join(', ')))
+      .replace(/{{PROVIDER_SIGNUP_URL}}/g, escapeHtml(p.signupUrl))
+      .replace(/{{PROVIDER_DEAL_URL}}/g, `/deals/${escapeHtml(p.dealId)}/`)
+      .replace(/{{PROVIDER_TYPE}}/g, escapeHtml(p.type || 'LLM'))
+      .replace(/{{PROVIDER_STATUS}}/g, escapeHtml(p.status || 'active'));
+
+    const pageDir = path.join(detailDir, p.id);
+    await fs.mkdir(pageDir, { recursive: true });
+    await fs.writeFile(path.join(pageDir, 'index.html'), html, 'utf-8');
+  }
+  console.log(`✅ Generated ${providers.filter(p => p.dealId).length} LLM provider detail pages under /llm-providers/<slug>/`);
+}
+
 async function main() {
   console.log('🏁 Starting build process...');
 
@@ -1584,6 +1734,15 @@ const productJson = {
 
   // 8c. Generate startup programs landing page
   await generateStartupProgramsPage(ROOT_DIR, deals);
+
+  // 8d. Generate trust & utility pages
+  await generateTransparencyPage(ROOT_DIR, deals);
+  await generateVoicePage(ROOT_DIR);
+  await generateRatingRubricPage(ROOT_DIR);
+  await generateStackPage(ROOT_DIR);
+  await generateSponsorsPage(ROOT_DIR, deals);
+  await generateComparisonPages(ROOT_DIR, deals);
+  await generateLlmProviderDetailPages(ROOT_DIR);
 
   console.log('✨ Build complete! Time to deploy.');
 }

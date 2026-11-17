@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="https://devcheap.click/stack/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme:dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme:light)">
+  <title>Stack Builder — Pick Your Use Case, Get a Free-Tier Stack | DevCheap</title>
+  <meta name="description" content="I have $0 and need a SaaS backend. Show me the stack. Pick a use case, budget, and team size — get a role-by-role stack with monthly cost estimates, all from verified free tiers.">
+  <meta property="og:title" content="Stack Builder — Pick Your Use Case, Get a Free-Tier Stack">
+  <meta property="og:description" content="I have $0 and need a SaaS backend. Show me the stack. Verified free tiers only.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://devcheap.click/stack/">
+  <meta property="og:site_name" content="DevCheap">
+  <meta property="og:image" content="https://devcheap.click/images/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/css/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QV2CZSZP4"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9QV2CZSZP4');</script>
+  <style>
+    .stack-page { padding-top: var(--nav-height); min-height: 100vh; display: flex; flex-direction: column; }
+    .stack-page main { flex: 1; }
+    .stack-hero { padding: 48px 0 24px; }
+    .stack-hero h1 { font-size: 36px; font-weight: 800; letter-spacing: -1px; line-height: 1.15; margin-bottom: 12px; color: var(--text); }
+    .stack-hero p { font-size: 16px; color: var(--text-secondary); line-height: 1.6; max-width: 760px; }
+    .stack-form-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 28px; margin-top: 24px; max-width: 720px; }
+    .stack-form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 16px; }
+    .stack-form-group { display: flex; flex-direction: column; gap: 6px; }
+    .stack-form-group label { font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.4px; }
+    .stack-form-group select { padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-input); color: var(--text); font-size: 14px; }
+    .stack-form-group select:focus { outline: none; border-color: var(--accent); }
+    .stack-btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+    .stack-btn { padding: 11px 20px; border-radius: var(--radius-md); font-size: 14px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: none; }
+    .stack-btn-primary { background: var(--accent); color: #fff; }
+    .stack-btn-primary:hover { filter: brightness(1.08); }
+    .stack-btn-ghost { background: var(--bg-surface); color: var(--text); border: 1px solid var(--border); }
+    .stack-btn-ghost:hover { border-color: var(--accent); }
+    .stack-loading { text-align: center; padding: 48px; color: var(--text-tertiary); font-size: 15px; }
+    .stack-summary { margin-top: 24px; padding: 20px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+    .stack-summary h2 { font-size: 18px; font-weight: 700; color: var(--text); margin: 0 0 12px; }
+    .stack-summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+    .stack-summary-grid div { text-align: center; }
+    .stack-summary-grid strong { display: block; font-size: 28px; font-weight: 800; color: var(--text); }
+    .stack-summary-grid span { font-size: 12px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.4px; }
+    .stack-summary-line { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+    .stack-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 16px; }
+    @media (min-width: 700px) { .stack-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1000px) { .stack-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .stack-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 20px; display: flex; flex-direction: column; }
+    .stack-role { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--accent); margin-bottom: 8px; }
+    .stack-card h3 { font-size: 16px; font-weight: 700; color: var(--text); margin: 0 0 8px; line-height: 1.3; }
+    .stack-card h3 a { color: inherit; text-decoration: none; }
+    .stack-card h3 a:hover { color: var(--accent); }
+    .stack-offer { font-size: 13.5px; color: var(--text-secondary); margin: 0 0 8px; }
+    .stack-why { font-size: 13px; color: var(--text-tertiary); margin: 0 0 12px; line-height: 1.5; flex: 1; }
+    .stack-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; padding-top: 12px; border-top: 1px solid var(--border); }
+    .stack-badge { font-size: 10.5px; font-weight: 700; padding: 3px 8px; border-radius: 999px; background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border); }
+    .stack-badge--free { background: rgba(48,209,88,0.12); color: var(--green); border-color: rgba(48,209,88,0.2); }
+    .stack-badge--trial { background: rgba(96,165,250,0.12); color: var(--blue); border-color: rgba(96,165,250,0.2); }
+    .stack-badge--lifetime { background: rgba(251,191,36,0.12); color: #b45309; border-color: rgba(251,191,36,0.2); }
+    .stack-badge--paid { background: rgba(248,113,113,0.12); color: var(--red); border-color: rgba(248,113,113,0.2); }
+    .stack-cost { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text); }
+    .stack-claim { font-size: 12.5px; font-weight: 600; color: var(--accent); text-decoration: none; }
+    .stack-claim:hover { text-decoration: underline; }
+    .stack-share { margin-top: 20px; padding: 16px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .stack-share input { flex: 1; min-width: 200px; padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-input); color: var(--text); font-family: var(--font-mono); font-size: 12px; }
+    .stack-share input:focus { outline: none; border-color: var(--accent); }
+    .stack-share .stack-btn { white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <div class="stack-page">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo"><span class="nav-logo-badge">devcheap</span></a>
+        <div class="nav-links">
+          <a href="/#deals" class="nav-link">All Deals</a>
+          <a href="/llm-providers/" class="nav-link">LLM Providers</a>
+          <a href="/stack/" class="nav-link" aria-current="page">Stack Builder</a>
+          <a href="/#newsletter" class="nav-link">Newsletter</a>
+          <button type="button" id="theme-toggle" class="theme-btn" title="Toggle theme" aria-label="Toggle theme">
+            <svg class="icon icon-moon" width="18" height="18" style="display:none"><use href="/images/icons.svg#icon-moon"/></svg>
+            <svg class="icon icon-sun" width="18" height="18"><use href="/images/icons.svg#icon-sun"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="stack-hero">
+        <h1>Stack Builder</h1>
+        <p>Pick a use case, budget, and team size. Get a role-by-role stack with monthly cost estimates — all from verified free tiers in the DevCheap catalog.</p>
+      </div>
+
+      <form id="stack-form" class="stack-form-card">
+        <div class="stack-form-row">
+          <div class="stack-form-group">
+            <label for="stack-usecase">Use case</label>
+            <select id="stack-usecase" name="usecase">
+              <option value="saas">SaaS product</option>
+              <option value="ai-app">AI app</option>
+              <option value="api">Public API</option>
+              <option value="website">Marketing site / docs</option>
+              <option value="mobile">Mobile app backend</option>
+            </select>
+          </div>
+          <div class="stack-form-group">
+            <label for="stack-budget">Budget</label>
+            <select id="stack-budget" name="budget">
+              <option value="zero">$0 (free tiers only)</option>
+              <option value="under25">Under $25/mo</option>
+              <option value="any">Any budget</option>
+            </select>
+          </div>
+          <div class="stack-form-group">
+            <label for="stack-team">Team</label>
+            <select id="stack-team" name="team">
+              <option value="solo">Solo / indie</option>
+              <option value="team">Small team (2–5)</option>
+              <option value="startup">Startup (6+)</option>
+            </select>
+          </div>
+        </div>
+        <div class="stack-btn-row">
+          <button type="submit" class="stack-btn stack-btn-primary">Build stack</button>
+          <a href="/#deals" class="stack-btn stack-btn-ghost">Browse all deals instead</a>
+        </div>
+      </form>
+
+      <div id="stack-loading" class="stack-loading">Loading catalog…</div>
+
+      <section id="stack-summary" class="stack-summary" hidden>
+        <h2>Your stack</h2>
+        <div id="stack-summary-content"></div>
+      </section>
+
+      <div id="stack-output" hidden></div>
+
+      <div id="stack-share" class="stack-share" hidden>
+        <label for="stack-share-url" style="font-size:12px;color:var(--text-tertiary);font-weight:600;">Share this stack:</label>
+        <input type="text" id="stack-share-url" readonly aria-label="Shareable stack URL">
+        <button type="button" id="stack-copy-url" class="stack-btn stack-btn-ghost">Copy link</button>
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo" aria-label="Site footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="nav-logo-badge">devcheap</span>
+          <p class="footer-text">Verified developer deals, curated weekly.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/rating-rubric/" class="footer-link">Rating Rubric</a>
+          <a href="/transparency/" class="footer-link">Transparency</a>
+          <a href="/voice/" class="footer-link">Voice</a>
+          <a href="/disclosure/" class="footer-link">Disclosure</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="/js/stack.js"></script>
+  <script src="/js/theme.js"></script>
+</body>
+</html>

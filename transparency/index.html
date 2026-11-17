@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="https://devcheap.click/transparency/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme:dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme:light)">
+  <title>Transparency Ledger — How DevCheap Makes Money | DevCheap</title>
+  <meta name="description" content="Every affiliate link on DevCheap, how we pick partners, what the site costs to run, and what the site earns. Updated whenever the numbers change.">
+  <meta property="og:title" content="Transparency Ledger — How DevCheap Makes Money">
+  <meta property="og:description" content="Which links are affiliate links, how we pick partners, what the site costs, and what it earns.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://devcheap.click/transparency/">
+  <meta property="og:site_name" content="DevCheap">
+  <meta property="og:image" content="https://devcheap.click/images/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/css/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QV2CZSZP4"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9QV2CZSZP4');</script>
+  <style>
+    .tr-page { padding-top: var(--nav-height); min-height: 100vh; display: flex; flex-direction: column; }
+    .tr-page main { flex: 1; }
+    .tr-hero { padding: 48px 0 24px; }
+    .tr-hero h1 { font-size: 36px; font-weight: 800; letter-spacing: -1px; line-height: 1.15; margin-bottom: 12px; color: var(--text); }
+    .tr-hero p { font-size: 16px; color: var(--text-secondary); line-height: 1.6; max-width: 760px; }
+    .tr-stats { display: flex; gap: 28px; margin-top: 22px; flex-wrap: wrap; }
+    .tr-stat { font-size: 13px; color: var(--text-tertiary); }
+    .tr-stat strong { font-size: 22px; font-weight: 800; display: block; color: var(--text); letter-spacing: -0.5px; }
+    .tr-section { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+    .tr-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 16px; color: var(--text); letter-spacing: -0.4px; }
+    .tr-section h3 { font-size: 17px; font-weight: 700; margin: 28px 0 10px; color: var(--text); }
+    .tr-section p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; max-width: 780px; }
+    .tr-table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 14px; }
+    .tr-table th, .tr-table td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--border); }
+    .tr-table th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text-tertiary); background: var(--bg-surface); }
+    .tr-table td { color: var(--text-secondary); }
+    .tr-table td:first-child { color: var(--text); font-weight: 600; }
+    .tr-note { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px 22px; margin-top: 20px; }
+    .tr-note p { margin: 0 0 8px; }
+    .tr-note p:last-child { margin-bottom: 0; }
+    .tr-pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border); }
+    .tr-list { list-style: none; padding: 0; margin: 16px 0 0; max-width: 780px; }
+    .tr-list li { position: relative; padding: 9px 0 9px 26px; border-bottom: 1px solid var(--border); font-size: 14.5px; color: var(--text-secondary); line-height: 1.6; }
+    .tr-list li::before { content: '\2713'; position: absolute; left: 2px; top: 9px; color: var(--green); font-weight: 700; }
+    .tr-list li.tr-no::before { content: '\2014'; color: var(--text-tertiary); }
+    .tr-updated { font-size: 13px; color: var(--text-tertiary); margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <div class="tr-page">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo"><span class="nav-logo-badge">devcheap</span></a>
+        <div class="nav-links">
+          <a href="/#deals" class="nav-link">All Deals</a>
+          <a href="/llm-providers/" class="nav-link">LLM Providers</a>
+          <a href="/stack/" class="nav-link">Stack Builder</a>
+          <a href="/#newsletter" class="nav-link">Newsletter</a>
+          <button type="button" id="theme-toggle" class="theme-btn" title="Toggle theme" aria-label="Toggle theme">
+            <svg class="icon icon-moon" width="18" height="18" style="display:none"><use href="/images/icons.svg#icon-moon"/></svg>
+            <svg class="icon icon-sun" width="18" height="18"><use href="/images/icons.svg#icon-sun"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="tr-hero">
+        <h1>Transparency ledger</h1>
+        <p>Most deal sites take affiliate money and tell you about it in a footer nobody reads. This page shows every number: which links pay us, how much the site costs to run, and what the site earns. If we make money from a link, you will see a badge on it.</p>
+        <div class="tr-stats">
+          <span class="tr-stat"><strong>14</strong>affiliate links</span>
+          <span class="tr-stat"><strong>230</strong>deals total</span>
+          <span class="tr-stat"><strong>216</strong>non-affiliate</span>
+          <span class="tr-stat"><strong>$0 (Cloudflare free tier)</strong>estimated monthly cost</span>
+          <span class="tr-stat"><strong>6%</strong>of outbound clicks</span>
+        </div>
+        <p class="tr-updated">Last updated 2026-11-17</p>
+      </div>
+
+      <section class="tr-section">
+        <h2>How a link on this site works</h2>
+        <p>Every outbound link carries a <code>utm_source=devcheap.click</code> tag. When you click it, the vendor sees that the visit came from DevCheap. If you sign up and pay, we get a commission. If you do not sign up, we get nothing.</p>
+        <ul class="tr-list">
+          <li>The commission never changes the price you pay.</li>
+          <li>Affiliate status does not change a deal's rating.</li>
+          <li>Affiliate links are marked with a badge on the card and on the detail page.</li>
+          <li>Every deal stays listed whether or not it pays us. {{NON_AFFILIATE_COUNT}} of {{DEAL_COUNT}} deals pay nothing at all.</li>
+        </ul>
+      </section>
+
+      <section class="tr-section">
+        <h2>How we pick partners</h2>
+        <p>A vendor gets an affiliate link only if four things are true.</p>
+        <ul class="tr-list">
+          <li>The offer is real. We found it on the vendor's own pricing or program page, not in a press release.</li>
+          <li>The terms are current. The credit amount, free tier limits, and eligibility rules match what the vendor publishes.</li>
+          <li>The deal is useful to a developer without a company. If it needs a signed contract, it gets marked <span class="tr-pill">startup-only</span>.</li>
+          <li>The link works from a plain browser. No cookie wall, no interstitial, no forced signup before the pricing page.</li>
+        </ul>
+        <p style="margin-top:18px">We do not accept payment to list a deal. We do not accept payment to change a rating. If a vendor asks for either, we say no and it does not go in the catalog.</p>
+      </section>
+
+      <section class="tr-section">
+        <h2>The affiliate links</h2>
+        <p>{{AFFILIATE_COUNT}} of {{DEAL_COUNT}} deals pay a commission. Everything else on the site is free for us to list, which means we can keep listing things that never convert.</p>
+        <table class="tr-table">
+          <thead><tr><th>Deal</th><th>Category</th><th>Offer</th><th>Rating</th><th>Link</th></tr></thead>
+          <tbody>
+            
+    <tr>
+      <td><a href="/deals/datadog/">Datadog</a></td>
+      <td>Monitoring</td>
+      <td>14-day Free Trial + $100 Credits</td>
+      <td>6.6</td>
+      <td><a href="https://www.datadoghq.com" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="/deals/digitalocean/">DigitalOcean</a></td>
+      <td>Hosting &amp; Cloud</td>
+      <td>$200 Free Credits (60 days)</td>
+      <td>7.7</td>
+      <td><a href="https://www.digitalocean.com" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="/deals/gamma/">Gamma</a></td>
+      <td>AI</td>
+      <td>Free Tier — 10 Cards/Prompt</td>
+      <td>8.5</td>
+      <td><a href="https://try.gamma.app/vwi953t7x0ir" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="/deals/hostinger/">Hostinger</a></td>
+      <td>Hosting &amp; Cloud</td>
+      <td>80% OFF Web Hosting Plans</td>
+      <td>5.5</td>
+      <td><a href="https://www.hostinger.com" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="/deals/hubspot/">HubSpot</a></td>
+      <td>APIs &amp; Email</td>
+      <td>Free CRM + $1,000 Startup Credits</td>
+      <td>6.7</td>
+      <td><a href="https://www.hubspot.com" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="/deals/ionos/">IONOS</a></td>
+      <td>Domains &amp; Hosting</td>
+      <td>93% OFF All Hosting Plans + Free Domain</td>
+      <td>6.5</td>
+      <td><a href="https://www.ionos.com" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="/deals/linode/">Linode (Akamai)</a></td>
+      <td>Hosting &amp; Cloud</td>
+      <td>$100 Free Credit for New Accounts</td>
+      <td>7.4</td>
+      <td><a href="https://www.linode.com" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="/deals/minimax-week/">MiniMax Week × GMI Cloud</a></td>
+      <td>AI &amp; LLM</td>
+      <td>14 Days Free — M3, M2.7, Speech 2.8, Music 3.0</td>
+      <td>7.5</td>
+      <td><a href="https://console.gmicloud.ai/ref/KF7KJBS4" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="/deals/namecheap/">Namecheap</a></td>
+      <td>Domains &amp; Hosting</td>
+      <td>Up to 50% Off Domains &amp; Hosting</td>
+      <td>5.5</td>
+      <td><a href="https://www.namecheap.com" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="/deals/ngrok/">ngrok</a></td>
+      <td>Developer Tools</td>
+      <td>Free Tunnel (4 endpoints)</td>
+      <td>6.3</td>
+      <td><a href="https://ngrok.com" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="/deals/sentry/">Sentry</a></td>
+      <td>Monitoring</td>
+      <td>$100/month Free for Startups</td>
+      <td>7.1</td>
+      <td><a href="https://sentry.io" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="/deals/siteground/">SiteGround</a></td>
+      <td>Domains &amp; Hosting</td>
+      <td>75% OFF Web Hosting Plans</td>
+      <td>5.3</td>
+      <td><a href="https://www.siteground.com" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="/deals/stripe/">Stripe</a></td>
+      <td>APIs &amp; Payments</td>
+      <td>$100 Free Processing Credits</td>
+      <td>7.4</td>
+      <td><a href="https://stripe.com" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="/deals/vultr/">Vultr</a></td>
+      <td>Hosting &amp; Cloud</td>
+      <td>$100 Free Credit (New Customers)</td>
+      <td>7.4</td>
+      <td><a href="https://www.vultr.com/?ref=9910327" target="_blank" rel="noopener noreferrer">outbound →</a></td>
+    </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="tr-section">
+        <h2>What it costs to run this site</h2>
+        <p>Everything runs on free tiers. Here is the whole bill.</p>
+        <table class="tr-table">
+          <thead><tr><th>Item</th><th>Provider</th><th>Monthly cost</th></tr></thead>
+          <tbody>
+            <tr><td>Hosting + CDN + Functions</td><td>Cloudflare Pages</td><td>$0</td></tr>
+            <tr><td>Transactional email</td><td>Resend free tier</td><td>$0</td></tr>
+            <tr><td>Analytics</td><td>Google Analytics 4</td><td>$0</td></tr>
+            <tr><td>Bot protection</td><td>Cloudflare Turnstile</td><td>$0</td></tr>
+            <tr><td>Domain</td><td>devcheap.click</td><td>~$12/yr (devcheap.click)</td></tr>
+            <tr><td>Total</td><td></td><td>{{RUN_COST}}</td></tr>
+          </tbody>
+        </table>
+        <div class="tr-note">
+          <p><strong>What earns money.</strong> Affiliate commissions from the links listed above, sponsorship slots when we have them, and display ads once traffic clears the network's minimum. We do not sell email lists, and there is no paid placement in the ratings.</p>
+          <p><strong>What does not earn money.</strong> The newsletter. It exists to tell people when a deal changes, not to make the site.</p>
+        </div>
+      </section>
+
+      <section class="tr-section">
+        <h2>What we have not done yet</h2>
+        <p>Being straight about the gaps matters more than the wins. Here is what is missing.</p>
+        <ul class="tr-list">
+          <li class="tr-no">We have not published team-test records. The badge and the tracking exist. Until a human has actually signed up and used a product, it stays off. 0 of {{DEAL_COUNT}} deals carry it today.</li>
+          <li class="tr-no">We do not publish a per-deal commission rate. Networks do not give us clean numbers to publish, and guessing would be worse than silence.</li>
+          <li class="tr-no">We do not take sponsorship for ratings or Top Picks slots. A sponsor can buy a category page slot, never a score.</li>
+        </ul>
+        <p style="margin-top:18px">When those lines change, this page changes with them. <a href="/rating-rubric/">Here is exactly how ratings work</a>, and <a href="/voice/">here is how the copy gets written</a>.</p>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo" aria-label="Site footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="nav-logo-badge">devcheap</span>
+          <p class="footer-text">Verified developer deals, curated weekly.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/rating-rubric/" class="footer-link">Rating Rubric</a>
+          <a href="/transparency/" class="footer-link">Transparency</a>
+          <a href="/voice/" class="footer-link">Voice</a>
+          <a href="/disclosure/" class="footer-link">Disclosure</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="/js/theme.js"></script>
+</body>
+</html>

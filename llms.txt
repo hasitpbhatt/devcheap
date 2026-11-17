@@ -13,9 +13,9 @@ DevCheap tracks **230 deals** across **21 categories**. Every deal is manually r
 - Total deals: **230**
 - Categories: **21**
 - Top-rated deals (≥ 8.0): **27**
-- Expired deals: **221**
+- Expired deals: **222**
 - Pricing: free: 205, trial: 10, paid: 9, lifetime: 6
-- Last updated: 2026-09-06
+- Last updated: 2026-11-17
 
 ## Top Deals
 - [Credit for Startups](https://creditforstartups.com) — Credit for Startups is a comprehensive directory of 43+ credit programs worth over $1M total. Browse AI/ML credits (21 p… [rating: 8.5] [free] (no expiry) — [Details](https://devcheap.click/deals/credit-for-startups/)

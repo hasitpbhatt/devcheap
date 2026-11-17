@@ -1,0 +1,5 @@
+{
+  "_comment": "Per-location voice exemptions. Each key is a locator, each value is the reason. VOICE.md §6 allows only three exceptions: direct quotes from an official description, legal copy, and code/config/technical reference. Keep this list short — every entry is a claim the site is making about its own standards.",
+  "deals.jsonl:jetbrains-junie.desc": "technical reference — \"IntelliJ IDEA Ultimate\" is a JetBrains product tier name, not marketing copy",
+  "template:voice.html": "direct quote — the page lists the banned words as a reference, not as marketing copy"
+}
