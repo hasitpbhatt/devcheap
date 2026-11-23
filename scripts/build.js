@@ -152,7 +152,10 @@ function getFileLastMod(filePath) {
     );
     if (raw.trim()) return raw.trim();
   } catch {
-    // fall through
+    console.warn(
+      `[build] git log failed for ${filePath}; using current date for lastmod. ` +
+      `If running outside a git checkout, sitemap lastmod will be inaccurate.`
+    );
   }
   return new Date().toISOString().split('T')[0];
 }
@@ -183,6 +186,7 @@ function buildTrackedUrl(deal) {
     url.searchParams.set('utm_content', deal.tracking_id || deal.id);
     return url.toString();
   } catch (e) {
+    console.warn(`[build] Cannot parse ${targetUrl} as a URL; returning raw targetUrl.`);
     return targetUrl;
   }
 }
@@ -191,7 +195,7 @@ function renderDealCard(deal, isNested = false) {
   const prefix = isNested ? '../../' : '';
   const folderPrefix = isNested ? '../' : 'deals/';
   const trackedUrl = buildTrackedUrl(deal);
-  const isPromoAutomatic = deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link');
+  const isPromoAutomatic = deal.code ? (deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link')) : false;
 
   let tagsHTML = '';
   if (deal.tags) {
@@ -236,7 +240,7 @@ function renderDealCard(deal, isNested = false) {
 
 function renderTopPickCard(deal) {
   const trackedUrl = buildTrackedUrl(deal);
-  const isPromoAutomatic = deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link');
+  const isPromoAutomatic = deal.code ? (deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link')) : false;
   const affiliateClass = deal.has_affiliate ? ' top-picks-card--affiliate' : '';
   const couponBtn = isPromoAutomatic
     ? `<button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled>${escapeHtml(deal.code)}</button>`
@@ -1568,7 +1572,7 @@ console.log('✅ Main index.html updated.');
     const trackedUrl = buildTrackedUrl(deal);
     const claimButton = `<a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="sidebar-btn sidebar-btn-primary" aria-label="Claim ${escapeHtml(deal.name)} deal - opens in new tab">Claim Deal</a>`;
 
-    const isPromoAutomatic = deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link');
+    const isPromoAutomatic = deal.code ? (deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link')) : false;
     const couponButton = isPromoAutomatic
       ? `<button class="sidebar-btn sidebar-btn-secondary" style="opacity:0.5;cursor:default" disabled aria-label="${escapeHtml(deal.name)} discount is automatic, no code needed"><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic Discount</button>`
       : `<button id="copy-coupon-btn" class="sidebar-btn sidebar-btn-secondary" data-code="${escapeHtml(deal.code)}" aria-label="Copy coupon code ${escapeHtml(deal.code)} for ${escapeHtml(deal.name)}"><svg class="icon icon-copy" width="14" height="14"><use href="/images/icons.svg#icon-copy"/></svg> Copy Coupon (${escapeHtml(deal.code)})</button>`;
@@ -1723,7 +1727,15 @@ const productJson = {
   console.log('✅ Generated sitemap.xml with all deal detail and redirect pages.');
   console.log('✅ Generated sitemap_index.xml.');
 
-  // 7. Generate archive.html — low-value deals kept linkable but off the homepage
+    // 7. Generate feed.xml from deals.jsonl
+    try {
+      execSync('pwsh -NoProfile -File scripts/generate-feed.ps1', { stdio: 'inherit' });
+      console.log('✅ Generated feed.xml from deals.jsonl.');
+    } catch (e) {
+      console.warn('⚠️ feed.xml generation failed (will run via separate pwsh script):', e.message);
+    }
+
+    // 8. Generate archive.html — low-value deals kept linkable but off the homepage
   await generateArchive(ROOT_DIR, deals, getFileLastMod);
 
   // 8. Generate aggregate "best of" article pages

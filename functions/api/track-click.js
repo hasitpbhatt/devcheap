@@ -17,7 +17,13 @@ function jsonResponse(body, status) {
 
 function isAllowedOrigin(origin) {
   if (!origin) return true;
-  return ALLOWED_ORIGINS.some((a) => origin.startsWith(a));
+  try {
+    const originUrl = new URL(origin);
+    const allowedHostnames = ALLOWED_ORIGINS.map((a) => new URL(a).hostname);
+    return allowedHostnames.includes(originUrl.hostname);
+  } catch {
+    return false;
+  }
 }
 
 export async function onRequest(context) {
@@ -81,6 +87,21 @@ export async function onRequest(context) {
 
   if (env.SUBSCRIBERS) {
     try {
+        const ip = request.headers.get('CF-Connecting-IP') || request.headers.get('X-Forwarded-For') || 'unknown';
+        const windowMs = 10 * 60 * 1000;
+        const eventKey = `click:${today}:${dealId}:${linkType}:${Date.now()}`;
+        const rateKey = `rl:click:${ip}:${today}:${dealId}:${linkType}`;
+        const rateWindow = Math.floor(Date.now() / windowMs);
+
+        // Rate limit: max 5 events per IP per 10-minute window per deal+link_type
+        const rateCur = parseInt((await env.SUBSCRIBERS.get(rateKey)) || '0', 10);
+        if (rateCur >= 5) {
+          console.warn(`[track-click] Rate limit exceeded for IP ${ip}, deal ${dealId}, linkType ${linkType}`);
+          // Still record the event but skip the KV write to avoid flood
+        } else {
+          await env.SUBSCRIBERS.put(rateKey, String(rateCur + 1), { expirationTtl: 60 * 60 * 24 * 90 });
+        }
+
       const eventKey = `click:${today}:${dealId}:${linkType}:${Date.now()}`;
       const dailyKey = `click_count:${today}:${dealId}:${linkType}`;
       const dailyTotal = `click_total:${today}`;
