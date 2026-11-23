@@ -6,7 +6,7 @@
     <description>Verified deals on APIs, hosting, databases, and AI tools. Free credits, lifetime discounts, and limited offers curated weekly. Some links are affiliate links (disclosed at https://devcheap.click/disclosure/).</description>
     <copyright>DevCheap. Some links are affiliate links.</copyright>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Nov 2026 06:03:22 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2026 06:20:15 GMT</lastBuildDate>
     <atom:link href="https://devcheap.click/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>AI21 Studio — $10 Free Credits (3 Months)</title>
@@ -115,7 +115,7 @@
     <item>
       <title>AWS Bedrock Free Tier — 12 Months Free Claude Access</title>
       <link>https://devcheap.click/deals/aws-bedrock-free/</link>
-      <description>Test Claude via AWS Bedrock using $200 free credits — no Anthropic account needed, works with onboarding tasks AWS Bedrock provides free access to Claude models using AWS&apos;s $200 free credits for new users. The credits work across 200+ AWS services including Bedrock. One of the onboarding tasks specifically involves running a model in the Bedrock playground, making it easy to test Claude without an Anthropic account.</description>
+      <description>Test Claude via AWS Bedrock using $200 free credits — no Anthropic account needed, works with onboarding tasks AWS Bedrock provides free access to Claude models using AWS&apos;s $200 free credits for new users. The credits work across 200+ AWS services including Bedrock. One of the onboarding tasks specifically involves running a model in the Bedrock playground, making it easy to test Claude without an Anthrop...</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">aws-bedrock-free</guid>
       <category>AI &amp; LLM</category>
@@ -179,7 +179,7 @@
     <item>
       <title>Builder Deals Intel — Daily Builder Deals Brief</title>
       <link>https://devcheap.click/deals/builder-deals-intel/</link>
-      <description>Daily brief of verified tech deals — source-backed, risk-labeled, confidence-scored for builders Builder Deals Intel provides a daily operating brief comparing AI tools, SaaS, hosting, cloud credits, and developer infrastructure. Every item includes source links, risk labels, and confidence scoring. Tracks deals from GitHub Student Pack, Supabase, Neon, Sentry, Upstash, MongoDB, Clerk, and more.</description>
+      <description>Daily brief of verified tech deals — source-backed, risk-labeled, confidence-scored for builders Builder Deals Intel provides a daily operating brief comparing AI tools, SaaS, hosting, cloud credits, and developer infrastructure. Every item includes source links, risk labels, and confidence scoring. Tracks deals from GitHub Student Pack, Supabase, Neon, Sentry, Upstash, MongoDB, Clerk, and m...</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">builder-deals-intel</guid>
       <category>Developer Tools</category>
@@ -411,7 +411,7 @@
     <item>
       <title>DeepLearning.AI — 1 Month Free Pro Membership</title>
       <link>https://devcheap.click/deals/deeplearning-ai/</link>
-      <description>1 month free DeepLearning.AI Pro — full AI course catalog with labs and projects, use code AMDAIDEV22 DeepLearning.AI Pro membership gives you full access to the complete course catalog including hands-on labs, projects, and expert-led content. Get 1 month free exclusively through the AMD AI Developer Program. Code works for new DeepLearning.AI Pro members. Must join the free AMD AI Developer Program to access the code.</description>
+      <description>1 month free DeepLearning.AI Pro — full AI course catalog with labs and projects, use code AMDAIDEV22 DeepLearning.AI Pro membership gives you full access to the complete course catalog including hands-on labs, projects, and expert-led content. Get 1 month free exclusively through the AMD AI Developer Program. Code works for new DeepLearning.AI Pro members. Must join the free AMD AI Developer Pro...</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">deeplearning-ai</guid>
       <category>AI</category>
@@ -451,7 +451,7 @@
     <item>
       <title>F6S Deals Platform — $500K+ Aggregated Startup Credits</title>
       <link>https://devcheap.click/deals/f6s-deals/</link>
-      <description>$500K+ aggregated startup credits — one-stop platform for AWS, Google Cloud, Stripe, and more F6S is a global networking platform for founders that aggregates deals, discounts, and credit opportunities. Access exclusive offers on hosting, design, software, email, and more. Connect with other startups, recruit talent, and apply for funding. Most AWS, Google Cloud, and Stripe credits can be accessed through F6S.</description>
+      <description>$500K+ aggregated startup credits — one-stop platform for AWS, Google Cloud, Stripe, and more F6S is a global networking platform for founders that aggregates deals, discounts, and credit opportunities. Access exclusive offers on hosting, design, software, email, and more. Connect with other startups, recruit talent, and apply for funding. Most AWS, Google Cloud, and Stripe credits can be...</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">f6s-deals</guid>
       <category>Developer Tools</category>
@@ -515,7 +515,7 @@
     <item>
       <title>GitHub for Startups — 20 Enterprise Seats Free + $10K Credits (12 mo)</title>
       <link>https://devcheap.click/deals/github-for-startups/</link>
-      <description>Covers engineering tooling for small teams — Enterprise, Copilot, and Advanced Security for a year without the usual seat cost. Eligible early-stage startups get 20 seats of GitHub Enterprise free for 12 months plus $10,000 in flexible platform credits for Copilot, Advanced Security, Actions, and more.</description>
+      <description>Covers engineering tooling for small teams — Enterprise, Copilot, and Advanced Security for a year without the usual... Eligible early-stage startups get 20 seats of GitHub Enterprise free for 12 months plus $10,000 in flexible platform credits for Copilot, Advanced Security, Actions, and more.</description>
       <pubDate>Fri, 01 Jan 2027 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">github-for-startups</guid>
       <category>Developer Tools</category>
@@ -539,7 +539,7 @@
     <item>
       <title>GitHub Team for Startups — 1 Year Free Team Plan</title>
       <link>https://devcheap.click/deals/github-team-startup/</link>
-      <description>1 year GitHub Team free — protected branches, required reviews, 3K CI/CD minutes for startups GitHub for Startups provides qualifying teams with GitHub Team plan free for 12 months. Team plan includes protected branches, required code reviews, 50 CI/CD minutes/month per user, 3,000 shared Actions minutes, code owners, required status checks, and advanced audit logging. Value: $252-$1,200+ depending on team size.</description>
+      <description>1 year GitHub Team free — protected branches, required reviews, 3K CI/CD minutes for startups GitHub for Startups provides qualifying teams with GitHub Team plan free for 12 months. Team plan includes protected branches, required code reviews, 50 CI/CD minutes/month per user, 3,000 shared Actions minutes, code owners, required status checks, and advanced audit logging. Value: $252-$1,200+...</description>
       <pubDate>Sun, 04 Jul 2027 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">github-team-startup</guid>
       <category>Developer Tools</category>
@@ -731,7 +731,7 @@
     <item>
       <title>Microsoft for Startups — $5,000-$150,000 Azure Credits</title>
       <link>https://devcheap.click/deals/microsoft-for-startups/</link>
-      <description>$5K-$150K Azure credits — Founders Hub offers instant $5K, Investor Network up to $150K Microsoft for Startups offers up to $150,000 in Azure credits. Founders Hub provides instant $5,000 tier accessible to all startups. Investor Network tier offers $100,000-$150,000 for investor-backed companies. Includes access to GitHub Enterprise, Visual Studio, Microsoft 365, and OpenAI API credits.</description>
+      <description>$5K-$150K Azure credits — Founders Hub offers instant $5K, Investor Network up to $150K Microsoft for Startups offers up to $150,000 in Azure credits. Founders Hub provides instant $5,000 tier accessible to all startups. Investor Network tier offers $100,000-$150,000 for investor-backed companies. Includes access to GitHub Enterprise, Visual Studio, Microsoft 365, and OpenAI API cre...</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">microsoft-for-startups</guid>
       <category>Hosting &amp; Cloud</category>
@@ -795,7 +795,7 @@
     <item>
       <title>Native.Builder — 1 Month Free Lablab Builder Plan</title>
       <link>https://devcheap.click/deals/native-builder/</link>
-      <description>1 month free Lablab Builder plan — AI agents build and deploy production React apps from a single prompt, connect Fireworks AI for hackathon credits AI-powered software factory — describe what you need and specialized agents plan, code, test, and ship a production React app. Sign up, go to Manage Plan &gt; Change Plan, and enter promo code AMDXBUILDER for 1 month free Lablab Builder plan. Connect Fireworks AI API key in Integrations for hackathon credits.</description>
+      <description>1 month free Lablab Builder plan — AI agents build and deploy production React apps from a single prompt, connect Fir... AI-powered software factory — describe what you need and specialized agents plan, code, test, and ship a production React app. Sign up, go to Manage Plan &gt; Change Plan, and enter promo code AMDXBUILDER for 1 month free Lablab Builder plan. Connect Fireworks AI API key in Integrations for hackatho...</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">native-builder</guid>
       <category>Developer Tools</category>
@@ -1043,7 +1043,7 @@
     <item>
       <title>SaaSOffers — 50+ Verified Startup Deals</title>
       <link>https://devcheap.click/deals/saasoffers/</link>
-      <description>50+ verified startup deals in one place — instant claims for free tiers, applications for high-value credits SaaSOffers is an aggregator platform that verifies eligibility and provides direct application links for 50+ startup deals. Free-tier deals (Notion, Linear, Figma) can be claimed instantly. Higher-value credits (AWS, Chargebee, Mixpanel) require short applications. Total value can exceed $500,000 across all programs.</description>
+      <description>50+ verified startup deals in one place — instant claims for free tiers, applications for high-value credits SaaSOffers is an aggregator platform that verifies eligibility and provides direct application links for 50+ startup deals. Free-tier deals (Notion, Linear, Figma) can be claimed instantly. Higher-value credits (AWS, Chargebee, Mixpanel) require short applications. Total value can exceed $500,000...</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">saasoffers</guid>
       <category>Developer Tools</category>
@@ -1051,7 +1051,7 @@
     <item>
       <title>SambaNova Cloud — $5 Credits + Ongoing Free Tier (~200K tok/day)</title>
       <link>https://devcheap.click/deals/sambanova-cloud/</link>
-      <description>$5 credits + permanent free tier at ~200K tok/day — fastest inference on open models, no CC required Fastest inference for open models using custom RDU hardware. $5 free credits (~30M tokens on Llama 8B) plus an ongoing rate-limited free tier (~200K tokens/day, ~40 requests/day) that continues after credits expire. No credit card needed. Models include DeepSeek V3.1, Llama 3.3 70B, MiniMax M2.7, Gemma 4.</description>
+      <description>$5 credits + permanent free tier at ~200K tok/day — fastest inference on open models, no CC required Fastest inference for open models using custom RDU hardware. $5 free credits (~30M tokens on Llama 8B) plus an ongoing rate-limited free tier (~200K tokens/day, ~40 requests/day) that continues after credits expire. No credit card needed. Models include DeepSeek V3.1, Llama 3.3 70B, MiniMax M2.7,...</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">sambanova-cloud</guid>
       <category>AI &amp; LLM</category>
@@ -1251,7 +1251,7 @@
     <item>
       <title>YC Deals — $500K+ Worth of Deals for YC Companies</title>
       <link>https://devcheap.click/deals/ycombinator-deals/</link>
-      <description>$500K+ worth of exclusive deals for YC companies — 100+ tools with free credits and discounts Y Combinator provides current and alumni companies access to a private portal with 100+ discounts and exclusive offers on tools YC uses. Includes deals from PostHog, Fivetran, OneSignal, Deel, Vanta, Gusto, GitHub, Algolia, Amplitude, and more. Total value exceeds $500,000 in free credits and discounts.</description>
+      <description>$500K+ worth of exclusive deals for YC companies — 100+ tools with free credits and discounts Y Combinator provides current and alumni companies access to a private portal with 100+ discounts and exclusive offers on tools YC uses. Includes deals from PostHog, Fivetran, OneSignal, Deel, Vanta, Gusto, GitHub, Algolia, Amplitude, and more. Total value exceeds $500,000 in free credits and dis...</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">ycombinator-deals</guid>
       <category>Developer Tools</category>
@@ -1323,7 +1323,7 @@
     <item>
       <title>Confluent for Startups — ~$20,000 Kafka + Flink Credits</title>
       <link>https://devcheap.click/deals/confluent-startups/</link>
-      <description>~$20K Confluent Cloud credits — managed Kafka and Flink for real-time data streaming startups Confluent for Startups offers approximately $20,000 in credits for Confluent Cloud (managed Apache Kafka and Flink). Real-time data streaming, event-driven architectures, and stream processing. Includes access to Kafka clusters, Flink compute, and ksqlDB. Application required for qualifying startups.</description>
+      <description>~$20K Confluent Cloud credits — managed Kafka and Flink for real-time data streaming startups Confluent for Startups offers approximately $20,000 in credits for Confluent Cloud (managed Apache Kafka and Flink). Real-time data streaming, event-driven architectures, and stream processing. Includes access to Kafka clusters, Flink compute, and ksqlDB. Application required for qualifying start...</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">confluent-startups</guid>
       <category>Database</category>

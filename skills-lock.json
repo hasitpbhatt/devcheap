@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "skills": {
+    "browseros-neo": {
+      "source": "browseros-ai/BrowserOS",
+      "commit": "329a2b06781c43f5a60b3ef7d557ccf0fd518704",
+      "sourceType": "github",
+      "skillPath": "skills/browseros-neo/SKILL.md",
+      "computedHash": "09d83c041f66d558668a93b294c637277305a5700e4c6f9e0890632aaebb4b2d"
+    }
+  }
+}
