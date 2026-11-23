@@ -1,4 +1,13 @@
-const ALLOWED_ORIGINS = ['https://devcheap.click', 'https://devcheap-3uq.pages.dev', 'http://localhost:8788', 'http://localhost:3000', 'http://localhost:5173', 'http://127.0.0.1:8788', 'http://127.0.0.1:3000', 'http://127.0.0.1:5173'];
+const ALLOWED_ORIGINS = [
+  { origin: 'https://devcheap.click', host: 'devcheap.click' },
+  { origin: 'https://devcheap-3uq.pages.dev', host: 'devcheap-3uq.pages.dev' },
+  { origin: 'http://localhost:8788', host: 'localhost' },
+  { origin: 'http://localhost:3000', host: 'localhost' },
+  { origin: 'http://localhost:5173', host: 'localhost' },
+  { origin: 'http://127.0.0.1:8788', host: '127.0.0.1' },
+  { origin: 'http://127.0.0.1:3000', host: '127.0.0.1' },
+  { origin: 'http://127.0.0.1:5173', host: '127.0.0.1' },
+];
 
 async function verifyTurnstile(token, secret) {
   if (!token || !secret) return false;
@@ -110,7 +119,13 @@ export async function onRequest(context) {
   }
 
   const origin = request.headers.get('Origin') || request.headers.get('Referer') || '';
-  const allowed = ALLOWED_ORIGINS.some(a => origin.startsWith(a));
+  let allowed = false;
+  try {
+    const originUrl = new URL(origin);
+    allowed = ALLOWED_ORIGINS.some((a) => originUrl.hostname === a.host);
+  } catch {
+    allowed = false;
+  }
   if (!allowed) {
     return new Response(JSON.stringify({ error: 'Forbidden' }), {
       status: 403, headers: { 'Content-Type': 'application/json' },

@@ -4,7 +4,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/hasitpbhatt/devcheap)](https://github.com/hasitpbhatt/devcheap/commits/main)
 [![Deployed](https://img.shields.io/badge/Cloudflare%20Pages-Deployed-brightgreen)](https://devcheap.click)
 
-Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **230 deals** across **21 categories**. Six **Top Picks** (hand-curated, affiliate-supported) sit above the full grid.
+Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **234 deals** across **21 categories**. Six **Top Picks** (hand-curated, affiliate-supported) sit above the full grid.
 
 The site is built and operated under a documented 6-month strategy with a 5-person committee model (Mitchell / Dharmesh / Lenny / Bret / Sahil). For the strategic frame, decision criteria, and the editorial voice rules, see:
 
@@ -51,27 +51,28 @@ devcheap/
 
 | Category | Deals |
 |---|---|
-| AI & LLM | 46 |
-| Developer Tools | 42 |
-| Hosting & Cloud | 31 |
-| Database | 17 |
-| APIs & Email | 6 |
-| Productivity | 6 |
-| Monitoring | 7 |
-| Design & Collaboration | 8 |
-| Web Analytics | 5 |
-| Domains & Hosting | 4 |
+| AI & LLM | 51 |
+| Developer Tools | 48 |
+| Hosting & Cloud | 36 |
+| Database | 22 |
+| APIs & Search | 5 |
+| APIs & Email | 5 |
+| Auth | 7 |
+| Productivity | 7 |
+| Monitoring | 13 |
+| Design & Collaboration | 9 |
+| Web Analytics | 4 |
+| Domains & Hosting | 2 |
 | CI/CD | 3 |
-| Customer Support | 3 |
+| Customer Support | 4 |
 | APIs & Payments | 3 |
 | Security | 3 |
 | AI | 2 |
-| Auth | 2 |
-| APIs & Search | 2 |
+| APIs & Search | 5 |
+| Storage & Cloud | 4 |
 | Media & Images | 2 |
-| Storage & Cloud | 2 |
-| Testing & QA | 2 |
 | Sales & Marketing | 1 |
+| Testing & QA | 3 |
 
 ---
 
