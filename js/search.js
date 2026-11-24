@@ -19,8 +19,9 @@ let showArchive = false;
 
 function isFeatured(deal) {
   // Affiliate deals are always featured regardless of rating
-  if (deal.has_affiliate) return true;
+  // Retired check first to match scripts/build.js filter order
   if (deal.status === 'retired') return false;
+  if (deal.has_affiliate) return true;
   if (deal.expires && new Date(deal.expires).getTime() < Date.now()) return false;
   const r = typeof deal.rating === 'number' ? deal.rating : 0;
   return r >= FEATURED_RATING_MIN;

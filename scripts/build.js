@@ -346,6 +346,12 @@ function renderDealCard(deal, isNested = false) {
 
   const cardBadgesHTML = renderCardBadges(deal);
 
+    // Retired deals keep their page but never market an active CTA.
+    // Mirror the detail-page sidebar: disabled "No longer available" badge.
+    const claimBtn = isRetiredDeal(deal)
+      ? `<span class="deal-card-btn deal-card-btn-primary" aria-disabled="true" title="${escapeHtml(deal.name)} is retired and no longer accepting signups">No longer available</span>`
+      : `<a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>`;
+
   return `
       <div class="deal-card">
         <div class="deal-card-header">
@@ -358,7 +364,7 @@ function renderDealCard(deal, isNested = false) {
         <p class="deal-card-desc">${escapeHtml(deal.desc)}</p>
         <div class="deal-card-tags">${programHTML}${cardBadgesHTML}${tagsHTML}${expiresHTML}</div>
         <div class="deal-card-footer">
-          <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>
+            ${claimBtn}
           ${couponBtn}
         </div>
       </div>`;
