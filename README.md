@@ -4,7 +4,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/hasitpbhatt/devcheap)](https://github.com/hasitpbhatt/devcheap/commits/main)
 [![Deployed](https://img.shields.io/badge/Cloudflare%20Pages-Deployed-brightgreen)](https://devcheap.click)
 
-Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **234 deals** across **21 categories**. Six **Top Picks** (hand-curated, affiliate-supported) sit above the full grid.
+Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **346 deals** across **26 categories**. Six **Top Picks** (hand-curated, affiliate-supported) sit above the full grid.
 
 The site is built and operated under a documented 6-month strategy with a 5-person committee model (Mitchell / Dharmesh / Lenny / Bret / Sahil). For the strategic frame, decision criteria, and the editorial voice rules, see:
 
@@ -29,13 +29,14 @@ devcheap/
 ├── .github/workflows/   # CI/deploy pipelines (Cloudflare Pages)
 ├── css/                 # Stylesheets (light/dark theme)
 ├── data/
-│   └── deals.jsonl      # Deal database (JSONL format, 197 lines)
+│   └── deals.jsonl      # Deal database (JSONL format, 346 lines)
 ├── functions/api/       # Cloudflare Functions (email subscribe)
 ├── js/                  # Search, category filter, affiliate tracking
 ├── scripts/             # Utility scripts (feed generation, data entry)
 ├── tests/               # Vitest: schema validation, UI, HTML, a11y
 ├── AGENTS.md            # Agent sync instructions (auto-aware bots)
 ├── CNAME                # Custom domain (devcheap.click)
+├── _redirects           # 301s from retired deal slugs to their canonical deal (hand-maintained)
 ├── CONTRIBUTING.md      # Contribution guide
 ├── README.md            # This file
 ├── index.html           # Main page
@@ -51,28 +52,32 @@ devcheap/
 
 | Category | Deals |
 |---|---|
-| AI & LLM | 51 |
-| Developer Tools | 48 |
-| Hosting & Cloud | 36 |
-| Database | 22 |
+| AI & LLM | 58 |
+| Developer Tools | 57 |
+| Database | 40 |
+| Hosting & Cloud | 33 |
+| Monitoring | 19 |
+| Auth | 14 |
+| Students & Education | 12 |
+| APIs & Email | 11 |
+| Open Source Programs | 11 |
+| GPU Compute | 10 |
+| APIs & Payments | 9 |
+| Self-Hosted Tools | 9 |
+| Web Analytics | 9 |
+| Design & Collaboration | 8 |
+| Security | 8 |
+| Productivity | 6 |
 | APIs & Search | 5 |
-| APIs & Email | 5 |
-| Auth | 7 |
-| Productivity | 7 |
-| Monitoring | 13 |
-| Design & Collaboration | 9 |
-| Web Analytics | 4 |
-| Domains & Hosting | 2 |
-| CI/CD | 3 |
+| CI/CD | 5 |
 | Customer Support | 4 |
-| APIs & Payments | 3 |
-| Security | 3 |
-| AI | 2 |
-| APIs & Search | 5 |
+| Startup Perks | 4 |
 | Storage & Cloud | 4 |
+| Testing & QA | 3 |
+| AI | 2 |
+| Domains & Hosting | 2 |
 | Media & Images | 2 |
 | Sales & Marketing | 1 |
-| Testing & QA | 3 |
 
 ---
 

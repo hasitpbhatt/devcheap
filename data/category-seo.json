@@ -270,5 +270,80 @@
     "title": "Best SEO Deals 2026 — Free SEO Tools & Discounts",
     "h1": "SEO Deals for Developers",
     "intro": "Improve your search rankings with discounted SEO tools. Get site audits, keyword research, and optimization tools through exclusive developer deals."
+  },
+  "students & education": {
+    "title": "Student Developer Deals 2026 — Free Software, Cloud Credits & Licenses",
+    "h1": "Student Developer Deals",
+    "intro": "Verified students get the deepest discounts in software: free JetBrains IDEs, $100 of Azure credit with no credit card, a GitHub Student Pack bundling Copilot and a free domain, plus free Figma, Unity, and Autodesk licenses. Almost none of it is advertised, and all of it needs a student email address.",
+    "faqs": [
+      {
+        "q": "What is the single best student deal for developers?",
+        "a": "The GitHub Student Developer Pack. One verification unlocks GitHub Copilot, $200 in DigitalOcean credit, a free .TECH domain, JetBrains IDEs, and 100+ partner offers. Pair it with JetBrains Educational Licenses and Azure for Students, which needs no credit card."
+      },
+      {
+        "q": "Do student deals require a credit card?",
+        "a": "Mostly no. Azure for Students gives $100 in credit without a card, and AWS Educate offers labs with no charges. A few programs do ask for a card for identity checks, so read the terms before signing up."
+      }
+    ]
+  },
+  "open source programs": {
+    "title": "Open Source Program Deals 2026 — Free Plans for Maintainers",
+    "h1": "Open Source Maintainer Deals",
+    "intro": "Maintainers qualify for paid tiers at no cost on a surprising number of platforms. GitLab gives Ultimate free with 50,000 compute minutes, Vercel hands open-source projects the Pro plan, Sentry monitors them for free, and Algolia DocSearch indexes your documentation. Applying usually takes one form and a link to your repository.",
+    "faqs": [
+      {
+        "q": "How do I qualify for an open source program?",
+        "a": "Requirements vary, but the pattern is the same: a public repository with an OSI-approved licence, a track record of activity, and a short application. Non-commercial projects qualify most often, and these plans usually need renewing every year."
+      },
+      {
+        "q": "Which open source programs are worth applying to first?",
+        "a": "Start with GitLab for Open Source (Ultimate with 50,000 compute minutes), Vercel for Open Source (free Pro plan), and Sentry for Open Source. Those three cover the biggest recurring line items for a typical project."
+      }
+    ]
+  },
+  "gpu compute": {
+    "title": "GPU & AI Compute Deals 2026 — Free GPU Hours and Cheap H100s",
+    "h1": "GPU Compute Deals",
+    "intro": "You can train and run models without buying a GPU or committing to a reserved instance. Kaggle and Google Colab hand out free GPU notebooks, Hugging Face hosts free demo Spaces, and marketplaces like RunPod and Vast.ai rent H100s and A100s by the second with no contract.",
+    "faqs": [
+      {
+        "q": "Where can I get free GPU time?",
+        "a": "Kaggle gives every account a recurring weekly GPU quota plus a separate TPU allowance, and Google Colab provides a free tier with shared GPU runtimes. Both are enough for coursework, fine-tuning small models, and prototyping."
+      },
+      {
+        "q": "Is renting a GPU cheaper than buying one?",
+        "a": "For anything intermittent, dramatically. Marketplaces such as Vast.ai let you start with a $5 balance, RunPod bills H100 80GB instances by the second, and Lightning AI offers on-demand H200s from around $4.50 per hour. Compare that with the cost of a card plus the power and cooling to run it."
+      }
+    ]
+  },
+  "startup perks": {
+    "title": "Startup Perks 2026 — Free Credits, Banking & Software Bundles",
+    "h1": "Startup Perks and Credit Bundles",
+    "intro": "Perk directories are the fastest way to cut a new company's software bill: Mercury and Brex publish bundles of partner credits, and Notion gives eligible startups up to six months of its Business plan with AI included. Claim them before you pay for anything at list price.",
+    "faqs": [
+      {
+        "q": "What are startup perk bundles?",
+        "a": "They are aggregated partner offers — cloud credits, SaaS discounts, and free tiers — that a bank, payroll provider, or platform negotiates for its customers. Mercury publishes one alongside $0/month business banking, and Brex and Deel maintain their own directories."
+      },
+      {
+        "q": "Do I need funding to claim startup perks?",
+        "a": "Not always. Many bundles are open to any newly formed company, while the larger cloud credit programs set funding and age thresholds — often under $5M raised and less than five years old. Read each program's eligibility before applying."
+      }
+    ]
+  },
+  "self-hosted tools": {
+    "title": "Best Self-Hosted Developer Tools 2026 — Free Forever Alternatives",
+    "h1": "Self-Hosted Tools That Are Free Forever",
+    "intro": "The cheapest hosting plan is the one running on a $5 VPS you already own. n8n, Metabase, Appsmith, Airbyte, and Windmill all ship open-source editions with no seat limits, so a small team can run automation, dashboards, internal tools, and data pipelines for the price of the server.",
+    "faqs": [
+      {
+        "q": "Why self-host instead of paying for SaaS?",
+        "a": "Per-seat and per-task pricing is where these tools get expensive. A self-hosted n8n runs unlimited workflow executions, Metabase gives unlimited dashboard viewers, and Appsmith allows unlimited users — costs that scale with your team rather than with your infrastructure."
+      },
+      {
+        "q": "What does self-hosting actually cost?",
+        "a": "Usually the VPS and your time. Most of these ship a Docker image or a one-command installer, and platforms like Dokploy or CapRover turn a single server into a one-click deployment target with automatic SSL, so you are not hand-managing containers."
+      }
+    ]
   }
 }

@@ -78,7 +78,9 @@ describe('deals.json schema', () => {
       'Monitoring', 'Domains & Hosting', 'Storage & Cloud', 'Security',
       'Productivity', 'SEO', 'AI', 'Social Media', 'Customer Support',
       'Sales & Marketing', 'Services', 'Design & Collaboration',
-      'Web Analytics', 'Media & Images', 'CI/CD', 'Testing & QA'
+      'Web Analytics', 'Media & Images', 'CI/CD', 'Testing & QA',
+      'Students & Education', 'Open Source Programs', 'GPU Compute',
+      'Startup Perks', 'Self-Hosted Tools'
     ];
     expect(new Set(validCategories).size).toBe(validCategories.length);
     deals.forEach((deal, i) => {

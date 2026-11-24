@@ -2,9 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>https://devcheap.click/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>weekly</changefreq>
   <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/adapty/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/adapty/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://devcheap.click/deals/ai21/</loc>
@@ -19,6 +31,30 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/aikido/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/aikido/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/airbyte/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/airbyte/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/airtable/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -26,18 +62,6 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/airtable/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.5</priority>
-</url>
-<url>
-  <loc>https://devcheap.click/deals/airtable-free-tier/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://devcheap.click/r/airtable-free-tier/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -74,6 +98,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/algolia/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/algolia-docsearch/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/algolia-docsearch/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -139,6 +175,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/appsmith/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/appsmith/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/appwrite/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -158,6 +206,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/arcee-ai-trinity/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/arize-phoenix/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/arize-phoenix/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -199,6 +259,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/autodesk-education/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/autodesk-education/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/aws-activate/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -223,6 +295,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/aws-educate/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/aws-educate/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/aws-free-credits/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -235,6 +319,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/axiom/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/axiom/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/azure-cosmosdb-free/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -242,6 +338,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/azure-cosmosdb-free/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/azure-for-students/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/azure-for-students/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -295,18 +403,6 @@
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/deals/betterstack-free/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://devcheap.click/r/betterstack-free/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.5</priority>
-</url>
-<url>
   <loc>https://devcheap.click/deals/bitrig/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -314,6 +410,54 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/bitrig/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/bitrise/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/bitrise/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/braintrust/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/braintrust/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/brevo/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/brevo/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/brex-perks/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/brex-perks/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -331,6 +475,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/browserstack-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/browserstack-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/bruno/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -338,6 +494,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/bruno/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/budibase/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/budibase/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -367,6 +535,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/buttondown/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/buttondown/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/cal-com/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -374,6 +554,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/cal-com/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/caprover/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/caprover/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -403,6 +595,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/chroma/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/chroma/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/chutes/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -422,6 +626,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/circleci/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/circleci-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/circleci-open-source/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -535,18 +751,6 @@
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/deals/cloudflare-workers-free/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://devcheap.click/r/cloudflare-workers-free/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.5</priority>
-</url>
-<url>
   <loc>https://devcheap.click/deals/cloudflare-workers-ai/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -619,6 +823,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/codemagic/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/codemagic/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/coderabbit/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -655,6 +871,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/configcat/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/configcat/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/confluent-startups/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -679,6 +907,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/convex/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/convex/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/coolify/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -691,6 +931,42 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/coralogix/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/coralogix/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/coreweave/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/coreweave/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/couchbase-capella/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/couchbase-capella/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/credit-for-startups/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -698,6 +974,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/credit-for-startups/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/creem/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/creem/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -739,6 +1027,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/dash0/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/dash0/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/databricks-startup/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -758,6 +1058,30 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/datadog/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/datastax-astra/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/datastax-astra/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/deel-perks/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/deel-perks/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -847,6 +1171,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/directus/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/directus/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/docker-hub-free/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -854,6 +1190,30 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/docker-hub-free/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/docker-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/docker-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/dokploy/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/dokploy/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -907,6 +1267,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/expo-eas/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/expo-eas/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/f6s-deals/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -914,6 +1286,30 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/f6s-deals/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/fal-ai/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/fal-ai/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/fathom/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/fathom/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -931,13 +1327,13 @@
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/deals/figma-free/</loc>
+  <loc>https://devcheap.click/deals/figma-education/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/r/figma-free/</loc>
+  <loc>https://devcheap.click/r/figma-education/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -979,6 +1375,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/flagsmith/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/flagsmith/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/flyio/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1010,6 +1418,42 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/gamma/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/gel/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/gel/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/gitbook/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/gitbook/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/gitguardian/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/gitguardian/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1087,6 +1531,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/github-student-pack/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/github-student-pack/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/github-team-startup/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1106,6 +1562,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/gitlab/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/gitlab-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/gitlab-open-source/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1142,6 +1610,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/google-cloud-startups/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/google-colab/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/google-colab/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1195,6 +1675,54 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/growthbook/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/growthbook/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/hanko/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/hanko/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/hasura/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/hasura/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/helicone/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/helicone/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/hetzner/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1202,6 +1730,30 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/hetzner/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/stack-auth/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/stack-auth/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/highlight/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/highlight/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1243,6 +1795,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/huggingface-free/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/huggingface-free/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/huggingface-providers/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1274,6 +1838,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/hyperbrowser-free-plan/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/hyperdx/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/hyperdx/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1327,6 +1903,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/influxdb/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/influxdb/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/insomnia-free/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1375,6 +1963,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/jetbrains-students/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/jetbrains-students/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/jetbrains-junie/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1387,6 +1987,30 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/jetbrains-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/jetbrains-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/kaggle-gpu/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/kaggle-gpu/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/kestra/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1394,6 +2018,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/kestra/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/kinde/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/kinde/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1447,6 +2083,42 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/lambda/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/lambda/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/lancedb/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/lancedb/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/langfuse/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/langfuse/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/langfuse-research-fast-grant/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1454,6 +2126,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/langfuse-research-fast-grant/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/langsmith/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/langsmith/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1478,6 +2162,30 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/layers/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/lemonsqueezy/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/lemonsqueezy/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/lightning-ai/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/lightning-ai/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1555,6 +2263,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/loops/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/loops/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/lucidchart/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1562,6 +2282,42 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/lucidchart/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/mailgun/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/mailgun/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/mailjet/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/mailjet/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/matomo-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/matomo-cloud/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1591,6 +2347,30 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/mend/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/mend/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/mercury-perks/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/mercury-perks/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/meta-muse-ember-hackathon-credits/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1603,6 +2383,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/metabase/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/metabase/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/microsoft-for-startups/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1610,6 +2402,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/microsoft-for-startups/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/microsoft-learn-student-ambassadors/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/microsoft-learn-student-ambassadors/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1646,6 +2450,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/miro/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/miro-education/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/miro-education/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1699,6 +2515,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/mongodb-for-students/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/mongodb-for-students/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/motherduck/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1718,6 +2546,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/mural/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/n8n/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/n8n/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1759,6 +2599,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/neo4j-aura/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/neo4j-aura/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/neo4j-startup/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1778,18 +2630,6 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/neon/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.5</priority>
-</url>
-<url>
-  <loc>https://devcheap.click/deals/neon-serverless-postgres/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://devcheap.click/r/neon-serverless-postgres/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1819,6 +2659,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/netlify-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/netlify-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/new-relic-startups/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1838,6 +2690,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/ngrok/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/nhost/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/nhost/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1879,13 +2743,25 @@
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/deals/notion-free/</loc>
+  <loc>https://devcheap.click/deals/notion-for-education/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/r/notion-free/</loc>
+  <loc>https://devcheap.click/r/notion-for-education/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/notion-for-startups/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/notion-for-startups/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1898,6 +2774,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/novita/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/novita-ai/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/novita-ai/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -1975,6 +2863,30 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/openobserve/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/openobserve/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/openpanel/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/openpanel/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/openrouter/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -1999,6 +2911,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/ory/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/ory/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/ovhcloud-startup/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2006,6 +2930,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/ovhcloud-startup/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/paddle/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/paddle/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2035,6 +2971,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/pinecone/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/pinecone/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/plane/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2059,6 +3007,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/plunk/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/plunk/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/pocketbase/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2066,6 +3026,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/pocketbase/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/polar/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/polar/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2083,6 +3055,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/portkey/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/portkey/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/posthog/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2090,18 +3074,6 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/posthog/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.5</priority>
-</url>
-<url>
-  <loc>https://devcheap.click/deals/posthog-free/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://devcheap.click/r/posthog-free/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2131,6 +3103,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/postman-student-program/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/postman-student-program/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/postmark/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2138,6 +3122,30 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/postmark/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/prisma-postgres/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/prisma-postgres/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/propelauth/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/propelauth/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2167,6 +3175,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/qdrant/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/qdrant/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/railway/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2179,13 +3199,13 @@
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/deals/railway-free/</loc>
+  <loc>https://devcheap.click/deals/readme/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/r/railway-free/</loc>
+  <loc>https://devcheap.click/r/readme/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2198,6 +3218,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/redis-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/redocly/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/redocly/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2251,6 +3283,30 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/revenuecat/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/revenuecat/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/runpod/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/runpod/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/saasoffers/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2287,6 +3343,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/scalar/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/scalar/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/scaleway/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2311,6 +3379,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/scylladb-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/scylladb-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/searlo-free-credits/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2318,6 +3398,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/searlo-free-credits/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/semgrep/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/semgrep/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2347,6 +3439,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/sentry-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/sentry-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/shuttle/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2354,6 +3458,30 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/shuttle/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/signoz/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/signoz/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/simple-analytics/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/simple-analytics/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2383,6 +3511,42 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/snyk-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/snyk-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/socket/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/socket/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/sonarsource-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/sonarsource-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/cody/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2402,6 +3566,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/stackblitz-free/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/statsig/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/statsig/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2467,18 +3643,6 @@
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/deals/supabase-free/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://devcheap.click/r/supabase-free/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.5</priority>
-</url>
-<url>
   <loc>https://devcheap.click/deals/super-protocol-startup-credits/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2491,6 +3655,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/supertokens/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/supertokens/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/surge/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2498,6 +3674,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/surge/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/swetrix/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/swetrix/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2575,6 +3763,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/timescale/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/timescale/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/together-ai/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2582,6 +3782,30 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/together-ai/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/tooljet/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/tooljet/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/turbopuffer/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/turbopuffer/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2635,6 +3859,30 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/unity-student/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/unity-student/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/unleash/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/unleash/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/upstage/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2654,6 +3902,30 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/upstash/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/uptrace/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/uptrace/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/vast-ai/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/vast-ai/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2683,13 +3955,13 @@
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/deals/vercel-edge-functions-free/</loc>
+  <loc>https://devcheap.click/deals/vercel-oss/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/r/vercel-edge-functions-free/</loc>
+  <loc>https://devcheap.click/r/vercel-oss/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2743,6 +4015,30 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/wandb-weave/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/wandb-weave/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/weaviate/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/weaviate/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/webflow/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2762,6 +4058,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/whimsical/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/windmill/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/windmill/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2791,6 +4099,18 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/deals/xata/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/xata/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://devcheap.click/deals/ycombinator-deals/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2810,6 +4130,30 @@
 </url>
 <url>
   <loc>https://devcheap.click/r/zendesk/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/zilliz/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/zilliz/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/deals/zitadel/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/r/zitadel/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.5</priority>
@@ -2887,6 +4231,12 @@
   <priority>0.7</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/category/gpu-compute/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
   <loc>https://devcheap.click/category/hosting-and-cloud/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -2900,6 +4250,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/category/monitoring/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/category/open-source-programs/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.7</priority>
@@ -2923,7 +4279,25 @@
   <priority>0.7</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/category/self-hosted-tools/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/category/startup-perks/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
   <loc>https://devcheap.click/category/storage-and-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/category/students-and-education/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.7</priority>
@@ -2941,19 +4315,31 @@
   <priority>0.7</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/adapty/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/ai21-studio/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/alternatives/airtable/</loc>
+  <loc>https://devcheap.click/alternatives/aikido-security/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/alternatives/airtable-airtable-free-tier/</loc>
+  <loc>https://devcheap.click/alternatives/airbyte/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/airtable/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -2972,6 +4358,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/algolia/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/algolia-docsearch/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3007,6 +4399,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/appsmith/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/appwrite-cloud/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3014,6 +4412,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/arcee-ai-trinity-builders/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/arize-phoenix/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3037,6 +4441,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/autodesk-education/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/aws-activate/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3049,13 +4459,31 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/aws-educate/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/aws-free-credits/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/axiom/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/azure-cosmos-db-free-tier/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/azure-for-students/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3085,13 +4513,31 @@
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/alternatives/better-stack-betterstack-free/</loc>
+  <loc>https://devcheap.click/alternatives/bitrig/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/alternatives/bitrig/</loc>
+  <loc>https://devcheap.click/alternatives/bitrise/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/braintrust/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/brevo/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/brex-startup-perks/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3103,7 +4549,19 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/browserstack-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/bruno/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/budibase/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3121,7 +4579,19 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/buttondown/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/cal-com/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/caprover/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3139,6 +4609,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/chroma-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/chutes-ai/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3146,6 +4622,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/circleci/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/circleci-open-source/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3205,12 +4687,6 @@
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/alternatives/cloudflare-workers/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.6</priority>
-</url>
-<url>
   <loc>https://devcheap.click/alternatives/cloudflare-workers-ai/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3247,6 +4723,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/codemagic/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/coderabbit/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3265,6 +4747,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/configcat/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/confluent-for-startups/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3277,13 +4765,43 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/convex/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/coolify/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/coralogix/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/coreweave/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/couchbase-capella/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/credit-for-startups/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/creem/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3307,6 +4825,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/dash0/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/databricks-startup-program/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3314,6 +4838,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/datadog/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/datastax-astra-db/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/deel-perks/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3361,7 +4897,25 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/directus/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/docker-hub/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/docker-sponsored-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/dokploy/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3391,7 +4945,25 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/expo-eas/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/f6s-deals-platform/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/fal/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/fathom-analytics/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3403,7 +4975,7 @@
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/alternatives/figma-figma-free/</loc>
+  <loc>https://devcheap.click/alternatives/figma-for-education/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3427,6 +4999,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/flagsmith/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/fly-io/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3440,6 +5018,24 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/gamma/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/gel/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/gitbook/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/gitguardian/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3481,6 +5077,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/github-student-developer-pack/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/github-team-for-startups/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3488,6 +5090,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/gitlab/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/gitlab-for-open-source/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3506,6 +5114,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/google-cloud-for-startups/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/google-colab/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3535,7 +5149,43 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/growthbook/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/hanko/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/hasura-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/helicone/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/hetzner-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/hexclave-formerly-stack-auth/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/highlight-io/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3559,6 +5209,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/hugging-face-free-tier/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/huggingface-inference-providers/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3572,6 +5228,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/hyperbrowser-free-plan/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/hyperdx/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3601,6 +5263,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/influxdb-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/insomnia/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3625,13 +5293,37 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/jetbrains-educational-licenses/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/jetbrains-junie/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/jetbrains-open-source-licenses/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/kaggle-gpu-quota/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/kestra/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/kinde/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3661,7 +5353,31 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/lambda/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/lancedb/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/langfuse/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/langfuse-research-fast-grant/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/langsmith/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3674,6 +5390,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/layers/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/lemon-squeezy/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/lightning-ai/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3715,7 +5443,31 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/loops/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/lucidchart/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/mailgun/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/mailjet/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/matomo-cloud/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3733,13 +5485,37 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/mend-io/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/mercury-perks/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/meta-muse-ember-hackathon/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/metabase/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/microsoft-for-startups/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/microsoft-learn-student-ambassadors/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3758,6 +5534,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/miro/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/miro-for-education/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3787,6 +5569,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/mongodb-for-students/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/motherduck/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3794,6 +5582,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/mural/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/n8n/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3817,6 +5611,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/neo4j-auradb-free/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/neo4j-startup-program/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3824,12 +5624,6 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/neon/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.6</priority>
-</url>
-<url>
-  <loc>https://devcheap.click/alternatives/neon-neon-serverless-postgres/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3847,6 +5641,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/netlify-open-source-plan/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/new-relic-for-startups/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3854,6 +5654,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/ngrok/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/nhost/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3877,13 +5683,25 @@
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/alternatives/notion-notion-free/</loc>
+  <loc>https://devcheap.click/alternatives/notion-for-education/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/notion-for-startups/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/novita/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/novita-ai/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3925,6 +5743,18 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/openobserve/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/openpanel/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/openrouter/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3937,7 +5767,19 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/ory/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/ovhcloud-startup-program/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/paddle/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3955,6 +5797,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/pinecone/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/plane/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -3967,7 +5815,19 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/plunk/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/pocketbase/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/polar/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -3979,13 +5839,13 @@
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/alternatives/posthog/</loc>
+  <loc>https://devcheap.click/alternatives/portkey/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/alternatives/posthog-posthog-free/</loc>
+  <loc>https://devcheap.click/alternatives/posthog/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -4003,7 +5863,25 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/postman-student-program/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/postmark/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/prisma-postgres/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/propelauth/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -4021,19 +5899,31 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/qdrant-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/railway/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/alternatives/railway-railway-free/</loc>
+  <loc>https://devcheap.click/alternatives/readme/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/redis-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/redocly/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -4063,6 +5953,18 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/revenuecat/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/runpod/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/saasoffers/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -4081,6 +5983,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/scalar/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/scaleway/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -4093,7 +6001,19 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/scylladb-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/searlo/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/semgrep/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -4111,7 +6031,25 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/sentry-for-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/shuttle/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/signoz/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/simple-analytics/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -4129,6 +6067,24 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/snyk-for-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/socket/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/sonar-open-source/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/sourcegraph-cody/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -4136,6 +6092,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/stackblitz/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/statsig/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -4171,19 +6133,25 @@
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/alternatives/supabase-free-tier/</loc>
-  <lastmod>2026-11-22</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.6</priority>
-</url>
-<url>
   <loc>https://devcheap.click/alternatives/super-protocol-startup-credits/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/supertokens/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/surge-sh/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/swetrix/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -4225,7 +6193,25 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/timescale-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/together-ai/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/tooljet/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/turbopuffer/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -4255,6 +6241,18 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/unity-student/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/unleash/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/upstage/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -4262,6 +6260,18 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/upstash/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/uptrace/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/vast-ai/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -4279,7 +6289,7 @@
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://devcheap.click/alternatives/vercel-edge-functions/</loc>
+  <loc>https://devcheap.click/alternatives/vercel-for-open-source/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -4309,6 +6319,18 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/w-b-weave/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/weaviate-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/webflow/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -4316,6 +6338,12 @@
 </url>
 <url>
   <loc>https://devcheap.click/alternatives/whimsical/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/windmill/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
@@ -4333,6 +6361,12 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/xata/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/alternatives/yc-deals/</loc>
   <lastmod>2026-11-22</lastmod>
   <changefreq>weekly</changefreq>
@@ -4345,92 +6379,104 @@
   <priority>0.6</priority>
 </url>
 <url>
+  <loc>https://devcheap.click/alternatives/zilliz-cloud/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://devcheap.click/alternatives/zitadel/</loc>
+  <lastmod>2026-11-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
   <loc>https://devcheap.click/articles/best-free-cloud-credits/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/articles/best-free-ai-apis/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/articles/how-to-pick-free-llm-api/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/articles/free-developer-tools-2026/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/articles/startup-credit-programs/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/articles/best-lifetime-deals-developers/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/articles/saas-zero-budget/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/articles/auth-database-setup/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/articles/ai-feature-cheap/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/disclosure/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.3</priority>
 </url>
 <url>
   <loc>https://devcheap.click/llm-providers/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.7</priority>
 </url>
 <url>
   <loc>https://devcheap.click/llm-providers/no-credit-card/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/llm-providers/media-apis/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/llm-providers/openrouter-alternatives/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://devcheap.click/startup-programs/</loc>
-  <lastmod>2026-11-23</lastmod>
+  <lastmod>2026-11-24</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.7</priority>
 </url>

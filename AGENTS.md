@@ -10,12 +10,15 @@ When adding, removing, or modifying deals in `data/deals.jsonl`, these files mus
 | `index.html` | Homepage stats + category buttons | Yes — run `npm run build` (via `scripts/build.js`) |
 | `deals/<id>/index.html` | Per-deal detail pages | Yes — run `npm run build` (via `scripts/build.js`) |
 | `category/<slug>/index.html` | SEO-optimized category landing pages | Yes — run `npm run build` (via `scripts/build.js`) |
+| `startup-programs/index.html` | Student / startup / accelerator program directory | Yes — run `npm run build`. Buckets on the `requiresProgram` field, so program deals MUST set it or the page renders empty. |
+| `_redirects` | 301s from retired deal ids to their canonical deal | No (manual) — add a rule for **both** the `/deals/<id>/` and `/deals/<id>` forms whenever a deal id is deleted, or the old URL 404s on Cloudflare Pages. |
 | `sitemap.xml` | Full sitemap rewritten from `deals.jsonl` | Yes — run `npm run build` (via `scripts/build.js`). Do NOT hand-edit; it will be overwritten on the next build. |
 | `llms.txt` | LLM-friendly site summary generated from `deals.jsonl` | Yes — run `npm run build` (via `scripts/generate-llmstxt.js`). |
 | `feed.xml` | Regenerate from `data/deals.jsonl` | Yes — run `pwsh scripts/generate-feed.ps1` (use `powershell` if `pwsh` is not installed) |
 | `README.md` | Update deal count, category list, date | No (manual) |
 | `CONTRIBUTING.md` | Update category list, file references | No (manual) |
 | `tests/deals-schema.test.js` | Add new categories to the `validCategories` array | No (manual) |
+| `data/category-seo.json` | Add `{title, h1, intro, faqs}` copy for new categories (keys are lowercase category names) | No (manual) — the build falls back to generic copy if a category is missing, but search-visible copy should be written for every new category. |
 
 ## Regeneration Commands
 
@@ -31,9 +34,10 @@ powershell -File scripts/generate-feed.ps1
 
 ## Known Categories
 
-When adding a new category to a deal, add it to both:
+When adding a new category to a deal, add it to all three:
 1. `data/deals.jsonl` (in the `category` field of the deal)
 2. `tests/deals-schema.test.js` (in the `validCategories` array)
+3. `data/category-seo.json` (lowercase key with `title`, `h1`, `intro`, `faqs`)
 
 Current categories:
 - Hosting & Cloud, Database, APIs & Email, APIs & Payments, APIs & Search
@@ -41,6 +45,8 @@ Current categories:
 - Storage & Cloud, Security, Productivity, SEO, AI, Social Media
 - Customer Support, Sales & Marketing, Services
 - Design & Collaboration, Web Analytics, Media & Images, CI/CD, Testing & QA
+- Students & Education, Open Source Programs, GPU Compute
+- Startup Perks, Self-Hosted Tools
 
 ## Encoding Guardrail
 

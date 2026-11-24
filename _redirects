@@ -1,0 +1,23 @@
+# Cloudflare Pages redirects: retired duplicate deal ids -> canonical deal.
+# Generated from the duplicate merge; keep in sync if deals are ever re-split.
+
+/deals/airtable-free-tier/ /deals/airtable/ 301
+/deals/airtable-free-tier /deals/airtable/ 301
+/deals/betterstack-free/ /deals/better-stack/ 301
+/deals/betterstack-free /deals/better-stack/ 301
+/deals/cloudflare-workers-free/ /deals/cloudflare/ 301
+/deals/cloudflare-workers-free /deals/cloudflare/ 301
+/deals/figma-free/ /deals/figma/ 301
+/deals/figma-free /deals/figma/ 301
+/deals/neon-serverless-postgres/ /deals/neon/ 301
+/deals/neon-serverless-postgres /deals/neon/ 301
+/deals/notion-free/ /deals/notion/ 301
+/deals/notion-free /deals/notion/ 301
+/deals/posthog-free/ /deals/posthog/ 301
+/deals/posthog-free /deals/posthog/ 301
+/deals/railway-free/ /deals/railway/ 301
+/deals/railway-free /deals/railway/ 301
+/deals/supabase-free/ /deals/supabase/ 301
+/deals/supabase-free /deals/supabase/ 301
+/deals/vercel-edge-functions-free/ /deals/vercel/ 301
+/deals/vercel-edge-functions-free /deals/vercel/ 301

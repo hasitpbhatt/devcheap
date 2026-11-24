@@ -48,7 +48,8 @@ Before committing, you must verify your changes:
 * **Validate JSONL syntax:** Each line in `data/deals.jsonl` must be valid JSON. Run `npm run validate:jsonl`.
 * **Run tests:** Run `npm test` to ensure schema validation, UI interactions, HTML structure, and accessibility checks pass.
 * **Regenerate RSS:** Run `pwsh scripts/generate-feed.ps1` to regenerate `feed.xml` from the deal database.
-* **Regenerate SEO pages:** Run `npm run build` to regenerate `index.html`, `/deals/[id]/index.html` detail pages, `/category/[slug]/index.html` SEO landing pages, `sitemap.xml`, and `llms.txt`. The category pages include FAQ structured data and item list schema for search engines.
+* **Regenerate SEO pages:** Run `npm run build` to regenerate `index.html`, `/deals/[id]/index.html` detail pages, `/category/[slug]/index.html` SEO landing pages, `/startup-programs/`, `/alternatives/`, comparison pages, `sitemap.xml`, and `llms.txt`. The category pages include FAQ structured data and item list schema for search engines.
+* **Retiring a deal id:** Deleting a deal leaves its old `/deals/[id]/` URL dead. Add a 301 to `_redirects` pointing the retired id at the canonical deal (`/deals/<old-id>/ /deals/<new-id>/ 301`), both with and without the trailing slash.
 * **Validate Links:** Double-check that all URLs added are active, direct, secure (HTTPS), and point to the official site. **Do not submit affiliate, spam, or tracking redirect links.**
 * **Local Preview:** Run a local server (e.g. `python -m http.server 8000`) and verify that the page renders correctly and search/filters work as expected.
 
@@ -77,12 +78,13 @@ Your PR **must** include the following details in its description:
 ### Deal Submission Checklist:
 * `id`: Must be a unique, lowercase string (e.g. `supabase`).
 * `name`: The official brand/service name.
-* `category`: Must match a known catalog category. Current categories: Hosting & Cloud, Database, APIs & Email, APIs & Payments, APIs & Search, AI & LLM, Auth, Developer Tools, Monitoring, Domains & Hosting, Storage & Cloud, Security, Productivity, SEO, AI, Social Media, Customer Support, Sales & Marketing, Services, Design & Collaboration, Web Analytics, Media & Images, CI/CD, Testing & QA.
+* `category`: Must match a known catalog category. Current categories: Hosting & Cloud, Database, APIs & Email, APIs & Payments, APIs & Search, AI & LLM, Auth, Developer Tools, Monitoring, Domains & Hosting, Storage & Cloud, Security, Productivity, SEO, AI, Social Media, Customer Support, Sales & Marketing, Services, Design & Collaboration, Web Analytics, Media & Images, CI/CD, Testing & QA, Students & Education, Open Source Programs, GPU Compute, Startup Perks, Self-Hosted Tools.
 * `deal`: Clear description of the value (e.g., `$100 Free Credit` or `20% Off Lifetime`).
 * `code`: Explicit coupon code, or `Automatic (Link)` if it applies automatically.
 * `url`: Direct signup link (no tracker-hijacked URLs).
 * `desc`: Clean, neutral 1-2 sentence description explaining what the tool is (no marketing fluff or hype).
 * `tags`: Lowercase, comma-separated tags for index search.
+* `requiresProgram` (optional): `"startup"`, `"student"`, or `"accelerator"` when the offer is gated behind a program application. These deals are pulled out of the homepage grid, Top Picks, and comparison pages and listed on `/startup-programs/` instead. Omit it for ordinary public deals.
 
 ✅ **Do:**
 - Keep descriptions objective and informative.
