@@ -20,9 +20,33 @@ let showArchive = false;
 function isFeatured(deal) {
   // Affiliate deals are always featured regardless of rating
   if (deal.has_affiliate) return true;
+  if (deal.status === 'retired') return false;
   if (deal.expires && new Date(deal.expires).getTime() < Date.now()) return false;
   const r = typeof deal.rating === 'number' ? deal.rating : 0;
   return r >= FEATURED_RATING_MIN;
+}
+
+// Mirrors renderCardBadges()/gateBadges() in scripts/build.js. Only facts we
+// hold get a badge, so a missing card gate never reads as a "no card" promise.
+const CARD_STATUS_META = {
+  active: { short: 'Active', cls: 'active' },
+  unverified: { short: 'Unverified', cls: 'unverified' },
+  paused: { short: 'Paused', cls: 'paused' },
+  retired: { short: 'Retired', cls: 'retired' },
+};
+
+function dealCardBadges(deal) {
+  const out = [];
+  const meta = CARD_STATUS_META[deal.status] || (deal.status ? { short: deal.status, cls: 'retired' } : null);
+  if (meta && deal.status !== 'active') {
+    out.push(`<span class="deal-card-tag-status deal-card-tag-status-${meta.cls}">${escapeHtml(meta.short)}</span>`);
+  }
+  const g = deal.gates || {};
+  if (g.card === false) out.push('<span class="deal-card-tag-gate deal-card-tag-gate-ok">No credit card</span>');
+  if (g.card === true) out.push('<span class="deal-card-tag-gate deal-card-tag-gate-warn">Card required</span>');
+  if (g.phone === true) out.push('<span class="deal-card-tag-gate deal-card-tag-gate-warn">Phone required</span>');
+  if (g.kyc === true) out.push('<span class="deal-card-tag-gate deal-card-tag-gate-warn">KYC required</span>');
+  return out.join('');
 }
 
 function debug(...args) {
@@ -338,6 +362,10 @@ function renderDeals() {
     const pricingBadge = pricingLabel
       ? `<span class="deal-card-badge-pricing deal-card-badge-pricing--${deal.pricing}">${pricingLabel}</span>`
       : '';
+    const badgesHTML = dealCardBadges(deal);
+    const claimBtn = deal.status === 'retired'
+      ? `<span class="deal-card-btn deal-card-btn-primary" aria-disabled="true" title="${escapeHtml(deal.name)} is retired and no longer accepting signups">No longer available</span>`
+      : `<a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>`;
 
     card.innerHTML = `
       <div class="deal-card-header">
@@ -348,9 +376,9 @@ function renderDeals() {
       ${recommendedBadge}${spotlightBadge}${pricingBadge}
       ${whyHTML}
       <p class="deal-card-desc">${deal.desc}</p>
-      <div class="deal-card-tags">${tagsHTML}${expiresHTML}</div>
+      <div class="deal-card-tags">${tagsHTML}${badgesHTML}${expiresHTML}</div>
  <div class="deal-card-footer">
-  <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>
+  ${claimBtn}
   ${couponBtn}
   <div class="deal-card-overflow" data-deal-id="${deal.id}" role="button" tabindex="0" aria-label="More options">⋯
    <div class="overflow-menu" role="menu">

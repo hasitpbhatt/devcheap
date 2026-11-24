@@ -221,6 +221,13 @@
     .sidebar-btn-secondary.copied {
       animation: copyPop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
+    .sidebar-btn-disabled {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-tertiary);
+      cursor: not-allowed;
+      font-weight: 500;
+    }
     .meta-list {
       display: flex;
       flex-direction: column;
@@ -401,7 +408,7 @@
   "name": "Together AI",
   "description": "Together AI offers $5 in free credits on signup. Access to 50+ open-source models including Llama 3.3 70B, Mixtral 8x7B, and many others. At Together AI's pricing, $5 covers several million tokens. No credit card required for the free credits.",
   "image": "https://devcheap.click/images/og-image.svg",
-  "dateModified": "2026-11-22",
+  "dateModified": "2026-11-24",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -481,7 +488,7 @@
               <span class="detail-cat">AI &amp; LLM</span>
             </div>
             <div class="detail-badges-row">
-              <span class="deal-card-badge-recommended" style="margin-bottom:0;margin-right:12px"><svg class="icon icon-star" width="12" height="12"><use href="/images/icons.svg#icon-star"/></svg> Recommended</span>
+              <span class="deal-card-badge-recommended" style="margin-bottom:0;margin-right:12px"><svg class="icon icon-star" width="12" height="12"><use href="/images/icons.svg#icon-star"/></svg> Recommended</span><span class="deal-card-tag-gate deal-card-tag-gate-ok">No credit card</span>
             </div>
             <div class="detail-offer-badge">$5 Free Credits on Signup</div>
           </div>
@@ -528,6 +535,14 @@
         </div>
       </div>
 
+            <section class="deal-eligibility">
+        <h2>Eligibility &amp; access</h2>
+        <p class="deal-eligibility-note">What this offer actually asks of you, in fields rather than prose.</p>
+        <div class="eligibility-grid"><div class="eligibility-row"><span class="eligibility-label">Offer type</span><span class="eligibility-val">Credits</span></div><div class="eligibility-row"><span class="eligibility-label">Who can claim</span><span class="eligibility-val">oss</span></div></div>
+        <div class="eligibility-chips"><span class="eligibility-chip eligibility-chip-ok">No credit card</span></div>
+        <p class="eligibility-source">Eligibility is the provider's, not ours — confirm the terms before you apply.</p>
+      </section>
+
       <section class="deal-faq">
         <h2>Together AI FAQ</h2>
         
@@ -573,7 +588,7 @@
         
         <p class="deal-card-why">$10 free Jamba API credits for 3 months — test 256K-context models at no cost</p>
         <p class="deal-card-desc">Jamba family LLM API (Jamba Large 398B, Jamba Mini 52B, Jamba 3B) all with 256K context window. $10 free credits valid for 3 months. No permanent free tier — credit card required after trial.</p>
-        <div class="deal-card-tags"><span class="deal-card-tag">llm</span><span class="deal-card-tag">api</span><span class="deal-card-tag">jamba</span><span class="deal-card-tag">ai21</span><span class="deal-card-tag">limited-audience</span></div>
+        <div class="deal-card-tags"><span class="deal-card-tag-gate deal-card-tag-gate-warn">Card required</span><span class="deal-card-tag">llm</span><span class="deal-card-tag">api</span><span class="deal-card-tag">jamba</span><span class="deal-card-tag">ai21</span><span class="deal-card-tag">limited-audience</span></div>
         <div class="deal-card-footer">
           <a href="https://studio.ai21.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=ai21" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="ai21">Claim Deal</a>
           <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
@@ -589,7 +604,7 @@
         
         <p class="deal-card-why">1M free tokens per model on Qwen — test Alibaba&#039;s latest LLMs including Qwen 3.5/3.6</p>
         <p class="deal-card-desc">Alibaba Cloud&#039;s Model Studio offering 1 million free tokens per model. Access to Qwen family models including Qwen 3.5 and Qwen 3.6. International account and credit card required.</p>
-        <div class="deal-card-tags"><span class="deal-card-tag">llm</span><span class="deal-card-tag">api</span><span class="deal-card-tag">qwen</span><span class="deal-card-tag">alibaba</span></div>
+        <div class="deal-card-tags"><span class="deal-card-tag-gate deal-card-tag-gate-warn">Card required</span><span class="deal-card-tag">llm</span><span class="deal-card-tag">api</span><span class="deal-card-tag">qwen</span><span class="deal-card-tag">alibaba</span></div>
         <div class="deal-card-footer">
           <a href="https://bailian.console.alibabacloud.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=alibabamodelstudio" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="alibaba-model-studio">Claim Deal</a>
           <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
@@ -611,7 +626,7 @@
           <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
         </div>
       </div>
-      <p style="margin-top:18px;font-size:13.5px;color:var(--text-secondary)">This provider is also in our <a href="/llm-providers/">LLM Providers directory</a> — 168 APIs ranked by how fast you get a key, with free-tier rate limits and gate analysis.</p>
+      <p style="margin-top:18px;font-size:13.5px;color:var(--text-secondary)">This provider is also in our <a href="/llm-providers/">LLM Providers directory</a> — 181 APIs ranked by how fast you get a key, with free-tier rate limits and gate analysis.</p>
         </div>
       </section>
     </main>

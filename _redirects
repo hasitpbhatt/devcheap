@@ -21,3 +21,13 @@
 /deals/supabase-free /deals/supabase/ 301
 /deals/vercel-edge-functions-free/ /deals/vercel/ 301
 /deals/vercel-edge-functions-free /deals/vercel/ 301
+/deals/novita-ai/ /deals/novita/ 301
+/deals/novita-ai /deals/novita/ 301
+
+# Retired deals (not merged, just retired): keep their pages and redirects live
+# but they drop out of grids/comparisons/Top Picks. No redirect needed — the
+# original URL stays the source of truth. These are here for documentation only.
+# /deals/cody/ 301
+# /deals/cody 301
+# /deals/github-models/ 301
+# /deals/github-models 301

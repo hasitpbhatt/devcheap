@@ -221,6 +221,13 @@
     .sidebar-btn-secondary.copied {
       animation: copyPop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
+    .sidebar-btn-disabled {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-tertiary);
+      cursor: not-allowed;
+      font-weight: 500;
+    }
     .meta-list {
       display: flex;
       flex-direction: column;
@@ -401,7 +408,7 @@
   "name": "ClickHouse Cloud",
   "description": "Fully managed ClickHouse.",
   "image": "https://devcheap.click/images/og-image.svg",
-  "dateModified": "2026-11-22",
+  "dateModified": "2026-11-24",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -528,6 +535,14 @@
         </div>
       </div>
 
+            <section class="deal-eligibility">
+        <h2>Eligibility &amp; access</h2>
+        <p class="deal-eligibility-note">What this offer actually asks of you, in fields rather than prose.</p>
+        <div class="eligibility-grid"><div class="eligibility-row"><span class="eligibility-label">Offer type</span><span class="eligibility-val">Credits</span></div><div class="eligibility-row"><span class="eligibility-label">Who can claim</span><span class="eligibility-val">anyone</span></div></div>
+        <div class="eligibility-chips"><span class="eligibility-chip">Card requirement not confirmed</span></div>
+        <p class="eligibility-source">Eligibility is the provider's, not ours — confirm the terms before you apply.</p>
+      </section>
+
       <section class="deal-faq">
         <h2>ClickHouse Cloud FAQ</h2>
         
@@ -589,7 +604,7 @@
         
         <p class="deal-card-why">75K MAU free BaaS — Firebase alternative with auth, database, storage, and functions</p>
         <p class="deal-card-desc">Open-source Backend-as-a-Service with authentication, database, storage, and serverless functions. Free cloud tier includes 75,000 monthly active users, 2 GB storage, 750,000 function executions, and 5 GB bandwidth. No credit card required.</p>
-        <div class="deal-card-tags"><span class="deal-card-tag">baas</span><span class="deal-card-tag">backend</span><span class="deal-card-tag">auth</span><span class="deal-card-tag">database</span><span class="deal-card-tag">storage</span><span class="deal-card-tag">open-source</span></div>
+        <div class="deal-card-tags"><span class="deal-card-tag-gate deal-card-tag-gate-ok">No credit card</span><span class="deal-card-tag">baas</span><span class="deal-card-tag">backend</span><span class="deal-card-tag">auth</span><span class="deal-card-tag">database</span><span class="deal-card-tag">storage</span><span class="deal-card-tag">open-source</span></div>
         <div class="deal-card-footer">
           <a href="https://appwrite.io/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=appwrite" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="appwrite">Claim Deal</a>
           <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>

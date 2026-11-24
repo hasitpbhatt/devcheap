@@ -6,7 +6,7 @@
     <description>Verified deals on APIs, hosting, databases, and AI tools. Free credits, lifetime discounts, and limited offers curated weekly. Some links are affiliate links (disclosed at https://devcheap.click/disclosure/).</description>
     <copyright>DevCheap. Some links are affiliate links.</copyright>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Nov 2026 08:40:13 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 10:05:30 GMT</lastBuildDate>
     <atom:link href="https://devcheap.click/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>AI21 Studio — $10 Free Credits (3 Months)</title>
@@ -121,9 +121,9 @@
       <category>AI &amp; LLM</category>
     </item>
     <item>
-      <title>AWS Free Credits — $200 Free Credits for New Users</title>
+      <title>AWS Free Credits — Up to $200 in Credits Over 6 Months</title>
       <link>https://devcheap.click/deals/aws-free-credits/</link>
-      <description>$200 free AWS credits for everyone — works on Bedrock/Claude, no startup program needed AWS gives $200 in free promotional credits to every new user. $100 automatically on signup + $100 for completing 5 onboarding tasks ($20 each). Credits valid for 12 months. Works across 200+ AWS services including EC2, S3, Lambda, and Bedrock (Claude models).</description>
+      <description>Up to $200 across 200+ services, including Bedrock, with no startup program and no investor required — just be a new customer Up to $200 in promotional credits for new AWS customers, earned over a six-month window and usable across 200+ services including EC2, S3, Lambda and Bedrock. New customers on the paid plan are eligible too. The account closes on its own six months after you open it, or when the credits run out — whichever comes first.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">aws-free-credits</guid>
       <category>Hosting &amp; Cloud</category>
@@ -201,9 +201,9 @@
       <category>Productivity</category>
     </item>
     <item>
-      <title>Cerebras Inference — 1M Tokens/Day Free (2,100 tok/s)</title>
+      <title>Cerebras Inference — $5 Free Credit (Expires in 30 Days)</title>
       <link>https://devcheap.click/deals/cerebras/</link>
-      <description>1M free tokens/day at 2,100 tok/s — fastest LLM inference on Wafer-Scale hardware Cerebras provides ultra-fast LLM inference using Wafer-Scale Engine hardware. Free tier includes 1 million tokens per day at 2,100 tokens/second speed. Access to models that run fastest on Cerebras hardware. No credit card required.</description>
+      <description>$5 is enough to benchmark the fastest public inference properly before committing — but the free tier needs a card, so read the terms first One-time $5 promotional credit on a new account, granted after adding a valid payment method, expiring 30 days after activation. Paid usage starts at $10 top-ups, which also raise rate limits above the free tier. Inference runs on Wafer-Scale Engine hardware at speeds no other public API currently matches.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">cerebras</guid>
       <category>AI &amp; LLM</category>
@@ -305,9 +305,9 @@
       <category>Productivity</category>
     </item>
     <item>
-      <title>Codeium — Free Tier (Unlimited Autocomplete)</title>
+      <title>Devin — Free Plan — $0/month</title>
       <link>https://devcheap.click/deals/codeium/</link>
-      <description>Free unlimited AI autocomplete in 70+ IDEs -- Copilot alternative with zero cost for individuals AI-powered code autocomplete and chat. Free tier for individuals gives unlimited autocompletions and basic chat across 70+ IDEs. No credit card required.</description>
+      <description>The Free tier keeps agent coding, inline edits and Tab completions at $0 — the paid plans only raise the quota and widen the model list. Devin&apos;s Free plan is $0/month and still includes a light quota to code with agents, unlimited inline edits, and unlimited Tab completions, on a smaller model list than Pro. Pro is $20/month and Max $200/month. Codeium became Windsurf, and both now redirect to Devin.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">codeium</guid>
       <category>Developer Tools</category>
@@ -427,7 +427,7 @@
     <item>
       <title>DigitalOcean Startups — Up to $100,000 Credits</title>
       <link>https://devcheap.click/deals/digitalocean-startups/</link>
-      <description>$100K DigitalOcean credits — VMs, K8s, databases for startups under 6 years old DigitalOcean Startups program offers up to $100,000 in credits over 12 months. Access to VMs, Kubernetes, databases, and serverless functions. Targets startups less than 6 years old with less than $10M revenue. Affiliation with accelerator/incubator/VC can improve approval chances.</description>
+      <description>Worth bookmarking rather than applying for: the $10M-or-less gate is generous, but the cohort is shut until 2027 Paused. Applications for the current cohort are temporarily closed while DigitalOcean prepares a new program experience for early 2027. When it runs, eligibility is a company that has raised $10M or less and has not used prior DigitalOcean credits, and the award is 12 months of credits plus free Standard-tier support for 15 months.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">digitalocean-startups</guid>
       <category>Hosting &amp; Cloud</category>
@@ -521,9 +521,9 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>GitHub Models — Free Tier (40+ Models, Rate-Limited)</title>
+      <title>GitHub Models — Retired — July 30, 2026</title>
       <link>https://devcheap.click/deals/github-models/</link>
-      <description>Free frontier model APIs with just a GitHub account — GPT-4o, DeepSeek-R1, Llama 3.3 at zero cost Free rate-limited API access to 40+ frontier models including GPT-4o, GPT-5, DeepSeek-R1, Llama 3.3 70B, and Mistral. Requires only a GitHub account. OpenAI-compatible endpoint at https://models.github.ai. Prototyping only per ToS.</description>
+      <description>Retired: the provider&apos;s documentation and the 404 on the old marketplace URL both confirm the free inference tier is gone. GitHub&apos;s own documentation states GitHub Models has been fully retired: as of July 30, 2026 the playground, model catalog, inference API and bring-your-own-key access are no longer available to any customer. The marketplace URL this entry used to link to now returns 404.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">github-models</guid>
       <category>AI &amp; LLM</category>
@@ -817,9 +817,9 @@
       <category>Database</category>
     </item>
     <item>
-      <title>Neon Startup Credits — $100,000 Credits + Free Tier</title>
+      <title>Neon Startup Credits — Up to $200,000 in Neon + Databricks Credits</title>
       <link>https://devcheap.click/deals/neon-startup-credits/</link>
-      <description>$100K Neon credits + free tier — serverless Postgres with branching for startups Neon offers startup credits of up to $100,000 for early-stage companies, plus their generous free tier. Serverless Postgres with branching, instant provisioning, and scale-to-zero compute. Perfect for startups building modern, scalable applications.</description>
+      <description>The self-funded branch needs no investor at all, and the VC branch is one of the largest database credit pools published Two eligibility branches, both through the Databricks Startup Program. Early-stage self-funded teams can get up to $1,000 in Neon credits; VC-backed startups with at least $1M raised can get up to $200,000 in combined Neon and Databricks credits. Credits are aimed at teams building on Postgres rather than at general hosting.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">neon-startup-credits</guid>
       <category>Database</category>
@@ -1259,7 +1259,7 @@
     <item>
       <title>VocalBridge — 1 Month Free Developer Plan ($49 Value)</title>
       <link>https://devcheap.click/deals/vocalbridge/</link>
-      <description>1 month free VocalBridge Developer plan ($49 value) ï¿½ 1,000 voice minutes, 5 agents, use code VBHACKMONTH Voice AI platform for building voice agents with 1,000 voice minutes, 5 agents, and 10 calls/day. 1-month free trial of the Developer plan ($49/mo) using code VBHACKMONTH from the DeepLearning.AI Voice AI Hackathon. Credit card required.</description>
+      <description>1 month free VocalBridge Developer plan ($49 value) — 1,000 voice minutes, 5 agents, use code VBHACKMONTH Voice AI platform for building voice agents with 1,000 voice minutes, 5 agents, and 10 calls/day. 1-month free trial of the Developer plan ($49/mo) using code VBHACKMONTH from the DeepLearning.AI Voice AI Hackathon. Credit card required.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">vocalbridge</guid>
       <category>AI &amp; LLM</category>
@@ -1355,7 +1355,7 @@
     <item>
       <title>Limrun — 2,000 Free Credits ($100 Value)</title>
       <link>https://devcheap.click/deals/limrun/</link>
-      <description>2,000 free mobile dev credits ($100 value) —€—? cloud Xcode and iOS/Android simulators for AI agents Cloud infrastructure for mobile development with remote Xcode, iOS/Android simulators, and Xcode build environments. 2,000 free credits ($100 value) upon account creation, plus 50% off additional credits with code LIMSHIPATON2026.</description>
+      <description>2,000 free mobile dev credits ($100 value) — cloud Xcode and iOS/Android simulators for AI agents Cloud infrastructure for mobile development with remote Xcode, iOS/Android simulators, and Xcode build environments. 2,000 free credits ($100 value) upon account creation, plus 50% off additional credits with code LIMSHIPATON2026.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">limrun</guid>
       <category>Developer Tools</category>
@@ -1363,7 +1363,7 @@
     <item>
       <title>Tenjin — All-Inclusive Plan S Free for 3 Months ($600 Value)</title>
       <link>https://devcheap.click/deals/tenjin/</link>
-      <description>3 months free Tenjin Plan S ($600 value) —€—? mobile attribution and analytics for gaming studios and app teams Mobile marketing analytics and attribution platform. All-Inclusive Plan S free for 3 months ($600 value) using promo code SHIPATON2026. Includes attribution, cohort reports, LTV, ROAS, SKAN, raw data access, and fraud prevention.</description>
+      <description>3 months free Tenjin Plan S ($600 value) — mobile attribution and analytics for gaming studios and app teams Mobile marketing analytics and attribution platform. All-Inclusive Plan S free for 3 months ($600 value) using promo code SHIPATON2026. Includes attribution, cohort reports, LTV, ROAS, SKAN, raw data access, and fraud prevention.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">tenjin</guid>
       <category>Sales &amp; Marketing</category>
@@ -1371,7 +1371,7 @@
     <item>
       <title>OneSignal — 100% Off Growth Plan for Up to 3 Months</title>
       <link>https://devcheap.click/deals/onesignal/</link>
-      <description>3 months free OneSignal Growth plan —€—? push, in-app, email, and SMS at no cost Customer engagement platform for push notifications, in-app messaging, email, and SMS. 100% off the Growth plan for up to 3 months (up to $600/month in usage) through Shipaton 2026.</description>
+      <description>3 months free OneSignal Growth plan — push, in-app, email, and SMS at no cost Customer engagement platform for push notifications, in-app messaging, email, and SMS. 100% off the Growth plan for up to 3 months (up to $600/month in usage) through Shipaton 2026.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">onesignal</guid>
       <category>Customer Support</category>
@@ -1379,7 +1379,7 @@
     <item>
       <title>Bitrig — 60% Off Bitrig Pro ($10/month)</title>
       <link>https://devcheap.click/deals/bitrig/</link>
-      <description>60% off Bitrig Pro ($10/mo) —€—? build native Swift apps with AI and distribute to TestFlight/App Store Build native Swift apps with AI. 60% off Bitrig Pro ($10/month) through Shipaton 2026. Unlimited daily requests, 200 monthly credits, TestFlight and App Store distribution, and Claude/ChatGPT integration.</description>
+      <description>60% off Bitrig Pro ($10/mo) — build native Swift apps with AI and distribute to TestFlight/App Store Build native Swift apps with AI. 60% off Bitrig Pro ($10/month) through Shipaton 2026. Unlimited daily requests, 200 monthly credits, TestFlight and App Store distribution, and Claude/ChatGPT integration.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">bitrig</guid>
       <category>Developer Tools</category>
@@ -1387,7 +1387,7 @@
     <item>
       <title>JetBrains Junie — 2 Months Free Access</title>
       <link>https://devcheap.click/deals/jetbrains-junie/</link>
-      <description>2 months free JetBrains Junie —€—? AI coding agent that writes and tests code in your IDE AI coding agent by JetBrains that plans, writes, and tests code directly in your IDE. 2 months of free access through Shipaton 2026. Available in IntelliJ IDEA Ultimate, PyCharm, WebStorm, GoLand, PhpStorm, Rider, and RustRover.</description>
+      <description>2 months free JetBrains Junie — AI coding agent that writes and tests code in your IDE AI coding agent by JetBrains that plans, writes, and tests code directly in your IDE. 2 months of free access through Shipaton 2026. Available in IntelliJ IDEA Ultimate, PyCharm, WebStorm, GoLand, PhpStorm, Rider, and RustRover.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">jetbrains-junie</guid>
       <category>Developer Tools</category>
@@ -1395,7 +1395,7 @@
     <item>
       <title>Layers — 2 Months Free Access</title>
       <link>https://devcheap.click/deals/layers/</link>
-      <description>2 months free Layers Pro —€—? AI-powered product design framework for content, ads, social, and ASO AI skills for product designers that walks through seven layers of product design. 2 months of free Layers Pro access through Shipaton 2026. Automate content generation, paid ads, social management, and App Store listing optimization.</description>
+      <description>2 months free Layers Pro — AI-powered product design framework for content, ads, social, and ASO AI skills for product designers that walks through seven layers of product design. 2 months of free Layers Pro access through Shipaton 2026. Automate content generation, paid ads, social management, and App Store listing optimization.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">layers</guid>
       <category>Design &amp; Collaboration</category>
@@ -1441,9 +1441,9 @@
       <category>Developer Tools</category>
     </item>
     <item>
-      <title>Sourcegraph Cody — Free for Individuals (Chat + Completions)</title>
+      <title>Sourcegraph Cody — Free Tier Withdrawn</title>
       <link>https://devcheap.click/deals/cody/</link>
-      <description>Free AI coding assistant for individuals — full codebase context via Sourcegraph Search API, no credit card AI coding assistant from Sourcegraph. Free for individuals across VS Code, JetBrains, Visual Studio, and web. Uses frontier LLMs with full codebase context via Sourcegraph&apos;s Search API. Pro adds more models and chat credits. No credit card required for free tier.</description>
+      <description>Retired: the individual free tier this entry advertised is gone, and the only plan left is a $16K/year enterprise contract. Sourcegraph no longer publishes an individual Cody free tier. The pricing page lists only an enterprise plan starting at a $16,000 minimum annual contract, and sourcegraph.com/cody now redirects straight to Cody documentation.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">cody</guid>
       <category>Developer Tools</category>
@@ -1795,7 +1795,7 @@
     <item>
       <title>Langfuse Research Fast Grant — US $200 Monthly Credit Towards Langfuse Cloud</title>
       <link>https://devcheap.click/deals/langfuse-research-fast-grant/</link>
-      <description>$200/mo Langfuse Cloud credit for research and education Langfuse&apos;s research and education program gives eligible academics and students a monthly Cloud credit on top of the free plan (50k units a month) and MIT-licensed self-hosting.</description>
+      <description>$200/mo Langfuse Cloud credit for research and education The research fast-grant page this entry originally cited no longer resolves, and Langfuse publishes no grant terms anywhere on the live site. The self-hostable open source product and the cloud free tier both still exist at the pricing page below — treat the grant as unconfirmed until Langfuse documents it again.</description>
       <pubDate>Mon, 22 Nov 2027 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">langfuse-research-fast-grant</guid>
       <category>Monitoring</category>
@@ -2038,14 +2038,6 @@
       <description>Pay-per-second generative media inference without renting a GPU Serverless inference for image, video, and audio models with pay-per-use pricing and fast cold starts. New accounts get starter credits, so you can ship a generative feature without renting a GPU.</description>
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">fal-ai</guid>
-      <category>GPU Compute</category>
-    </item>
-    <item>
-      <title>Novita AI — Free Credits to Start</title>
-      <link>https://devcheap.click/deals/novita-ai/</link>
-      <description>Free starter credits for both model APIs and GPU instances Model APIs and GPU instances on one platform. The free tier covers starter inference credits and GPU access, with pay-as-you-go pricing once those run out.</description>
-      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="false">novita-ai</guid>
       <category>GPU Compute</category>
     </item>
     <item>
@@ -2775,6 +2767,86 @@
       <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">caprover</guid>
       <category>Self-Hosted Tools</category>
+    </item>
+    <item>
+      <title>EuroHPC AI Factories — Free Supercomputer GPU Access for EU Startups</title>
+      <link>https://devcheap.click/deals/eurohpc-ai-factories/</link>
+      <description>The largest publicly funded GPU access open to a European startup, and it runs on supercomputers rather than a cloud console Free, customised support and compute access for European startups and SMEs through the EU network of 19 AI Factories and 13 Antennas. Each AI Factory operates its own access route to the supercomputer it is attached to, and the capacity is aimed at AI model work rather than general hosting. Publicly funded, so there is no invoice to manage.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">eurohpc-ai-factories</guid>
+      <category>GPU Compute</category>
+    </item>
+    <item>
+      <title>Google TPU Research Cloud — 1,000+ Free Cloud TPUs</title>
+      <link>https://devcheap.click/deals/google-tpu-research-cloud/</link>
+      <description>No dollar cap and no funding test — the largest research compute grant on the open web, and the results have to be published anyway Free access to a cluster of more than 1,000 Cloud TPU devices for machine learning research, at no charge, with support for TensorFlow, PyTorch, JAX and Julia. There is no dollar cap. In exchange, participants are expected to share what they find — peer-reviewed publications, open source code, or blog posts — and to give Google feedback on the platform.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">google-tpu-research-cloud</guid>
+      <category>GPU Compute</category>
+    </item>
+    <item>
+      <title>AMD AI Developer Program — Free Membership + Complimentary Compute Credits</title>
+      <link>https://devcheap.click/deals/amd-ai-developer-program/</link>
+      <description>The only route to free AMD Instinct GPU credits anywhere, and joining takes minutes with no hardware and no card Free membership for developers, students and startups, with complimentary compute credits from AMD Developer Cloud or Fireworks AI, or instant API access through Token Lab. Joining also includes a one-month complimentary DeepLearning.AI membership, a ten-level points scheme as you complete developer activities, and ROCm certification paths. No AMD hardware required.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">amd-ai-developer-program</guid>
+      <category>GPU Compute</category>
+    </item>
+    <item>
+      <title>RunPod Startup Program — $1,000-$25,000 GPU Credits</title>
+      <link>https://devcheap.click/deals/runpod-startup-program/</link>
+      <description>The largest no-investor GPU credit with a self-serve application — and it decides fast Tiered GPU credits decided by how much the company has raised and whether it is VC-backed: Starter for teams under $1M raised gets $1,000, Venture for teams with a verified VC on the cap table gets $5,000, and Growth for teams past $5M raised gets $10,000 to $25,000 against a usage commitment. Credits expire one year after issue, one free offer per company, and existing RunPod customers are not eligible for the free Starter or Venture credits.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">runpod-startup-program</guid>
+      <category>GPU Compute</category>
+    </item>
+    <item>
+      <title>Nebius for Startups — Credits, Reserved Capacity and Engineering Support</title>
+      <link>https://devcheap.click/deals/nebius-for-startups/</link>
+      <description>Reserved cluster capacity rather than a balance — the scarce thing when you are mid-training run and the region is sold out Startup credits and reserved cluster capacity for venture-backed AI-native startups, plus engineering support. Nebius also runs an AI Builder Program open to anyone with no funding requirement, and a Tavily partner track offering 100k free credits to companies backed by a VC or a top accelerator. Credit amounts are not published, so size is a conversation.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">nebius-for-startups</guid>
+      <category>GPU Compute</category>
+    </item>
+    <item>
+      <title>Guepard for Startups — Up to $30,000 Postgres Branching Credits</title>
+      <link>https://devcheap.click/deals/guepard-for-startups/</link>
+      <description>The biggest database credit gated on team size and stage rather than on a funding round size — a 19-person Series A qualifies Up to $30,000 in Guepard platform credits for Postgres environment branching, with twelve months to use them from activation, plus onboarding support. Built for venture-backed teams at Series A or earlier — typically under 20 employees and less than three years old. Review is rolling.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">guepard-for-startups</guid>
+      <category>Database</category>
+    </item>
+    <item>
+      <title>PlanetScale for Startups — Startup Pricing That Cuts the Bill, Not a Balance</title>
+      <link>https://devcheap.click/deals/planetscale-for-startups/</link>
+      <description>The saving shows up on the invoice instead of a balance that expires — and there is nothing to spend down before the clock runs out A startup program that works by cutting the invoice rather than handing over an expiring credit balance, and no credit amount is published. Single-node Postgres databases start at $5/mo and high-availability Postgres clusters at $15/mo, and PlanetScale publishes a customer case where a production workload dropped from $900/mo to $90/mo.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">planetscale-for-startups</guid>
+      <category>Database</category>
+    </item>
+    <item>
+      <title>Turbopuffer for Startups — $8,192 Vector DB Credits</title>
+      <link>https://devcheap.click/deals/turbopuffer-startup-credits/</link>
+      <description>The only vector database that publishes a fixed credit amount instead of a vague discount — you know the number before you apply $8,192 in vector database credits for startups under 50 employees and under $50M raised, or $2,048 plus a dedicated Slack channel for scaleups past either line. One set of credits per company, applied for through a single partner, valid for twelve months, and existing customers qualify for the full amount.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">turbopuffer-startup-credits</guid>
+      <category>Database</category>
+    </item>
+    <item>
+      <title>Read the Docs Community — Free Documentation Hosting for Open Source</title>
+      <link>https://devcheap.click/deals/read-the-docs-community/</link>
+      <description>The default documentation host for open source, and it stays free for exactly the projects that need it Always-free documentation hosting for open source and community projects, funded by advertising on the hosted pages. Paid Business plans start at $50/mo, Advanced at $150, Pro at $250, and Enterprise from $10,000/yr once a project outgrows the community tier — so the upgrade path is published rather than discovered at renewal.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">read-the-docs-community</guid>
+      <category>Open Source Programs</category>
+    </item>
+    <item>
+      <title>SignPath Foundation — Free Code Signing for Open Source</title>
+      <link>https://devcheap.click/deals/signpath-foundation/</link>
+      <description>Code signing normally costs $200-$500 a year, and almost no project knows the open source route exists Free code-signing certificates and signing service for qualifying open source projects. SignPath verifies that a binary was built from your repository and vouches for it under their own name, which removes the &quot;unknown publisher&quot; warning from Windows builds. Projects are required to display attribution on their site.</description>
+      <pubDate>Mon, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">signpath-foundation</guid>
+      <category>Open Source Programs</category>
     </item>
   </channel>
 </rss>

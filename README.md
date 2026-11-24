@@ -4,7 +4,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/hasitpbhatt/devcheap)](https://github.com/hasitpbhatt/devcheap/commits/main)
 [![Deployed](https://img.shields.io/badge/Cloudflare%20Pages-Deployed-brightgreen)](https://devcheap.click)
 
-Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **346 deals** across **26 categories**. Six **Top Picks** (hand-curated, affiliate-supported) sit above the full grid.
+Curated developer deals, promos, and free tiers for cloud, databases, APIs, AI & LLM, and dev tools — **355 deals** across **26 categories**. Six **Top Picks** (hand-curated, affiliate-supported) sit above the full grid.
 
 The site is built and operated under a documented 6-month strategy with a 5-person committee model (Mitchell / Dharmesh / Lenny / Bret / Sahil). For the strategic frame, decision criteria, and the editorial voice rules, see:
 
@@ -29,7 +29,8 @@ devcheap/
 ├── .github/workflows/   # CI/deploy pipelines (Cloudflare Pages)
 ├── css/                 # Stylesheets (light/dark theme)
 ├── data/
-│   └── deals.jsonl      # Deal database (JSONL format, 346 lines)
+│   ├── deals.jsonl      # Deal database (JSONL format, 355 lines)
+│   └── deals.json       # Same data as a plain JSON array (auto-generated via build.js — do not hand-edit)
 ├── functions/api/       # Cloudflare Functions (email subscribe)
 ├── js/                  # Search, category filter, affiliate tracking
 ├── scripts/             # Utility scripts (feed generation, data entry)
@@ -54,14 +55,14 @@ devcheap/
 |---|---|
 | AI & LLM | 58 |
 | Developer Tools | 57 |
-| Database | 40 |
+| Database | 43 |
 | Hosting & Cloud | 33 |
 | Monitoring | 19 |
 | Auth | 14 |
+| GPU Compute | 14 |
+| Open Source Programs | 13 |
 | Students & Education | 12 |
 | APIs & Email | 11 |
-| Open Source Programs | 11 |
-| GPU Compute | 10 |
 | APIs & Payments | 9 |
 | Self-Hosted Tools | 9 |
 | Web Analytics | 9 |
@@ -113,6 +114,33 @@ Above the full deals grid, the homepage renders a 6-card **Top Picks for Develop
 4. The strip is capped at 6 cards.
 
 Affiliated Top Picks render with a gradient accent on the left edge; non-affiliated picks render with a single-color accent. Click events are tracked with `link_type: 'top_picks_claim'` so you can measure Top Picks CTR vs. the full grid.
+
+---
+
+## Deal data & eligibility
+
+`data/deals.jsonl` is the source of truth — one JSON object per line — and it is the published dataset: `js/search.js` fetches it directly, and `_headers` serves it with permissive CORS so anyone can build on it. `npm run build` also emits the same array as `data/deals.json` for consumers that would rather not parse JSONL.
+
+Beyond the catalog fields, each deal may carry a structured eligibility block. It is deliberately fields rather than prose, so the pages stay filterable and every claim is traceable to a source.
+
+| Field | Meaning |
+|---|---|
+| `offer_type` | `credits` \| `free_plan` \| `allocation` \| `membership` \| `stepped_discount` \| `discount` \| `spend_match`. A `discount` is a percentage off; `credits` is a balance. They are kept distinct on purpose. |
+| `value` | `{ headline, usd, unit }` — the headline shown on the card, plus a nullable machine-readable amount. A null `usd` must carry a null `unit`. |
+| `eligibility` | `audience[]`, `stage_max`, `funding_max_usd`, `company_age_max_years`, `employees_max`, `incorporation_required`, `referral_required`, `partner_code_required`, `geo_allow[]`, `geo_exclude[]`, `new_customers_only`, `company_email_required`, `card_required` |
+| `terms` | `expiry_days`, `activation_window_days`, `stackable`, `post_credit_billing`, `renewable` |
+| `gates` | `card`, `phone`, `kyc`, `oauth`, `captcha` (each `true`/`false`/`null`) and `ease_score` (0–100) |
+| `verification` | `verified_at` (ISO date), `source_url` (the page where the offer is stated), `verified_by` |
+| `claim` | `url` plus `method`: `link` \| `coupon` \| `form` \| `application` \| `self-serve` \| `none` |
+| `status` | `active` \| `unverified` \| `paused` \| `retired` |
+| `disclosure` | `editorial` \| `affiliate` — must agree with `has_affiliate` |
+
+Two rules matter more than the rest:
+
+1. **A gate you have not established stays `null`, never `false`.** Card, phone, and KYC badges render only for a known value, so the absence of a "No credit card" chip is never read as a promise.
+2. **A gate you know is `true` is published anyway.** Eight deals require a card; those get a "Card required" badge instead of being quietly omitted.
+
+`status: "retired"` is how a dead offer is handled. The deal keeps its detail page, its `/r/` redirect, its `/alternatives/` page, and its sitemap entries — that URL has SEO value and inbound links — but it drops out of the homepage grid, Top Picks, comparison pages, and related-deals lists. It stays in the archive list carrying a **Retired** badge, and its claim button is replaced with a non-clickable "No longer available". Retiring a deal is therefore *not* the same as deleting it, and the build does not prune its directories.
 
 ---
 

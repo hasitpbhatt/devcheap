@@ -221,6 +221,13 @@
     .sidebar-btn-secondary.copied {
       animation: copyPop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
+    .sidebar-btn-disabled {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-tertiary);
+      cursor: not-allowed;
+      font-weight: 500;
+    }
     .meta-list {
       display: flex;
       flex-direction: column;
@@ -401,7 +408,7 @@
   "name": "CircleCI Open Source",
   "description": "Open-source projects get free CI/CD credits on CircleCI. Millions of open-source builds run on the platform every month, and public repositories qualify without a paid plan.",
   "image": "https://devcheap.click/images/og-image.svg",
-  "dateModified": "2026-11-22",
+  "dateModified": "2026-11-24",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -527,6 +534,14 @@
           </div>
         </div>
       </div>
+
+            <section class="deal-eligibility">
+        <h2>Eligibility &amp; access</h2>
+        <p class="deal-eligibility-note">What this offer actually asks of you, in fields rather than prose.</p>
+        <div class="eligibility-grid"><div class="eligibility-row"><span class="eligibility-label">Offer type</span><span class="eligibility-val">Free plan</span></div><div class="eligibility-row"><span class="eligibility-label">Who can claim</span><span class="eligibility-val">oss</span></div></div>
+        <div class="eligibility-chips"><span class="eligibility-chip">Card requirement not confirmed</span></div>
+        <p class="eligibility-source">Eligibility is the provider's, not ours — confirm the terms before you apply.</p>
+      </section>
 
       <section class="deal-faq">
         <h2>CircleCI Open Source FAQ</h2>

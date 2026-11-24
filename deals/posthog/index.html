@@ -221,6 +221,13 @@
     .sidebar-btn-secondary.copied {
       animation: copyPop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
+    .sidebar-btn-disabled {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-tertiary);
+      cursor: not-allowed;
+      font-weight: 500;
+    }
     .meta-list {
       display: flex;
       flex-direction: column;
@@ -401,7 +408,7 @@
   "name": "PostHog",
   "description": "PostHog's generous free tier includes 1 million events/month, 5,000 session recordings, 1 million feature flag requests, 100K error tracking exceptions, 1,500 survey responses, and 50GB of logs. Open-source product analytics platform. No credit card required.",
   "image": "https://devcheap.click/images/og-image.svg",
-  "dateModified": "2026-11-22",
+  "dateModified": "2026-11-24",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -489,7 +496,7 @@
               <span class="detail-cat">Web Analytics</span>
             </div>
             <div class="detail-badges-row">
-              <span class="deal-card-badge-recommended" style="margin-bottom:0;margin-right:12px"><svg class="icon icon-star" width="12" height="12"><use href="/images/icons.svg#icon-star"/></svg> Recommended</span>
+              <span class="deal-card-badge-recommended" style="margin-bottom:0;margin-right:12px"><svg class="icon icon-star" width="12" height="12"><use href="/images/icons.svg#icon-star"/></svg> Recommended</span><span class="deal-card-tag-gate deal-card-tag-gate-ok">No credit card</span>
             </div>
             <div class="detail-offer-badge">1M Events/Month Free</div>
           </div>
@@ -513,7 +520,7 @@
           <div class="sidebar-box">
             <h2 class="sidebar-action-title">Get this Deal</h2>
             
-            <a href="https://posthog.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=posthog" target="_blank" rel="noopener noreferrer" class="sidebar-btn sidebar-btn-primary" aria-label="Claim PostHog deal - opens in new tab">Claim Deal</a>
+            <a href="https://posthog.com/pricing?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=posthog" target="_blank" rel="noopener noreferrer" class="sidebar-btn sidebar-btn-primary" aria-label="Claim PostHog deal - opens in new tab">Claim Deal</a>
             <button class="sidebar-btn sidebar-btn-secondary" style="opacity:0.5;cursor:default" disabled aria-label="PostHog discount is automatic, no code needed"><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic Discount</button>
 
             <div class="meta-list">
@@ -535,6 +542,14 @@
           </div>
         </div>
       </div>
+
+            <section class="deal-eligibility">
+        <h2>Eligibility &amp; access</h2>
+        <p class="deal-eligibility-note">What this offer actually asks of you, in fields rather than prose.</p>
+        <div class="eligibility-grid"><div class="eligibility-row"><span class="eligibility-label">Offer type</span><span class="eligibility-val">Free plan</span></div><div class="eligibility-row"><span class="eligibility-label">Who can claim</span><span class="eligibility-val">oss</span></div></div>
+        <div class="eligibility-chips"><span class="eligibility-chip eligibility-chip-ok">No credit card</span></div>
+        <p class="eligibility-source">Terms checked against <a href="https://posthog.com/pricing" target="_blank" rel="noopener noreferrer nofollow">https://posthog.com/pricing</a> on 2026-11-24. Eligibility is the provider's, not ours — confirm before you apply.</p>
+      </section>
 
       <section class="deal-faq">
         <h2>PostHog FAQ</h2>
@@ -618,7 +633,7 @@
         
         <p class="deal-card-why">Self-host free forever, or try the cloud for 21 days with no card</p>
         <p class="deal-card-desc">The leading open-source analytics platform. Take a 21-day cloud trial with no credit card, or self-host it free forever with full data ownership.</p>
-        <div class="deal-card-tags"><span class="deal-card-tag">analytics</span><span class="deal-card-tag">privacy</span><span class="deal-card-tag">open-source</span><span class="deal-card-tag">gdpr</span><span class="deal-card-tag">no-credit-card</span></div>
+        <div class="deal-card-tags"><span class="deal-card-tag-gate deal-card-tag-gate-ok">No credit card</span><span class="deal-card-tag">analytics</span><span class="deal-card-tag">privacy</span><span class="deal-card-tag">open-source</span><span class="deal-card-tag">gdpr</span><span class="deal-card-tag">no-credit-card</span></div>
         <div class="deal-card-footer">
           <a href="https://matomo.org/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=matomocloud" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="matomo-cloud">Claim Deal</a>
           <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>

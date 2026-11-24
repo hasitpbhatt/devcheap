@@ -85,6 +85,25 @@ Your PR **must** include the following details in its description:
 * `desc`: Clean, neutral 1-2 sentence description explaining what the tool is (no marketing fluff or hype).
 * `tags`: Lowercase, comma-separated tags for index search.
 * `requiresProgram` (optional): `"startup"`, `"student"`, or `"accelerator"` when the offer is gated behind a program application. These deals are pulled out of the homepage grid, Top Picks, and comparison pages and listed on `/startup-programs/` instead. Omit it for ordinary public deals.
+* `verification.source_url` (optional but preferred): the exact page where the offer is stated — the pricing or free-tier page, **not** the provider homepage. A claim link that lands on a sales page makes a curated listing read like a referral wrapper.
+* `status` (optional): `"active"`, `"unverified"`, `"paused"`, or `"retired"`. Omit for a normal live deal. See [Retiring a deal](#retiring-a-deal) below.
+
+### Eligibility data
+
+Prefer structured fields over prose for anything a reader might filter on. The full field list, allowed values, and the two rules that matter most are documented in [`README.md` § Deal data & eligibility](README.md). The short version:
+
+* `offer_type`: `credits`, `free_plan`, `allocation`, `membership`, `stepped_discount`, `discount`, `spend_match`. Keep `discount` (a percentage off) distinct from `credits` (a balance).
+* `value`: `{ headline, usd, unit }`. Use `usd: null` when no dollar figure is published — and then `unit` must also be `null`.
+* `gates`: `card`, `phone`, `kyc`, `oauth`, `captcha` as `true`/`false`/`null`. **Set `null` when you have not verified it.** Never write `false` because you did not find a card requirement; a `false` renders a "No credit card" badge that readers will rely on.
+* `eligibility.audience`: array of `anyone`, `developer`, `oss`, `startup`, `scaleup`, `sme`, `student`, `researcher`, `accelerator`.
+* `claim.method`: `link`, `coupon`, `form`, `application`, `self-serve`, or `none`.
+* `disclosure`: `editorial` or `affiliate`, and it must agree with `has_affiliate`. `tests/deals-schema.test.js` enforces every shape above.
+
+### Retiring a deal
+
+Do **not** delete a row to take an offer off the site. Set `status: "retired"` and `claim.method: "none"` instead. The deal disappears from the homepage grid, Top Picks, comparison pages, and related-deals lists, and its claim button becomes a non-clickable "No longer available", but its `/deals/[id]/` page, `/r/[id]/` redirect, `/alternatives/[id]/` page, and sitemap entries all stay live so inbound links and search rankings are not lost. Deleting the row breaks the build's orphan-directory checks and strands the URL.
+
+To point a *duplicate* at a canonical deal (a different situation — the duplicate id is genuinely gone), add a 301 to `_redirects` in both trailing-slash forms: `/deals/<old-id>/ /deals/<new-id>/ 301`.
 
 ✅ **Do:**
 - Keep descriptions objective and informative.

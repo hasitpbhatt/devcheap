@@ -221,6 +221,13 @@
     .sidebar-btn-secondary.copied {
       animation: copyPop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
+    .sidebar-btn-disabled {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-tertiary);
+      cursor: not-allowed;
+      font-weight: 500;
+    }
     .meta-list {
       display: flex;
       flex-direction: column;
@@ -401,7 +408,7 @@
   "name": "Google Colab",
   "description": "Hosted Jupyter notebooks with a free tier offering shared GPU and TPU runtimes. Paid tiers remove idle timeouts and give access to better accelerators and more memory.",
   "image": "https://devcheap.click/images/og-image.svg",
-  "dateModified": "2026-11-22",
+  "dateModified": "2026-11-24",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -528,6 +535,14 @@
         </div>
       </div>
 
+            <section class="deal-eligibility">
+        <h2>Eligibility &amp; access</h2>
+        <p class="deal-eligibility-note">What this offer actually asks of you, in fields rather than prose.</p>
+        <div class="eligibility-grid"><div class="eligibility-row"><span class="eligibility-label">Offer type</span><span class="eligibility-val">Compute allocation</span></div><div class="eligibility-row"><span class="eligibility-label">Who can claim</span><span class="eligibility-val">anyone</span></div></div>
+        <div class="eligibility-chips"><span class="eligibility-chip">Card requirement not confirmed</span></div>
+        <p class="eligibility-source">Eligibility is the provider's, not ours — confirm the terms before you apply.</p>
+      </section>
+
       <section class="deal-faq">
         <h2>Google Colab FAQ</h2>
         
@@ -566,6 +581,22 @@
           
       <div class="deal-card">
         <div class="deal-card-header">
+          <h3 class="deal-card-title"><a href="../amd-ai-developer-program/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">AMD AI Developer Program</a></h3>
+          <span class="deal-card-cat">GPU Compute</span>
+        </div>
+        <div class="deal-card-deal">Free Membership + Complimentary Compute Credits</div>
+        <span class="deal-card-badge-recommended"><svg class="icon icon-star" width="12" height="12"><use href="/images/icons.svg#icon-star"/></svg> Recommended</span>
+        <p class="deal-card-why">The only route to free AMD Instinct GPU credits anywhere, and joining takes minutes with no hardware and no card</p>
+        <p class="deal-card-desc">Free membership for developers, students and startups, with complimentary compute credits from AMD Developer Cloud or Fireworks AI, or instant API access through Token Lab. Joining also includes a one-month complimentary DeepLearning.AI membership, a ten-level points scheme as you complete developer activities, and ROCm certification paths. No AMD hardware required.</p>
+        <div class="deal-card-tags"><span class="deal-card-tag">gpu</span><span class="deal-card-tag">amd</span><span class="deal-card-tag">compute</span><span class="deal-card-tag">credits</span><span class="deal-card-tag">membership</span><span class="deal-card-tag">recommended</span></div>
+        <div class="deal-card-footer">
+          <a href="https://developer.amd.com/ai-developer-program/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=amd-ai-developer-program" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="amd-ai-developer-program">Claim Deal</a>
+          <button class="deal-card-btn deal-card-btn-code" data-deal-id="amd-ai-developer-program"><svg class="icon icon-copy" width="14" height="14"><use href="/images/icons.svg#icon-copy"/></svg> Copy Code</button>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="deal-card-header">
           <h3 class="deal-card-title"><a href="../coreweave/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">CoreWeave</a></h3>
           <span class="deal-card-cat">GPU Compute</span>
         </div>
@@ -582,33 +613,17 @@
 
       <div class="deal-card">
         <div class="deal-card-header">
-          <h3 class="deal-card-title"><a href="../fal-ai/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">fal</a></h3>
+          <h3 class="deal-card-title"><a href="../eurohpc-ai-factories/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">EuroHPC AI Factories</a></h3>
           <span class="deal-card-cat">GPU Compute</span>
         </div>
-        <div class="deal-card-deal">Starter Credits + Per-Second Billing</div>
-        
-        <p class="deal-card-why">Pay-per-second generative media inference without renting a GPU</p>
-        <p class="deal-card-desc">Serverless inference for image, video, and audio models with pay-per-use pricing and fast cold starts. New accounts get starter credits, so you can ship a generative feature without renting a GPU.</p>
-        <div class="deal-card-tags"><span class="deal-card-tag">ai</span><span class="deal-card-tag">inference</span><span class="deal-card-tag">gpu</span><span class="deal-card-tag">media</span><span class="deal-card-tag">serverless</span></div>
+        <div class="deal-card-deal">Free Supercomputer GPU Access for EU Startups</div>
+        <span class="deal-card-badge-recommended"><svg class="icon icon-star" width="12" height="12"><use href="/images/icons.svg#icon-star"/></svg> Recommended</span>
+        <p class="deal-card-why">The largest publicly funded GPU access open to a European startup, and it runs on supercomputers rather than a cloud console</p>
+        <p class="deal-card-desc">Free, customised support and compute access for European startups and SMEs through the EU network of 19 AI Factories and 13 Antennas. Each AI Factory operates its own access route to the supercomputer it is attached to, and the capacity is aimed at AI model work rather than general hosting. Publicly funded, so there is no invoice to manage.</p>
+        <div class="deal-card-tags"><span class="deal-card-tag">gpu</span><span class="deal-card-tag">compute</span><span class="deal-card-tag">europe</span><span class="deal-card-tag">research</span><span class="deal-card-tag">allocation</span><span class="deal-card-tag">recommended</span></div>
         <div class="deal-card-footer">
-          <a href="https://fal.ai/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=falai" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="fal-ai">Claim Deal</a>
-          <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
-        </div>
-      </div>
-
-      <div class="deal-card">
-        <div class="deal-card-header">
-          <h3 class="deal-card-title"><a href="../huggingface-free/" style="color:inherit; text-decoration:none; hover:text-decoration:underline;">Hugging Face Free Tier</a></h3>
-          <span class="deal-card-cat">GPU Compute</span>
-        </div>
-        <div class="deal-card-deal">Free Inference Credits + Spaces</div>
-        
-        <p class="deal-card-why">Free model hosting, inference credits, and demo Spaces for prototypes</p>
-        <p class="deal-card-desc">The free Hugging Face account includes monthly inference credits, free CPU Spaces for demos, unlimited public model and dataset hosting, and access to community inference endpoints. Paid dedicated endpoints start around $0.033/hour.</p>
-        <div class="deal-card-tags"><span class="deal-card-tag">ai</span><span class="deal-card-tag">inference</span><span class="deal-card-tag">models</span><span class="deal-card-tag">hosting</span><span class="deal-card-tag">free</span></div>
-        <div class="deal-card-footer">
-          <a href="https://huggingface.co/pricing?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=huggingfacefree" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="huggingface-free">Claim Deal</a>
-          <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
+          <a href="https://www.eurohpc-ju.europa.eu/ai-factories_en?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=eurohpc-ju-ai-factories" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="eurohpc-ai-factories">Claim Deal</a>
+          <button class="deal-card-btn deal-card-btn-code" data-deal-id="eurohpc-ai-factories"><svg class="icon icon-copy" width="14" height="14"><use href="/images/icons.svg#icon-copy"/></svg> Copy Code</button>
         </div>
       </div>
       

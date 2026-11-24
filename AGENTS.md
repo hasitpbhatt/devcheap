@@ -11,10 +11,11 @@ When adding, removing, or modifying deals in `data/deals.jsonl`, these files mus
 | `deals/<id>/index.html` | Per-deal detail pages | Yes — run `npm run build` (via `scripts/build.js`) |
 | `category/<slug>/index.html` | SEO-optimized category landing pages | Yes — run `npm run build` (via `scripts/build.js`) |
 | `startup-programs/index.html` | Student / startup / accelerator program directory | Yes — run `npm run build`. Buckets on the `requiresProgram` field, so program deals MUST set it or the page renders empty. |
-| `_redirects` | 301s from retired deal ids to their canonical deal | No (manual) — add a rule for **both** the `/deals/<id>/` and `/deals/<id>` forms whenever a deal id is deleted, or the old URL 404s on Cloudflare Pages. |
+| `_redirects` | 301s from deleted duplicate deal ids to their canonical deal | No (manual) — add a rule for **both** the `/deals/<id>/` and `/deals/<id>` forms whenever a deal id is deleted or merged away, or the old URL 404s on Cloudflare Pages. Not needed when a deal is merely retired (its page stays). |
+| `data/deals.json` | Plain-JSON mirror of `deals.jsonl` for non-JSONL consumers | Yes — emitted by `npm run build` (via `scripts/build.js`). Do NOT hand-edit. |
 | `sitemap.xml` | Full sitemap rewritten from `deals.jsonl` | Yes — run `npm run build` (via `scripts/build.js`). Do NOT hand-edit; it will be overwritten on the next build. |
 | `llms.txt` | LLM-friendly site summary generated from `deals.jsonl` | Yes — run `npm run build` (via `scripts/generate-llmstxt.js`). |
-| `feed.xml` | Regenerate from `data/deals.jsonl` | Yes — run `pwsh scripts/generate-feed.ps1` (use `powershell` if `pwsh` is not installed) |
+| `feed.xml` | RSS feed generated from `data/deals.jsonl` | Yes — `npm run build` runs `scripts/generate-feed.ps1` for you. Run `pwsh scripts/generate-feed.ps1` directly (or `powershell -File` if `pwsh` is missing) when you want to regenerate it on its own. |
 | `README.md` | Update deal count, category list, date | No (manual) |
 | `CONTRIBUTING.md` | Update category list, file references | No (manual) |
 | `tests/deals-schema.test.js` | Add new categories to the `validCategories` array | No (manual) |
@@ -23,14 +24,26 @@ When adding, removing, or modifying deals in `data/deals.jsonl`, these files mus
 ## Regeneration Commands
 
 ```powershell
-# Regenerate index.html, deals/<id>/index.html pages, sitemap.xml, and llms.txt from deals.jsonl
+# Regenerate index.html, deals/<id>/index.html pages, category pages, sitemap.xml,
+# llms.txt, data/deals.json, AND feed.xml from deals.jsonl
 npm run build
 
-# Regenerate feed.xml from deals.jsonl (RSS feed is NOT covered by `npm run build`)
+# Regenerate feed.xml on its own (already covered by the build above)
 pwsh scripts/generate-feed.ps1
 # fallback if pwsh is unavailable:
 powershell -File scripts/generate-feed.ps1
 ```
+
+## Eligibility & Status Fields
+
+Deal rows carry structured eligibility metadata (see `README.md` § Deal data & eligibility for the full field list). Two rules are load-bearing when you edit a row:
+
+- **A gate you have not verified stays `null`.** `gates.card: false` renders a "No credit card" badge that readers rely on to avoid surprise charges — never write `false` just because you did not find a credit-card requirement. Set it `null` and stay silent instead.
+- **`verification.source_url` must point at the page where the offer is stated** (pricing or free-tier page), not the provider homepage. A claim link that lands on a sales page is the single fastest way to make a curated listing read as a referral wrapper.
+
+To take an offer off the site, set `status: "retired"` and `claim.method: "none"` — **do not delete the row.** A retired deal keeps its detail page, `/r/` redirect, `/alternatives/` page, and sitemap entries (that URL has inbound links), drops out of the homepage grid, Top Picks, comparison pages, and related-deals lists, and renders a non-clickable "No longer available". Deleting a row instead breaks the orphan-directory and sitemap-count tests and strands the URL.
+
+Allowed `status` values: `active`, `unverified`, `paused`, `retired`. Allowed `offer_type` values: `credits`, `free_plan`, `allocation`, `membership`, `stepped_discount`, `discount`, `spend_match`. `disclosure` must agree with `has_affiliate`. `tests/deals-schema.test.js` enforces all of this — extend it when you add a new field or allowed value.
 
 ## Known Categories
 
@@ -61,10 +74,9 @@ npm test                 # runs schema, UI, HTML, and accessibility tests
 ```
 
 Before committing:
-1. Run the build to regenerate the homepage, per-deal pages, and sitemap:
+1. Run the build to regenerate the homepage, per-deal pages, sitemap, `data/deals.json`, and `feed.xml`:
    `npm run build`
-2. Regenerate the RSS feed (the build does NOT cover this):
-   `pwsh scripts/generate-feed.ps1`
+2. If you regenerated the feed separately, or the build warned that feed generation failed, run `pwsh scripts/generate-feed.ps1`
 3. Update README deal count and category table if categories/counts changed
 4. Run validation and tests (`npm run validate:jsonl && npm test`)
 
