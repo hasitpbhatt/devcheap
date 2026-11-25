@@ -13,9 +13,9 @@ DevCheap tracks **355 deals** across **26 categories**. Every deal is manually r
 - Total deals: **355**
 - Categories: **26**
 - Top-rated deals (≥ 8.0): **58**
-- Expired deals: **335**
+- Expired deals: **336**
 - Pricing: free: 326, paid: 17, trial: 12
-- Last updated: 2026-11-24
+- Last updated: 2026-11-25
 
 ## Top Deals
 - [GitHub Student Developer Pack](https://education.github.com/pack) — The anchor student bundle. Verified students get GitHub Copilot, 1TB of storage, $200 in DigitalOcean credit, a free .TE… [rating: 9] [free] (no expiry) — [Details](https://devcheap.click/deals/github-student-pack/)
