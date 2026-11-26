@@ -15,3 +15,7 @@ Vary: Accept
 /data/deals.jsonl
 Access-Control-Allow-Origin: *
 Content-Type: application/jsonl+json
+
+/data/deals.json
+Access-Control-Allow-Origin: *
+Content-Type: application/json

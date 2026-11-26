@@ -48,7 +48,8 @@ Before committing, you must verify your changes:
 * **Validate JSONL syntax:** Each line in `data/deals.jsonl` must be valid JSON. Run `npm run validate:jsonl`.
 * **Run tests:** Run `npm test` to ensure schema validation, UI interactions, HTML structure, and accessibility checks pass.
 * **Regenerate RSS:** Run `pwsh scripts/generate-feed.ps1` to regenerate `feed.xml` from the deal database.
-* **Regenerate SEO pages:** Run `npm run build` to regenerate `index.html`, `/deals/[id]/index.html` detail pages, `/category/[slug]/index.html` SEO landing pages, `sitemap.xml`, and `llms.txt`. The category pages include FAQ structured data and item list schema for search engines.
+* **Regenerate SEO pages:** Run `npm run build` to regenerate `index.html`, `/deals/[id]/index.html` detail pages, `/category/[slug]/index.html` SEO landing pages, `/startup-programs/`, `/alternatives/`, comparison pages, `sitemap.xml`, and `llms.txt`. The category pages include FAQ structured data and item list schema for search engines.
+* **Retiring a deal id:** Deleting a deal leaves its old `/deals/[id]/` URL dead. Add a 301 to `_redirects` pointing the retired id at the canonical deal (`/deals/<old-id>/ /deals/<new-id>/ 301`), both with and without the trailing slash.
 * **Validate Links:** Double-check that all URLs added are active, direct, secure (HTTPS), and point to the official site. **Do not submit affiliate, spam, or tracking redirect links.**
 * **Local Preview:** Run a local server (e.g. `python -m http.server 8000`) and verify that the page renders correctly and search/filters work as expected.
 
@@ -77,12 +78,32 @@ Your PR **must** include the following details in its description:
 ### Deal Submission Checklist:
 * `id`: Must be a unique, lowercase string (e.g. `supabase`).
 * `name`: The official brand/service name.
-* `category`: Must match a known catalog category. Current categories: Hosting & Cloud, Database, APIs & Email, APIs & Payments, APIs & Search, AI & LLM, Auth, Developer Tools, Monitoring, Domains & Hosting, Storage & Cloud, Security, Productivity, SEO, AI, Social Media, Customer Support, Sales & Marketing, Services, Design & Collaboration, Web Analytics, Media & Images, CI/CD, Testing & QA.
+* `category`: Must match a known catalog category. Current categories: Hosting & Cloud, Database, APIs & Email, APIs & Payments, APIs & Search, AI & LLM, Auth, Developer Tools, Monitoring, Domains & Hosting, Storage & Cloud, Security, Productivity, SEO, AI, Social Media, Customer Support, Sales & Marketing, Services, Design & Collaboration, Web Analytics, Media & Images, CI/CD, Testing & QA, Students & Education, Open Source Programs, GPU Compute, Startup Perks, Self-Hosted Tools.
 * `deal`: Clear description of the value (e.g., `$100 Free Credit` or `20% Off Lifetime`).
 * `code`: Explicit coupon code, or `Automatic (Link)` if it applies automatically.
 * `url`: Direct signup link (no tracker-hijacked URLs).
 * `desc`: Clean, neutral 1-2 sentence description explaining what the tool is (no marketing fluff or hype).
 * `tags`: Lowercase, comma-separated tags for index search.
+* `requiresProgram` (optional): `"startup"`, `"student"`, or `"accelerator"` when the offer is gated behind a program application. These deals are pulled out of the homepage grid, Top Picks, and comparison pages and listed on `/startup-programs/` instead. Omit it for ordinary public deals.
+* `verification.source_url` (optional but preferred): the exact page where the offer is stated — the pricing or free-tier page, **not** the provider homepage. A claim link that lands on a sales page makes a curated listing read like a referral wrapper.
+* `status` (optional): `"active"`, `"unverified"`, `"paused"`, or `"retired"`. Omit for a normal live deal. See [Retiring a deal](#retiring-a-deal) below.
+
+### Eligibility data
+
+Prefer structured fields over prose for anything a reader might filter on. The full field list, allowed values, and the two rules that matter most are documented in [`README.md` § Deal data & eligibility](README.md). The short version:
+
+* `offer_type`: `credits`, `free_plan`, `allocation`, `membership`, `stepped_discount`, `discount`, `spend_match`. Keep `discount` (a percentage off) distinct from `credits` (a balance).
+* `value`: `{ headline, usd, unit }`. Use `usd: null` when no dollar figure is published — and then `unit` must also be `null`.
+* `gates`: `card`, `phone`, `kyc`, `oauth`, `captcha` as `true`/`false`/`null`. **Set `null` when you have not verified it.** Never write `false` because you did not find a card requirement; a `false` renders a "No credit card" badge that readers will rely on.
+* `eligibility.audience`: array of `anyone`, `developer`, `oss`, `startup`, `scaleup`, `sme`, `student`, `researcher`, `accelerator`.
+* `claim.method`: `link`, `coupon`, `form`, `application`, `self-serve`, or `none`.
+* `disclosure`: `editorial` or `affiliate`, and it must agree with `has_affiliate`. `tests/deals-schema.test.js` enforces every shape above.
+
+### Retiring a deal
+
+Do **not** delete a row to take an offer off the site. Set `status: "retired"` and `claim.method: "none"` instead. The deal disappears from the homepage grid, Top Picks, comparison pages, and related-deals lists, and its claim button becomes a non-clickable "No longer available", but its `/deals/[id]/` page, `/r/[id]/` redirect, `/alternatives/[id]/` page, and sitemap entries all stay live so inbound links and search rankings are not lost. Deleting the row breaks the build's orphan-directory checks and strands the URL.
+
+To point a *duplicate* at a canonical deal (a different situation — the duplicate id is genuinely gone), add a 301 to `_redirects` in both trailing-slash forms: `/deals/<old-id>/ /deals/<new-id>/ 301`.
 
 ✅ **Do:**
 - Keep descriptions objective and informative.

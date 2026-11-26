@@ -221,6 +221,13 @@
     .sidebar-btn-secondary.copied {
       animation: copyPop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
+    .sidebar-btn-disabled {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-tertiary);
+      cursor: not-allowed;
+      font-weight: 500;
+    }
     .meta-list {
       display: flex;
       flex-direction: column;
@@ -446,7 +453,7 @@
             <div class="meta-list">
               <div class="meta-item">
                 <span class="meta-label">Status</span>
-                <span class="meta-val" style="color:var(--green)">✓ Verified Deal</span>
+                <span class="meta-val" style="color:{{DEAL_STATUS_COLOR}}">{{DEAL_STATUS}}</span>
               </div>
               <div class="meta-item">
                 <span class="meta-label">Expires</span>
@@ -462,6 +469,8 @@
           </div>
         </div>
       </div>
+
+      {{DEAL_ELIGIBILITY}}
 
       <section class="deal-faq">
         <h2>{{DEAL_NAME}} FAQ</h2>

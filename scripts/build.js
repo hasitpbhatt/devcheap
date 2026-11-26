@@ -1,4 +1,5 @@
 import fs from 'fs/promises';
+import { readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
@@ -7,6 +8,11 @@ import { sanitizeDealValue } from '../js/sanitize-deal-value.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.join(__dirname, '..');
 const DEALS_PATH = path.join(ROOT_DIR, 'data', 'deals.jsonl');
+const LLM_PROVIDERS_PATH = path.join(ROOT_DIR, 'data', 'llm-providers.json');
+
+// Quoted in prose all over the site, so derive it instead of hardcoding a number
+// that silently drifts every time a provider is added or retired.
+const LLM_PROVIDER_COUNT = JSON.parse(readFileSync(LLM_PROVIDERS_PATH, 'utf-8')).length;
 const FAQ_PATH = path.join(ROOT_DIR, 'data', 'deal-faqs.json');
 const INDEX_PATH = path.join(ROOT_DIR, 'index.html');
 const TEMPLATE_PATH = path.join(ROOT_DIR, 'templates', 'deal-detail.html');
@@ -191,6 +197,124 @@ function buildTrackedUrl(deal) {
   }
 }
 
+// Deal status is data, not decoration: 'unverified' means we could not read the
+// provider's terms this cycle, 'paused' and 'retired' mean the offer is not live.
+const STATUS_META = {
+  active: { label: '✓ Verified Deal', short: 'Verified', color: 'var(--green)', cls: 'ok' },
+  unverified: { label: '⚠ Terms Unverified', short: 'Terms unverified', color: 'var(--orange)', cls: 'unverified' },
+  paused: { label: '⏸ Program Paused', short: 'Paused', color: 'var(--orange)', cls: 'paused' },
+  retired: { label: '✕ Retired', short: 'Retired', color: 'var(--text-secondary)', cls: 'retired' },
+};
+
+function statusMeta(deal) {
+  return STATUS_META[deal.status] || (deal.status ? { label: deal.status, short: deal.status, color: 'var(--text-secondary)', cls: 'retired' } : null);
+}
+
+// A retired offer must not be marketed: it keeps its page (and its SEO value)
+// but drops out of every list where a reader would read it as a live deal.
+function isRetiredDeal(deal) {
+  return deal.status === 'retired';
+}
+
+// Only facts we actually hold get a badge. A null gate renders nothing, so the
+// absence of a 'No credit card' chip is never read as a promise.
+function gateBadges(deal) {
+  const g = deal.gates || {};
+  const badges = [];
+  if (g.card === false) badges.push({ cls: 'deal-card-tag-gate-ok', label: 'No credit card' });
+  if (g.card === true) badges.push({ cls: 'deal-card-tag-gate-warn', label: 'Card required' });
+  if (g.phone === true) badges.push({ cls: 'deal-card-tag-gate-warn', label: 'Phone required' });
+  if (g.kyc === true) badges.push({ cls: 'deal-card-tag-gate-warn', label: 'KYC required' });
+  return badges;
+}
+
+function renderCardBadges(deal) {
+  const meta = statusMeta(deal);
+  const statusBadge = meta && deal.status && deal.status !== 'active'
+    ? `<span class="deal-card-tag-status deal-card-tag-status-${meta.cls}">${escapeHtml(meta.short)}</span>`
+    : '';
+  const gates = gateBadges(deal)
+    .map(b => `<span class="deal-card-tag-gate ${b.cls}">${escapeHtml(b.label)}</span>`)
+    .join('');
+  return statusBadge + gates;
+}
+
+const OFFER_TYPE_LABEL = {
+  credits: 'Credits',
+  free_plan: 'Free plan',
+  allocation: 'Compute allocation',
+  membership: 'Membership',
+  stepped_discount: 'Stepped discount',
+  discount: 'Discount',
+  spend_match: 'Spend match',
+};
+
+function eligibilityRows(deal) {
+  const rows = [];
+  const el = deal.eligibility || {};
+  const terms = deal.terms || {};
+
+  if (deal.offer_type && OFFER_TYPE_LABEL[deal.offer_type]) {
+    rows.push(['Offer type', OFFER_TYPE_LABEL[deal.offer_type]]);
+  }
+  if (deal.value && deal.value.headline && deal.value.headline !== deal.deal) {
+    rows.push(['Headline value', deal.value.headline]);
+  }
+  if (el.audience && el.audience.length) {
+    rows.push(['Who can claim', el.audience.join(', ')]);
+  }
+  if (el.geo_allow && el.geo_allow.length) {
+    rows.push(['Region', el.geo_allow.join(', ')]);
+  }
+  if (el.new_customers_only === true) rows.push(['New customers', 'Yes — existing accounts are not eligible']);
+  if (el.referral_required === true) rows.push(['Referral', 'Required']);
+  if (el.incorporation_required === true) rows.push(['Incorporation', 'Required']);
+  if (typeof el.funding_max_usd === 'number') {
+    rows.push(['Funding ceiling', `$${el.funding_max_usd.toLocaleString('en-US')} raised`]);
+  }
+  if (typeof el.employees_max === 'number') rows.push(['Team size ceiling', `${el.employees_max} employees`]);
+  if (typeof el.company_age_max_years === 'number') rows.push(['Company age ceiling', `${el.company_age_max_years} years`]);
+  if (terms.expiry_days) rows.push(['Credits expire', `${terms.expiry_days} days after issue`]);
+  if (terms.activation_window_days) rows.push(['Activation window', `${terms.activation_window_days} days`]);
+  if (terms.stackable === true) rows.push(['Stackable', 'Yes — combines with other offers']);
+  if (terms.stackable === false) rows.push(['Stackable', 'No']);
+  if (terms.renewable === true) rows.push(['Renewable', 'Yes']);
+  if (terms.post_credit_billing) rows.push(['After the credits', terms.post_credit_billing]);
+  return rows;
+}
+
+function renderEligibilityPanel(deal) {
+  const rows = eligibilityRows(deal);
+  const gates = gateBadges(deal);
+  const g = deal.gates || {};
+  if (!rows.length && !gates.length && !g.ease_score && !deal.verification) return '';
+
+  const rowsHtml = rows.length
+    ? `<div class="eligibility-grid">${rows.map(([label, val]) =>
+        `<div class="eligibility-row"><span class="eligibility-label">${escapeHtml(label)}</span><span class="eligibility-val">${escapeHtml(String(val))}</span></div>`
+      ).join('')}</div>`
+    : '';
+
+  const chips = [];
+  gates.forEach(b => chips.push(`<span class="eligibility-chip ${b.cls === 'deal-card-tag-gate-ok' ? 'eligibility-chip-ok' : 'eligibility-chip-warn'}">${escapeHtml(b.label)}</span>`));
+  if (typeof g.ease_score === 'number') chips.push(`<span class="eligibility-chip">Ease score ${g.ease_score}/100</span>`);
+  if (g.card === null || g.card === undefined) chips.push('<span class="eligibility-chip">Card requirement not confirmed</span>');
+  const chipsHtml = chips.length ? `<div class="eligibility-chips">${chips.join('')}</div>` : '';
+
+  const v = deal.verification || {};
+  const sourceHtml = v.source_url
+    ? `<p class="eligibility-source">Terms checked against <a href="${escapeHtml(v.source_url)}" target="_blank" rel="noopener noreferrer nofollow">${escapeHtml(v.source_url)}</a>${v.verified_at ? ` on ${escapeHtml(v.verified_at)}` : ''}. Eligibility is the provider's, not ours — confirm before you apply.</p>`
+    : '<p class="eligibility-source">Eligibility is the provider\'s, not ours — confirm the terms before you apply.</p>';
+
+  return `      <section class="deal-eligibility">
+        <h2>Eligibility &amp; access</h2>
+        <p class="deal-eligibility-note">What this offer actually asks of you, in fields rather than prose.</p>
+        ${rowsHtml}
+        ${chipsHtml}
+        ${sourceHtml}
+      </section>`;
+}
+
 function renderDealCard(deal, isNested = false) {
   const prefix = isNested ? '../../' : '';
   const folderPrefix = isNested ? '../' : 'deals/';
@@ -220,6 +344,14 @@ function renderDealCard(deal, isNested = false) {
   const programLabel = deal.requiresProgram === 'startup' ? 'Requires startup status' : deal.requiresProgram === 'student' ? 'Requires student status' : deal.requiresProgram === 'accelerator' ? 'Requires accelerator status' : '';
   const programHTML = programLabel ? `<span class="deal-card-tag-program deal-card-tag-program-${escapeHtml(String(deal.requiresProgram))}">${programLabel}</span>` : '';
 
+  const cardBadgesHTML = renderCardBadges(deal);
+
+    // Retired deals keep their page but never market an active CTA.
+    // Mirror the detail-page sidebar: disabled "No longer available" badge.
+    const claimBtn = isRetiredDeal(deal)
+      ? `<span class="deal-card-btn deal-card-btn-primary" aria-disabled="true" title="${escapeHtml(deal.name)} is retired and no longer accepting signups">No longer available</span>`
+      : `<a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>`;
+
   return `
       <div class="deal-card">
         <div class="deal-card-header">
@@ -230,9 +362,9 @@ function renderDealCard(deal, isNested = false) {
         ${recommendedBadge}${spotlightBadge}
         ${whyHTML}
         <p class="deal-card-desc">${escapeHtml(deal.desc)}</p>
-        <div class="deal-card-tags">${programHTML}${tagsHTML}${expiresHTML}</div>
+        <div class="deal-card-tags">${programHTML}${cardBadgesHTML}${tagsHTML}${expiresHTML}</div>
         <div class="deal-card-footer">
-          <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="${deal.id}">Claim Deal</a>
+            ${claimBtn}
           ${couponBtn}
         </div>
       </div>`;
@@ -438,7 +570,7 @@ async function generateAggregatePages(ROOT_DIR, deals) {
         <p>${escapeHtml(article.intro)}</p>
       </div>
       ${sectionsHtml}
-      ${['best-free-ai-apis', 'how-to-pick-free-llm-api'].includes(article.slug) ? `<p style="margin-top:28px;font-size:14.5px;color:var(--text-secondary)">Want the same providers ranked by how fast you actually get a key — no credit card, no KYC paths flagged? See our <a href="/llm-providers/">LLM Providers directory</a>, which ranks 168 providers by signup friction.</p>` : ''}
+      ${['best-free-ai-apis', 'how-to-pick-free-llm-api'].includes(article.slug) ? `<p style="margin-top:28px;font-size:14.5px;color:var(--text-secondary)">Want the same providers ranked by how fast you actually get a key — no credit card, no KYC paths flagged? See our <a href="/llm-providers/">LLM Providers directory</a>, which ranks ${LLM_PROVIDER_COUNT} providers by signup friction.</p>` : ''}
       <section class="article-deals">
         <h2>Relevant Deals</h2>
         <div class="deals-grid">${relatedDealsCards}</div>
@@ -539,7 +671,7 @@ async function generateCategoryPages(ROOT_DIR, deals) {
     }
 
     const hubLinkHtml = cat.toLowerCase() === 'ai & llm' || cat.toLowerCase() === 'ai'
-      ? `<p style="margin-top:14px;font-size:14px;color:var(--text-secondary)">Prefer to compare providers by signup friction instead of category? See our <a href="/llm-providers/">LLM Providers directory</a> — 168 providers ranked by how fast you get an API key.</p>`
+      ? `<p style="margin-top:14px;font-size:14px;color:var(--text-secondary)">Prefer to compare providers by signup friction instead of category? See our <a href="/llm-providers/">LLM Providers directory</a> — ${LLM_PROVIDER_COUNT} providers ranked by how fast you get an API key.</p>`
       : '';
 
     const jsonLdHtml = `<script type="application/ld+json">\n${JSON.stringify(itemListJson, null, 2)}\n</script>`;
@@ -681,6 +813,9 @@ async function generateArchive(ROOT_DIR, deals, getFileLastMod) {
 const archived = deals
   .filter(d => {
     if (d.has_affiliate) return false;
+    // Retired deals deliberately stay in the archive: it is the shelf for
+    // "real but not worth pushing", and there they render with a Retired badge
+    // and a non-clickable CTA instead of vanishing unmarked.
     if (d.expires && new Date(d.expires).getTime() < Date.now()) return false;
     const r = typeof d.rating === 'number' ? d.rating : 0;
     return r < FEATURED_RATING_MIN;
@@ -916,6 +1051,7 @@ async function generateLlmProviderPages(ROOT_DIR) {
     .replace('{{HUB_BREADCRUMB_TAIL}}', meta.breadcrumbTail || '')
     .replace('{{HUB_TABLE_HEADING}}', meta.tableHeading)
     .replace('{{HUB_CLICK_CATEGORY}}', meta.clickCategory || 'LLM Providers')
+    .replace(/{{LLM_PROVIDER_COUNT}}/g, String(LLM_PROVIDER_COUNT))
     .replace('{{HUB_SKIP_GATE_CTA}}', meta.skipGate ? `<a class="btn-ghost" href="${escapeHtml(meta.skipGate.href)}">${escapeHtml(meta.skipGate.label)}</a>` : '');
 
   const hubMeta = {
@@ -1098,7 +1234,7 @@ async function generateStartupProgramsPage(ROOT_DIR, deals) {
     <p style="font-size:12px;letter-spacing:0.6px;color:var(--text-tertiary);text-transform:uppercase;margin:0 0 8px;">DevCheap</p>
     <h1>Startup programs &amp; credits for developers</h1>
     <p>${total} verified programs from AWS, Google Cloud, Microsoft, Anthropic, OpenAI, Cloudflare, and 35+ more. Each deal card is honest about who qualifies &mdash; we do not pretend a startup-gated credit is open to everyone.</p>
-    <p>Comparing LLM API providers for your stack? See the <a href="/llm-providers/">LLM Providers directory</a> (168 providers ranked by how fast you get a key).</p>
+    <p>Comparing LLM API providers for your stack? See the <a href="/llm-providers/">LLM Providers directory</a> (${LLM_PROVIDER_COUNT} providers ranked by how fast you get a key).</p>
     <p class="sp-meta">Last verified ${today}</p>
   </header>
   <main>
@@ -1139,15 +1275,17 @@ async function generateTransparencyPage(ROOT_DIR, deals) {
     </tr>`).join('\n');
 
   const html = template
-    .replace('{{AFFILIATE_COUNT}}', String(affiliateCount))
-    .replace('{{DEAL_COUNT}}', String(deals.length))
-    .replace('{{NON_AFFILIATE_COUNT}}', String(nonAffiliateCount))
-    .replace('{{RUN_COST}}', runCost)
-    .replace('{{DOMAIN_COST}}', domainCost)
-    .replace('{{AFFILIATE_SHARE}}', affiliateShare)
-    .replace('{{TEAM_TESTED_COUNT}}', String(teamTestedCount))
-    .replace('{{LAST_UPDATED}}', today)
-    .replace('{{AFFILIATE_ROWS}}', affiliateRows);
+    // Global regexes: .replace() with a string only swaps the first match, and
+    // these tokens appear several times per page.
+    .replace(/{{AFFILIATE_COUNT}}/g, String(affiliateCount))
+    .replace(/{{DEAL_COUNT}}/g, String(deals.length))
+    .replace(/{{NON_AFFILIATE_COUNT}}/g, String(nonAffiliateCount))
+    .replace(/{{RUN_COST}}/g, runCost)
+    .replace(/{{DOMAIN_COST}}/g, domainCost)
+    .replace(/{{AFFILIATE_SHARE}}/g, affiliateShare)
+    .replace(/{{TEAM_TESTED_COUNT}}/g, String(teamTestedCount))
+    .replace(/{{LAST_UPDATED}}/g, today)
+    .replace(/{{AFFILIATE_ROWS}}/g, affiliateRows);
 
   const outDir = path.join(ROOT_DIR, 'transparency');
   await fs.mkdir(outDir, { recursive: true });
@@ -1189,9 +1327,9 @@ async function generateSponsorsPage(ROOT_DIR, deals) {
 
   const html = template
     .replace('{{SESSIONS_DAY}}', '~100')
-    .replace('{{DEAL_COUNT}}', String(deals.length))
+    .replace(/{{DEAL_COUNT}}/g, String(deals.length))
     .replace('{{CATEGORY_COUNT}}', String(categories.length))
-    .replace('{{LLM_PROVIDER_COUNT}}', '168');
+    .replace('{{LLM_PROVIDER_COUNT}}', String(LLM_PROVIDER_COUNT));
 
   const outDir = path.join(ROOT_DIR, 'sponsors');
   await fs.mkdir(outDir, { recursive: true });
@@ -1208,6 +1346,7 @@ async function generateComparisonPages(ROOT_DIR, deals) {
   // Generate ~200 pairs: same category, similar rating (diff <= 1.5), both featured (rating >= 8 or affiliate)
   const featuredDeals = deals.filter(d => {
     if (d.requiresProgram) return false;
+    if (isRetiredDeal(d)) return false;
     if (d.has_affiliate) return true;
     if (d.expires && new Date(d.expires).getTime() < Date.now()) return false;
     return (d.rating || 0) >= 8.0;
@@ -1478,6 +1617,7 @@ const categoryButtons = [
   // default homepage featured set; they live on /startup-programs/.
   const featuredDeals = deals.filter(deal => {
     if (deal.requiresProgram) return false;
+    if (isRetiredDeal(deal)) return false;
     if (deal.has_affiliate) return true;
     if (deal.expires && new Date(deal.expires).getTime() < Date.now()) return false;
     const r = typeof deal.rating === 'number' ? deal.rating : 0;
@@ -1567,19 +1707,21 @@ console.log('✅ Main index.html updated.');
     const isSpotlight = deal.tags && deal.tags.toLowerCase().includes('spotlight');
     const spotlightBadge = isSpotlight ? `<span class="deal-card-badge-spotlight" style="margin-bottom:0"><svg class="icon icon-spotlight" width="12" height="12"><use href="/images/icons.svg#icon-spotlight"/></svg> Spotlight</span>` : '';
     
-    const badgesRow = `${recommendedBadge}${spotlightBadge}`;
+    const badgesRow = `${recommendedBadge}${spotlightBadge}${renderCardBadges(deal)}`;
 
     const trackedUrl = buildTrackedUrl(deal);
-    const claimButton = `<a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="sidebar-btn sidebar-btn-primary" aria-label="Claim ${escapeHtml(deal.name)} deal - opens in new tab">Claim Deal</a>`;
+    const claimButton = isRetiredDeal(deal)
+      ? `<span class="sidebar-btn sidebar-btn-disabled" aria-label="${escapeHtml(deal.name)} is retired and no longer accepting signups">No longer available</span>`
+      : `<a href="${trackedUrl}" target="_blank" rel="noopener noreferrer" class="sidebar-btn sidebar-btn-primary" aria-label="Claim ${escapeHtml(deal.name)} deal - opens in new tab">Claim Deal</a>`;
 
     const isPromoAutomatic = deal.code ? (deal.code.toLowerCase().includes('automatic') || deal.code.toLowerCase().includes('link')) : false;
     const couponButton = isPromoAutomatic
       ? `<button class="sidebar-btn sidebar-btn-secondary" style="opacity:0.5;cursor:default" disabled aria-label="${escapeHtml(deal.name)} discount is automatic, no code needed"><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic Discount</button>`
       : `<button id="copy-coupon-btn" class="sidebar-btn sidebar-btn-secondary" data-code="${escapeHtml(deal.code)}" aria-label="Copy coupon code ${escapeHtml(deal.code)} for ${escapeHtml(deal.name)}"><svg class="icon icon-copy" width="14" height="14"><use href="/images/icons.svg#icon-copy"/></svg> Copy Coupon (${escapeHtml(deal.code)})</button>`;
 
-    let related = deals.filter(d => d.category === deal.category && d.id !== deal.id);
+    let related = deals.filter(d => d.category === deal.category && d.id !== deal.id && !isRetiredDeal(d));
     if (related.length < 3) {
-      const extra = deals.filter(d => d.category !== deal.category && d.id !== deal.id);
+      const extra = deals.filter(d => d.category !== deal.category && d.id !== deal.id && !isRetiredDeal(d));
       related = [...related, ...extra].slice(0, 3);
     } else {
       related = related.slice(0, 3);
@@ -1624,7 +1766,7 @@ const productJson = {
     const dealDescEncoded = encodeURIComponent(deal.desc.substring(0, 120));
 
     const llmHubLinkHtml = llmHubDealIds.has(deal.id)
-      ? `<p style="margin-top:18px;font-size:13.5px;color:var(--text-secondary)">This provider is also in our <a href="/llm-providers/">LLM Providers directory</a> — 168 APIs ranked by how fast you get a key, with free-tier rate limits and gate analysis.</p>`
+      ? `<p style="margin-top:18px;font-size:13.5px;color:var(--text-secondary)">This provider is also in our <a href="/llm-providers/">LLM Providers directory</a> — ${LLM_PROVIDER_COUNT} APIs ranked by how fast you get a key, with free-tier rate limits and gate analysis.</p>`
       : '';
 
     let populated = detailTemplate
@@ -1639,6 +1781,9 @@ const productJson = {
       .replace(/{{DEAL_CATEGORY_SLUG}}/g, escapeHtml(deal.category.toLowerCase()))
       .replace(/{{DEAL_CATEGORY_ENCODED}}/g, encodeURIComponent(deal.category.toLowerCase()))
       .replace(/{{DEAL_BADGES}}/g, badgesRow)
+      .replace(/{{DEAL_STATUS}}/g, escapeHtml((statusMeta(deal) || { label: 'Unrated' }).label))
+      .replace(/{{DEAL_STATUS_COLOR}}/g, (statusMeta(deal) || { color: 'var(--text-secondary)' }).color)
+      .replace(/{{DEAL_ELIGIBILITY}}/g, renderEligibilityPanel(deal))
       .replace(/{{DEAL_EXPIRES}}/g, escapeHtml(deal.expires || 'No Expiry'))
       .replace(/{{DEAL_TAGS}}/g, tagsHTML)
       .replace(/{{DEAL_CLAIM_BUTTON}}/g, claimButton)
@@ -1726,6 +1871,13 @@ const productJson = {
   
   console.log('✅ Generated sitemap.xml with all deal detail and redirect pages.');
   console.log('✅ Generated sitemap_index.xml.');
+
+  // 6b. Publish the deal dataset as plain JSON, mirroring data/llm-providers.json
+  // so consumers do not have to parse JSONL. Format matches its sibling exactly:
+  // 2-space indent, CRLF, no trailing newline.
+  const dealsJsonPath = path.join(ROOT_DIR, 'data', 'deals.json');
+  await fs.writeFile(dealsJsonPath, JSON.stringify(deals, null, 2).replace(/\n/g, '\r\n'), 'utf-8');
+  console.log(`✅ Generated data/deals.json (${deals.length} deals).`);
 
     // 7. Generate feed.xml from deals.jsonl
     try {

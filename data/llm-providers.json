@@ -129,7 +129,7 @@
     "rpd": "—",
     "context": "128K",
     "expiry": "—",
-    "status": "active",
+    "status": "retired",
     "signupUrl": "https://lepton.ai",
     "dealId": null
   },
@@ -238,13 +238,13 @@
       "none"
     ],
     "ease": 100,
-    "freeTier": "100+ models, generous daily",
+    "freeTier": "retired Jul 30, 2026 — service discontinued",
     "rpm": "15 RPM / 150–1K RPD",
     "rpd": "—",
     "context": "—",
     "expiry": "—",
     "status": "retired",
-    "signupUrl": "https://github.com",
+    "signupUrl": "https://docs.github.com/en/github-models",
     "dealId": "github-models"
   },
   {
@@ -1062,7 +1062,7 @@
     "rpd": "—",
     "context": "128K",
     "expiry": "—",
-    "status": "active",
+    "status": "retired",
     "signupUrl": "https://octo.ai",
     "dealId": null
   },
@@ -1378,21 +1378,21 @@
   },
   {
     "id": "codeium",
-    "name": "Codeium",
-    "domain": "codeium.com",
+    "name": "Devin",
+    "domain": "devin.ai",
     "isLLM": false,
     "type": "Code",
     "gates": [
       "cloudflare"
     ],
     "ease": 85,
-    "freeTier": "free tier",
+    "freeTier": "Free $0/mo plan, light agent quota",
     "rpm": "—",
     "rpd": "—",
     "context": "128K",
     "expiry": "—",
     "status": "active",
-    "signupUrl": "https://codeium.com",
+    "signupUrl": "https://devin.ai/pricing",
     "dealId": "codeium"
   },
   {
@@ -1432,44 +1432,6 @@
     "expiry": "7-day refund",
     "status": "active",
     "signupUrl": "https://seekapi.ai",
-    "dealId": null
-  },
-  {
-    "id": "kkapi",
-    "name": "KKAPI",
-    "domain": "kkapi.cc",
-    "isLLM": true,
-    "type": "LLM-Gateway",
-    "gates": [
-      "none"
-    ],
-    "ease": 85,
-    "freeTier": "$0.20 trial, $1 min top-up",
-    "rpm": "—",
-    "rpd": "—",
-    "context": "128K",
-    "expiry": "Permanent",
-    "status": "active",
-    "signupUrl": "https://kkapi.cc",
-    "dealId": null
-  },
-  {
-    "id": "kkiai-com-synstar-ai",
-    "name": "kkiai.com (SynStar AI)",
-    "domain": "kkiai.com",
-    "isLLM": true,
-    "type": "LLM-Gateway",
-    "gates": [
-      "none"
-    ],
-    "ease": 85,
-    "freeTier": "no free tier, 3–12% bonus on top-up",
-    "rpm": "—",
-    "rpd": "per-token",
-    "context": "128K",
-    "expiry": "—",
-    "status": "active",
-    "signupUrl": "https://kkiai.com",
     "dealId": null
   },
   {
@@ -1780,7 +1742,7 @@
     "rpd": "—",
     "context": "128K",
     "expiry": "—",
-    "status": "active",
+    "status": "retired",
     "signupUrl": "https://sourcegraph.com",
     "dealId": "cody"
   },
@@ -2927,63 +2889,6 @@
     "dealId": null
   },
   {
-    "id": "kkapi-2",
-    "name": "KKAPI",
-    "domain": "kkapi.cc",
-    "isLLM": true,
-    "type": "LLM-Gateway",
-    "gates": [
-      "none"
-    ],
-    "ease": 50,
-    "freeTier": "$0.20 trial",
-    "rpm": "—",
-    "rpd": "—",
-    "context": "128K",
-    "expiry": "Permanent",
-    "status": "active",
-    "signupUrl": "https://kkapi.cc",
-    "dealId": null
-  },
-  {
-    "id": "kkiai-com-2",
-    "name": "Kkiai",
-    "domain": "kkiai.com",
-    "isLLM": true,
-    "type": "LLM-Gateway",
-    "gates": [
-      "none"
-    ],
-    "ease": 50,
-    "freeTier": "no free tier (3–12% bonus)",
-    "rpm": "—",
-    "rpd": "per-token",
-    "context": "128K",
-    "expiry": "—",
-    "status": "active",
-    "signupUrl": "https://kkiai.com",
-    "dealId": null
-  },
-  {
-    "id": "kktoken-cc",
-    "name": "kktoken.cc",
-    "domain": "kktoken.cc",
-    "isLLM": true,
-    "type": "LLM-Gateway",
-    "gates": [
-      "none"
-    ],
-    "ease": 50,
-    "freeTier": "minimal public info",
-    "rpm": "—",
-    "rpd": "—",
-    "context": "—",
-    "expiry": "—",
-    "status": "gated",
-    "signupUrl": "https://kktoken.cc",
-    "dealId": null
-  },
-  {
     "id": "anthropic-startup",
     "name": "Anthropic Startup",
     "domain": "claude.com",
@@ -3230,8 +3135,7 @@
     "status": "retired",
     "signupUrl": "https://freetheai.xyz",
     "dealId": null
-  }
-,
+  },
   {
     "id": "nekoapi",
     "name": "NekoAPI",
@@ -3264,25 +3168,6 @@
     "status": "gated",
     "signupUrl": "https://bluesminds.com",
     "freeTier": "— (Request access for api.bluesminds LLM API)",
-    "rpm": "—",
-    "rpd": "—",
-    "context": "—",
-    "expiry": "—",
-    "dealId": null
-  },
-  {
-    "id": "true-sota",
-    "name": "TrueSOTA",
-    "domain": "true-sota.com",
-    "isLLM": true,
-    "type": "LLM-Gateway",
-    "gates": [
-      "oauth"
-    ],
-    "ease": 80,
-    "status": "active",
-    "signupUrl": "https://true-sota.com",
-    "freeTier": "—",
     "rpm": "—",
     "rpd": "—",
     "context": "—",
@@ -3352,7 +3237,9 @@
     "domain": "zenmux.ai",
     "isLLM": true,
     "type": "Token-Reseller",
-    "gates": ["oauth"],
+    "gates": [
+      "oauth"
+    ],
     "ease": 80,
     "status": "active",
     "signupUrl": "https://zenmux.ai/invite/4ZHT3Q",
@@ -3414,25 +3301,6 @@
     "status": "active",
     "signupUrl": "https://notdiamond.ai",
     "freeTier": "— (enterprise router; login at code.notdiamond.ai)",
-    "rpm": "—",
-    "rpd": "—",
-    "context": "—",
-    "expiry": "—",
-    "dealId": null
-  },
-  {
-    "id": "ohmygpt",
-    "name": "OhMyGPT",
-    "domain": "ohmygpt.com",
-    "isLLM": true,
-    "type": "Token-Reseller",
-    "gates": [
-      "oauth"
-    ],
-    "ease": 75,
-    "status": "active",
-    "signupUrl": "https://ohmygpt.com",
-    "freeTier": "— (pay-as-you-go)",
     "rpm": "—",
     "rpd": "—",
     "context": "—",

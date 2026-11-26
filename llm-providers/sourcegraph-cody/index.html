@@ -95,7 +95,7 @@
           <span class="lpd-stat"><strong>70</strong>Ease score</span>
           <span class="lpd-stat"><strong>—</strong>RPM</span>
           <span class="lpd-stat"><strong>128K</strong>Context</span>
-          <span class="lpd-stat"><strong>active</strong>Status</span>
+          <span class="lpd-stat"><strong>retired</strong>Status</span>
         </div>
         <div class="lpd-gates">
           {{#each PROVIDER_GATES}}
@@ -113,7 +113,7 @@
 
           <div class="lpd-card" style="margin-top:24px;">
             <h2>Where it fits</h2>
-            <p>Category: LLM. Type: Code. Status: active ({{#if (eq PROVIDER_STATUS 'active')}}currently available{{else if (eq PROVIDER_STATUS 'beta')}}beta — may change{{else if (eq PROVIDER_STATUS 'warning')}}caveats apply{{else if (eq PROVIDER_STATUS 'retired')}}no longer recommended{{else}}active{{/if}}). Gates: cloudflare.</p>
+            <p>Category: LLM. Type: Code. Status: retired ({{#if (eq PROVIDER_STATUS 'active')}}currently available{{else if (eq PROVIDER_STATUS 'beta')}}beta — may change{{else if (eq PROVIDER_STATUS 'warning')}}caveats apply{{else if (eq PROVIDER_STATUS 'retired')}}no longer recommended{{else}}active{{/if}}). Gates: cloudflare.</p>
           </div>
         </div>
 
@@ -151,7 +151,7 @@
               </div>
               <div class="lpd-meta-item">
                 <span class="lpd-meta-label">Status</span>
-                <span class="lpd-meta-value">active</span>
+                <span class="lpd-meta-value">retired</span>
               </div>
             </div>
           </div>

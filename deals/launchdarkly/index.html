@@ -221,6 +221,13 @@
     .sidebar-btn-secondary.copied {
       animation: copyPop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
+    .sidebar-btn-disabled {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-tertiary);
+      cursor: not-allowed;
+      font-weight: 500;
+    }
     .meta-list {
       display: flex;
       flex-direction: column;
@@ -401,7 +408,7 @@
   "name": "LaunchDarkly",
   "description": "LaunchDarkly's free Developer tier includes unlimited seats, unlimited feature flags, 10M logs and traces, 5K session replays and errors, 5K AI assistant runs/month, 100 code references, and 14-day data retention. Enterprise-grade feature management platform. No credit card required.",
   "image": "https://devcheap.click/images/og-image.svg",
-  "dateModified": "2026-11-22",
+  "dateModified": "2026-11-24",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -481,7 +488,7 @@
               <span class="detail-cat">Developer Tools</span>
             </div>
             <div class="detail-badges-row">
-              <span class="deal-card-badge-recommended" style="margin-bottom:0;margin-right:12px"><svg class="icon icon-star" width="12" height="12"><use href="/images/icons.svg#icon-star"/></svg> Recommended</span>
+              <span class="deal-card-badge-recommended" style="margin-bottom:0;margin-right:12px"><svg class="icon icon-star" width="12" height="12"><use href="/images/icons.svg#icon-star"/></svg> Recommended</span><span class="deal-card-tag-gate deal-card-tag-gate-ok">No credit card</span>
             </div>
             <div class="detail-offer-badge">Free Developer Tier</div>
           </div>
@@ -528,6 +535,14 @@
         </div>
       </div>
 
+            <section class="deal-eligibility">
+        <h2>Eligibility &amp; access</h2>
+        <p class="deal-eligibility-note">What this offer actually asks of you, in fields rather than prose.</p>
+        <div class="eligibility-grid"><div class="eligibility-row"><span class="eligibility-label">Offer type</span><span class="eligibility-val">Free plan</span></div><div class="eligibility-row"><span class="eligibility-label">Who can claim</span><span class="eligibility-val">anyone</span></div></div>
+        <div class="eligibility-chips"><span class="eligibility-chip eligibility-chip-ok">No credit card</span></div>
+        <p class="eligibility-source">Eligibility is the provider's, not ours — confirm the terms before you apply.</p>
+      </section>
+
       <section class="deal-faq">
         <h2>LaunchDarkly FAQ</h2>
         
@@ -571,11 +586,11 @@
         </div>
         <div class="deal-card-deal">60% Off Bitrig Pro ($10/month)</div>
         
-        <p class="deal-card-why">60% off Bitrig Pro ($10/mo) —€—? build native Swift apps with AI and distribute to TestFlight/App Store</p>
+        <p class="deal-card-why">60% off Bitrig Pro ($10/mo) — build native Swift apps with AI and distribute to TestFlight/App Store</p>
         <p class="deal-card-desc">Build native Swift apps with AI. 60% off Bitrig Pro ($10/month) through Shipaton 2026. Unlimited daily requests, 200 monthly credits, TestFlight and App Store distribution, and Claude/ChatGPT integration.</p>
         <div class="deal-card-tags"><span class="deal-card-tag">swift</span><span class="deal-card-tag">ios</span><span class="deal-card-tag">ai</span><span class="deal-card-tag">app-builder</span><span class="deal-card-tag">shipaton2026</span></div>
         <div class="deal-card-footer">
-          <a href="https://bitrig.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=bitrig" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="bitrig">Claim Deal</a>
+            <a href="https://bitrig.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=bitrig" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="bitrig">Claim Deal</a>
           <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
         </div>
       </div>
@@ -591,7 +606,7 @@
         <p class="deal-card-desc">Open-source API client for testing REST, GraphQL, and WebSocket APIs. Git-native collaboration, offline-first, with collection-level authentication and pre-request scripts. No account required. MIT licensed.</p>
         <div class="deal-card-tags"><span class="deal-card-tag">api</span><span class="deal-card-tag">testing</span><span class="deal-card-tag">rest</span><span class="deal-card-tag">graphql</span><span class="deal-card-tag">open-source</span></div>
         <div class="deal-card-footer">
-          <a href="https://www.usebruno.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=bruno" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="bruno">Claim Deal</a>
+            <a href="https://www.usebruno.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=bruno" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="bruno">Claim Deal</a>
           <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
         </div>
       </div>
@@ -607,7 +622,7 @@
         <p class="deal-card-desc">Builder Deals Intel provides a daily operating brief comparing AI tools, SaaS, hosting, cloud credits, and developer infrastructure. Every item includes source links, risk labels, and confidence scoring. Tracks deals from GitHub Student Pack, Supabase, Neon, Sentry, Upstash, MongoDB, Clerk, and m...</p>
         <div class="deal-card-tags"><span class="deal-card-tag">newsletter</span><span class="deal-card-tag">deals</span><span class="deal-card-tag">ai</span><span class="deal-card-tag">saas</span><span class="deal-card-tag">hosting</span><span class="deal-card-tag">developer-tools</span><span class="deal-card-tag">recommended</span></div>
         <div class="deal-card-footer">
-          <a href="https://builderdealintel.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=builderdeals" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="builder-deals-intel">Claim Deal</a>
+            <a href="https://builderdealintel.com/?utm_source=devcheap.click&utm_medium=website&utm_campaign=deal_click&utm_content=builderdeals" target="_blank" rel="noopener noreferrer" class="deal-card-btn deal-card-btn-primary" data-deal-id="builder-deals-intel">Claim Deal</a>
           <button class="deal-card-btn deal-card-btn-code" style="opacity:0.5;cursor:default" disabled><svg class="icon icon-chat" width="14" height="14"><use href="/images/icons.svg#icon-chat"/></svg> Automatic (Link)</button>
         </div>
       </div>
